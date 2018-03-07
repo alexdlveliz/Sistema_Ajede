@@ -6,7 +6,7 @@
 package interfaz;
 
 import Clases.Usuario;
-import de.javasoft.plaf.synthetica.SyntheticaBlackStarLookAndFeel;
+//import de.javasoft.plaf.synthetica.SyntheticaBlackStarLookAndFeel;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -31,7 +31,8 @@ public class inicio_login extends javax.swing.JFrame {
      * Creates new form inicio_login
      */
     private Usuario us;
-    Font  fuente = new Font("Yu Gothic UI Light",Font.BOLD, 25);
+    Font fuente = new Font("Yu Gothic UI Light",Font.BOLD, 25);
+    Font fuente2 = new Font("Yu Gothic UI Light", Font.BOLD, 15);
     ImageIcon iniciotam1 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/iniciointerfaz.jpg")).getImage());
     ImageIcon logintam1 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/login.jpg")).getImage());
     ImageIcon iniciotam2 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/iniciotam2.jpg")).getImage());
@@ -41,6 +42,7 @@ public class inicio_login extends javax.swing.JFrame {
     public inicio_login() {
         initComponents();
         us = new Usuario();     //instancio la clase usuario.
+        this.setResizable(false);
         CMBUsuarios.setModel(us.usuarios()); //Le doy el modelo al combo box de usuarios.
         CMBUsuarios.setBackground(new Color(0, 0, 0, 0));
         PSTcontrasenia.setBackground(new Color(0, 0, 0, 0));
@@ -61,13 +63,19 @@ public class inicio_login extends javax.swing.JFrame {
 //                  CMBUsuarios.setLocation(980, 335);
 //                  CMBUsuarios.setFont(fuente);
 //        }
-        if((tamanio.width >= 1708) && (tamanio.height >=960))
+        if((tamanio.width >= 1366) && (tamanio.height >= 760)) //1366.760, alex: 1708.960
         {
             this.setSize(1256, 706);
             inicio.setIcon(iniciotam2);
             login.setIcon(logintam2);
             btnsiguiente.setLocation(1050, 530);
-            btnadmin.setLocation(130, 376); 
+            btnadmin.setLocation(130, 376);
+            btncomite.setLocation(300, 376);
+            CMBUsuarios.setLocation(660,233);
+            CMBUsuarios.setFont(fuente2);
+            PSTcontrasenia.setLocation(710, 312);
+            btningresar.setLocation(622, 370);
+            btnfpassword.setLocation(1090, 440);
         }
 
         this.setLocationRelativeTo(null);

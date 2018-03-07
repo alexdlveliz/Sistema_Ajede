@@ -45,6 +45,7 @@ public class menujf extends javax.swing.JFrame {
         jcMousePanel2 = new jcMousePanel.jcMousePanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new java.awt.CardLayout());
 
         jcMousePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/opciones2.jpg"))); // NOI18N
