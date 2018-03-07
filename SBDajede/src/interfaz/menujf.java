@@ -21,13 +21,41 @@ public class menujf extends javax.swing.JFrame {
         initComponents();
         Toolkit tk = Toolkit.getDefaultToolkit();
         Dimension tamanio = tk.getScreenSize();
-        if ((tamanio.width >=1920)&&(tamanio.height>=1080))
+        transparencia();
+        if ((tamanio.width ==1920)&&(tamanio.height == 1080))
         {
-            this.setSize(1400, 705);
+            this.setSize(1667, 937);
             this.setLocationRelativeTo(null);
+            btnagregar.setLocation(213, 455);
+            btneditar.setLocation(550, 445);
+            btneliminar.setLocation(890, 430);
+            btnbuscar.setLocation(1244, 432);
+        }
+        if((tamanio.width == 1366) && (tamanio.height == 760)) //1366.760, alex: 1708.960
+        {
+            this.setSize(1667, 837);
+            this.setLocationRelativeTo(null);
+            btnagregar.setLocation(213, 375);
+            btneditar.setLocation(550, 375);
+            btneliminar.setLocation(890, 370);
+            btnbuscar.setLocation(1244, 372);
         }
     }
-
+    public void transparencia()
+    {
+        btnagregar.setOpaque(false);
+        btnagregar.setContentAreaFilled(false);
+        btnagregar.setBorderPainted(false);
+        btneliminar.setOpaque(false);
+        btneliminar.setContentAreaFilled(false);
+        btneliminar.setBorderPainted(false);
+        btneditar.setOpaque(false);
+        btneditar.setContentAreaFilled(false);
+        btneditar.setBorderPainted(false);
+        btnbuscar.setOpaque(false);
+        btnbuscar.setContentAreaFilled(false);
+        btnbuscar.setBorderPainted(false);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,8 +68,8 @@ public class menujf extends javax.swing.JFrame {
         jcMousePanel1 = new jcMousePanel.jcMousePanel();
         btnagregar = new javax.swing.JButton();
         btneditar = new javax.swing.JButton();
-        btneliminar = new javax.swing.JButton();
         btnbuscar = new javax.swing.JButton();
+        btneliminar = new javax.swing.JButton();
         jcMousePanel2 = new jcMousePanel.jcMousePanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -66,19 +94,19 @@ public class menujf extends javax.swing.JFrame {
         jcMousePanel1.add(btneditar);
         btneditar.setBounds(620, 360, 210, 170);
 
-        btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Search_70px.png"))); // NOI18N
-        btneliminar.setName("btneliminar"); // NOI18N
-        btneliminar.setPreferredSize(new java.awt.Dimension(150, 25));
-        btneliminar.setRequestFocusEnabled(false);
-        btneliminar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Search_100px.png"))); // NOI18N
-        jcMousePanel1.add(btneliminar);
-        btneliminar.setBounds(1390, 360, 230, 170);
-
-        btnbuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Delete_User_Male_100px.png"))); // NOI18N
+        btnbuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Search_70px.png"))); // NOI18N
         btnbuscar.setName("btnbuscar"); // NOI18N
-        btnbuscar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Delete_User_Male_100px.png"))); // NOI18N
+        btnbuscar.setPreferredSize(new java.awt.Dimension(150, 25));
+        btnbuscar.setRequestFocusEnabled(false);
+        btnbuscar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Search_100px.png"))); // NOI18N
         jcMousePanel1.add(btnbuscar);
-        btnbuscar.setBounds(1010, 360, 230, 180);
+        btnbuscar.setBounds(1390, 360, 230, 170);
+
+        btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Delete_User_Male_100px.png"))); // NOI18N
+        btneliminar.setName("btneliminar"); // NOI18N
+        btneliminar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Delete_User_Male_100px.png"))); // NOI18N
+        jcMousePanel1.add(btneliminar);
+        btneliminar.setBounds(1010, 360, 230, 180);
 
         getContentPane().add(jcMousePanel1, "card2");
 
