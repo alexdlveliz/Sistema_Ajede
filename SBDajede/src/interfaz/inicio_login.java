@@ -48,22 +48,22 @@ public class inicio_login extends javax.swing.JFrame {
         PSTcontrasenia.setBackground(new Color(0, 0, 0, 0));
         Toolkit tk = Toolkit.getDefaultToolkit();
         Dimension tamanio = tk.getScreenSize();
-//        if((tamanio.width>= 1920)&&(tamanio.height>=1080))
-//        {
-//                  this.setSize(1685,985);
-//                  inicio.setIcon(iniciotam1);
-//                  login.setIcon(logintam1);
-//                  btnsiguiente.setLocation(1450, 770);
-//                  btnadmin.setLocation(190, 560);
-//                  btncomite.setLocation(430, 560);
-//                  btningresar.setLocation(850, 550);
-//                  btnfpassword.setLocation(1470, 635);
-//                  PSTcontrasenia.setLocation(950, 436);
-//                  PSTcontrasenia.setFont(fuente);
-//                  CMBUsuarios.setLocation(980, 335);
-//                  CMBUsuarios.setFont(fuente);
-//        }
-        if((tamanio.width >= 1366) && (tamanio.height >= 760)) //1366.760, alex: 1708.960
+        if((tamanio.width == 1920)&&(tamanio.height ==1080))
+        {
+            this.setSize(1685,985);
+            inicio.setIcon(iniciotam1);
+            login.setIcon(logintam1);
+            btnsiguiente.setLocation(1450, 770);
+            btnadmin.setLocation(190, 560);
+            btncomite.setLocation(430, 560);
+            btningresar.setLocation(850, 550);
+            btnfpassword.setLocation(1470, 635);
+            PSTcontrasenia.setLocation(950, 436);
+            PSTcontrasenia.setFont(fuente);
+            CMBUsuarios.setLocation(980, 335);
+            CMBUsuarios.setFont(fuente);
+        }
+        if((tamanio.width == 1708) && (tamanio.height == 960)) //1366.760, alex: 1708.960
         {
             this.setSize(1256, 706);
             inicio.setIcon(iniciotam2);
