@@ -31,7 +31,7 @@ public class menujf extends javax.swing.JFrame {
             btneliminar.setLocation(890, 430);
             btnbuscar.setLocation(1244, 432);
         }
-        if((tamanio.width == 1366) && (tamanio.height == 760)) //1366.760, alex: 1708.960
+        else if((tamanio.width == 1366) && (tamanio.height == 760)) //1366.760, alex: 1708.960
         {
             this.setSize(1667, 837);
             this.setLocationRelativeTo(null);
