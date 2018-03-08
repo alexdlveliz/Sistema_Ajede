@@ -6,7 +6,7 @@
 package interfaz;
 
 import Clases.Usuario;
-//import de.javasoft.plaf.synthetica.SyntheticaBlackStarLookAndFeel;
+import de.javasoft.plaf.synthetica.SyntheticaBlackStarLookAndFeel;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -63,7 +63,7 @@ public class inicio_login extends javax.swing.JFrame {
             CMBUsuarios.setLocation(980, 335);
             CMBUsuarios.setFont(fuente);
         }
-        if((tamanio.width == 1708) && (tamanio.height == 960)) //1366.760, alex: 1708.960
+        else if((tamanio.width == 1708) && (tamanio.height == 960)) //1366.760, alex: 1708.960
         {
             this.setSize(1256, 706);
             inicio.setIcon(iniciotam2);
