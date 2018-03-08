@@ -6,18 +6,13 @@
 package interfaz;
 
 import Clases.Usuario;
-import de.javasoft.plaf.synthetica.SyntheticaBlackStarLookAndFeel;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
-import static java.awt.Font.BOLD;
 import java.awt.Toolkit;
-import static javafx.scene.text.FontWeight.BOLD;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.WARNING_MESSAGE;
-import javax.swing.UIManager;
 import org.apache.commons.codec.digest.DigestUtils;
 import rojerusan.RSPanelsSlider;
 
