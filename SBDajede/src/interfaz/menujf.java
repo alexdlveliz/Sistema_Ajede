@@ -70,11 +70,6 @@ public class menujf extends javax.swing.JFrame {
         btneditar = new javax.swing.JButton();
         btnbuscar = new javax.swing.JButton();
         btneliminar = new javax.swing.JButton();
-        jpadatospersonales = new jcMousePanel.jcMousePanel();
-        jpinfomed = new jcMousePanel.jcMousePanel();
-        jcdatosencargado = new jcMousePanel.jcMousePanel();
-        jpdcontactoem = new jcMousePanel.jcMousePanel();
-        jpdatoslaborales = new jcMousePanel.jcMousePanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -89,6 +84,11 @@ public class menujf extends javax.swing.JFrame {
         btnagregar.setName("btnagregar"); // NOI18N
         btnagregar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Add_User_Male_100px.png"))); // NOI18N
         btnagregar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnagregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnagregarActionPerformed(evt);
+            }
+        });
         jpmenu.add(btnagregar);
         btnagregar.setBounds(240, 370, 200, 140);
 
@@ -106,7 +106,7 @@ public class menujf extends javax.swing.JFrame {
         jpmenu.add(btnbuscar);
         btnbuscar.setBounds(1390, 360, 230, 170);
 
-        btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Delete_User_Male_100px.png"))); // NOI18N
+        btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Delete_User_Male_70px.png"))); // NOI18N
         btneliminar.setName("btneliminar"); // NOI18N
         btneliminar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Delete_User_Male_100px.png"))); // NOI18N
         jpmenu.add(btneliminar);
@@ -114,28 +114,14 @@ public class menujf extends javax.swing.JFrame {
 
         getContentPane().add(jpmenu, "card2");
 
-        jpadatospersonales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/datosptam2.jpg"))); // NOI18N
-        jpadatospersonales.setVisibleLogo(false);
-        getContentPane().add(jpadatospersonales, "card3");
-
-        jpinfomed.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/informacionmedicatam2.jpg"))); // NOI18N
-        jpinfomed.setVisibleLogo(false);
-        getContentPane().add(jpinfomed, "card4");
-
-        jcdatosencargado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/datosdelencargadotam2.jpg"))); // NOI18N
-        jcdatosencargado.setVisibleLogo(false);
-        getContentPane().add(jcdatosencargado, "card5");
-
-        jpdcontactoem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/contactodeemergenciatam2.jpg"))); // NOI18N
-        jpdcontactoem.setVisibleLogo(false);
-        getContentPane().add(jpdcontactoem, "card6");
-
-        jpdatoslaborales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/datoslaboralestam2.jpg"))); // NOI18N
-        jpdatoslaborales.setVisibleLogo(false);
-        getContentPane().add(jpdatoslaborales, "card7");
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarActionPerformed
+        Agregar a = new Agregar();
+        this.dispose();
+        a.setVisible(true);
+    }//GEN-LAST:event_btnagregarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -177,11 +163,6 @@ public class menujf extends javax.swing.JFrame {
     private javax.swing.JButton btnbuscar;
     private javax.swing.JButton btneditar;
     private javax.swing.JButton btneliminar;
-    private jcMousePanel.jcMousePanel jcdatosencargado;
-    private jcMousePanel.jcMousePanel jpadatospersonales;
-    private jcMousePanel.jcMousePanel jpdatoslaborales;
-    private jcMousePanel.jcMousePanel jpdcontactoem;
-    private jcMousePanel.jcMousePanel jpinfomed;
     private jcMousePanel.jcMousePanel jpmenu;
     // End of variables declaration//GEN-END:variables
 }
