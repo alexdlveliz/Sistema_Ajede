@@ -65,33 +65,37 @@ public class menujf extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jcMousePanel1 = new jcMousePanel.jcMousePanel();
+        jpmenu = new jcMousePanel.jcMousePanel();
         btnagregar = new javax.swing.JButton();
         btneditar = new javax.swing.JButton();
         btnbuscar = new javax.swing.JButton();
         btneliminar = new javax.swing.JButton();
-        jcMousePanel2 = new jcMousePanel.jcMousePanel();
+        jpadatospersonales = new jcMousePanel.jcMousePanel();
+        jpinfomed = new jcMousePanel.jcMousePanel();
+        jcdatosencargado = new jcMousePanel.jcMousePanel();
+        jpdcontactoem = new jcMousePanel.jcMousePanel();
+        jpdatoslaborales = new jcMousePanel.jcMousePanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         getContentPane().setLayout(new java.awt.CardLayout());
 
-        jcMousePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/opciones2.jpg"))); // NOI18N
-        jcMousePanel1.setVisibleLogo(false);
-        jcMousePanel1.setLayout(null);
+        jpmenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/opciones2.jpg"))); // NOI18N
+        jpmenu.setVisibleLogo(false);
+        jpmenu.setLayout(null);
 
         btnagregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Add_User_Male_70px_1.png"))); // NOI18N
         btnagregar.setMargin(new java.awt.Insets(-15, 14, 35, 14));
         btnagregar.setName("btnagregar"); // NOI18N
         btnagregar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Add_User_Male_100px.png"))); // NOI18N
         btnagregar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        jcMousePanel1.add(btnagregar);
+        jpmenu.add(btnagregar);
         btnagregar.setBounds(240, 370, 200, 140);
 
         btneditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Edit_Property_70px.png"))); // NOI18N
         btneditar.setName("btneditar"); // NOI18N
         btneditar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Edit_Property_100px.png"))); // NOI18N
-        jcMousePanel1.add(btneditar);
+        jpmenu.add(btneditar);
         btneditar.setBounds(620, 360, 210, 170);
 
         btnbuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Search_70px.png"))); // NOI18N
@@ -99,19 +103,36 @@ public class menujf extends javax.swing.JFrame {
         btnbuscar.setPreferredSize(new java.awt.Dimension(150, 25));
         btnbuscar.setRequestFocusEnabled(false);
         btnbuscar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Search_100px.png"))); // NOI18N
-        jcMousePanel1.add(btnbuscar);
+        jpmenu.add(btnbuscar);
         btnbuscar.setBounds(1390, 360, 230, 170);
 
         btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Delete_User_Male_100px.png"))); // NOI18N
         btneliminar.setName("btneliminar"); // NOI18N
         btneliminar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Delete_User_Male_100px.png"))); // NOI18N
-        jcMousePanel1.add(btneliminar);
+        jpmenu.add(btneliminar);
         btneliminar.setBounds(1010, 360, 230, 180);
 
-        getContentPane().add(jcMousePanel1, "card2");
+        getContentPane().add(jpmenu, "card2");
 
-        jcMousePanel2.setVisibleLogo(false);
-        getContentPane().add(jcMousePanel2, "card3");
+        jpadatospersonales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/datosptam2.jpg"))); // NOI18N
+        jpadatospersonales.setVisibleLogo(false);
+        getContentPane().add(jpadatospersonales, "card3");
+
+        jpinfomed.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/informacionmedicatam2.jpg"))); // NOI18N
+        jpinfomed.setVisibleLogo(false);
+        getContentPane().add(jpinfomed, "card4");
+
+        jcdatosencargado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/datosdelencargadotam2.jpg"))); // NOI18N
+        jcdatosencargado.setVisibleLogo(false);
+        getContentPane().add(jcdatosencargado, "card5");
+
+        jpdcontactoem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/contactodeemergenciatam2.jpg"))); // NOI18N
+        jpdcontactoem.setVisibleLogo(false);
+        getContentPane().add(jpdcontactoem, "card6");
+
+        jpdatoslaborales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/datoslaboralestam2.jpg"))); // NOI18N
+        jpdatoslaborales.setVisibleLogo(false);
+        getContentPane().add(jpdatoslaborales, "card7");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -156,7 +177,11 @@ public class menujf extends javax.swing.JFrame {
     private javax.swing.JButton btnbuscar;
     private javax.swing.JButton btneditar;
     private javax.swing.JButton btneliminar;
-    private jcMousePanel.jcMousePanel jcMousePanel1;
-    private jcMousePanel.jcMousePanel jcMousePanel2;
+    private jcMousePanel.jcMousePanel jcdatosencargado;
+    private jcMousePanel.jcMousePanel jpadatospersonales;
+    private jcMousePanel.jcMousePanel jpdatoslaborales;
+    private jcMousePanel.jcMousePanel jpdcontactoem;
+    private jcMousePanel.jcMousePanel jpinfomed;
+    private jcMousePanel.jcMousePanel jpmenu;
     // End of variables declaration//GEN-END:variables
 }
