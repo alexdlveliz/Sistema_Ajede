@@ -118,9 +118,9 @@ public class menujf extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarActionPerformed
-         this.dispose();
-         agregarjf ag = new agregarjf();
-         ag.setVisible(true);
+        this.dispose();
+        agregarjf ag = new agregarjf();
+        ag.setVisible(true);
     }//GEN-LAST:event_btnagregarActionPerformed
 
     /**

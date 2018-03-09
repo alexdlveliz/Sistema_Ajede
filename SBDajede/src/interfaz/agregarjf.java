@@ -35,9 +35,9 @@ public class agregarjf extends javax.swing.JFrame {
         btnhomedp.setOpaque(false);
         btnhomedp.setBorderPainted(false);
         btnhomedp.setContentAreaFilled(false);
-        btnmenup.setOpaque(false);
-        btnmenup.setBorderPainted(false);
-        btnmenup.setContentAreaFilled(false);
+        btnmenu.setOpaque(false);
+        btnmenu.setBorderPainted(false);
+        btnmenu.setContentAreaFilled(false);
         btnsiguienteinfomed.setOpaque(false);
         btnsiguienteinfomed.setBorderPainted(false);
         btnsiguienteinfomed.setContentAreaFilled(false);
@@ -91,12 +91,12 @@ public class agregarjf extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         rSPanelsSlider1 = new rojerusan.RSPanelsSlider();
         jpdatosp = new javax.swing.JPanel();
-        btnmenup = new javax.swing.JButton();
         btnsiguienteinfomed = new javax.swing.JButton();
         btnaddtel = new javax.swing.JButton();
         btnminimizardp = new javax.swing.JButton();
         btnhomedp = new javax.swing.JButton();
         btnsalirdp = new javax.swing.JButton();
+        btnmenu = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jpinfomed = new javax.swing.JPanel();
         btnhomeinfme = new javax.swing.JButton();
@@ -133,16 +133,6 @@ public class agregarjf extends javax.swing.JFrame {
         jpdatosp.setBackground(new java.awt.Color(18, 44, 62));
         jpdatosp.setName("datosp"); // NOI18N
         jpdatosp.setLayout(null);
-
-        btnmenup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Person_at_Home_70px.png"))); // NOI18N
-        btnmenup.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Person_at_Home_100px.png"))); // NOI18N
-        btnmenup.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnmenupActionPerformed(evt);
-            }
-        });
-        jpdatosp.add(btnmenup);
-        btnmenup.setBounds(650, 450, 160, 100);
 
         btnsiguienteinfomed.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/sa/icons8_Redo_70px.png"))); // NOI18N
         btnsiguienteinfomed.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/sa/icons8_Redo_100px.png"))); // NOI18N
@@ -188,6 +178,11 @@ public class agregarjf extends javax.swing.JFrame {
         });
         jpdatosp.add(btnsalirdp);
         btnsalirdp.setBounds(1180, 0, 70, 70);
+
+        btnmenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/Home_70px.png"))); // NOI18N
+        btnmenu.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Person_at_Home_100px.png"))); // NOI18N
+        jpdatosp.add(btnmenu);
+        btnmenu.setBounds(653, 450, 120, 90);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/datosptam2.jpg"))); // NOI18N
         jpdatosp.add(jLabel1);
@@ -383,13 +378,6 @@ public class agregarjf extends javax.swing.JFrame {
         menu.setVisible(true);
     }//GEN-LAST:event_btnhomedpActionPerformed
 
-    private void btnmenupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmenupActionPerformed
-        JOptionPane.showMessageDialog(null, "¿Desea salir sin guardar cambios?", "¡¡¡ATENCIÓN!!!", WARNING_MESSAGE);     
-        this.dispose();
-        menujf menu = new menujf();
-        menu.setVisible(true);
-    }//GEN-LAST:event_btnmenupActionPerformed
-
     private void btnminimizardpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnminimizardpActionPerformed
         this.setExtendedState(ICONIFIED);
     }//GEN-LAST:event_btnminimizardpActionPerformed
@@ -485,7 +473,7 @@ public class agregarjf extends javax.swing.JFrame {
     private javax.swing.JButton btnatrasinfme;
     private javax.swing.JButton btnhomedp;
     private javax.swing.JButton btnhomeinfme;
-    private javax.swing.JButton btnmenup;
+    private javax.swing.JButton btnmenu;
     private javax.swing.JButton btnminimizardp;
     private javax.swing.JButton btnminimizarifme;
     private javax.swing.JButton btnsalirdp;
