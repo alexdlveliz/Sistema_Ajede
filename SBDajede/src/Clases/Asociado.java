@@ -26,12 +26,12 @@ public class Asociado {
         conexion = new Conexion();
         con = conexion.getConnection();
     }
-    public boolean insertar(String nombre,String apellido, boolean genero,String fechaNac, String correo, String Platyera, 
+    public boolean insertar(String nombre,String apellido, boolean genero,String fechaNac, String correo, String Platyera,
                             String residencia, boolean activo, String PerfilFB, String tipoSangre, String nivEst, String dpi)
     {
         try {
             int idNivEst = 0;
-            String sql = "select NivelEstudio from nivelestudios where NivelEstudio= '" + nivEst + "'";
+            String sql = "select NivelEstudio from nivelestudio where NivelEstudio= '" + nivEst + "'";
             Statement St = con.createStatement();
             ResultSet Rs = St.executeQuery(sql);
             while (Rs.next()) {
@@ -68,5 +68,4 @@ public class Asociado {
         }
         return false;
     }
-
 }
