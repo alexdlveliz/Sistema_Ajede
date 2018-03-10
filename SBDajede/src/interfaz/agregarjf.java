@@ -330,7 +330,7 @@ public class agregarjf extends javax.swing.JFrame {
 
         jTextField1.setText("jTextField1");
         jpinfomed.add(jTextField1);
-        jTextField1.setBounds(720, 270, 430, 22);
+        jTextField1.setBounds(720, 270, 430, 20);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/informacionmedicatam2.jpg"))); // NOI18N
         jpinfomed.add(jLabel2);
