@@ -5,9 +5,11 @@
  */
 package interfaz;
 
+import java.awt.Dimension;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.WARNING_MESSAGE;
 import rojerusan.RSPanelsSlider;
+import java.awt.Toolkit;
 
 /**
  *
@@ -20,8 +22,21 @@ public class agregarjf extends javax.swing.JFrame {
      */
     public agregarjf() {
         initComponents();
-        this.setLocationRelativeTo(null);
-        this.setSize(1255, 705);
+        Toolkit tk = Toolkit.getDefaultToolkit();
+        Dimension tamanio = tk.getScreenSize();
+        if((tamanio.width == 1920) && (tamanio.height == 1080)) //1920x1080
+        {
+            this.setLocationRelativeTo(null);
+            this.setSize(1255, 705);
+            
+        }
+        else if((tamanio.width == 1366) && (tamanio.height == 768)) //1366x768, 1708x960
+        {
+            this.setLocationRelativeTo(null);
+            this.setSize(1255, 705);
+        }
+//        this.setLocationRelativeTo(null);
+//        this.setSize(1255, 705);
         transparencia();
     }
     public void transparencia()
@@ -97,6 +112,17 @@ public class agregarjf extends javax.swing.JFrame {
         btnhomedp = new javax.swing.JButton();
         btnsalirdp = new javax.swing.JButton();
         btnmenu = new javax.swing.JButton();
+        textfieldnombres = new javax.swing.JTextField();
+        textfieldedad = new javax.swing.JTextField();
+        textfieldapellidos = new javax.swing.JTextField();
+        cmbgenero = new javax.swing.JComboBox<>();
+        datecfecha = new com.toedter.calendar.JDateChooser();
+        textfielddpi = new javax.swing.JTextField();
+        textfieldresidencia = new javax.swing.JTextField();
+        textfieldcorreo = new javax.swing.JTextField();
+        textfieldperfil = new javax.swing.JTextField();
+        cmbtalla = new javax.swing.JComboBox<>();
+        textfieldtelefono = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jpinfomed = new javax.swing.JPanel();
         btnhomeinfme = new javax.swing.JButton();
@@ -184,9 +210,67 @@ public class agregarjf extends javax.swing.JFrame {
         jpdatosp.add(btnmenu);
         btnmenu.setBounds(653, 450, 120, 90);
 
+        textfieldnombres.setBackground(new java.awt.Color(178, 248, 248));
+        textfieldnombres.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldnombres.setBorder(null);
+        jpdatosp.add(textfieldnombres);
+        textfieldnombres.setBounds(170, 170, 430, 30);
+
+        textfieldedad.setBackground(new java.awt.Color(178, 248, 248));
+        textfieldedad.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldedad.setBorder(null);
+        jpdatosp.add(textfieldedad);
+        textfieldedad.setBounds(120, 300, 90, 30);
+
+        textfieldapellidos.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldapellidos.setBorder(null);
+        jpdatosp.add(textfieldapellidos);
+        textfieldapellidos.setBounds(170, 230, 420, 30);
+
+        cmbgenero.setBackground(new java.awt.Color(178, 248, 248));
+        cmbgenero.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        cmbgenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino" }));
+        jpdatosp.add(cmbgenero);
+        cmbgenero.setBounds(380, 300, 190, 29);
+
+        datecfecha.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        jpdatosp.add(datecfecha);
+        datecfecha.setBounds(330, 360, 270, 40);
+
+        textfielddpi.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfielddpi.setBorder(null);
+        jpdatosp.add(textfielddpi);
+        textfielddpi.setBounds(170, 450, 400, 30);
+
+        textfieldresidencia.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldresidencia.setBorder(null);
+        jpdatosp.add(textfieldresidencia);
+        textfieldresidencia.setBounds(210, 520, 360, 30);
+
+        textfieldcorreo.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldcorreo.setBorder(null);
+        jpdatosp.add(textfieldcorreo);
+        textfieldcorreo.setBounds(200, 590, 370, 30);
+
+        textfieldperfil.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldperfil.setBorder(null);
+        jpdatosp.add(textfieldperfil);
+        textfieldperfil.setBounds(950, 180, 250, 30);
+
+        cmbtalla.setBackground(new java.awt.Color(178, 248, 248));
+        cmbtalla.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        cmbtalla.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "XS", "S", "M", "L", "XL" }));
+        jpdatosp.add(cmbtalla);
+        cmbtalla.setBounds(870, 250, 60, 29);
+
+        textfieldtelefono.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldtelefono.setBorder(null);
+        jpdatosp.add(textfieldtelefono);
+        textfieldtelefono.setBounds(880, 320, 250, 30);
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/datosptam2.jpg"))); // NOI18N
         jpdatosp.add(jLabel1);
-        jLabel1.setBounds(0, 0, 1255, 707);
+        jLabel1.setBounds(0, 0, 1270, 710);
 
         rSPanelsSlider1.add(jpdatosp, "card2");
 
@@ -483,6 +567,9 @@ public class agregarjf extends javax.swing.JFrame {
     private javax.swing.JButton btnsiguientedlab;
     private javax.swing.JButton btnsiguienteinfomed;
     private javax.swing.JButton btnsiguientevolu;
+    private javax.swing.JComboBox<String> cmbgenero;
+    private javax.swing.JComboBox<String> cmbtalla;
+    private com.toedter.calendar.JDateChooser datecfecha;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -496,5 +583,13 @@ public class agregarjf extends javax.swing.JFrame {
     private javax.swing.JPanel jpdlabo;
     private javax.swing.JPanel jpinfomed;
     private rojerusan.RSPanelsSlider rSPanelsSlider1;
+    private javax.swing.JTextField textfieldapellidos;
+    private javax.swing.JTextField textfieldcorreo;
+    private javax.swing.JTextField textfielddpi;
+    private javax.swing.JTextField textfieldedad;
+    private javax.swing.JTextField textfieldnombres;
+    private javax.swing.JTextField textfieldperfil;
+    private javax.swing.JTextField textfieldresidencia;
+    private javax.swing.JTextField textfieldtelefono;
     // End of variables declaration//GEN-END:variables
 }
