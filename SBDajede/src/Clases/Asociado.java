@@ -20,7 +20,7 @@ import java.util.logging.Logger;
 public class Asociado {
 
     private Connection con = null;
-    private Conexion conexion;
+    private final Conexion conexion;
 
     public Asociado() {
         conexion = new Conexion();
