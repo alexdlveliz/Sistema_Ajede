@@ -80,6 +80,7 @@ public class menujf extends javax.swing.JFrame {
         btnsalirdmenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(500, 620));
         setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new java.awt.CardLayout());
@@ -147,9 +148,9 @@ public class menujf extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarActionPerformed
-         this.dispose();
-         agregarjf ag = new agregarjf();
-         ag.setVisible(true);
+        this.dispose();
+        agregarjf ag = new agregarjf();
+        ag.setVisible(true);
     }//GEN-LAST:event_btnagregarActionPerformed
 
     private void btnminimizarmenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnminimizarmenuActionPerformed
