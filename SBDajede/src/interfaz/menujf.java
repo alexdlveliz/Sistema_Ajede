@@ -33,12 +33,12 @@ public class menujf extends javax.swing.JFrame {
         }
         else if((tamanio.width == 1366) && (tamanio.height == 760)) //1366.760, alex: 1708.960
         {
-            this.setSize(1667, 837);
+            this.setSize(1567, 837);
             this.setLocationRelativeTo(null);
-            btnagregar.setLocation(213, 375);
-            btneditar.setLocation(550, 375);
-            btneliminar.setLocation(890, 370);
-            btnbuscar.setLocation(1244, 372);
+            btnagregar.setLocation(190, 395);
+            btneditar.setLocation(510, 375);
+            btneliminar.setLocation(835, 370);
+            btnbuscar.setLocation(1155, 377);
         }
     }
     public void transparencia()
@@ -72,6 +72,7 @@ public class menujf extends javax.swing.JFrame {
         btneliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(500, 620));
         setResizable(false);
         getContentPane().setLayout(new java.awt.CardLayout());
 
