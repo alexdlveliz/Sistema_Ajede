@@ -176,6 +176,7 @@ public class agregarjf extends javax.swing.JFrame {
         textfieldlugardeestudio = new javax.swing.JTextField();
         textfieldocupacion = new javax.swing.JTextField();
         ttextfieldlugartrabajo = new javax.swing.JTextField();
+        btnagregarasociado = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -300,7 +301,7 @@ public class agregarjf extends javax.swing.JFrame {
         cmbtalla.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "XS", "S", "M", "L", "XL" }));
         cmbtalla.setBorder(null);
         jpdatosp.add(cmbtalla);
-        cmbtalla.setBounds(870, 250, 60, 29);
+        cmbtalla.setBounds(870, 250, 60, 27);
 
         textfieldtelefono.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         textfieldtelefono.setBorder(null);
@@ -606,6 +607,16 @@ public class agregarjf extends javax.swing.JFrame {
         jpdlabo.add(ttextfieldlugartrabajo);
         ttextfieldlugartrabajo.setBounds(660, 250, 530, 30);
 
+        btnagregarasociado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/Checkmark_30px.png"))); // NOI18N
+        btnagregarasociado.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/Checkmark_50px.png"))); // NOI18N
+        btnagregarasociado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnagregarasociadoActionPerformed(evt);
+            }
+        });
+        jpdlabo.add(btnagregarasociado);
+        btnagregarasociado.setBounds(880, 450, 90, 80);
+
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/datoslaboralestam2.jpg"))); // NOI18N
         jpdlabo.add(jLabel5);
         jLabel5.setBounds(0, -3, 1250, 710);
@@ -701,6 +712,13 @@ public class agregarjf extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnmenuActionPerformed
 
+    private void btnagregarasociadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarasociadoActionPerformed
+        /**
+         * Proceso para agregar al asociado, todos los datos que están escritos
+         * en este frame
+         */
+    }//GEN-LAST:event_btnagregarasociadoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -738,6 +756,7 @@ public class agregarjf extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnaddtel;
+    private javax.swing.JButton btnagregarasociado;
     private javax.swing.JButton btnatrascontem;
     private javax.swing.JButton btnatrasdenc;
     private javax.swing.JButton btnatrasdp;
