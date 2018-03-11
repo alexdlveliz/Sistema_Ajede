@@ -5,6 +5,7 @@
  */
 package interfaz;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.WARNING_MESSAGE;
@@ -130,19 +131,51 @@ public class agregarjf extends javax.swing.JFrame {
         btnsalirinfme = new javax.swing.JButton();
         btnsiguientedenc = new javax.swing.JButton();
         btnatrasdp = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        textfieldhospital = new javax.swing.JTextField();
+        textfieldpadecimiento1 = new javax.swing.JTextField();
+        textfieldpadecimiento2 = new javax.swing.JTextField();
+        textfieldpadecimiento3 = new javax.swing.JTextField();
+        textfieldpadecimiento4 = new javax.swing.JTextField();
+        textfieldalergia1 = new javax.swing.JTextField();
+        textfieldalergia2 = new javax.swing.JTextField();
+        textfieldalergia3 = new javax.swing.JTextField();
+        textfieldalergia4 = new javax.swing.JTextField();
+        textfieldalergia5 = new javax.swing.JTextField();
+        cmbtipodesangre = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jpdenca = new javax.swing.JPanel();
         btnsiguienteconteme = new javax.swing.JButton();
         btnatrasinfme = new javax.swing.JButton();
+        textfieldnombreencargado = new javax.swing.JTextField();
+        textfieldapellidoencargado = new javax.swing.JTextField();
+        textfieldtelefonoencargado = new javax.swing.JTextField();
+        cmbnivelestudioencargado = new javax.swing.JComboBox<>();
+        textfielddpiencargado = new javax.swing.JTextField();
+        textfieldresidenciaencargado = new javax.swing.JTextField();
+        textfieldcorreoencargado = new javax.swing.JTextField();
+        textfieldocupacionencargado = new javax.swing.JTextField();
+        textfieldlugarencargado = new javax.swing.JTextField();
+        btnotrotelefonoencargado = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jpconteme = new javax.swing.JPanel();
         btnsiguientedlab = new javax.swing.JButton();
         btnatrasdenc = new javax.swing.JButton();
+        textfieldnombreemergencia = new javax.swing.JTextField();
+        textfieldapellidoemergencia = new javax.swing.JTextField();
+        textfieldparentescoemergencia = new javax.swing.JTextField();
+        textfieldtelefonoemergencia1 = new javax.swing.JTextField();
+        textfieldapellidoemergencia2 = new javax.swing.JTextField();
+        textfieldtelefonoemergencia3 = new javax.swing.JTextField();
+        textfieldtelefonoemergencia4 = new javax.swing.JTextField();
+        textfieldtelefonoemergencia5 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jpdlabo = new javax.swing.JPanel();
         btnsiguientevolu = new javax.swing.JButton();
         btnatrascontem = new javax.swing.JButton();
+        textfieldnivelestudio = new javax.swing.JTextField();
+        textfieldlugardeestudio = new javax.swing.JTextField();
+        textfieldocupacion = new javax.swing.JTextField();
+        ttextfieldlugartrabajo = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -207,6 +240,11 @@ public class agregarjf extends javax.swing.JFrame {
 
         btnmenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/Home_70px.png"))); // NOI18N
         btnmenu.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Person_at_Home_100px.png"))); // NOI18N
+        btnmenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnmenuActionPerformed(evt);
+            }
+        });
         jpdatosp.add(btnmenu);
         btnmenu.setBounds(653, 450, 120, 90);
 
@@ -260,6 +298,7 @@ public class agregarjf extends javax.swing.JFrame {
         cmbtalla.setBackground(new java.awt.Color(178, 248, 248));
         cmbtalla.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         cmbtalla.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "XS", "S", "M", "L", "XL" }));
+        cmbtalla.setBorder(null);
         jpdatosp.add(cmbtalla);
         cmbtalla.setBounds(870, 250, 60, 29);
 
@@ -328,9 +367,62 @@ public class agregarjf extends javax.swing.JFrame {
         jpinfomed.add(btnatrasdp);
         btnatrasdp.setBounds(640, 460, 120, 110);
 
-        jTextField1.setText("jTextField1");
-        jpinfomed.add(jTextField1);
-        jTextField1.setBounds(720, 270, 430, 20);
+        textfieldhospital.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldhospital.setBorder(null);
+        jpinfomed.add(textfieldhospital);
+        textfieldhospital.setBounds(50, 250, 530, 23);
+
+        textfieldpadecimiento1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldpadecimiento1.setBorder(null);
+        jpinfomed.add(textfieldpadecimiento1);
+        textfieldpadecimiento1.setBounds(50, 413, 530, 30);
+
+        textfieldpadecimiento2.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldpadecimiento2.setBorder(null);
+        jpinfomed.add(textfieldpadecimiento2);
+        textfieldpadecimiento2.setBounds(50, 460, 530, 29);
+
+        textfieldpadecimiento3.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldpadecimiento3.setBorder(null);
+        jpinfomed.add(textfieldpadecimiento3);
+        textfieldpadecimiento3.setBounds(50, 513, 530, 30);
+
+        textfieldpadecimiento4.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldpadecimiento4.setBorder(null);
+        jpinfomed.add(textfieldpadecimiento4);
+        textfieldpadecimiento4.setBounds(50, 560, 530, 30);
+
+        textfieldalergia1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldalergia1.setBorder(null);
+        jpinfomed.add(textfieldalergia1);
+        textfieldalergia1.setBounds(820, 183, 390, 30);
+
+        textfieldalergia2.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldalergia2.setBorder(null);
+        jpinfomed.add(textfieldalergia2);
+        textfieldalergia2.setBounds(650, 232, 560, 30);
+
+        textfieldalergia3.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldalergia3.setBorder(null);
+        jpinfomed.add(textfieldalergia3);
+        textfieldalergia3.setBounds(650, 273, 560, 30);
+
+        textfieldalergia4.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldalergia4.setBorder(null);
+        jpinfomed.add(textfieldalergia4);
+        textfieldalergia4.setBounds(650, 320, 560, 30);
+
+        textfieldalergia5.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldalergia5.setBorder(null);
+        jpinfomed.add(textfieldalergia5);
+        textfieldalergia5.setBounds(650, 360, 470, 30);
+
+        cmbtipodesangre.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        cmbtipodesangre.setForeground(new java.awt.Color(255, 255, 255));
+        cmbtipodesangre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "O+", "O-", "A+", "A-", "B+", "B-", "AB+", "AB-" }));
+        cmbtipodesangre.setBorder(null);
+        jpinfomed.add(cmbtipodesangre);
+        cmbtipodesangre.setBounds(790, 530, 270, 30);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/informacionmedicatam2.jpg"))); // NOI18N
         jpinfomed.add(jLabel2);
@@ -362,6 +454,56 @@ public class agregarjf extends javax.swing.JFrame {
         jpdenca.add(btnatrasinfme);
         btnatrasinfme.setBounds(670, 450, 120, 110);
 
+        textfieldnombreencargado.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldnombreencargado.setBorder(null);
+        jpdenca.add(textfieldnombreencargado);
+        textfieldnombreencargado.setBounds(160, 170, 440, 30);
+
+        textfieldapellidoencargado.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldapellidoencargado.setBorder(null);
+        jpdenca.add(textfieldapellidoencargado);
+        textfieldapellidoencargado.setBounds(170, 230, 430, 40);
+
+        textfieldtelefonoencargado.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldtelefonoencargado.setBorder(null);
+        jpdenca.add(textfieldtelefonoencargado);
+        textfieldtelefonoencargado.setBounds(270, 350, 330, 40);
+
+        cmbnivelestudioencargado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Primaria", "Diversificado", "Universitario", "Posgrado", "Otro" }));
+        jpdenca.add(cmbnivelestudioencargado);
+        cmbnivelestudioencargado.setBounds(254, 292, 340, 40);
+
+        textfielddpiencargado.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfielddpiencargado.setBorder(null);
+        jpdenca.add(textfielddpiencargado);
+        textfielddpiencargado.setBounds(160, 440, 420, 40);
+
+        textfieldresidenciaencargado.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldresidenciaencargado.setBorder(null);
+        jpdenca.add(textfieldresidenciaencargado);
+        textfieldresidenciaencargado.setBounds(200, 520, 380, 40);
+
+        textfieldcorreoencargado.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldcorreoencargado.setBorder(null);
+        jpdenca.add(textfieldcorreoencargado);
+        textfieldcorreoencargado.setBounds(190, 580, 390, 40);
+
+        textfieldocupacionencargado.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldocupacionencargado.setBorder(null);
+        jpdenca.add(textfieldocupacionencargado);
+        textfieldocupacionencargado.setBounds(660, 220, 550, 40);
+
+        textfieldlugarencargado.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldlugarencargado.setBorder(null);
+        jpdenca.add(textfieldlugarencargado);
+        textfieldlugarencargado.setBounds(660, 320, 550, 40);
+
+        btnotrotelefonoencargado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/sa/icons8_Add_Phone_35px.png"))); // NOI18N
+        btnotrotelefonoencargado.setBorder(null);
+        btnotrotelefonoencargado.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/sa/icons8_Add_Phone_70px.png"))); // NOI18N
+        jpdenca.add(btnotrotelefonoencargado);
+        btnotrotelefonoencargado.setBounds(870, 450, 120, 70);
+
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/datosdelencargadotam2.jpg"))); // NOI18N
         jpdenca.add(jLabel3);
         jLabel3.setBounds(0, -3, 1256, 710);
@@ -391,6 +533,38 @@ public class agregarjf extends javax.swing.JFrame {
         });
         jpconteme.add(btnatrasdenc);
         btnatrasdenc.setBounds(670, 440, 120, 110);
+
+        textfieldnombreemergencia.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        jpconteme.add(textfieldnombreemergencia);
+        textfieldnombreemergencia.setBounds(170, 160, 430, 40);
+
+        textfieldapellidoemergencia.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        jpconteme.add(textfieldapellidoemergencia);
+        textfieldapellidoemergencia.setBounds(170, 230, 430, 40);
+
+        textfieldparentescoemergencia.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        jpconteme.add(textfieldparentescoemergencia);
+        textfieldparentescoemergencia.setBounds(320, 300, 280, 30);
+
+        textfieldtelefonoemergencia1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        jpconteme.add(textfieldtelefonoemergencia1);
+        textfieldtelefonoemergencia1.setBounds(180, 360, 150, 30);
+
+        textfieldapellidoemergencia2.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        jpconteme.add(textfieldapellidoemergencia2);
+        textfieldapellidoemergencia2.setBounds(50, 430, 530, 30);
+
+        textfieldtelefonoemergencia3.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        jpconteme.add(textfieldtelefonoemergencia3);
+        textfieldtelefonoemergencia3.setBounds(50, 480, 530, 30);
+
+        textfieldtelefonoemergencia4.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        jpconteme.add(textfieldtelefonoemergencia4);
+        textfieldtelefonoemergencia4.setBounds(50, 530, 530, 30);
+
+        textfieldtelefonoemergencia5.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        jpconteme.add(textfieldtelefonoemergencia5);
+        textfieldtelefonoemergencia5.setBounds(50, 570, 530, 30);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/contactodeemergenciatam2.jpg"))); // NOI18N
         jpconteme.add(jLabel4);
@@ -423,6 +597,14 @@ public class agregarjf extends javax.swing.JFrame {
         });
         jpdlabo.add(btnatrascontem);
         btnatrascontem.setBounds(670, 440, 120, 110);
+        jpdlabo.add(textfieldnivelestudio);
+        textfieldnivelestudio.setBounds(270, 180, 340, 30);
+        jpdlabo.add(textfieldlugardeestudio);
+        textfieldlugardeestudio.setBounds(70, 320, 530, 30);
+        jpdlabo.add(textfieldocupacion);
+        textfieldocupacion.setBounds(70, 520, 530, 30);
+        jpdlabo.add(ttextfieldlugartrabajo);
+        ttextfieldlugartrabajo.setBounds(660, 250, 530, 30);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/datoslaboralestam2.jpg"))); // NOI18N
         jpdlabo.add(jLabel5);
@@ -514,6 +696,11 @@ public class agregarjf extends javax.swing.JFrame {
         rSPanelsSlider1.setPanelSlider(jpconteme, RSPanelsSlider.DIRECT.RIGHT);
     }//GEN-LAST:event_btnatrascontemActionPerformed
 
+    private void btnmenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmenuActionPerformed
+        JOptionPane.showMessageDialog(null, "¿Desea salir sin guardar cambios?", "¡¡¡ATENCIÓN!!!", WARNING_MESSAGE);     
+        this.dispose();
+    }//GEN-LAST:event_btnmenuActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -560,6 +747,7 @@ public class agregarjf extends javax.swing.JFrame {
     private javax.swing.JButton btnmenu;
     private javax.swing.JButton btnminimizardp;
     private javax.swing.JButton btnminimizarifme;
+    private javax.swing.JButton btnotrotelefonoencargado;
     private javax.swing.JButton btnsalirdp;
     private javax.swing.JButton btnsalirinfme;
     private javax.swing.JButton btnsiguienteconteme;
@@ -568,7 +756,9 @@ public class agregarjf extends javax.swing.JFrame {
     private javax.swing.JButton btnsiguienteinfomed;
     private javax.swing.JButton btnsiguientevolu;
     private javax.swing.JComboBox<String> cmbgenero;
+    private javax.swing.JComboBox<String> cmbnivelestudioencargado;
     private javax.swing.JComboBox<String> cmbtalla;
+    private javax.swing.JComboBox<String> cmbtipodesangre;
     private com.toedter.calendar.JDateChooser datecfecha;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -576,20 +766,49 @@ public class agregarjf extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel jpconteme;
     private javax.swing.JPanel jpdatosp;
     private javax.swing.JPanel jpdenca;
     private javax.swing.JPanel jpdlabo;
     private javax.swing.JPanel jpinfomed;
     private rojerusan.RSPanelsSlider rSPanelsSlider1;
+    private javax.swing.JTextField textfieldalergia1;
+    private javax.swing.JTextField textfieldalergia2;
+    private javax.swing.JTextField textfieldalergia3;
+    private javax.swing.JTextField textfieldalergia4;
+    private javax.swing.JTextField textfieldalergia5;
+    private javax.swing.JTextField textfieldapellidoemergencia;
+    private javax.swing.JTextField textfieldapellidoemergencia2;
+    private javax.swing.JTextField textfieldapellidoencargado;
     private javax.swing.JTextField textfieldapellidos;
     private javax.swing.JTextField textfieldcorreo;
+    private javax.swing.JTextField textfieldcorreoencargado;
     private javax.swing.JTextField textfielddpi;
+    private javax.swing.JTextField textfielddpiencargado;
     private javax.swing.JTextField textfieldedad;
+    private javax.swing.JTextField textfieldhospital;
+    private javax.swing.JTextField textfieldlugardeestudio;
+    private javax.swing.JTextField textfieldlugarencargado;
+    private javax.swing.JTextField textfieldnivelestudio;
+    private javax.swing.JTextField textfieldnombreemergencia;
+    private javax.swing.JTextField textfieldnombreencargado;
     private javax.swing.JTextField textfieldnombres;
+    private javax.swing.JTextField textfieldocupacion;
+    private javax.swing.JTextField textfieldocupacionencargado;
+    private javax.swing.JTextField textfieldpadecimiento1;
+    private javax.swing.JTextField textfieldpadecimiento2;
+    private javax.swing.JTextField textfieldpadecimiento3;
+    private javax.swing.JTextField textfieldpadecimiento4;
+    private javax.swing.JTextField textfieldparentescoemergencia;
     private javax.swing.JTextField textfieldperfil;
     private javax.swing.JTextField textfieldresidencia;
+    private javax.swing.JTextField textfieldresidenciaencargado;
     private javax.swing.JTextField textfieldtelefono;
+    private javax.swing.JTextField textfieldtelefonoemergencia1;
+    private javax.swing.JTextField textfieldtelefonoemergencia3;
+    private javax.swing.JTextField textfieldtelefonoemergencia4;
+    private javax.swing.JTextField textfieldtelefonoemergencia5;
+    private javax.swing.JTextField textfieldtelefonoencargado;
+    private javax.swing.JTextField ttextfieldlugartrabajo;
     // End of variables declaration//GEN-END:variables
 }

@@ -33,12 +33,12 @@ public class menujf extends javax.swing.JFrame {
         }
         else if((tamanio.width == 1366) && (tamanio.height == 760)) //1366.760, alex: 1708.960
         {
-            this.setSize(1567, 837);
+            this.setSize(1667, 837);
             this.setLocationRelativeTo(null);
-            btnagregar.setLocation(190, 395);
-            btneditar.setLocation(510, 375);
-            btneliminar.setLocation(835, 370);
-            btnbuscar.setLocation(1155, 377);
+            btnagregar.setLocation(213, 375);
+            btneditar.setLocation(550, 375);
+            btneliminar.setLocation(890, 370);
+            btnbuscar.setLocation(1244, 372);
         }
     }
     public void transparencia()
@@ -55,6 +55,12 @@ public class menujf extends javax.swing.JFrame {
         btnbuscar.setOpaque(false);
         btnbuscar.setContentAreaFilled(false);
         btnbuscar.setBorderPainted(false);
+        btnsalirdmenu.setOpaque(false);
+        btnsalirdmenu.setContentAreaFilled(false);
+        btnsalirdmenu.setBorderPainted(false);
+        btnminimizarmenu.setOpaque(false);
+        btnminimizarmenu.setContentAreaFilled(false);
+        btnminimizarmenu.setBorderPainted(false);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -70,9 +76,12 @@ public class menujf extends javax.swing.JFrame {
         btneditar = new javax.swing.JButton();
         btnbuscar = new javax.swing.JButton();
         btneliminar = new javax.swing.JButton();
+        btnminimizarmenu = new javax.swing.JButton();
+        btnsalirdmenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(500, 620));
+        setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new java.awt.CardLayout());
 
@@ -113,6 +122,26 @@ public class menujf extends javax.swing.JFrame {
         jpmenu.add(btneliminar);
         btneliminar.setBounds(1010, 360, 230, 180);
 
+        btnminimizarmenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Chevron_Down_30px_1.png"))); // NOI18N
+        btnminimizarmenu.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Chevron_Down_70px.png"))); // NOI18N
+        btnminimizarmenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnminimizarmenuActionPerformed(evt);
+            }
+        });
+        jpmenu.add(btnminimizarmenu);
+        btnminimizarmenu.setBounds(1700, 0, 80, 70);
+
+        btnsalirdmenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Close_Window_30px.png"))); // NOI18N
+        btnsalirdmenu.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Close_Window_70px.png"))); // NOI18N
+        btnsalirdmenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsalirdmenuActionPerformed(evt);
+            }
+        });
+        jpmenu.add(btnsalirdmenu);
+        btnsalirdmenu.setBounds(1780, 0, 70, 70);
+
         getContentPane().add(jpmenu, "card2");
 
         pack();
@@ -123,6 +152,14 @@ public class menujf extends javax.swing.JFrame {
         agregarjf ag = new agregarjf();
         ag.setVisible(true);
     }//GEN-LAST:event_btnagregarActionPerformed
+
+    private void btnminimizarmenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnminimizarmenuActionPerformed
+        this.setExtendedState(ICONIFIED);
+    }//GEN-LAST:event_btnminimizarmenuActionPerformed
+
+    private void btnsalirdmenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirdmenuActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnsalirdmenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -164,6 +201,8 @@ public class menujf extends javax.swing.JFrame {
     private javax.swing.JButton btnbuscar;
     private javax.swing.JButton btneditar;
     private javax.swing.JButton btneliminar;
+    private javax.swing.JButton btnminimizarmenu;
+    private javax.swing.JButton btnsalirdmenu;
     private jcMousePanel.jcMousePanel jpmenu;
     // End of variables declaration//GEN-END:variables
 }
