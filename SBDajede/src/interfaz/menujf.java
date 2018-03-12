@@ -27,19 +27,23 @@ public class menujf extends javax.swing.JFrame {
         {
             this.setSize(1667, 937);
             this.setLocationRelativeTo(null);
-            btnagregar.setLocation(213, 455);
-            btneditar.setLocation(550, 445);
-            btneliminar.setLocation(890, 430);
-            btnbuscar.setLocation(1244, 432);
+            btnagregar.setLocation(213, 475);
+            btneditar.setLocation(550, 455);
+            btneliminar.setLocation(890, 450);
+            btnbuscar.setLocation(1244, 457);
+            btnminimizarmenu.setLocation(1470, 5);
+            btnsalirdmenu.setLocation(1560, 5);
         }
         else if((tamanio.width == 1366) && (tamanio.height == 768)) //1366.768, alex: 1708.960
         {
-            this.setSize(1667, 837);
+            this.setSize(1256, 706);
             this.setLocationRelativeTo(null);
-            btnagregar.setLocation(213, 375);
-            btneditar.setLocation(550, 375);
-            btneliminar.setLocation(890, 370);
-            btnbuscar.setLocation(1244, 372);
+            btnagregar.setLocation(133, 345);
+            btneditar.setLocation(390, 330);
+            btneliminar.setLocation(645, 320);
+            btnbuscar.setLocation(917, 330);
+            btnminimizarmenu.setLocation(1090, 5);
+            btnsalirdmenu.setLocation(1175, 5);
         }
     }
     public void transparencia()
