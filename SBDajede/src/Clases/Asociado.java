@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 
 /**
  *
@@ -31,21 +32,21 @@ public class Asociado {
     {
         try {
             int idNivEst = 0;
-            String sql = "select NivelEstudio from nivelestudio where NivelEstudio= '" + nivEst + "'";
+            String sql = "select id from nivelestudio where NivelEstudio= '" + nivEst + "'";
             Statement St = con.createStatement();
             ResultSet Rs = St.executeQuery(sql);
             while (Rs.next()) {
                 idNivEst = Rs.getInt("id");
             }
             int idTipoSan = 0;
-            sql = "select tipoSangre from tipodesangre where tipoSangre= '" + tipoSangre + "'";
+            sql = "select id from tipodesangre where tipoSangre= '" + tipoSangre + "'";
             St = con.createStatement();
             Rs = St.executeQuery(sql);
             while (Rs.next()) {
                 idTipoSan = Rs.getInt("id");
             }
             sql = "Insert into asociado(Nombre, Apellido, Activo, Genero, DPI, FechaNacimiento, TallaPlayera, CorreoElectronico,"
-                    + "Residencia, PerfilFacebook, TipoDeSangre, NivelEstudio)"
+                    + "Residencia, PerfilFacebook, TipoDeSangre_id, NivelEstudio_id)"
                     + "Values(?,?,?,?,?,?,?,?,?,?,?,?)";
             
             PreparedStatement Pst = con.prepareStatement(sql);
@@ -67,5 +68,20 @@ public class Asociado {
             Logger.getLogger(Asociado.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
+    }
+    public DefaultComboBoxModel NivEst() {
+        DefaultComboBoxModel modeloCombo = new DefaultComboBoxModel();
+        try {
+            String sql = "SELECT * FROM nivelestudio";
+            Statement St = con.createStatement();
+            ResultSet Rs = St.executeQuery(sql);
+            while (Rs.next()) {
+                modeloCombo.addElement(Rs.getString("NivelEstudio"));
+            }
+            return modeloCombo;
+        } catch (SQLException ex) {
+            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return modeloCombo;
     }
 }
