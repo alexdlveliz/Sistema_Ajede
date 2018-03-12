@@ -28,6 +28,7 @@ public class agregarjf extends javax.swing.JFrame {
      */
     private char c;
     private Asociado asociado;
+
     public agregarjf() {
         asociado = new Asociado();
         initComponents();
@@ -672,27 +673,28 @@ public class agregarjf extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void datosAsociado()
-    {
-        String nombre=textfieldnombres.getText();
-        String apellido=textfieldapellidos.getText();
-        String Dpi=textfielddpi.getText();
-        String genero=(String) cmbgenero.getSelectedItem();
-        String fecha=getFecha(datecfecha);
-        String talla=(String) cmbtalla.getSelectedItem();
-        String PerfilFB=textfieldperfil.getText();
-        String telefono=textfieldtelefono.getText();
-        String email=textfieldcorreo.getText();
-        String residencia=textfieldresidencia.getText();
-        String nivEst=(String) cmbnivelestudioasociado.getSelectedItem();
-        String tipoSangre=(String) cmbtipodesangre.getSelectedItem();
-        boolean genero1=false;
-        if(genero.equals("Masculino"))
-            genero1=true;
-        if(asociado.insertar(nombre, apellido, genero1, fecha, email, talla, residencia, true, PerfilFB, tipoSangre, nivEst, Dpi))
+    private void datosAsociado() {
+        String nombre = textfieldnombres.getText();
+        String apellido = textfieldapellidos.getText();
+        String Dpi = textfielddpi.getText();
+        String genero = (String) cmbgenero.getSelectedItem();
+        String fecha = getFecha(datecfecha);
+        String talla = (String) cmbtalla.getSelectedItem();
+        String PerfilFB = textfieldperfil.getText();
+        String telefono = textfieldtelefono.getText();
+        String email = textfieldcorreo.getText();
+        String residencia = textfieldresidencia.getText();
+        String nivEst = (String) cmbnivelestudioasociado.getSelectedItem();
+        String tipoSangre = (String) cmbtipodesangre.getSelectedItem();
+        boolean genero1 = false;
+        if (genero.equals("Masculino")) {
+            genero1 = true;
+        }
+        if (asociado.insertar(nombre, apellido, genero1, fecha, email, talla, residencia, true, PerfilFB, tipoSangre, nivEst, Dpi)) {
             JOptionPane.showMessageDialog(null, "Asociado Ingresado correctamente");
-        else
+        } else {
             JOptionPane.showMessageDialog(null, "Error al ingresar el asociado");
+        }
     }
     private void btnagregarasociadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarasociadoActionPerformed
         /**
@@ -772,25 +774,25 @@ public class agregarjf extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnmenuActionPerformed
 
-    
-    public String getFecha(JDateChooser jd)
-    {
-        if(jd.getDate()!=null)
+    public String getFecha(JDateChooser jd) {
+        if (jd.getDate() != null) {
             return formato.format(jd.getDate());
-        else
+        } else {
             return null;
+        }
     }
-    public Date StringFecha(String fecha)
-    {
-        SimpleDateFormat formato1= new SimpleDateFormat("yyyy-MM-dd");
-        Date fechaE=null;
+
+    public Date StringFecha(String fecha) {
+        SimpleDateFormat formato1 = new SimpleDateFormat("yyyy-MM-dd");
+        Date fechaE = null;
         try {
-            fechaE=formato1.parse(fecha);
+            fechaE = formato1.parse(fecha);
             return fechaE;
         } catch (ParseException e) {
         }
         return null;
     }
+
     private boolean validarDatosPersonales() {
         if (textfieldnombres.getText().length() == 0) {
             JOptionPane.showMessageDialog(null, "El campo nombre esta vacio, favor de ingresar los nombres");
@@ -800,7 +802,7 @@ public class agregarjf extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "El campo apellido esta vacio, favor de ingresar los apellidos");
             textfieldapellidos.requestFocus();
             return false;
-        } else if (getFecha(datecfecha)==null) {
+        } else if (getFecha(datecfecha) == null) {
             JOptionPane.showMessageDialog(null, "El campo fecha esta vacio, favor de ingresar la fecha de nacimiento");
             datecfecha.requestFocus();
             return false;
@@ -839,7 +841,7 @@ public class agregarjf extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    private final SimpleDateFormat formato= new SimpleDateFormat("yyyy-MM-dd");
+    private final SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnaddtel;
     private javax.swing.JButton btnagregarasociado;
