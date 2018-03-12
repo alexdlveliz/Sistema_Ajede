@@ -19,6 +19,7 @@ public class menujf extends javax.swing.JFrame {
      */
     public menujf() {
         initComponents();
+        
         Toolkit tk = Toolkit.getDefaultToolkit();
         Dimension tamanio = tk.getScreenSize();
         transparencia();
@@ -31,7 +32,7 @@ public class menujf extends javax.swing.JFrame {
             btneliminar.setLocation(890, 430);
             btnbuscar.setLocation(1244, 432);
         }
-        else if((tamanio.width == 1366) && (tamanio.height == 760)) //1366.760, alex: 1708.960
+        else if((tamanio.width == 1366) && (tamanio.height == 768)) //1366.768, alex: 1708.960
         {
             this.setSize(1667, 837);
             this.setLocationRelativeTo(null);
@@ -80,8 +81,8 @@ public class menujf extends javax.swing.JFrame {
         btnsalirdmenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(500, 620));
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(200, 500));
         setResizable(false);
         getContentPane().setLayout(new java.awt.CardLayout());
 
