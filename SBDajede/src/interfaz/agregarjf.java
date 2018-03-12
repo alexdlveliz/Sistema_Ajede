@@ -11,34 +11,79 @@ import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.WARNING_MESSAGE;
 import rojerusan.RSPanelsSlider;
 import java.awt.Toolkit;
+import javax.swing.ImageIcon;
 
 /**
  *
  * @author Nahomi
  */
 public class agregarjf extends javax.swing.JFrame {
+    ImageIcon dp1= new ImageIcon(new ImageIcon(getClass().getResource("/fondos/datospersonales1.jpg")).getImage());
+    ImageIcon dp2 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/datospersonales2.jpg")).getImage());
+    ImageIcon dlabo1 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/datoslaborales1.jpg")).getImage());
+    ImageIcon dlabo2 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/datoslaborales2.jpg")).getImage());
+    ImageIcon voluntariado1 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/voluntariado1.jpg")).getImage());
+    ImageIcon voluntariado2 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/voluntariado2.jpg")).getImage());
+    ImageIcon beca1 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/beca1.jpg")).getImage());
+    ImageIcon beca2 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/beca2.jpg")).getImage());
+    ImageIcon infomed1 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/infomed1.jpg")).getImage());
+    ImageIcon infomed2 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/infomed2.jpg")).getImage());
+    ImageIcon datosenc1 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/datosenc1.jpg")).getImage());
+    ImageIcon datosenc2 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/datosenc2.jpg")).getImage());
+    ImageIcon contacem1 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/contaceme1.jpg")).getImage());
+    ImageIcon contacem2 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/contaceme2.jpg")).getImage());
+    
 
     /**
      * Creates new form agregarjf
      */
     public agregarjf() {
         initComponents();
+        transparencia();
         Toolkit tk = Toolkit.getDefaultToolkit();
         Dimension tamanio = tk.getScreenSize();
         if((tamanio.width == 1920) && (tamanio.height == 1080)) //1920x1080
         {
+            this.setSize(1568, 880);
             this.setLocationRelativeTo(null);
-            this.setSize(1255, 705);
+            jPanel1.setSize(1568, 880);
+            rSPanelsSlider1.setSize(1568, 880);
+            jpdatosp.setSize(1568, 880);
+            lbdp.setSize(1568, 880);
+            lbdlabo.setSize(1568,880);
+            jpdlabo.setSize(1565,880);
+            jpvoluntariado.setSize(1565,880);
+            lbvoluntariado.setSize(1565,880);
+            jpinfomed.setSize(1568,880);
+            lbinfomed.setSize(1565, 880);
+            jpdenca.setSize(1565,880);
+            lbdatosenca.setSize(1565,880);
+            jpconteme.setSize(1565,880);
+            lbconteme.setSize(1565,880);
+            lbdp.setIcon(dp1);
+            lbdlabo.setIcon(dlabo1);
+            lbvoluntariado.setIcon(voluntariado1);
+            lbbeca.setIcon(beca1);
+            lbinfomed.setIcon(infomed1);
+            lbdatosenca.setIcon(datosenc1);
+            lbconteme.setIcon(contacem1);
             
         }
         else if((tamanio.width == 1366) && (tamanio.height == 768)) //1366x768, 1708x960
         {
             this.setLocationRelativeTo(null);
-            this.setSize(1255, 705);
+            this.setSize(1250, 700);
+            lbdp.setIcon(dp2);
+            lbdlabo.setIcon(dlabo2);
+            lbvoluntariado.setIcon(voluntariado2);
+            lbbeca.setIcon(beca2);
+            lbinfomed.setIcon(infomed2);
+            lbdatosenca.setIcon(datosenc2);
+            lbconteme.setIcon(contacem2);
         }
 //        this.setLocationRelativeTo(null);
 //        this.setSize(1255, 705);
-        transparencia();
+        
     }
     public void transparencia()
     {
@@ -93,6 +138,52 @@ public class agregarjf extends javax.swing.JFrame {
         btnatrascontem.setOpaque(false);
         btnatrascontem.setBorderPainted(false);
         btnatrascontem.setContentAreaFilled(false);
+        textfieldnombres.setBackground(new Color(0,0,0,0));
+        textfieldapellidos.setBackground(new Color(0,0,0,0));
+        textfieldedad.setBackground(new Color(0,0,0,0));
+        cmbgenero.setBackground(new Color(0,0,0,0));
+        datecfecha.setBackground(new Color(0,0,0,0));
+        textfielddpi.setBackground(new Color(0,0,0,0));
+        textfieldresidencia.setBackground(new Color(0,0,0,0));
+        textfieldcorreo.setBackground(new Color(0,0,0,0));
+        textfieldperfil.setBackground(new Color(0,0,0,0));
+        cmbtalla.setBackground(new Color(0,0,0,0));
+        textfieldtelefono.setBackground(new Color(0,0,0,0));
+        textfieldhospital.setBackground(new Color(0,0,0,0));
+        textfieldpadecimiento1.setBackground(new Color(0,0,0,0));
+        textfieldpadecimiento2.setBackground(new Color(0,0,0,0));
+        textfieldpadecimiento3.setBackground(new Color(0,0,0,0));
+        textfieldpadecimiento4.setBackground(new Color(0,0,0,0));
+        textfieldalergia1.setBackground(new Color(0,0,0,0));
+        textfieldalergia2.setBackground(new Color(0,0,0,0));
+        textfieldalergia3.setBackground(new Color(0,0,0,0));
+        textfieldalergia4.setBackground(new Color(0,0,0,0));
+        textfieldalergia5.setBackground(new Color(0,0,0,0));
+        cmbtipodesangre.setBackground(new Color(0,0,0,0));
+        textfieldnombreencargado.setBackground(new Color(0,0,0,0));
+        textfieldapellidoencargado.setBackground(new Color(0,0,0,0));
+        textfieldtelefonoencargado.setBackground(new Color(0,0,0,0));
+        cmbnivelestudioencargado.setBackground(new Color(0,0,0,0));
+        textfielddpiencargado.setBackground(new Color(0,0,0,0));
+        textfieldresidenciaencargado.setBackground(new Color(0,0,0,0));
+        textfieldcorreoencargado.setBackground(new Color(0,0,0,0));
+        textfieldocupacionencargado.setBackground(new Color(0,0,0,0));
+        textfieldlugarencargado.setBackground(new Color(0,0,0,0));
+        textfieldnombreemergencia.setBackground(new Color(0,0,0,0));
+        textfieldapellidoemergencia.setBackground(new Color(0,0,0,0));
+        textfieldparentescoemergencia.setBackground(new Color(0,0,0,0));
+        textfieldtelefonoemergencia1.setBackground(new Color(0,0,0,0));
+        textfieldtelefonoemergencia2.setBackground(new Color(0,0,0,0));
+        textfieldtelefonoemergencia3.setBackground(new Color(0,0,0,0));
+        textfieldtelefonoemergencia4.setBackground(new Color(0,0,0,0));
+        textfieldtelefonoemergencia5.setBackground(new Color(0,0,0,0));
+        cmbnivelestudiovoluntario.setBackground(new Color(0,0,0,0));
+        textfieldlugardeestudio.setBackground(new Color(0,0,0,0));
+        textfieldocupacion.setBackground(new Color(0,0,0,0));
+        textfieldlugartrabajo.setBackground(new Color(0,0,0,0));
+        textfieldlugardeestudio2.setBackground(new Color(0,0,0,0));
+        textfieldocupacion2.setBackground(new Color(0,0,0,0));
+        textfieldlugartrabajo2.setBackground(new Color(0,0,0,0));
     }
 
     /**
@@ -124,7 +215,7 @@ public class agregarjf extends javax.swing.JFrame {
         cmbtalla = new javax.swing.JComboBox<>();
         textfieldtelefono = new javax.swing.JTextField();
         datecfecha = new com.toedter.calendar.JDateChooser();
-        jLabel1 = new javax.swing.JLabel();
+        lbdp = new javax.swing.JLabel();
         jpinfomed = new javax.swing.JPanel();
         btnhomeinfme = new javax.swing.JButton();
         btnminimizarifme = new javax.swing.JButton();
@@ -142,7 +233,7 @@ public class agregarjf extends javax.swing.JFrame {
         textfieldalergia4 = new javax.swing.JTextField();
         textfieldalergia5 = new javax.swing.JTextField();
         cmbtipodesangre = new javax.swing.JComboBox<>();
-        jLabel2 = new javax.swing.JLabel();
+        lbinfomed = new javax.swing.JLabel();
         jpdenca = new javax.swing.JPanel();
         btnsiguienteconteme = new javax.swing.JButton();
         btnatrasinfme = new javax.swing.JButton();
@@ -156,7 +247,7 @@ public class agregarjf extends javax.swing.JFrame {
         textfieldocupacionencargado = new javax.swing.JTextField();
         textfieldlugarencargado = new javax.swing.JTextField();
         btnotrotelefonoencargado = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        lbdatosenca = new javax.swing.JLabel();
         jpconteme = new javax.swing.JPanel();
         btnsiguientedlab = new javax.swing.JButton();
         btnatrasdenc = new javax.swing.JButton();
@@ -164,31 +255,38 @@ public class agregarjf extends javax.swing.JFrame {
         textfieldapellidoemergencia = new javax.swing.JTextField();
         textfieldparentescoemergencia = new javax.swing.JTextField();
         textfieldtelefonoemergencia1 = new javax.swing.JTextField();
-        textfieldapellidoemergencia2 = new javax.swing.JTextField();
+        textfieldtelefonoemergencia2 = new javax.swing.JTextField();
         textfieldtelefonoemergencia3 = new javax.swing.JTextField();
         textfieldtelefonoemergencia4 = new javax.swing.JTextField();
         textfieldtelefonoemergencia5 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+        lbconteme = new javax.swing.JLabel();
         jpdlabo = new javax.swing.JPanel();
         btnsiguientevolu = new javax.swing.JButton();
         btnatrascontem = new javax.swing.JButton();
-        textfieldnivelestudio = new javax.swing.JTextField();
         textfieldlugardeestudio = new javax.swing.JTextField();
         textfieldocupacion = new javax.swing.JTextField();
-        ttextfieldlugartrabajo = new javax.swing.JTextField();
+        textfieldlugartrabajo = new javax.swing.JTextField();
         btnagregarasociado = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
+        cmbnivelestudiovoluntario = new javax.swing.JComboBox<>();
+        textfieldlugardeestudio2 = new javax.swing.JTextField();
+        textfieldocupacion2 = new javax.swing.JTextField();
+        textfieldlugartrabajo2 = new javax.swing.JTextField();
+        lbdlabo = new javax.swing.JLabel();
+        jpvoluntariado = new javax.swing.JPanel();
+        lbvoluntariado = new javax.swing.JLabel();
+        jpbeca = new javax.swing.JPanel();
+        lbbeca = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1256, 706));
         setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(1255, 705));
 
-        jPanel1.setPreferredSize(new java.awt.Dimension(1275, 725));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1250, 700));
         jPanel1.setLayout(new java.awt.CardLayout());
 
         rSPanelsSlider1.setMinimumSize(new java.awt.Dimension(1275, 725));
-        rSPanelsSlider1.setPreferredSize(new java.awt.Dimension(1275, 724));
+        rSPanelsSlider1.setPreferredSize(new java.awt.Dimension(1250, 700));
 
         jpdatosp.setBackground(new java.awt.Color(18, 44, 62));
         jpdatosp.setName("datosp"); // NOI18N
@@ -204,8 +302,8 @@ public class agregarjf extends javax.swing.JFrame {
         jpdatosp.add(btnsiguienteinfomed);
         btnsiguienteinfomed.setBounds(1070, 460, 120, 90);
 
-        btnaddtel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/sa/icons8_Add_Phone_35px.png"))); // NOI18N
-        btnaddtel.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/sa/icons8_Add_Phone_70px.png"))); // NOI18N
+        btnaddtel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/sa/icons8_Add_Phone_35px_1.png"))); // NOI18N
+        btnaddtel.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/sa/icons8_Add_Phone_70px_1.png"))); // NOI18N
         jpdatosp.add(btnaddtel);
         btnaddtel.setBounds(870, 450, 110, 100);
 
@@ -306,9 +404,9 @@ public class agregarjf extends javax.swing.JFrame {
         jpdatosp.add(datecfecha);
         datecfecha.setBounds(330, 360, 260, 40);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/datosptam2.jpg"))); // NOI18N
-        jpdatosp.add(jLabel1);
-        jLabel1.setBounds(0, 0, 1270, 710);
+        lbdp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/datospersonales2.jpg"))); // NOI18N
+        jpdatosp.add(lbdp);
+        lbdp.setBounds(0, 0, 1270, 710);
 
         rSPanelsSlider1.add(jpdatosp, "card2");
 
@@ -423,9 +521,9 @@ public class agregarjf extends javax.swing.JFrame {
         jpinfomed.add(cmbtipodesangre);
         cmbtipodesangre.setBounds(790, 530, 270, 30);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/informacionmedicatam2.jpg"))); // NOI18N
-        jpinfomed.add(jLabel2);
-        jLabel2.setBounds(0, -3, 1260, 710);
+        lbinfomed.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/infomed2.jpg"))); // NOI18N
+        jpinfomed.add(lbinfomed);
+        lbinfomed.setBounds(0, -3, 1260, 710);
 
         rSPanelsSlider1.add(jpinfomed, "card3");
 
@@ -503,9 +601,9 @@ public class agregarjf extends javax.swing.JFrame {
         jpdenca.add(btnotrotelefonoencargado);
         btnotrotelefonoencargado.setBounds(870, 450, 120, 70);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/datosdelencargadotam2.jpg"))); // NOI18N
-        jpdenca.add(jLabel3);
-        jLabel3.setBounds(0, -3, 1256, 710);
+        lbdatosenca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/datosenc2.jpg"))); // NOI18N
+        jpdenca.add(lbdatosenca);
+        lbdatosenca.setBounds(0, -3, 1250, 710);
 
         rSPanelsSlider1.add(jpdenca, "card4");
 
@@ -549,9 +647,9 @@ public class agregarjf extends javax.swing.JFrame {
         jpconteme.add(textfieldtelefonoemergencia1);
         textfieldtelefonoemergencia1.setBounds(180, 360, 150, 30);
 
-        textfieldapellidoemergencia2.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        jpconteme.add(textfieldapellidoemergencia2);
-        textfieldapellidoemergencia2.setBounds(50, 430, 530, 30);
+        textfieldtelefonoemergencia2.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        jpconteme.add(textfieldtelefonoemergencia2);
+        textfieldtelefonoemergencia2.setBounds(50, 430, 530, 30);
 
         textfieldtelefonoemergencia3.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jpconteme.add(textfieldtelefonoemergencia3);
@@ -565,10 +663,10 @@ public class agregarjf extends javax.swing.JFrame {
         jpconteme.add(textfieldtelefonoemergencia5);
         textfieldtelefonoemergencia5.setBounds(50, 570, 530, 30);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/contactodeemergenciatam2.jpg"))); // NOI18N
-        jpconteme.add(jLabel4);
-        jLabel4.setBounds(0, -3, 1256, 710);
-        jLabel4.getAccessibleContext().setAccessibleDescription("");
+        lbconteme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/contaceme2.jpg"))); // NOI18N
+        jpconteme.add(lbconteme);
+        lbconteme.setBounds(0, -3, 1250, 710);
+        lbconteme.getAccessibleContext().setAccessibleDescription("");
 
         rSPanelsSlider1.add(jpconteme, "card5");
 
@@ -596,14 +694,12 @@ public class agregarjf extends javax.swing.JFrame {
         });
         jpdlabo.add(btnatrascontem);
         btnatrascontem.setBounds(670, 440, 120, 110);
-        jpdlabo.add(textfieldnivelestudio);
-        textfieldnivelestudio.setBounds(270, 180, 340, 30);
         jpdlabo.add(textfieldlugardeestudio);
         textfieldlugardeestudio.setBounds(70, 320, 530, 30);
         jpdlabo.add(textfieldocupacion);
         textfieldocupacion.setBounds(70, 520, 530, 30);
-        jpdlabo.add(ttextfieldlugartrabajo);
-        ttextfieldlugartrabajo.setBounds(660, 250, 530, 30);
+        jpdlabo.add(textfieldlugartrabajo);
+        textfieldlugartrabajo.setBounds(660, 250, 530, 30);
 
         btnagregarasociado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/Checkmark_30px.png"))); // NOI18N
         btnagregarasociado.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/Checkmark_50px.png"))); // NOI18N
@@ -615,11 +711,59 @@ public class agregarjf extends javax.swing.JFrame {
         jpdlabo.add(btnagregarasociado);
         btnagregarasociado.setBounds(880, 450, 90, 80);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/datoslaboralestam2.jpg"))); // NOI18N
-        jpdlabo.add(jLabel5);
-        jLabel5.setBounds(0, -3, 1250, 710);
+        cmbnivelestudiovoluntario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jpdlabo.add(cmbnivelestudiovoluntario);
+        cmbnivelestudiovoluntario.setBounds(280, 190, 320, 22);
+        jpdlabo.add(textfieldlugardeestudio2);
+        textfieldlugardeestudio2.setBounds(70, 372, 530, 30);
+        jpdlabo.add(textfieldocupacion2);
+        textfieldocupacion2.setBounds(70, 570, 530, 30);
+        jpdlabo.add(textfieldlugartrabajo2);
+        textfieldlugartrabajo2.setBounds(660, 310, 530, 30);
+
+        lbdlabo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/datoslaborales2.jpg"))); // NOI18N
+        jpdlabo.add(lbdlabo);
+        lbdlabo.setBounds(0, -3, 1250, 710);
 
         rSPanelsSlider1.add(jpdlabo, "card6");
+
+        lbvoluntariado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/voluntariado2.jpg"))); // NOI18N
+
+        javax.swing.GroupLayout jpvoluntariadoLayout = new javax.swing.GroupLayout(jpvoluntariado);
+        jpvoluntariado.setLayout(jpvoluntariadoLayout);
+        jpvoluntariadoLayout.setHorizontalGroup(
+            jpvoluntariadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpvoluntariadoLayout.createSequentialGroup()
+                .addComponent(lbvoluntariado)
+                .addGap(0, 25, Short.MAX_VALUE))
+        );
+        jpvoluntariadoLayout.setVerticalGroup(
+            jpvoluntariadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpvoluntariadoLayout.createSequentialGroup()
+                .addComponent(lbvoluntariado)
+                .addGap(0, 25, Short.MAX_VALUE))
+        );
+
+        rSPanelsSlider1.add(jpvoluntariado, "card7");
+
+        lbbeca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/beca2.jpg"))); // NOI18N
+
+        javax.swing.GroupLayout jpbecaLayout = new javax.swing.GroupLayout(jpbeca);
+        jpbeca.setLayout(jpbecaLayout);
+        jpbecaLayout.setHorizontalGroup(
+            jpbecaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpbecaLayout.createSequentialGroup()
+                .addComponent(lbbeca)
+                .addGap(0, 25, Short.MAX_VALUE))
+        );
+        jpbecaLayout.setVerticalGroup(
+            jpbecaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpbecaLayout.createSequentialGroup()
+                .addComponent(lbbeca)
+                .addGap(0, 25, Short.MAX_VALUE))
+        );
+
+        rSPanelsSlider1.add(jpbeca, "card8");
 
         jPanel1.add(rSPanelsSlider1, "card2");
 
@@ -748,20 +892,25 @@ public class agregarjf extends javax.swing.JFrame {
     private javax.swing.JButton btnsiguientevolu;
     private javax.swing.JComboBox<String> cmbgenero;
     private javax.swing.JComboBox<String> cmbnivelestudioencargado;
+    private javax.swing.JComboBox<String> cmbnivelestudiovoluntario;
     private javax.swing.JComboBox<String> cmbtalla;
     private javax.swing.JComboBox<String> cmbtipodesangre;
     private com.toedter.calendar.JDateChooser datecfecha;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jpbeca;
     private javax.swing.JPanel jpconteme;
     private javax.swing.JPanel jpdatosp;
     private javax.swing.JPanel jpdenca;
     private javax.swing.JPanel jpdlabo;
     private javax.swing.JPanel jpinfomed;
+    private javax.swing.JPanel jpvoluntariado;
+    private javax.swing.JLabel lbbeca;
+    private javax.swing.JLabel lbconteme;
+    private javax.swing.JLabel lbdatosenca;
+    private javax.swing.JLabel lbdlabo;
+    private javax.swing.JLabel lbdp;
+    private javax.swing.JLabel lbinfomed;
+    private javax.swing.JLabel lbvoluntariado;
     private rojerusan.RSPanelsSlider rSPanelsSlider1;
     private javax.swing.JTextField textfieldalergia1;
     private javax.swing.JTextField textfieldalergia2;
@@ -769,7 +918,6 @@ public class agregarjf extends javax.swing.JFrame {
     private javax.swing.JTextField textfieldalergia4;
     private javax.swing.JTextField textfieldalergia5;
     private javax.swing.JTextField textfieldapellidoemergencia;
-    private javax.swing.JTextField textfieldapellidoemergencia2;
     private javax.swing.JTextField textfieldapellidoencargado;
     private javax.swing.JTextField textfieldapellidos;
     private javax.swing.JTextField textfieldcorreo;
@@ -779,12 +927,15 @@ public class agregarjf extends javax.swing.JFrame {
     private javax.swing.JTextField textfieldedad;
     private javax.swing.JTextField textfieldhospital;
     private javax.swing.JTextField textfieldlugardeestudio;
+    private javax.swing.JTextField textfieldlugardeestudio2;
     private javax.swing.JTextField textfieldlugarencargado;
-    private javax.swing.JTextField textfieldnivelestudio;
+    private javax.swing.JTextField textfieldlugartrabajo;
+    private javax.swing.JTextField textfieldlugartrabajo2;
     private javax.swing.JTextField textfieldnombreemergencia;
     private javax.swing.JTextField textfieldnombreencargado;
     private javax.swing.JTextField textfieldnombres;
     private javax.swing.JTextField textfieldocupacion;
+    private javax.swing.JTextField textfieldocupacion2;
     private javax.swing.JTextField textfieldocupacionencargado;
     private javax.swing.JTextField textfieldpadecimiento1;
     private javax.swing.JTextField textfieldpadecimiento2;
@@ -796,10 +947,10 @@ public class agregarjf extends javax.swing.JFrame {
     private javax.swing.JTextField textfieldresidenciaencargado;
     private javax.swing.JTextField textfieldtelefono;
     private javax.swing.JTextField textfieldtelefonoemergencia1;
+    private javax.swing.JTextField textfieldtelefonoemergencia2;
     private javax.swing.JTextField textfieldtelefonoemergencia3;
     private javax.swing.JTextField textfieldtelefonoemergencia4;
     private javax.swing.JTextField textfieldtelefonoemergencia5;
     private javax.swing.JTextField textfieldtelefonoencargado;
-    private javax.swing.JTextField ttextfieldlugartrabajo;
     // End of variables declaration//GEN-END:variables
 }

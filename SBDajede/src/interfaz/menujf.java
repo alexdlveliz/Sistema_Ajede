@@ -7,13 +7,15 @@ package interfaz;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import javax.swing.ImageIcon;
 
 /**
  *
  * @author Nahomi
  */
 public class menujf extends javax.swing.JFrame {
-
+    ImageIcon menutam1 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/menu1.png")).getImage());
+    ImageIcon menutam2 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/opcionestam2.jpg")).getImage());
     /**
      * Creates new form menujf
      */
@@ -25,18 +27,20 @@ public class menujf extends javax.swing.JFrame {
         transparencia();
         if ((tamanio.width ==1920)&&(tamanio.height == 1080))
         {
-            this.setSize(1667, 937);
+            this.setSize(1565, 880);
+            jpmenu.setIcon(menutam1);
             this.setLocationRelativeTo(null);
-            btnagregar.setLocation(213, 475);
-            btneditar.setLocation(550, 455);
-            btneliminar.setLocation(890, 450);
-            btnbuscar.setLocation(1244, 457);
-            btnminimizarmenu.setLocation(1470, 5);
-            btnsalirdmenu.setLocation(1560, 5);
+            btnagregar.setLocation(198, 445);
+            btneditar.setLocation(515, 430);
+            btneliminar.setLocation(838, 415);
+            btnbuscar.setLocation(1165, 425);
+            btnminimizarmenu.setLocation(1410, 5);
+            btnsalirdmenu.setLocation(1480, 5);
         }
         else if((tamanio.width == 1366) && (tamanio.height == 768)) //1366.768, alex: 1708.960
         {
             this.setSize(1256, 706);
+            jpmenu.setIcon(menutam2);
             this.setLocationRelativeTo(null);
             btnagregar.setLocation(133, 345);
             btneditar.setLocation(390, 330);
