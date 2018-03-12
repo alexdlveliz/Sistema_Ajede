@@ -116,13 +116,13 @@ public class agregarjf extends javax.swing.JFrame {
         textfieldedad = new javax.swing.JTextField();
         textfieldapellidos = new javax.swing.JTextField();
         cmbgenero = new javax.swing.JComboBox<>();
-        datecfecha = new com.toedter.calendar.JDateChooser();
         textfielddpi = new javax.swing.JTextField();
         textfieldresidencia = new javax.swing.JTextField();
         textfieldcorreo = new javax.swing.JTextField();
         textfieldperfil = new javax.swing.JTextField();
         cmbtalla = new javax.swing.JComboBox<>();
         textfieldtelefono = new javax.swing.JTextField();
+        datecfecha = new com.toedter.calendar.JDateChooser();
         jLabel1 = new javax.swing.JLabel();
         jpinfomed = new javax.swing.JPanel();
         btnhomeinfme = new javax.swing.JButton();
@@ -233,10 +233,6 @@ public class agregarjf extends javax.swing.JFrame {
         jpdatosp.add(cmbgenero);
         cmbgenero.setBounds(380, 300, 190, 29);
 
-        datecfecha.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        jpdatosp.add(datecfecha);
-        datecfecha.setBounds(330, 360, 270, 40);
-
         textfielddpi.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         textfielddpi.setBorder(null);
         jpdatosp.add(textfielddpi);
@@ -267,6 +263,8 @@ public class agregarjf extends javax.swing.JFrame {
         textfieldtelefono.setBorder(null);
         jpdatosp.add(textfieldtelefono);
         textfieldtelefono.setBounds(880, 320, 250, 30);
+        jpdatosp.add(datecfecha);
+        datecfecha.setBounds(330, 360, 260, 40);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/datosptam2.jpg"))); // NOI18N
         jpdatosp.add(jLabel1);
