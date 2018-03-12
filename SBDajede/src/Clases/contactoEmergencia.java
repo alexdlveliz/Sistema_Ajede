@@ -34,6 +34,7 @@ public class contactoEmergencia
     {
         try{
             int idAsociado = 0;
+            //Se busca en la tabla asociado la persona a la que corresponde el id que viene por parámetro
             String sql = "SELECT id FROM asociado WHERE id='" + AsociadioId + "'";
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
