@@ -35,7 +35,6 @@ public class antecedentesMedicos
         try{
             int id_Asociado = 0;
             String sql = "SELECT id FROM asociado WHERE id='" + idAsociado + "'";
-            PreparedStatement pst = con.prepareStatement(sql);
             Statement st = con.createStatement();
             ResultSet Rs = st.executeQuery(sql);
             while(Rs.next())
@@ -44,7 +43,7 @@ public class antecedentesMedicos
             }
             sql = "INSERT INTO antecedentesmedicos(Hospital, Enfermedad, Asociado_id)"
                     + "VALUES (?,?,?)";
-            pst = con.prepareStatement(sql);
+            PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1, Hospital);
             pst.setString(2, Enfermedad);
             pst.setInt(3, id_Asociado);
