@@ -7,6 +7,7 @@ package interfaz;
 
 import Clases.Asociado;
 import com.toedter.calendar.JDateChooser;
+import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.WARNING_MESSAGE;
@@ -216,9 +217,8 @@ public class agregarjf extends javax.swing.JFrame {
         jpdatosp = new javax.swing.JPanel();
         btnsiguienteinfomed = new javax.swing.JButton();
         btnaddtel = new javax.swing.JButton();
-        btnminimizardp = new javax.swing.JButton();
-        btnhomedp = new javax.swing.JButton();
-        btnsalirdp = new javax.swing.JButton();
+        btnhomedp1 = new javax.swing.JButton();
+        btnsalirdp1 = new javax.swing.JButton();
         btnmenu = new javax.swing.JButton();
         textfieldnombres = new javax.swing.JTextField();
         textfieldedad = new javax.swing.JTextField();
@@ -231,7 +231,7 @@ public class agregarjf extends javax.swing.JFrame {
         textfieldperfil = new javax.swing.JTextField();
         cmbtalla = new javax.swing.JComboBox<>();
         textfieldtelefono = new javax.swing.JTextField();
-        datecfecha = new com.toedter.calendar.JDateChooser();
+        datecfecha1 = new com.toedter.calendar.JDateChooser();
         lbdp = new javax.swing.JLabel();
         jpinfomed = new javax.swing.JPanel();
         btnhomeinfme = new javax.swing.JButton();
@@ -388,35 +388,25 @@ public class agregarjf extends javax.swing.JFrame {
         jpdatosp.add(btnaddtel);
         btnaddtel.setBounds(870, 450, 110, 100);
 
-        btnminimizardp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Chevron_Down_30px_1.png"))); // NOI18N
-        btnminimizardp.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Chevron_Down_70px.png"))); // NOI18N
-        btnminimizardp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnminimizardpActionPerformed(evt);
-            }
-        });
-        jpdatosp.add(btnminimizardp);
-        btnminimizardp.setBounds(1100, 0, 80, 70);
-
-        btnhomedp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Person_at_Home_30px.png"))); // NOI18N
-        btnhomedp.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Person_at_Home_70px_1.png"))); // NOI18N
-        btnhomedp.addActionListener(new java.awt.event.ActionListener() {
+        btnhomedp1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Person_at_Home_30px.png"))); // NOI18N
+        btnhomedp1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Person_at_Home_70px_1.png"))); // NOI18N
+        btnhomedp1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnhomedpActionPerformed(evt);
             }
         });
-        jpdatosp.add(btnhomedp);
-        btnhomedp.setBounds(1019, 0, 80, 70);
+        jpdatosp.add(btnhomedp1);
+        btnhomedp1.setBounds(1019, 0, 80, 70);
 
-        btnsalirdp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Close_Window_30px.png"))); // NOI18N
-        btnsalirdp.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Close_Window_70px.png"))); // NOI18N
-        btnsalirdp.addActionListener(new java.awt.event.ActionListener() {
+        btnsalirdp1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Close_Window_30px.png"))); // NOI18N
+        btnsalirdp1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Close_Window_70px.png"))); // NOI18N
+        btnsalirdp1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnsalirdpActionPerformed(evt);
             }
         });
-        jpdatosp.add(btnsalirdp);
-        btnsalirdp.setBounds(1180, 0, 70, 70);
+        jpdatosp.add(btnsalirdp1);
+        btnsalirdp1.setBounds(1180, 0, 70, 70);
 
         btnmenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/Home_70px.png"))); // NOI18N
         btnmenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -465,9 +455,8 @@ public class agregarjf extends javax.swing.JFrame {
         cmbgenero.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         cmbgenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino" }));
         cmbgenero.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        cmbgenero.setOpaque(true);
         jpdatosp.add(cmbgenero);
-        cmbgenero.setBounds(380, 300, 190, 33);
+        cmbgenero.setBounds(380, 300, 190, 29);
 
         datecfecha.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jpdatosp.add(datecfecha);
@@ -503,14 +492,14 @@ public class agregarjf extends javax.swing.JFrame {
         cmbtalla.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "XS", "S", "M", "L", "XL" }));
         cmbtalla.setBorder(null);
         jpdatosp.add(cmbtalla);
-        cmbtalla.setBounds(870, 250, 60, 33);
+        cmbtalla.setBounds(870, 250, 60, 27);
 
         textfieldtelefono.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         textfieldtelefono.setBorder(null);
         jpdatosp.add(textfieldtelefono);
         textfieldtelefono.setBounds(880, 320, 250, 30);
-        jpdatosp.add(datecfecha);
-        datecfecha.setBounds(330, 360, 260, 40);
+        jpdatosp.add(datecfecha1);
+        datecfecha1.setBounds(330, 360, 260, 40);
 
         lbdp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/datospersonales2.jpg"))); // NOI18N
         jpdatosp.add(lbdp);
@@ -676,8 +665,8 @@ public class agregarjf extends javax.swing.JFrame {
 
         cmbnivelestudioencargado.setBackground(new java.awt.Color(178, 248, 248));
         cmbnivelestudioencargado.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        cmbnivelestudioencargado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Primaria", "Diversificado", "Universitario", "Posgrado", "Otro" }));
         cmbnivelestudioencargado.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        cmbnivelestudioencargado.setOpaque(true);
         jpdenca.add(cmbnivelestudioencargado);
         cmbnivelestudioencargado.setBounds(254, 292, 340, 40);
 
@@ -805,11 +794,10 @@ public class agregarjf extends javax.swing.JFrame {
         });
         jpdlabo.add(btnatrascontem);
         btnatrascontem.setBounds(670, 440, 120, 110);
-        jpdlabo.add(textfieldnivelestudio);
+
         cmbnivelestudioasociado.setBackground(new java.awt.Color(178, 248, 248));
         cmbnivelestudioasociado.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         cmbnivelestudioasociado.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        cmbnivelestudioasociado.setOpaque(true);
         jpdlabo.add(cmbnivelestudioasociado);
         cmbnivelestudioasociado.setBounds(270, 180, 340, 40);
         jpdlabo.add(textfieldlugardeestudio);
@@ -845,7 +833,6 @@ public class agregarjf extends javax.swing.JFrame {
 
         rSPanelsSlider1.add(jpdlabo, "card6");
 
-        jPanel1.add(rSPanelsSlider1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 725));
         lbvoluntariado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/voluntariado2.jpg"))); // NOI18N
 
         javax.swing.GroupLayout jpvoluntariadoLayout = new javax.swing.GroupLayout(jpvoluntariado);
@@ -854,7 +841,7 @@ public class agregarjf extends javax.swing.JFrame {
             jpvoluntariadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpvoluntariadoLayout.createSequentialGroup()
                 .addComponent(lbvoluntariado)
-                .addGap(0, 25, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jpvoluntariadoLayout.setVerticalGroup(
             jpvoluntariadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -873,7 +860,7 @@ public class agregarjf extends javax.swing.JFrame {
             jpbecaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpbecaLayout.createSequentialGroup()
                 .addComponent(lbbeca)
-                .addGap(0, 25, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jpbecaLayout.setVerticalGroup(
             jpbecaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -884,7 +871,7 @@ public class agregarjf extends javax.swing.JFrame {
 
         rSPanelsSlider1.add(jpbeca, "card8");
 
-        jPanel1.add(rSPanelsSlider1, "card2");
+        jPanel1.add(rSPanelsSlider1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 725));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -934,9 +921,9 @@ public class agregarjf extends javax.swing.JFrame {
         rSPanelsSlider1.setPanelSlider(jpconteme, RSPanelsSlider.DIRECT.RIGHT);
 
     }//GEN-LAST:event_btnatrascontemActionPerformed
-    private void btnminimizardpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnminimizardpActionPerformed
+    private void btnminimizardpActionPerformed(java.awt.event.ActionEvent evt) {                                               
         this.setExtendedState(ICONIFIED);
-    }//GEN-LAST:event_btnminimizardpActionPerformed
+    }                                              
 
     private void btnhomeinfmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhomeinfmeActionPerformed
         JOptionPane.showMessageDialog(null, "¿Desea salir sin guardar cambios?", "¡¡¡ATENCIÓN!!!", WARNING_MESSAGE);     
@@ -1067,11 +1054,11 @@ public class agregarjf extends javax.swing.JFrame {
             this.dispose();
         }
     }//GEN-LAST:event_btnhomedpActionPerformed
-
+/*
     private void btnminimizardpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnminimizardpActionPerformed
         this.setExtendedState(ICONIFIED);
     }//GEN-LAST:event_btnminimizardpActionPerformed
-
+*/
     private void btnsalirdpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirdpActionPerformed
         int respuesta = JOptionPane.showConfirmDialog(null, "¿Desea salir sin guardar cambios?", "¡¡¡ATENCIÓN!!!", WARNING_MESSAGE);
         if (respuesta == 0) {
@@ -1093,12 +1080,14 @@ public class agregarjf extends javax.swing.JFrame {
     private javax.swing.JButton btnatrasdp;
     private javax.swing.JButton btnatrasinfme;
     private javax.swing.JButton btnhomedp;
+    private javax.swing.JButton btnhomedp1;
     private javax.swing.JButton btnhomeinfme;
     private javax.swing.JButton btnmenu;
     private javax.swing.JButton btnminimizardp;
     private javax.swing.JButton btnminimizarifme;
     private javax.swing.JButton btnotrotelefonoencargado;
     private javax.swing.JButton btnsalirdp;
+    private javax.swing.JButton btnsalirdp1;
     private javax.swing.JButton btnsalirinfme;
     private javax.swing.JButton btnsiguienteconteme;
     private javax.swing.JButton btnsiguientedenc;
@@ -1112,12 +1101,9 @@ public class agregarjf extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbtalla;
     private javax.swing.JComboBox<String> cmbtipodesangre;
     private com.toedter.calendar.JDateChooser datecfecha;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private com.toedter.calendar.JDateChooser datecfecha1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jpbeca;
     private javax.swing.JPanel jpconteme;
     private javax.swing.JPanel jpdatosp;
@@ -1150,7 +1136,6 @@ public class agregarjf extends javax.swing.JFrame {
     private javax.swing.JTextField textfieldlugardeestudio;
     private javax.swing.JTextField textfieldlugardeestudio2;
     private javax.swing.JTextField textfieldlugarencargado;
-    private javax.swing.JTextField textfieldnivelestudio;
     private javax.swing.JTextField textfieldlugartrabajo;
     private javax.swing.JTextField textfieldlugartrabajo2;
     private javax.swing.JTextField textfieldnombreemergencia;
