@@ -706,8 +706,13 @@ public class agregarjf extends javax.swing.JFrame {
     }//GEN-LAST:event_btnatrascontemActionPerformed
 
     private void btnmenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmenuActionPerformed
-        JOptionPane.showMessageDialog(null, "¿Desea salir sin guardar cambios?", "¡¡¡ATENCIÓN!!!", WARNING_MESSAGE);     
-        this.dispose();
+        int respuesta = JOptionPane.showConfirmDialog(null, "¿Desea salir sin guardar cambios?", "¡¡¡ATENCIÓN!!!", WARNING_MESSAGE);
+        if (respuesta==0) {
+            menujf m = new menujf();
+            m.setVisible(true);
+            this.dispose();
+        }
+        
     }//GEN-LAST:event_btnmenuActionPerformed
 
     private void btnagregarasociadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarasociadoActionPerformed
@@ -720,38 +725,7 @@ public class agregarjf extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(agregarjf.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(agregarjf.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(agregarjf.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(agregarjf.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new agregarjf().setVisible(true);
-            }
-        });
-    }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnaddtel;
     private javax.swing.JButton btnagregarasociado;

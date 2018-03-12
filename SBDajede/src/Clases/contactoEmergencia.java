@@ -34,8 +34,8 @@ public class contactoEmergencia
     {
         try{
             int idAsociado = 0;
+            //Se busca en la tabla asociado la persona a la que corresponde el id que viene por parámetro
             String sql = "SELECT id FROM asociado WHERE id='" + AsociadioId + "'";
-            PreparedStatement pst = con.prepareStatement(sql);
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while(rs.next())
@@ -46,7 +46,7 @@ public class contactoEmergencia
                     + "VALUES (?,?,?,?)";
             String sql2 = "INSERT INTO telefono(telefono, contactoEmergencia_id)"
                     + "VALUES (?,?)";
-            pst = con.prepareStatement(sql);
+            PreparedStatement pst = con.prepareStatement(sql);
             PreparedStatement pst2 = con.prepareStatement(sql2);
             pst.setString(1, relacion);
             pst.setString(2, nombre);

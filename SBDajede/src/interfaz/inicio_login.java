@@ -26,13 +26,12 @@ public class inicio_login extends javax.swing.JFrame {
      * Creates new form inicio_login
      */
     private Usuario us;
-    Font fuente = new Font("Yu Gothic UI Light",Font.BOLD, 25);
+    Font fuente = new Font("Yu Gothic UI Light", Font.BOLD, 25);
     Font fuente2 = new Font("Yu Gothic UI Light", Font.BOLD, 15);
     ImageIcon iniciotam1 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/iniciointerfaz.jpg")).getImage());
     ImageIcon logintam1 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/login.jpg")).getImage());
     ImageIcon iniciotam2 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/iniciotam2.jpg")).getImage());
     ImageIcon logintam2 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/logintam2.jpg")).getImage());
-    
 
     public inicio_login() {
         initComponents();
@@ -43,9 +42,8 @@ public class inicio_login extends javax.swing.JFrame {
         PSTcontrasenia.setBackground(new Color(0, 0, 0, 0));
         Toolkit tk = Toolkit.getDefaultToolkit();
         Dimension tamanio = tk.getScreenSize();
-        if((tamanio.width == 1920)&&(tamanio.height ==1080))
-        {
-            this.setSize(1685,985);
+        if ((tamanio.width == 1920) && (tamanio.height == 1080)) {
+            this.setSize(1685, 985);
             inicio.setIcon(iniciotam1);
             login.setIcon(logintam1);
             btnsiguiente.setLocation(1450, 770);
@@ -57,8 +55,7 @@ public class inicio_login extends javax.swing.JFrame {
             PSTcontrasenia.setFont(fuente);
             CMBUsuarios.setLocation(980, 335);
             CMBUsuarios.setFont(fuente);
-        }
-        else if((tamanio.width == 1708) && (tamanio.height == 960)) //1366.760, alex: 1708.960
+        } else if ((tamanio.width == 1708) && (tamanio.height == 960)) //1366.760, alex: 1708.960
         {
             this.setSize(1256, 706);
             inicio.setIcon(iniciotam2);
@@ -66,7 +63,7 @@ public class inicio_login extends javax.swing.JFrame {
             btnsiguiente.setLocation(1050, 530);
             btnadmin.setLocation(130, 376);
             btncomite.setLocation(300, 376);
-            CMBUsuarios.setLocation(660,233);
+            CMBUsuarios.setLocation(660, 233);
             CMBUsuarios.setFont(fuente2);
             PSTcontrasenia.setLocation(710, 312);
             btningresar.setLocation(622, 370);
@@ -145,7 +142,7 @@ public class inicio_login extends javax.swing.JFrame {
             }
         });
         inicio.add(btnsiguiente);
-        btnsiguiente.setBounds(417, 344, 103, 79);
+        btnsiguiente.setBounds(417, 344, 98, 82);
 
         rSPanelsSlider1.add(inicio, "card2");
 
@@ -171,6 +168,11 @@ public class inicio_login extends javax.swing.JFrame {
         PSTcontrasenia.setForeground(new java.awt.Color(0, 255, 255));
         PSTcontrasenia.setText("jPasswordField1");
         PSTcontrasenia.setBorder(null);
+        PSTcontrasenia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                PSTcontraseniaKeyTyped(evt);
+            }
+        });
         login.add(PSTcontrasenia);
         PSTcontrasenia.setBounds(730, 370, 330, 25);
 
@@ -198,7 +200,7 @@ public class inicio_login extends javax.swing.JFrame {
             }
         });
         login.add(btningresar);
-        btningresar.setBounds(640, 440, 103, 110);
+        btningresar.setBounds(640, 440, 98, 110);
 
         btnfpassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/login/icons8_Forgot_Password_70px_1.png"))); // NOI18N
         btnfpassword.setName("btnfpassword"); // NOI18N
@@ -231,9 +233,10 @@ public class inicio_login extends javax.swing.JFrame {
 
     private void btnsiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsiguienteActionPerformed
         /**
-         *Una primera condicion que se llama al metodo de la clase usuario y contar los 
-         * usuarios en la BD esto se hace siempre para verificar si es la primera vez que
-         * se inicia el programa y así poder saber si se abré el login o el registro.
+         * Una primera condicion que se llama al metodo de la clase usuario y
+         * contar los usuarios en la BD esto se hace siempre para verificar si
+         * es la primera vez que se inicia el programa y así poder saber si se
+         * abré el login o el registro.
          */
         if (us.ContarUsuarios() == 0) {
             Registrarjf registrar = new Registrarjf();
@@ -243,14 +246,10 @@ public class inicio_login extends javax.swing.JFrame {
             rSPanelsSlider1.setPanelSlider(login, RSPanelsSlider.DIRECT.LEFT);
         }
     }//GEN-LAST:event_btnsiguienteActionPerformed
-
-    private void btningresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btningresarActionPerformed
-        /**
-         * Obtengo el usuario que se selecciono en el combo box
-         * se hace una condicion para verificar sesion enviandole como parametrso
-         * el usuario y la contraseña, si regresa true se abré el splah  y posterior el menu
-         * de lo contrario se notificara que revise el usuario o ingrese la contraseña correcta.
-         */
+    /**
+     * metodo que verifica la si la contraseña del usurio es la misma en la BD.
+     */
+    private void InicioSecion() {
         String usuario = (String) CMBUsuarios.getSelectedItem();
         if (us.verificarSesion(DigestUtils.md5Hex(PSTcontrasenia.getText()), usuario)) {
             this.dispose();
@@ -273,11 +272,13 @@ public class inicio_login extends javax.swing.JFrame {
             } catch (InterruptedException e) {
 
             }
-            
-        } else {
-            JOptionPane.showMessageDialog(null,"Error al ingresar la contraseña","Error",WARNING_MESSAGE);
-        }
 
+        } else {
+            JOptionPane.showMessageDialog(null, "Error al ingresar la contraseña", "Error", WARNING_MESSAGE);
+        }
+    }
+    private void btningresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btningresarActionPerformed
+        InicioSecion();
     }//GEN-LAST:event_btningresarActionPerformed
 
     private void CMBUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CMBUsuariosActionPerformed
@@ -290,6 +291,19 @@ public class inicio_login extends javax.swing.JFrame {
         Sugerencia: reenviar contraseña: usuario123
          */
     }//GEN-LAST:event_btnfpasswordActionPerformed
+    /**
+     * Este metodo lo utilizó para cuando el usuario termina de escribir su
+     * contraseña y solo le da enter para que inicie secion
+     *
+     * @param evt
+     */
+    private void PSTcontraseniaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PSTcontraseniaKeyTyped
+        //comparo el valor del caracter en ascii si es 10 significa que dio un enter entonces llamo al metodo iniciar sesion.
+        char c = evt.getKeyChar();
+        if ((int) c == 10) {
+            InicioSecion();
+        }
+    }//GEN-LAST:event_PSTcontraseniaKeyTyped
 
     /**
      * @param args the command line arguments
