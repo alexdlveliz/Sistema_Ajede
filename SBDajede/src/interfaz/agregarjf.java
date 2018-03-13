@@ -18,6 +18,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JPanel;
+import java.awt.Color;
 
 /**
  *
@@ -93,6 +94,10 @@ public class agregarjf extends javax.swing.JFrame {
             lbinfomed.setIcon(infomed2);
             lbdatosenca.setIcon(datosenc2);
             lbconteme.setIcon(contacem2);
+            btnsiguienteinfomed.setLocation(1070, 450);
+            btnaddtel.setLocation(870, 435);
+            btnhomedp1.setLocation(1027, 0);
+            btnsalirdp1.setLocation(1180, 0);
         }
 //        this.setLocationRelativeTo(null);
 //        this.setSize(1255, 705);
@@ -100,15 +105,6 @@ public class agregarjf extends javax.swing.JFrame {
     }
 
     public void transparencia() {
-        btnsalirdp.setOpaque(false);
-        btnsalirdp.setBorderPainted(false);
-        btnsalirdp.setContentAreaFilled(false);
-        btnminimizardp.setOpaque(false);
-        btnminimizardp.setBorderPainted(false);
-        btnminimizardp.setContentAreaFilled(false);
-        btnhomedp.setOpaque(false);
-        btnhomedp.setBorderPainted(false);
-        btnhomedp.setContentAreaFilled(false);
         btnmenu.setOpaque(false);
         btnmenu.setBorderPainted(false);
         btnmenu.setContentAreaFilled(false);
@@ -209,10 +205,6 @@ public class agregarjf extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        btnhomedp = new javax.swing.JButton();
-        btnminimizardp = new javax.swing.JButton();
-        btnsalirdp = new javax.swing.JButton();
         rSPanelsSlider1 = new rojerusan.RSPanelsSlider();
         jpdatosp = new javax.swing.JPanel();
         btnsiguienteinfomed = new javax.swing.JButton();
@@ -231,7 +223,6 @@ public class agregarjf extends javax.swing.JFrame {
         textfieldperfil = new javax.swing.JTextField();
         cmbtalla = new javax.swing.JComboBox<>();
         textfieldtelefono = new javax.swing.JTextField();
-        datecfecha1 = new com.toedter.calendar.JDateChooser();
         lbdp = new javax.swing.JLabel();
         jpinfomed = new javax.swing.JPanel();
         btnhomeinfme = new javax.swing.JButton();
@@ -301,69 +292,7 @@ public class agregarjf extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(1255, 705));
 
         jPanel1.setPreferredSize(new java.awt.Dimension(1250, 700));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel2.setOpaque(false);
-
-        btnhomedp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Person_at_Home_30px.png"))); // NOI18N
-        btnhomedp.setBorderPainted(false);
-        btnhomedp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnhomedp.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Person_at_Home_70px_1.png"))); // NOI18N
-        btnhomedp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnhomedpActionPerformed(evt);
-            }
-        });
-
-        btnminimizardp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Chevron_Down_30px_1.png"))); // NOI18N
-        btnminimizardp.setBorderPainted(false);
-        btnminimizardp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnminimizardp.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Chevron_Down_70px.png"))); // NOI18N
-        btnminimizardp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnminimizardpActionPerformed(evt);
-            }
-        });
-
-        btnsalirdp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Close_Window_30px.png"))); // NOI18N
-        btnsalirdp.setBorderPainted(false);
-        btnsalirdp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnsalirdp.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Close_Window_70px.png"))); // NOI18N
-        btnsalirdp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnsalirdpActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 231, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(btnhomedp, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(1, 1, 1)
-                    .addComponent(btnminimizardp, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, 0)
-                    .addComponent(btnsalirdp, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(btnhomedp, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnminimizardp, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnsalirdp, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 0, -1, -1));
+        jPanel1.setLayout(null);
 
         rSPanelsSlider1.setMinimumSize(new java.awt.Dimension(1275, 725));
         rSPanelsSlider1.setPreferredSize(new java.awt.Dimension(1250, 700));
@@ -498,8 +427,6 @@ public class agregarjf extends javax.swing.JFrame {
         textfieldtelefono.setBorder(null);
         jpdatosp.add(textfieldtelefono);
         textfieldtelefono.setBounds(880, 320, 250, 30);
-        jpdatosp.add(datecfecha1);
-        datecfecha1.setBounds(330, 360, 260, 40);
 
         lbdp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/datospersonales2.jpg"))); // NOI18N
         jpdatosp.add(lbdp);
@@ -732,34 +659,42 @@ public class agregarjf extends javax.swing.JFrame {
         btnatrasdenc.setBounds(670, 440, 120, 110);
 
         textfieldnombreemergencia.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldnombreemergencia.setBorder(null);
         jpconteme.add(textfieldnombreemergencia);
-        textfieldnombreemergencia.setBounds(170, 160, 430, 40);
+        textfieldnombreemergencia.setBounds(170, 170, 430, 40);
 
         textfieldapellidoemergencia.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldapellidoemergencia.setBorder(null);
         jpconteme.add(textfieldapellidoemergencia);
         textfieldapellidoemergencia.setBounds(170, 230, 430, 40);
 
         textfieldparentescoemergencia.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldparentescoemergencia.setBorder(null);
         jpconteme.add(textfieldparentescoemergencia);
         textfieldparentescoemergencia.setBounds(320, 300, 280, 30);
 
         textfieldtelefonoemergencia1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldtelefonoemergencia1.setBorder(null);
         jpconteme.add(textfieldtelefonoemergencia1);
         textfieldtelefonoemergencia1.setBounds(180, 360, 150, 30);
 
         textfieldtelefonoemergencia2.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldtelefonoemergencia2.setBorder(null);
         jpconteme.add(textfieldtelefonoemergencia2);
         textfieldtelefonoemergencia2.setBounds(50, 430, 530, 30);
 
         textfieldtelefonoemergencia3.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldtelefonoemergencia3.setBorder(null);
         jpconteme.add(textfieldtelefonoemergencia3);
         textfieldtelefonoemergencia3.setBounds(50, 480, 530, 30);
 
         textfieldtelefonoemergencia4.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldtelefonoemergencia4.setBorder(null);
         jpconteme.add(textfieldtelefonoemergencia4);
         textfieldtelefonoemergencia4.setBounds(50, 530, 530, 30);
 
         textfieldtelefonoemergencia5.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldtelefonoemergencia5.setBorder(null);
         jpconteme.add(textfieldtelefonoemergencia5);
         textfieldtelefonoemergencia5.setBounds(50, 570, 530, 30);
 
@@ -797,11 +732,16 @@ public class agregarjf extends javax.swing.JFrame {
 
         cmbnivelestudioasociado.setBackground(new java.awt.Color(178, 248, 248));
         cmbnivelestudioasociado.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        cmbnivelestudioasociado.setBorder(null);
         cmbnivelestudioasociado.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jpdlabo.add(cmbnivelestudioasociado);
         cmbnivelestudioasociado.setBounds(270, 180, 340, 40);
+
+        textfieldlugardeestudio.setBorder(null);
         jpdlabo.add(textfieldlugardeestudio);
         textfieldlugardeestudio.setBounds(70, 320, 530, 30);
+
+        textfieldocupacion.setBorder(null);
         jpdlabo.add(textfieldocupacion);
         textfieldocupacion.setBounds(70, 520, 530, 30);
         jpdlabo.add(textfieldlugartrabajo);
@@ -820,8 +760,12 @@ public class agregarjf extends javax.swing.JFrame {
         cmbnivelestudiovoluntario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jpdlabo.add(cmbnivelestudiovoluntario);
         cmbnivelestudiovoluntario.setBounds(280, 190, 320, 22);
+
+        textfieldlugardeestudio2.setBorder(null);
         jpdlabo.add(textfieldlugardeestudio2);
         textfieldlugardeestudio2.setBounds(70, 372, 530, 30);
+
+        textfieldocupacion2.setBorder(null);
         jpdlabo.add(textfieldocupacion2);
         textfieldocupacion2.setBounds(70, 570, 530, 30);
         jpdlabo.add(textfieldlugartrabajo2);
@@ -871,7 +815,8 @@ public class agregarjf extends javax.swing.JFrame {
 
         rSPanelsSlider1.add(jpbeca, "card8");
 
-        jPanel1.add(rSPanelsSlider1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 725));
+        jPanel1.add(rSPanelsSlider1);
+        rSPanelsSlider1.setBounds(0, 0, 1250, 725);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -921,6 +866,7 @@ public class agregarjf extends javax.swing.JFrame {
         rSPanelsSlider1.setPanelSlider(jpconteme, RSPanelsSlider.DIRECT.RIGHT);
 
     }//GEN-LAST:event_btnatrascontemActionPerformed
+
     private void btnminimizardpActionPerformed(java.awt.event.ActionEvent evt) {                                               
         this.setExtendedState(ICONIFIED);
     }                                              
@@ -1054,16 +1000,10 @@ public class agregarjf extends javax.swing.JFrame {
             this.dispose();
         }
     }//GEN-LAST:event_btnhomedpActionPerformed
-/*
-    private void btnminimizardpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnminimizardpActionPerformed
-        this.setExtendedState(ICONIFIED);
-    }//GEN-LAST:event_btnminimizardpActionPerformed
-*/
+
     private void btnsalirdpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirdpActionPerformed
         int respuesta = JOptionPane.showConfirmDialog(null, "¿Desea salir sin guardar cambios?", "¡¡¡ATENCIÓN!!!", WARNING_MESSAGE);
         if (respuesta == 0) {
-            menujf m = new menujf();
-            m.setVisible(true);
             this.dispose();
         }
     }//GEN-LAST:event_btnsalirdpActionPerformed
@@ -1079,14 +1019,11 @@ public class agregarjf extends javax.swing.JFrame {
     private javax.swing.JButton btnatrasdenc;
     private javax.swing.JButton btnatrasdp;
     private javax.swing.JButton btnatrasinfme;
-    private javax.swing.JButton btnhomedp;
     private javax.swing.JButton btnhomedp1;
     private javax.swing.JButton btnhomeinfme;
     private javax.swing.JButton btnmenu;
-    private javax.swing.JButton btnminimizardp;
     private javax.swing.JButton btnminimizarifme;
     private javax.swing.JButton btnotrotelefonoencargado;
-    private javax.swing.JButton btnsalirdp;
     private javax.swing.JButton btnsalirdp1;
     private javax.swing.JButton btnsalirinfme;
     private javax.swing.JButton btnsiguienteconteme;
@@ -1101,9 +1038,7 @@ public class agregarjf extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbtalla;
     private javax.swing.JComboBox<String> cmbtipodesangre;
     private com.toedter.calendar.JDateChooser datecfecha;
-    private com.toedter.calendar.JDateChooser datecfecha1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jpbeca;
     private javax.swing.JPanel jpconteme;
     private javax.swing.JPanel jpdatosp;
