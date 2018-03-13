@@ -7,17 +7,19 @@ package interfaz;
 
 import Clases.Asociado;
 import com.toedter.calendar.JDateChooser;
-import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.WARNING_MESSAGE;
 import rojerusan.RSPanelsSlider;
 import java.awt.Toolkit;
+<<<<<<< HEAD
 import javax.swing.ImageIcon;
+=======
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JPanel;
+>>>>>>> 3b17a46855991d6daaed1399dbd623ef07d2d4ff
 
 /**
  *
@@ -49,7 +51,7 @@ public class agregarjf extends javax.swing.JFrame {
     public agregarjf() {
         asociado = new Asociado();
         initComponents();
-        //transparencia();
+        transparencia();
         Toolkit tk = Toolkit.getDefaultToolkit();
         Dimension tamanio = tk.getScreenSize();
         cmbnivelestudioencargado.setModel(asociado.NivEst());
@@ -57,18 +59,18 @@ public class agregarjf extends javax.swing.JFrame {
 
         if ((tamanio.width == 1920) && (tamanio.height == 1080)) //1920x1080
         {
-            this.setSize(1565, 880);
+            this.setSize(1568, 880);
             this.setLocationRelativeTo(null);
-            jPanel1.setSize(1565, 880);
-//            //jPanel2.setSize(1565,880);
-            slider.setSize(1565, 880);
-            jpdatosp.setSize(1595, 890);
-            lbdp.setSize(1595, 890);
-            lbdlabo.setSize(1565,880);
+<<<<<<< HEAD
+            jPanel1.setSize(1568, 880);
+            rSPanelsSlider1.setSize(1568, 880);
+            jpdatosp.setSize(1568, 880);
+            lbdp.setSize(1568, 880);
+            lbdlabo.setSize(1568,880);
             jpdlabo.setSize(1565,880);
             jpvoluntariado.setSize(1565,880);
             lbvoluntariado.setSize(1565,880);
-            jpinfomed.setSize(1565,880);
+            jpinfomed.setSize(1568,880);
             lbinfomed.setSize(1565, 880);
             jpdenca.setSize(1565,880);
             lbdatosenca.setSize(1565,880);
@@ -81,20 +83,18 @@ public class agregarjf extends javax.swing.JFrame {
             lbinfomed.setIcon(infomed1);
             lbdatosenca.setIcon(datosenc1);
             lbconteme.setIcon(contacem1);
-            btnsalir.setVisible(true);
-            btnsalir.requestFocus();
-            btnsalir.setLocation(1480, 10);
-            btnminimizar.setLocation(1398, 10);
-            btnhome.setLocation(1320, 10);
-            textfieldnombres.setLocation(200, 222);
-            textfieldnombres.setSize(510, 38);
             
         }
         else if((tamanio.width == 1366) && (tamanio.height == 768)) //1366x768, 1708x960
+=======
+            this.setSize(1255, 705);
+
+        } else if ((tamanio.width == 1366) && (tamanio.height == 768)) //1366x768, 1708x960
+>>>>>>> 3b17a46855991d6daaed1399dbd623ef07d2d4ff
         {
             this.setLocationRelativeTo(null);
             this.setSize(1250, 700);
-            //lbdp.setIcon(dp2);
+            lbdp.setIcon(dp2);
             lbdlabo.setIcon(dlabo2);
             lbvoluntariado.setIcon(voluntariado2);
             lbbeca.setIcon(beca2);
@@ -107,8 +107,16 @@ public class agregarjf extends javax.swing.JFrame {
         
     }
 
-    public void transparencia() 
-    {
+    public void transparencia() {
+        btnsalirdp.setOpaque(false);
+        btnsalirdp.setBorderPainted(false);
+        btnsalirdp.setContentAreaFilled(false);
+        btnminimizardp.setOpaque(false);
+        btnminimizardp.setBorderPainted(false);
+        btnminimizardp.setContentAreaFilled(false);
+        btnhomedp.setOpaque(false);
+        btnhomedp.setBorderPainted(false);
+        btnhomedp.setContentAreaFilled(false);
         btnmenu.setOpaque(false);
         btnmenu.setBorderPainted(false);
         btnmenu.setContentAreaFilled(false);
@@ -118,9 +126,6 @@ public class agregarjf extends javax.swing.JFrame {
         btnaddtel.setOpaque(false);
         btnaddtel.setBorderPainted(false);
         btnaddtel.setContentAreaFilled(false);
-        btnminimizar.setOpaque(false);
-        btnminimizar.setBorderPainted(false);
-        btnminimizar.setContentAreaFilled(false);
         btnatrasdp.setOpaque(false);
         btnatrasdp.setBorderPainted(false);
         btnatrasdp.setContentAreaFilled(false);
@@ -203,10 +208,11 @@ public class agregarjf extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnsalir = new javax.swing.JButton();
-        btnhome = new javax.swing.JButton();
-        btnminimizar = new javax.swing.JButton();
-        slider = new rojerusan.RSPanelsSlider();
+        jPanel2 = new javax.swing.JPanel();
+        btnhomedp = new javax.swing.JButton();
+        btnminimizardp = new javax.swing.JButton();
+        btnsalirdp = new javax.swing.JButton();
+        rSPanelsSlider1 = new rojerusan.RSPanelsSlider();
         jpdatosp = new javax.swing.JPanel();
         btnsiguienteinfomed = new javax.swing.JButton();
         btnaddtel = new javax.swing.JButton();
@@ -215,13 +221,13 @@ public class agregarjf extends javax.swing.JFrame {
         textfieldedad = new javax.swing.JTextField();
         textfieldapellidos = new javax.swing.JTextField();
         cmbgenero = new javax.swing.JComboBox<>();
-        datecfecha = new com.toedter.calendar.JDateChooser();
         textfielddpi = new javax.swing.JTextField();
         textfieldresidencia = new javax.swing.JTextField();
         textfieldcorreo = new javax.swing.JTextField();
         textfieldperfil = new javax.swing.JTextField();
         cmbtalla = new javax.swing.JComboBox<>();
         textfieldtelefono = new javax.swing.JTextField();
+        datecfecha = new com.toedter.calendar.JDateChooser();
         lbdp = new javax.swing.JLabel();
         jpinfomed = new javax.swing.JPanel();
         btnsiguientedenc = new javax.swing.JButton();
@@ -267,7 +273,10 @@ public class agregarjf extends javax.swing.JFrame {
         jpdlabo = new javax.swing.JPanel();
         btnsiguientevolu = new javax.swing.JButton();
         btnatrascontem = new javax.swing.JButton();
+<<<<<<< HEAD
+=======
         cmbnivelestudioasociado = new javax.swing.JComboBox<>();
+>>>>>>> 3b17a46855991d6daaed1399dbd623ef07d2d4ff
         textfieldlugardeestudio = new javax.swing.JTextField();
         textfieldocupacion = new javax.swing.JTextField();
         textfieldlugartrabajo = new javax.swing.JTextField();
@@ -283,52 +292,84 @@ public class agregarjf extends javax.swing.JFrame {
         lbbeca = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1565, 880));
+        setMaximumSize(new java.awt.Dimension(1256, 706));
         setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(1255, 705));
 
-        jPanel1.setBackground(new java.awt.Color(255, 51, 255));
-        jPanel1.setMaximumSize(new java.awt.Dimension(1565, 880));
+<<<<<<< HEAD
         jPanel1.setPreferredSize(new java.awt.Dimension(1250, 700));
-        jPanel1.setLayout(null);
+        jPanel1.setLayout(new java.awt.CardLayout());
+=======
+        jPanel1.setPreferredSize(new java.awt.Dimension(1275, 725));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnsalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Close_Window_30px.png"))); // NOI18N
-        btnsalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnsalir.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Close_Window_70px.png"))); // NOI18N
-        btnsalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnsalirActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnsalir);
-        btnsalir.setBounds(1180, 0, 70, 70);
+        jPanel2.setOpaque(false);
 
-        btnhome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Person_at_Home_30px.png"))); // NOI18N
-        btnhome.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Person_at_Home_70px_1.png"))); // NOI18N
-        btnhome.addActionListener(new java.awt.event.ActionListener() {
+        btnhomedp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Person_at_Home_30px.png"))); // NOI18N
+        btnhomedp.setBorderPainted(false);
+        btnhomedp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnhomedp.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Person_at_Home_70px_1.png"))); // NOI18N
+        btnhomedp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnhomedpActionPerformed(evt);
             }
         });
-        jPanel1.add(btnhome);
-        btnhome.setBounds(1019, 0, 80, 70);
 
-        btnminimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Chevron_Down_30px_1.png"))); // NOI18N
-        btnminimizar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Chevron_Down_70px.png"))); // NOI18N
-        btnminimizar.addActionListener(new java.awt.event.ActionListener() {
+        btnminimizardp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Chevron_Down_30px_1.png"))); // NOI18N
+        btnminimizardp.setBorderPainted(false);
+        btnminimizardp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnminimizardp.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Chevron_Down_70px.png"))); // NOI18N
+        btnminimizardp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnminimizarActionPerformed(evt);
+                btnminimizardpActionPerformed(evt);
             }
         });
-        jPanel1.add(btnminimizar);
-        btnminimizar.setBounds(1100, 0, 80, 70);
 
-        slider.setMaximumSize(new java.awt.Dimension(1565, 880));
-        slider.setMinimumSize(new java.awt.Dimension(1275, 725));
-        slider.setPreferredSize(new java.awt.Dimension(1250, 700));
+        btnsalirdp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Close_Window_30px.png"))); // NOI18N
+        btnsalirdp.setBorderPainted(false);
+        btnsalirdp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnsalirdp.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Close_Window_70px.png"))); // NOI18N
+        btnsalirdp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsalirdpActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 231, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(btnhomedp, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(1, 1, 1)
+                    .addComponent(btnminimizardp, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, 0)
+                    .addComponent(btnsalirdp, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnhomedp, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnminimizardp, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnsalirdp, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 0, -1, -1));
+>>>>>>> 3b17a46855991d6daaed1399dbd623ef07d2d4ff
+
+        rSPanelsSlider1.setMinimumSize(new java.awt.Dimension(1275, 725));
+        rSPanelsSlider1.setPreferredSize(new java.awt.Dimension(1250, 700));
 
         jpdatosp.setBackground(new java.awt.Color(18, 44, 62));
-        jpdatosp.setMaximumSize(new java.awt.Dimension(1565, 880));
         jpdatosp.setName("datosp"); // NOI18N
         jpdatosp.setLayout(null);
 
@@ -395,12 +436,9 @@ public class agregarjf extends javax.swing.JFrame {
         cmbgenero.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         cmbgenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino" }));
         cmbgenero.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cmbgenero.setOpaque(true);
         jpdatosp.add(cmbgenero);
-        cmbgenero.setBounds(380, 300, 190, 29);
-
-        datecfecha.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        jpdatosp.add(datecfecha);
-        datecfecha.setBounds(330, 360, 270, 40);
+        cmbgenero.setBounds(380, 300, 190, 33);
 
         textfielddpi.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         textfielddpi.setBorder(null);
@@ -432,21 +470,22 @@ public class agregarjf extends javax.swing.JFrame {
         cmbtalla.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "XS", "S", "M", "L", "XL" }));
         cmbtalla.setBorder(null);
         jpdatosp.add(cmbtalla);
-        cmbtalla.setBounds(870, 250, 60, 27);
+        cmbtalla.setBounds(870, 250, 60, 33);
 
         textfieldtelefono.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         textfieldtelefono.setBorder(null);
         jpdatosp.add(textfieldtelefono);
         textfieldtelefono.setBounds(880, 320, 250, 30);
+        jpdatosp.add(datecfecha);
+        datecfecha.setBounds(330, 360, 260, 40);
 
         lbdp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/datospersonales2.jpg"))); // NOI18N
         jpdatosp.add(lbdp);
-        lbdp.setBounds(0, 0, 1250, 700);
+        lbdp.setBounds(0, 0, 1270, 710);
 
-        slider.add(jpdatosp, "card2");
+        rSPanelsSlider1.add(jpdatosp, "card2");
 
         jpinfomed.setBackground(new java.awt.Color(18, 44, 62));
-        jpinfomed.setMaximumSize(new java.awt.Dimension(1565, 880));
         jpinfomed.setName("jpinfomed"); // NOI18N
         jpinfomed.setLayout(null);
 
@@ -528,14 +567,12 @@ public class agregarjf extends javax.swing.JFrame {
         cmbtipodesangre.setBounds(790, 530, 270, 30);
 
         lbinfomed.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/infomed2.jpg"))); // NOI18N
-        lbinfomed.setMaximumSize(new java.awt.Dimension(1565, 880));
         jpinfomed.add(lbinfomed);
-        lbinfomed.setBounds(0, -3, 1250, 700);
+        lbinfomed.setBounds(0, -3, 1260, 710);
 
-        slider.add(jpinfomed, "card3");
+        rSPanelsSlider1.add(jpinfomed, "card3");
 
         jpdenca.setBackground(new java.awt.Color(18, 44, 62));
-        jpdenca.setMaximumSize(new java.awt.Dimension(1565, 880));
         jpdenca.setName("jpdenca"); // NOI18N
         jpdenca.setLayout(null);
 
@@ -559,7 +596,6 @@ public class agregarjf extends javax.swing.JFrame {
         jpdenca.add(btnatrasinfme);
         btnatrasinfme.setBounds(670, 450, 120, 110);
 
-        textfieldnombreencargado.setBackground(new java.awt.Color(255, 0, 255));
         textfieldnombreencargado.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         textfieldnombreencargado.setBorder(null);
         jpdenca.add(textfieldnombreencargado);
@@ -577,8 +613,8 @@ public class agregarjf extends javax.swing.JFrame {
 
         cmbnivelestudioencargado.setBackground(new java.awt.Color(178, 248, 248));
         cmbnivelestudioencargado.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        cmbnivelestudioencargado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Primaria", "Diversificado", "Universitario", "Posgrado", "Otro" }));
         cmbnivelestudioencargado.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cmbnivelestudioencargado.setOpaque(true);
         jpdenca.add(cmbnivelestudioencargado);
         cmbnivelestudioencargado.setBounds(254, 292, 340, 40);
 
@@ -614,14 +650,12 @@ public class agregarjf extends javax.swing.JFrame {
         btnotrotelefonoencargado.setBounds(870, 450, 120, 70);
 
         lbdatosenca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/datosenc2.jpg"))); // NOI18N
-        lbdatosenca.setMaximumSize(new java.awt.Dimension(1565, 880));
         jpdenca.add(lbdatosenca);
-        lbdatosenca.setBounds(0, -3, 1250, 700);
+        lbdatosenca.setBounds(0, -3, 1250, 710);
 
-        slider.add(jpdenca, "card4");
+        rSPanelsSlider1.add(jpdenca, "card4");
 
         jpconteme.setBackground(new java.awt.Color(18, 44, 62));
-        jpconteme.setMaximumSize(new java.awt.Dimension(1565, 880));
         jpconteme.setName("jpconteme"); // NOI18N
         jpconteme.setLayout(null);
 
@@ -678,16 +712,14 @@ public class agregarjf extends javax.swing.JFrame {
         textfieldtelefonoemergencia5.setBounds(50, 570, 530, 30);
 
         lbconteme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/contaceme2.jpg"))); // NOI18N
-        lbconteme.setMaximumSize(new java.awt.Dimension(1565, 880));
         jpconteme.add(lbconteme);
-        lbconteme.setBounds(0, -3, 1250, 700);
+        lbconteme.setBounds(0, -3, 1250, 710);
         lbconteme.getAccessibleContext().setAccessibleDescription("");
 
-        slider.add(jpconteme, "card5");
+        rSPanelsSlider1.add(jpconteme, "card5");
 
         jpdlabo.setBackground(new java.awt.Color(18, 44, 62));
         jpdlabo.setToolTipText("");
-        jpdlabo.setMaximumSize(new java.awt.Dimension(1565, 880));
         jpdlabo.setName("jpdlabo"); // NOI18N
         jpdlabo.setLayout(null);
 
@@ -710,12 +742,16 @@ public class agregarjf extends javax.swing.JFrame {
         });
         jpdlabo.add(btnatrascontem);
         btnatrascontem.setBounds(670, 440, 120, 110);
+<<<<<<< HEAD
+=======
 
         cmbnivelestudioasociado.setBackground(new java.awt.Color(178, 248, 248));
         cmbnivelestudioasociado.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         cmbnivelestudioasociado.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cmbnivelestudioasociado.setOpaque(true);
         jpdlabo.add(cmbnivelestudioasociado);
         cmbnivelestudioasociado.setBounds(270, 180, 340, 40);
+>>>>>>> 3b17a46855991d6daaed1399dbd623ef07d2d4ff
         jpdlabo.add(textfieldlugardeestudio);
         textfieldlugardeestudio.setBounds(70, 320, 530, 30);
         jpdlabo.add(textfieldocupacion);
@@ -744,44 +780,64 @@ public class agregarjf extends javax.swing.JFrame {
         textfieldlugartrabajo2.setBounds(660, 310, 530, 30);
 
         lbdlabo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/datoslaborales2.jpg"))); // NOI18N
-        lbdlabo.setMaximumSize(new java.awt.Dimension(1565, 880));
         jpdlabo.add(lbdlabo);
-        lbdlabo.setBounds(0, -3, 1250, 700);
+        lbdlabo.setBounds(0, -3, 1250, 710);
 
-        slider.add(jpdlabo, "card6");
+        rSPanelsSlider1.add(jpdlabo, "card6");
 
-        jpvoluntariado.setMaximumSize(new java.awt.Dimension(1565, 880));
-        jpvoluntariado.setLayout(null);
-
+<<<<<<< HEAD
         lbvoluntariado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/voluntariado2.jpg"))); // NOI18N
-        lbvoluntariado.setMaximumSize(new java.awt.Dimension(1565, 880));
-        jpvoluntariado.add(lbvoluntariado);
-        lbvoluntariado.setBounds(0, 0, 1250, 700);
 
-        slider.add(jpvoluntariado, "card7");
+        javax.swing.GroupLayout jpvoluntariadoLayout = new javax.swing.GroupLayout(jpvoluntariado);
+        jpvoluntariado.setLayout(jpvoluntariadoLayout);
+        jpvoluntariadoLayout.setHorizontalGroup(
+            jpvoluntariadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpvoluntariadoLayout.createSequentialGroup()
+                .addComponent(lbvoluntariado)
+                .addGap(0, 25, Short.MAX_VALUE))
+        );
+        jpvoluntariadoLayout.setVerticalGroup(
+            jpvoluntariadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpvoluntariadoLayout.createSequentialGroup()
+                .addComponent(lbvoluntariado)
+                .addGap(0, 25, Short.MAX_VALUE))
+        );
 
-        jpbeca.setMaximumSize(new java.awt.Dimension(1565, 880));
-        jpbeca.setLayout(null);
+        rSPanelsSlider1.add(jpvoluntariado, "card7");
 
         lbbeca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/beca2.jpg"))); // NOI18N
-        lbbeca.setMaximumSize(new java.awt.Dimension(1565, 880));
-        jpbeca.add(lbbeca);
-        lbbeca.setBounds(0, 0, 1250, 700);
 
-        slider.add(jpbeca, "card8");
+        javax.swing.GroupLayout jpbecaLayout = new javax.swing.GroupLayout(jpbeca);
+        jpbeca.setLayout(jpbecaLayout);
+        jpbecaLayout.setHorizontalGroup(
+            jpbecaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpbecaLayout.createSequentialGroup()
+                .addComponent(lbbeca)
+                .addGap(0, 25, Short.MAX_VALUE))
+        );
+        jpbecaLayout.setVerticalGroup(
+            jpbecaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpbecaLayout.createSequentialGroup()
+                .addComponent(lbbeca)
+                .addGap(0, 25, Short.MAX_VALUE))
+        );
 
-        jPanel1.add(slider);
-        slider.setBounds(0, 0, 1250, 700);
+        rSPanelsSlider1.add(jpbeca, "card8");
+
+        jPanel1.add(rSPanelsSlider1, "card2");
+=======
+        jPanel1.add(rSPanelsSlider1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 725));
+>>>>>>> 3b17a46855991d6daaed1399dbd623ef07d2d4ff
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1275, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -818,43 +874,36 @@ public class agregarjf extends javax.swing.JFrame {
         datosAsociado();
     }//GEN-LAST:event_btnagregarasociadoActionPerformed
     private void btnatrascontemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnatrascontemActionPerformed
-        slider.setPanelSlider(jpconteme, RSPanelsSlider.DIRECT.RIGHT);
+        rSPanelsSlider1.setPanelSlider(jpconteme, RSPanelsSlider.DIRECT.RIGHT);
 
     }//GEN-LAST:event_btnatrascontemActionPerformed
-
-    private void btnminimizardpActionPerformed(java.awt.event.ActionEvent evt) {                                               
-        this.setExtendedState(ICONIFIED);
-    }                                              
 
     private void btnsiguientevoluActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsiguientevoluActionPerformed
 
     }//GEN-LAST:event_btnsiguientevoluActionPerformed
-    private void btnminimizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnminimizarActionPerformed
-         this.setExtendedState(ICONIFIED);
-    }//GEN-LAST:event_btnminimizarActionPerformed
 
     private void btnatrasdencActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnatrasdencActionPerformed
-        slider.setPanelSlider(jpdenca, RSPanelsSlider.DIRECT.RIGHT);
+        rSPanelsSlider1.setPanelSlider(jpdenca, RSPanelsSlider.DIRECT.RIGHT);
     }//GEN-LAST:event_btnatrasdencActionPerformed
 
     private void btnsiguientedlabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsiguientedlabActionPerformed
-        slider.setPanelSlider(jpdlabo, RSPanelsSlider.DIRECT.LEFT);
+        rSPanelsSlider1.setPanelSlider(jpdlabo, RSPanelsSlider.DIRECT.LEFT);
     }//GEN-LAST:event_btnsiguientedlabActionPerformed
 
     private void btnatrasinfmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnatrasinfmeActionPerformed
-        slider.setPanelSlider(jpinfomed, RSPanelsSlider.DIRECT.RIGHT);
+        rSPanelsSlider1.setPanelSlider(jpinfomed, RSPanelsSlider.DIRECT.RIGHT);
     }//GEN-LAST:event_btnatrasinfmeActionPerformed
 
     private void btnsiguientecontemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsiguientecontemeActionPerformed
-        slider.setPanelSlider(jpconteme, RSPanelsSlider.DIRECT.LEFT);
+        rSPanelsSlider1.setPanelSlider(jpconteme, RSPanelsSlider.DIRECT.LEFT);
     }//GEN-LAST:event_btnsiguientecontemeActionPerformed
 
     private void btnatrasdpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnatrasdpActionPerformed
-        slider.setPanelSlider(jpdatosp, RSPanelsSlider.DIRECT.RIGHT);
+        rSPanelsSlider1.setPanelSlider(jpdatosp, RSPanelsSlider.DIRECT.RIGHT);
     }//GEN-LAST:event_btnatrasdpActionPerformed
 
     private void btnsiguientedencActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsiguientedencActionPerformed
-        slider.setPanelSlider(jpdenca, RSPanelsSlider.DIRECT.LEFT);
+        rSPanelsSlider1.setPanelSlider(jpdenca, RSPanelsSlider.DIRECT.LEFT);
     }//GEN-LAST:event_btnsiguientedencActionPerformed
 
     private void textfielddpiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textfielddpiKeyTyped
@@ -933,7 +982,7 @@ public class agregarjf extends javax.swing.JFrame {
     }
     private void btnsiguienteinfomedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsiguienteinfomedActionPerformed
         if (validarDatosPersonales()) {
-            slider.setPanelSlider(jpinfomed, RSPanelsSlider.DIRECT.LEFT);
+            rSPanelsSlider1.setPanelSlider(jpinfomed, RSPanelsSlider.DIRECT.LEFT);
         }
     }//GEN-LAST:event_btnsiguienteinfomedActionPerformed
 
@@ -945,15 +994,19 @@ public class agregarjf extends javax.swing.JFrame {
             this.dispose();
         }
     }//GEN-LAST:event_btnhomedpActionPerformed
-/**/
-    private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
+
+    private void btnminimizardpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnminimizardpActionPerformed
+        this.setExtendedState(ICONIFIED);
+    }//GEN-LAST:event_btnminimizardpActionPerformed
+
+    private void btnsalirdpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirdpActionPerformed
         int respuesta = JOptionPane.showConfirmDialog(null, "¿Desea salir sin guardar cambios?", "¡¡¡ATENCIÓN!!!", WARNING_MESSAGE);
         if (respuesta == 0) {
             menujf m = new menujf();
             m.setVisible(true);
             this.dispose();
         }
-    }//GEN-LAST:event_btnsalirActionPerformed
+    }//GEN-LAST:event_btnsalirdpActionPerformed
 
     /**
      * @param args the command line arguments
@@ -966,11 +1019,11 @@ public class agregarjf extends javax.swing.JFrame {
     private javax.swing.JButton btnatrasdenc;
     private javax.swing.JButton btnatrasdp;
     private javax.swing.JButton btnatrasinfme;
-    private javax.swing.JButton btnhome;
+    private javax.swing.JButton btnhomedp;
     private javax.swing.JButton btnmenu;
-    private javax.swing.JButton btnminimizar;
+    private javax.swing.JButton btnminimizardp;
     private javax.swing.JButton btnotrotelefonoencargado;
-    private javax.swing.JButton btnsalir;
+    private javax.swing.JButton btnsalirdp;
     private javax.swing.JButton btnsiguienteconteme;
     private javax.swing.JButton btnsiguientedenc;
     private javax.swing.JButton btnsiguientedlab;
@@ -984,7 +1037,11 @@ public class agregarjf extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbtipodesangre;
     private com.toedter.calendar.JDateChooser datecfecha;
     private javax.swing.JPanel jPanel1;
+<<<<<<< HEAD
     private javax.swing.JPanel jpbeca;
+=======
+    private javax.swing.JPanel jPanel2;
+>>>>>>> 3b17a46855991d6daaed1399dbd623ef07d2d4ff
     private javax.swing.JPanel jpconteme;
     private javax.swing.JPanel jpdatosp;
     private javax.swing.JPanel jpdenca;
@@ -998,7 +1055,7 @@ public class agregarjf extends javax.swing.JFrame {
     private javax.swing.JLabel lbdp;
     private javax.swing.JLabel lbinfomed;
     private javax.swing.JLabel lbvoluntariado;
-    private rojerusan.RSPanelsSlider slider;
+    private rojerusan.RSPanelsSlider rSPanelsSlider1;
     private javax.swing.JTextField textfieldalergia1;
     private javax.swing.JTextField textfieldalergia2;
     private javax.swing.JTextField textfieldalergia3;
@@ -1016,8 +1073,11 @@ public class agregarjf extends javax.swing.JFrame {
     private javax.swing.JTextField textfieldlugardeestudio;
     private javax.swing.JTextField textfieldlugardeestudio2;
     private javax.swing.JTextField textfieldlugarencargado;
+<<<<<<< HEAD
     private javax.swing.JTextField textfieldlugartrabajo;
     private javax.swing.JTextField textfieldlugartrabajo2;
+=======
+>>>>>>> 3b17a46855991d6daaed1399dbd623ef07d2d4ff
     private javax.swing.JTextField textfieldnombreemergencia;
     private javax.swing.JTextField textfieldnombreencargado;
     private javax.swing.JTextField textfieldnombres;
