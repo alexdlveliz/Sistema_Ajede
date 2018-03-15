@@ -6,6 +6,7 @@
 package interfaz;
 
 import Clases.Asociado;
+import Clases.antecedentesMedicos;
 import com.toedter.calendar.JDateChooser;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -46,9 +47,11 @@ public class agregarjf extends javax.swing.JFrame {
      */
     private char c;
     private Asociado asociado;
+    private antecedentesMedicos antecedentes;
 
     public agregarjf() {
         asociado = new Asociado();
+        antecedentes = new antecedentesMedicos();
         initComponents();
         transparencia();
         Toolkit tk = Toolkit.getDefaultToolkit();
@@ -287,9 +290,7 @@ public class agregarjf extends javax.swing.JFrame {
         lbbeca = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1256, 706));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1255, 705));
 
         jPanel1.setPreferredSize(new java.awt.Dimension(1250, 700));
         jPanel1.setLayout(null);
@@ -310,7 +311,7 @@ public class agregarjf extends javax.swing.JFrame {
             }
         });
         jpdatosp.add(btnsiguienteinfomed);
-        btnsiguienteinfomed.setBounds(840, 460, 120, 90);
+        btnsiguienteinfomed.setBounds(1070, 450, 120, 90);
 
         btnaddtel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/sa/icons8_Add_Phone_35px_1.png"))); // NOI18N
         btnaddtel.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/sa/icons8_Add_Phone_70px_1.png"))); // NOI18N
@@ -837,7 +838,7 @@ public class agregarjf extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void datosAsociado() {
+    private boolean datosAsociado() {
         String nombre = textfieldnombres.getText();
         String apellido = textfieldapellidos.getText();
         String Dpi = textfielddpi.getText();
@@ -856,16 +857,36 @@ public class agregarjf extends javax.swing.JFrame {
         }
         if (asociado.insertar(nombre, apellido, genero1, fecha, email, talla, residencia, true, PerfilFB, tipoSangre, nivEst, Dpi)) {
             JOptionPane.showMessageDialog(null, "Asociado Ingresado correctamente");
+            return true;
         } else {
             JOptionPane.showMessageDialog(null, "Error al ingresar el asociado");
+            return false;
         }
     }
+    
+    private void informacionMedica()
+    {
+        String Hospital = txtHospital.getText();
+        String Padecimienetos = txtPadecimiento1.getText() + " " + txtPadecimiento2.getText() + " " +
+                txtPadecimiento3.getText() + " " + txtPadecimiento4.getText();
+        String alergias = txtAlergia1.getText() + " " + txtAlergia2.getText() + " " + txtAlergia3.getText()
+                + " " + txtAlergia4.getText() + " " + txtAlergia5.getText();
+        int idAsociado = antecedentes.obtenerid();
+
+        
+        if(antecedentes.insertar(Hospital, Padecimienetos, idAsociado))
+            JOptionPane.showMessageDialog(null, "Datos ingresados correctamente");
+        else
+            JOptionPane.showMessageDialog(null, "Error al ingresar los datos");
+    }
+    
     private void btnagregarasociadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarasociadoActionPerformed
         /**
          * Proceso para agregar al asociado, todos los datos que están escritos
          * en este frame
          */
-        datosAsociado();
+        if(datosAsociado())
+            informacionMedica();
     }//GEN-LAST:event_btnagregarasociadoActionPerformed
     private void btnatrascontemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnatrascontemActionPerformed
         rSPanelsSlider1.setPanelSlider(jpconteme, RSPanelsSlider.DIRECT.RIGHT);

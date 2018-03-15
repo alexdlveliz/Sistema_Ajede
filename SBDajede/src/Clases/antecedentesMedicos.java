@@ -54,5 +54,25 @@ public class antecedentesMedicos
             Logger.getLogger(NivelEstudio.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
-    }    
+    }
+    
+    public int obtenerid()
+    {
+        int id = 0;
+        try{
+            String sql = "SELECT MAX(id) FROM asociado";
+            System.out.println(sql);
+            Statement st = con.createStatement();
+            ResultSet Rs = st.executeQuery(sql);
+            if(Rs.next())
+            {
+                id = (Rs.getInt(1));
+                System.out.println(id);
+            }
+        } catch(SQLException ex)
+        {
+            Logger.getLogger(NivelEstudio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return id;
+    }
 }
