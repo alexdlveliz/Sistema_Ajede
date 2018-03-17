@@ -94,7 +94,7 @@ public class menujf extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new java.awt.CardLayout());
 
-        jpmenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/opciones2.jpg"))); // NOI18N
+        jpmenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/opcionestam2.jpg"))); // NOI18N
         jpmenu.setVisibleLogo(false);
         jpmenu.setLayout(null);
 
@@ -158,8 +158,8 @@ public class menujf extends javax.swing.JFrame {
 
     private void btnagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarActionPerformed
         this.dispose();
-        agregarjf ag = new agregarjf();
-        ag.setVisible(true);
+        menuagregarjf menu = new menuagregarjf();
+        menu.setVisible(true);
     }//GEN-LAST:event_btnagregarActionPerformed
 
     private void btnminimizarmenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnminimizarmenuActionPerformed

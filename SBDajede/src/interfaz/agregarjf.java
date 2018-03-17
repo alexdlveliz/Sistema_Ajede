@@ -632,7 +632,7 @@ public class agregarjf extends javax.swing.JFrame {
             }
         });
         jpdenca.add(btnotrotelefonoencargado);
-        btnotrotelefonoencargado.setBounds(870, 450, 120, 70);
+        btnotrotelefonoencargado.setBounds(870, 450, 120, 80);
 
         lbdatosenca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/datosenc2.jpg"))); // NOI18N
         jpdenca.add(lbdatosenca);
@@ -765,7 +765,7 @@ public class agregarjf extends javax.swing.JFrame {
 
         cmbnivelestudiovoluntario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jpdlabo.add(cmbnivelestudiovoluntario);
-        cmbnivelestudiovoluntario.setBounds(280, 190, 320, 20);
+        cmbnivelestudiovoluntario.setBounds(280, 190, 320, 22);
 
         textfieldlugardeestudio2.setBorder(null);
         jpdlabo.add(textfieldlugardeestudio2);
