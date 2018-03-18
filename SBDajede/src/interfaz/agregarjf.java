@@ -6,6 +6,7 @@
 package interfaz;
 
 import Clases.Asociado;
+import Clases.antecedentesMedicos;
 import com.toedter.calendar.JDateChooser;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -19,6 +20,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JPanel;
+import java.awt.Color;
 
 /**
  *
@@ -48,9 +50,11 @@ public class agregarjf extends javax.swing.JFrame {
      */
     private char c;
     private Asociado asociado;
+    private antecedentesMedicos antecedentes;
 
     public agregarjf() {
         asociado = new Asociado();
+        antecedentes = new antecedentesMedicos();
         initComponents();
         //transparencia();
         Toolkit tk = Toolkit.getDefaultToolkit();
@@ -200,6 +204,10 @@ public class agregarjf extends javax.swing.JFrame {
             lbinfomed.setIcon(infomed2);
             lbdatosenca.setIcon(datosenc2);
             lbconteme.setIcon(contacem2);
+            btnsiguienteinfomed.setLocation(1070, 450);
+            btnaddtel.setLocation(870, 435);
+            btnhomedp1.setLocation(1027, 0);
+            btnsalirdp1.setLocation(1180, 0);
         }
         
     }
@@ -268,30 +276,30 @@ public class agregarjf extends javax.swing.JFrame {
         textfieldperfil.setBackground(new Color(0,0,0,0));
         cmbtalla.setBackground(new Color(0,0,0,0));
         textfieldtelefono.setBackground(new Color(0,0,0,0));
-        textfieldhospital.setBackground(new Color(0,0,0,0));
-        textfieldpadecimiento1.setBackground(new Color(0,0,0,0));
-        textfieldpadecimiento2.setBackground(new Color(0,0,0,0));
-        textfieldpadecimiento3.setBackground(new Color(0,0,0,0));
-        textfieldpadecimiento4.setBackground(new Color(0,0,0,0));
-        textfieldalergia1.setBackground(new Color(0,0,0,0));
-        textfieldalergia2.setBackground(new Color(0,0,0,0));
-        textfieldalergia3.setBackground(new Color(0,0,0,0));
-        textfieldalergia4.setBackground(new Color(0,0,0,0));
-        textfieldalergia5.setBackground(new Color(0,0,0,0));
+        txtHospital.setBackground(new Color(0,0,0,0));
+        txtPadecimiento1.setBackground(new Color(0,0,0,0));
+        txtPadecimiento2.setBackground(new Color(0,0,0,0));
+        txtPadecimiento3.setBackground(new Color(0,0,0,0));
+        txtPadecimiento4.setBackground(new Color(0,0,0,0));
+        txtAlergia1.setBackground(new Color(0,0,0,0));
+        txtAlergia2.setBackground(new Color(0,0,0,0));
+        txtAlergia3.setBackground(new Color(0,0,0,0));
+        txtAlergia4.setBackground(new Color(0,0,0,0));
+        txtAlergia5.setBackground(new Color(0,0,0,0));
         cmbtipodesangre.setBackground(new Color(0,0,0,0));
-        textfieldnombreencargado.setBackground(new Color(0,0,0,0));
-        textfieldapellidoencargado.setBackground(new Color(0,0,0,0));
-        textfieldtelefonoencargado.setBackground(new Color(0,0,0,0));
+        txtNombreEncargado.setBackground(new Color(0,0,0,0));
+        txtApellidoEncargado.setBackground(new Color(0,0,0,0));
+        txtTelefonoEncargado.setBackground(new Color(0,0,0,0));
         cmbnivelestudioencargado.setBackground(new Color(0,0,0,0));
-        textfielddpiencargado.setBackground(new Color(0,0,0,0));
-        textfieldresidenciaencargado.setBackground(new Color(0,0,0,0));
-        textfieldcorreoencargado.setBackground(new Color(0,0,0,0));
-        textfieldocupacionencargado.setBackground(new Color(0,0,0,0));
-        textfieldlugarencargado.setBackground(new Color(0,0,0,0));
-        textfieldnombreemergencia.setBackground(new Color(0,0,0,0));
-        textfieldapellidoemergencia.setBackground(new Color(0,0,0,0));
-        textfieldparentescoemergencia.setBackground(new Color(0,0,0,0));
-        textfieldtelefonoemergencia1.setBackground(new Color(0,0,0,0));
+        txtDpiCuiEncargado.setBackground(new Color(0,0,0,0));
+        txtResidenciaEncargado.setBackground(new Color(0,0,0,0));
+        txtEmailEncargado.setBackground(new Color(0,0,0,0));
+        txtTrabajoOcupacionEncargado.setBackground(new Color(0,0,0,0));
+        txtLugarTrabajoEncargado.setBackground(new Color(0,0,0,0));
+        txtNombreEmergencia.setBackground(new Color(0,0,0,0));
+        txtApellidoEmergencia.setBackground(new Color(0,0,0,0));
+        txtParentescoEmergencia.setBackground(new Color(0,0,0,0));
+        txtTelefonoEmergencia.setBackground(new Color(0,0,0,0));
         textfieldtelefonoemergencia2.setBackground(new Color(0,0,0,0));
         textfieldtelefonoemergencia3.setBackground(new Color(0,0,0,0));
         textfieldtelefonoemergencia4.setBackground(new Color(0,0,0,0));
@@ -351,39 +359,39 @@ public class agregarjf extends javax.swing.JFrame {
         jpinfomed = new javax.swing.JPanel();
         btnsiguientedenc = new javax.swing.JButton();
         btnatrasbeca = new javax.swing.JButton();
-        textfieldhospital = new javax.swing.JTextField();
-        textfieldpadecimiento1 = new javax.swing.JTextField();
-        textfieldpadecimiento2 = new javax.swing.JTextField();
-        textfieldpadecimiento3 = new javax.swing.JTextField();
-        textfieldpadecimiento4 = new javax.swing.JTextField();
-        textfieldalergia1 = new javax.swing.JTextField();
-        textfieldalergia2 = new javax.swing.JTextField();
-        textfieldalergia3 = new javax.swing.JTextField();
-        textfieldalergia4 = new javax.swing.JTextField();
-        textfieldalergia5 = new javax.swing.JTextField();
+        txtHospital = new javax.swing.JTextField();
+        txtPadecimiento1 = new javax.swing.JTextField();
+        txtPadecimiento2 = new javax.swing.JTextField();
+        txtPadecimiento3 = new javax.swing.JTextField();
+        txtPadecimiento4 = new javax.swing.JTextField();
+        txtAlergia1 = new javax.swing.JTextField();
+        txtAlergia2 = new javax.swing.JTextField();
+        txtAlergia3 = new javax.swing.JTextField();
+        txtAlergia4 = new javax.swing.JTextField();
+        txtAlergia5 = new javax.swing.JTextField();
         cmbtipodesangre = new javax.swing.JComboBox<>();
         lbinfomed = new javax.swing.JLabel();
         jpdenca = new javax.swing.JPanel();
         btnsiguienteconteme = new javax.swing.JButton();
         btnatrasinfme = new javax.swing.JButton();
-        textfieldnombreencargado = new javax.swing.JTextField();
-        textfieldapellidoencargado = new javax.swing.JTextField();
-        textfieldtelefonoencargado = new javax.swing.JTextField();
+        txtNombreEncargado = new javax.swing.JTextField();
+        txtApellidoEncargado = new javax.swing.JTextField();
+        txtTelefonoEncargado = new javax.swing.JTextField();
         cmbnivelestudioencargado = new javax.swing.JComboBox<>();
-        textfielddpiencargado = new javax.swing.JTextField();
-        textfieldresidenciaencargado = new javax.swing.JTextField();
-        textfieldcorreoencargado = new javax.swing.JTextField();
-        textfieldocupacionencargado = new javax.swing.JTextField();
-        textfieldlugarencargado = new javax.swing.JTextField();
+        txtDpiCuiEncargado = new javax.swing.JTextField();
+        txtResidenciaEncargado = new javax.swing.JTextField();
+        txtEmailEncargado = new javax.swing.JTextField();
+        txtTrabajoOcupacionEncargado = new javax.swing.JTextField();
+        txtLugarTrabajoEncargado = new javax.swing.JTextField();
         btnotrotelefonoencargado = new javax.swing.JButton();
         lbdatosenca = new javax.swing.JLabel();
         jpconteme = new javax.swing.JPanel();
         btnsiguientedlab = new javax.swing.JButton();
         btnatrasdenc = new javax.swing.JButton();
-        textfieldnombreemergencia = new javax.swing.JTextField();
-        textfieldapellidoemergencia = new javax.swing.JTextField();
-        textfieldparentescoemergencia = new javax.swing.JTextField();
-        textfieldtelefonoemergencia1 = new javax.swing.JTextField();
+        txtNombreEmergencia = new javax.swing.JTextField();
+        txtApellidoEmergencia = new javax.swing.JTextField();
+        txtParentescoEmergencia = new javax.swing.JTextField();
+        txtTelefonoEmergencia = new javax.swing.JTextField();
         textfieldtelefonoemergencia2 = new javax.swing.JTextField();
         textfieldtelefonoemergencia3 = new javax.swing.JTextField();
         textfieldtelefonoemergencia4 = new javax.swing.JTextField();
@@ -430,7 +438,6 @@ public class agregarjf extends javax.swing.JFrame {
         jPanel1.setMaximumSize(new java.awt.Dimension(1565, 880));
         jPanel1.setPreferredSize(new java.awt.Dimension(1250, 700));
         jPanel1.setLayout(null);
-
         btnsalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Close_Window_30px.png"))); // NOI18N
         btnsalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnsalir.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Close_Window_70px.png"))); // NOI18N
@@ -441,7 +448,6 @@ public class agregarjf extends javax.swing.JFrame {
         });
         jPanel1.add(btnsalir);
         btnsalir.setBounds(1180, 0, 70, 70);
-
         btnhome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Person_at_Home_30px.png"))); // NOI18N
         btnhome.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Person_at_Home_70px_1.png"))); // NOI18N
         btnhome.addActionListener(new java.awt.event.ActionListener() {
@@ -451,7 +457,6 @@ public class agregarjf extends javax.swing.JFrame {
         });
         jPanel1.add(btnhome);
         btnhome.setBounds(1019, 0, 80, 70);
-
         btnminimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Chevron_Down_30px_1.png"))); // NOI18N
         btnminimizar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Chevron_Down_70px.png"))); // NOI18N
         btnminimizar.addActionListener(new java.awt.event.ActionListener() {
@@ -461,7 +466,6 @@ public class agregarjf extends javax.swing.JFrame {
         });
         jPanel1.add(btnminimizar);
         btnminimizar.setBounds(1100, 0, 80, 70);
-
         slider.setMaximumSize(new java.awt.Dimension(1565, 880));
         slider.setMinimumSize(new java.awt.Dimension(1275, 725));
         slider.setPreferredSize(new java.awt.Dimension(1250, 700));
@@ -615,55 +619,55 @@ public class agregarjf extends javax.swing.JFrame {
         jpinfomed.add(btnatrasbeca);
         btnatrasbeca.setBounds(640, 460, 120, 110);
 
-        textfieldhospital.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        textfieldhospital.setBorder(null);
-        jpinfomed.add(textfieldhospital);
-        textfieldhospital.setBounds(50, 250, 530, 23);
+        txtHospital.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        txtHospital.setBorder(null);
+        jpinfomed.add(txtHospital);
+        txtHospital.setBounds(50, 250, 530, 23);
 
-        textfieldpadecimiento1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        textfieldpadecimiento1.setBorder(null);
-        jpinfomed.add(textfieldpadecimiento1);
-        textfieldpadecimiento1.setBounds(50, 413, 530, 30);
+        txtPadecimiento1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        txtPadecimiento1.setBorder(null);
+        jpinfomed.add(txtPadecimiento1);
+        txtPadecimiento1.setBounds(50, 413, 530, 30);
 
-        textfieldpadecimiento2.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        textfieldpadecimiento2.setBorder(null);
-        jpinfomed.add(textfieldpadecimiento2);
-        textfieldpadecimiento2.setBounds(50, 460, 530, 29);
+        txtPadecimiento2.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        txtPadecimiento2.setBorder(null);
+        jpinfomed.add(txtPadecimiento2);
+        txtPadecimiento2.setBounds(50, 460, 530, 29);
 
-        textfieldpadecimiento3.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        textfieldpadecimiento3.setBorder(null);
-        jpinfomed.add(textfieldpadecimiento3);
-        textfieldpadecimiento3.setBounds(50, 513, 530, 30);
+        txtPadecimiento3.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        txtPadecimiento3.setBorder(null);
+        jpinfomed.add(txtPadecimiento3);
+        txtPadecimiento3.setBounds(50, 513, 530, 30);
 
-        textfieldpadecimiento4.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        textfieldpadecimiento4.setBorder(null);
-        jpinfomed.add(textfieldpadecimiento4);
-        textfieldpadecimiento4.setBounds(50, 560, 530, 30);
+        txtPadecimiento4.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        txtPadecimiento4.setBorder(null);
+        jpinfomed.add(txtPadecimiento4);
+        txtPadecimiento4.setBounds(50, 560, 530, 30);
 
-        textfieldalergia1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        textfieldalergia1.setBorder(null);
-        jpinfomed.add(textfieldalergia1);
-        textfieldalergia1.setBounds(820, 183, 390, 30);
+        txtAlergia1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        txtAlergia1.setBorder(null);
+        jpinfomed.add(txtAlergia1);
+        txtAlergia1.setBounds(820, 183, 390, 30);
 
-        textfieldalergia2.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        textfieldalergia2.setBorder(null);
-        jpinfomed.add(textfieldalergia2);
-        textfieldalergia2.setBounds(650, 232, 560, 30);
+        txtAlergia2.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        txtAlergia2.setBorder(null);
+        jpinfomed.add(txtAlergia2);
+        txtAlergia2.setBounds(650, 232, 560, 30);
 
-        textfieldalergia3.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        textfieldalergia3.setBorder(null);
-        jpinfomed.add(textfieldalergia3);
-        textfieldalergia3.setBounds(650, 273, 560, 30);
+        txtAlergia3.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        txtAlergia3.setBorder(null);
+        jpinfomed.add(txtAlergia3);
+        txtAlergia3.setBounds(650, 273, 560, 30);
 
-        textfieldalergia4.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        textfieldalergia4.setBorder(null);
-        jpinfomed.add(textfieldalergia4);
-        textfieldalergia4.setBounds(650, 320, 560, 30);
+        txtAlergia4.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        txtAlergia4.setBorder(null);
+        jpinfomed.add(txtAlergia4);
+        txtAlergia4.setBounds(650, 320, 560, 30);
 
-        textfieldalergia5.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        textfieldalergia5.setBorder(null);
-        jpinfomed.add(textfieldalergia5);
-        textfieldalergia5.setBounds(650, 360, 470, 30);
+        txtAlergia5.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        txtAlergia5.setBorder(null);
+        jpinfomed.add(txtAlergia5);
+        txtAlergia5.setBounds(650, 360, 470, 30);
 
         cmbtipodesangre.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         cmbtipodesangre.setForeground(new java.awt.Color(255, 255, 255));
@@ -710,15 +714,15 @@ public class agregarjf extends javax.swing.JFrame {
         jpdenca.add(textfieldnombreencargado);
         textfieldnombreencargado.setBounds(160, 170, 440, 30);
 
-        textfieldapellidoencargado.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        textfieldapellidoencargado.setBorder(null);
-        jpdenca.add(textfieldapellidoencargado);
-        textfieldapellidoencargado.setBounds(170, 230, 430, 40);
+        txtApellidoEncargado.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        txtApellidoEncargado.setBorder(null);
+        jpdenca.add(txtApellidoEncargado);
+        txtApellidoEncargado.setBounds(170, 230, 430, 40);
 
-        textfieldtelefonoencargado.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        textfieldtelefonoencargado.setBorder(null);
-        jpdenca.add(textfieldtelefonoencargado);
-        textfieldtelefonoencargado.setBounds(270, 350, 330, 40);
+        txtTelefonoEncargado.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        txtTelefonoEncargado.setBorder(null);
+        jpdenca.add(txtTelefonoEncargado);
+        txtTelefonoEncargado.setBounds(270, 350, 330, 40);
 
         cmbnivelestudioencargado.setBackground(new java.awt.Color(178, 248, 248));
         cmbnivelestudioencargado.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
@@ -727,36 +731,41 @@ public class agregarjf extends javax.swing.JFrame {
         jpdenca.add(cmbnivelestudioencargado);
         cmbnivelestudioencargado.setBounds(254, 292, 340, 40);
 
-        textfielddpiencargado.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        textfielddpiencargado.setBorder(null);
-        jpdenca.add(textfielddpiencargado);
-        textfielddpiencargado.setBounds(160, 440, 420, 40);
+        txtDpiCuiEncargado.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        txtDpiCuiEncargado.setBorder(null);
+        jpdenca.add(txtDpiCuiEncargado);
+        txtDpiCuiEncargado.setBounds(160, 440, 420, 40);
 
-        textfieldresidenciaencargado.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        textfieldresidenciaencargado.setBorder(null);
-        jpdenca.add(textfieldresidenciaencargado);
-        textfieldresidenciaencargado.setBounds(200, 520, 380, 40);
+        txtResidenciaEncargado.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        txtResidenciaEncargado.setBorder(null);
+        jpdenca.add(txtResidenciaEncargado);
+        txtResidenciaEncargado.setBounds(200, 520, 380, 40);
 
-        textfieldcorreoencargado.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        textfieldcorreoencargado.setBorder(null);
-        jpdenca.add(textfieldcorreoencargado);
-        textfieldcorreoencargado.setBounds(190, 580, 390, 40);
+        txtEmailEncargado.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        txtEmailEncargado.setBorder(null);
+        jpdenca.add(txtEmailEncargado);
+        txtEmailEncargado.setBounds(190, 580, 390, 40);
 
-        textfieldocupacionencargado.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        textfieldocupacionencargado.setBorder(null);
-        jpdenca.add(textfieldocupacionencargado);
-        textfieldocupacionencargado.setBounds(660, 220, 550, 40);
+        txtTrabajoOcupacionEncargado.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        txtTrabajoOcupacionEncargado.setBorder(null);
+        jpdenca.add(txtTrabajoOcupacionEncargado);
+        txtTrabajoOcupacionEncargado.setBounds(660, 220, 550, 40);
 
-        textfieldlugarencargado.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        textfieldlugarencargado.setBorder(null);
-        jpdenca.add(textfieldlugarencargado);
-        textfieldlugarencargado.setBounds(660, 320, 550, 40);
+        txtLugarTrabajoEncargado.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        txtLugarTrabajoEncargado.setBorder(null);
+        jpdenca.add(txtLugarTrabajoEncargado);
+        txtLugarTrabajoEncargado.setBounds(660, 320, 550, 40);
 
         btnotrotelefonoencargado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/sa/icons8_Add_Phone_35px.png"))); // NOI18N
         btnotrotelefonoencargado.setBorder(null);
         btnotrotelefonoencargado.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/sa/icons8_Add_Phone_70px.png"))); // NOI18N
+        btnotrotelefonoencargado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnotrotelefonoencargadoActionPerformed(evt);
+            }
+        });
         jpdenca.add(btnotrotelefonoencargado);
-        btnotrotelefonoencargado.setBounds(870, 450, 120, 70);
+        btnotrotelefonoencargado.setBounds(870, 450, 120, 80);
 
         lbdatosenca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/datosenc2.jpg"))); // NOI18N
         lbdatosenca.setMaximumSize(new java.awt.Dimension(1565, 880));
@@ -790,35 +799,43 @@ public class agregarjf extends javax.swing.JFrame {
         jpconteme.add(btnatrasdenc);
         btnatrasdenc.setBounds(670, 440, 120, 110);
 
-        textfieldnombreemergencia.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        jpconteme.add(textfieldnombreemergencia);
-        textfieldnombreemergencia.setBounds(170, 160, 430, 40);
+        txtNombreEmergencia.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        txtNombreEmergencia.setBorder(null);
+        jpconteme.add(txtNombreEmergencia);
+        txtNombreEmergencia.setBounds(170, 170, 430, 40);
 
-        textfieldapellidoemergencia.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        jpconteme.add(textfieldapellidoemergencia);
-        textfieldapellidoemergencia.setBounds(170, 230, 430, 40);
+        txtApellidoEmergencia.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        txtApellidoEmergencia.setBorder(null);
+        jpconteme.add(txtApellidoEmergencia);
+        txtApellidoEmergencia.setBounds(170, 230, 430, 40);
 
-        textfieldparentescoemergencia.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        jpconteme.add(textfieldparentescoemergencia);
-        textfieldparentescoemergencia.setBounds(320, 300, 280, 30);
+        txtParentescoEmergencia.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        txtParentescoEmergencia.setBorder(null);
+        jpconteme.add(txtParentescoEmergencia);
+        txtParentescoEmergencia.setBounds(320, 300, 280, 30);
 
-        textfieldtelefonoemergencia1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        jpconteme.add(textfieldtelefonoemergencia1);
-        textfieldtelefonoemergencia1.setBounds(180, 360, 150, 30);
+        txtTelefonoEmergencia.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        txtTelefonoEmergencia.setBorder(null);
+        jpconteme.add(txtTelefonoEmergencia);
+        txtTelefonoEmergencia.setBounds(180, 360, 150, 30);
 
         textfieldtelefonoemergencia2.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldtelefonoemergencia2.setBorder(null);
         jpconteme.add(textfieldtelefonoemergencia2);
         textfieldtelefonoemergencia2.setBounds(50, 430, 530, 30);
 
         textfieldtelefonoemergencia3.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldtelefonoemergencia3.setBorder(null);
         jpconteme.add(textfieldtelefonoemergencia3);
         textfieldtelefonoemergencia3.setBounds(50, 480, 530, 30);
 
         textfieldtelefonoemergencia4.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldtelefonoemergencia4.setBorder(null);
         jpconteme.add(textfieldtelefonoemergencia4);
         textfieldtelefonoemergencia4.setBounds(50, 530, 530, 30);
 
         textfieldtelefonoemergencia5.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldtelefonoemergencia5.setBorder(null);
         jpconteme.add(textfieldtelefonoemergencia5);
         textfieldtelefonoemergencia5.setBounds(50, 570, 530, 30);
 
@@ -1092,7 +1109,7 @@ public class agregarjf extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void datosAsociado() {
+    private boolean datosAsociado() {
         String nombre = textfieldnombres.getText();
         String apellido = textfieldapellidos.getText();
         String Dpi = textfielddpi.getText();
@@ -1111,21 +1128,42 @@ public class agregarjf extends javax.swing.JFrame {
         }
         if (asociado.insertar(nombre, apellido, genero1, fecha, email, talla, residencia, true, PerfilFB, tipoSangre, nivEst, Dpi)) {
             JOptionPane.showMessageDialog(null, "Asociado Ingresado correctamente");
+            return true;
         } else {
             JOptionPane.showMessageDialog(null, "Error al ingresar el asociado");
+            return false;
         }
     }
+    
+    private void informacionMedica()
+    {
+        String Hospital = txtHospital.getText();
+        String Padecimienetos = txtPadecimiento1.getText() + " " + txtPadecimiento2.getText() + " " +
+                txtPadecimiento3.getText() + " " + txtPadecimiento4.getText();
+        String alergias = txtAlergia1.getText() + " " + txtAlergia2.getText() + " " + txtAlergia3.getText()
+                + " " + txtAlergia4.getText() + " " + txtAlergia5.getText();
+        int idAsociado = antecedentes.obtenerid();
+
+        
+        if(antecedentes.insertar(Hospital, Padecimienetos, idAsociado))
+            JOptionPane.showMessageDialog(null, "Datos ingresados correctamente");
+        else
+            JOptionPane.showMessageDialog(null, "Error al ingresar los datos");
+    }
+    
     private void btnagregarasociadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarasociadoActionPerformed
         /**
          * Proceso para agregar al asociado, todos los datos que están escritos
          * en este frame
          */
-        datosAsociado();
+        if(datosAsociado())
+            informacionMedica();
     }//GEN-LAST:event_btnagregarasociadoActionPerformed
     private void btnatrasdpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnatrasdpActionPerformed
         slider.setPanelSlider(jpdatosp, RSPanelsSlider.DIRECT.RIGHT);
 
     }//GEN-LAST:event_btnatrasdpActionPerformed
+
 
     private void btnminimizardpActionPerformed(java.awt.event.ActionEvent evt) {                                               
         this.setExtendedState(ICONIFIED);
@@ -1230,6 +1268,80 @@ public class agregarjf extends javax.swing.JFrame {
         }
     }
     private void btnsiguientedlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsiguientedlActionPerformed
+    //Función que valida si todos los campos del encargado fueron ingresados
+    private boolean validarDatosEncargado()
+    {
+        if(txtNombreEncargado.getText().length() == 0)
+        {
+            JOptionPane.showMessageDialog(null, "Campo Nombres aún vacío, favor de ingresar los nombres");
+            txtNombreEncargado.requestFocus();
+            return false;
+        } else if(txtApellidoEncargado.getText().length() == 0)
+        {
+            JOptionPane.showMessageDialog(null, "Campo apellidos aún vacío, favor de ingresar los apellidos");
+            txtApellidoEncargado.requestFocus();
+            return false;
+        } else if(txtTelefonoEncargado.getText().length() == 0)
+        {
+            JOptionPane.showMessageDialog(null, "Campo teléfono aún vacío, favor de ingresar el teléfono");
+            txtTelefonoEncargado.requestFocus();
+            return false;
+        } else if(txtDpiCuiEncargado.getText().length() == 0)
+        {
+            JOptionPane.showMessageDialog(null, "Campo DPI/CUI aún vacío, favor de llenarlo");
+            txtDpiCuiEncargado.requestFocus();
+            return false;
+        } else if(txtResidenciaEncargado.getText().length() == 0)
+        {
+            JOptionPane.showMessageDialog(null, "campo Residencia aún vacío, favor de llenarlo");
+            txtResidenciaEncargado.requestFocus();
+            return false;
+        } else if(txtEmailEncargado.getText().length() == 0)
+        {
+            JOptionPane.showMessageDialog(null, "Campo Correo electrónico aún vacío, favor de llenarlo");
+            txtEmailEncargado.requestFocus();
+            return false;
+        } else if(txtTrabajoOcupacionEncargado.getText().length() == 0)
+        {
+            JOptionPane.showMessageDialog(null, "Campo Trabajo/Ocupación aún vacío, favor de llenarlo");
+            txtTrabajoOcupacionEncargado.requestFocus();
+            return false;
+        } else if(txtLugarTrabajoEncargado.getText().length() == 0)
+        {
+            JOptionPane.showMessageDialog(null, "Campo Lugar de Trabajo/Ocupación aún vacío, favor de llenarlo");
+            txtLugarTrabajoEncargado.requestFocus();
+            return false;
+        }else
+            return true;
+    }
+    
+    //Función para validar si los campos del contacto de emergencia fueron llenados
+    private boolean validarContactoEmergencia()
+    {
+        if(txtNombreEmergencia.getText().length() == 0)
+        {
+            JOptionPane.showMessageDialog(null, "Campo Nombres aún vacío, favor de llenarlo");
+            txtNombreEmergencia.requestFocus();
+            return false;
+        } else if(txtApellidoEmergencia.getText().length() == 0)
+        {
+            JOptionPane.showMessageDialog(null, "Campo Apellidos aún vacío, favor de llenarlo");
+            txtApellidoEmergencia.requestFocus();
+            return false;
+        } else if(txtParentescoEmergencia.getText().length() == 0)
+        {
+            JOptionPane.showMessageDialog(null, "Campo Parentesco/Relación aún vacío, favor de llenarlo");
+            txtParentescoEmergencia.requestFocus();
+            return false;
+        } else if(txtTelefonoEmergencia.getText().length() == 0)
+        {
+            JOptionPane.showMessageDialog(null, "Campo Teléfono/Celular aún vacío, favor de llenarlo");
+            txtTelefonoEmergencia.requestFocus();
+            return false;
+        }
+        else
+            return true;
+    }
         if (validarDatosPersonales()) {
             slider.setPanelSlider(jpdlabo, RSPanelsSlider.DIRECT.LEFT);
         }
@@ -1290,6 +1402,10 @@ public class agregarjf extends javax.swing.JFrame {
     private void btnsiguientebecaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsiguientebecaMouseClicked
         slider.setPanelSlider(jpbeca, RSPanelsSlider.DIRECT.LEFT);
     }//GEN-LAST:event_btnsiguientebecaMouseClicked
+
+    private void btnotrotelefonoencargadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnotrotelefonoencargadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnotrotelefonoencargadoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1416,10 +1532,27 @@ public class agregarjf extends javax.swing.JFrame {
     private javax.swing.JTextField textfieldtelefonoemergencia3;
     private javax.swing.JTextField textfieldtelefonoemergencia4;
     private javax.swing.JTextField textfieldtelefonoemergencia5;
-    private javax.swing.JTextField textfieldtelefonoencargado;
+    private javax.swing.JTextField txtAlergia1;
     private javax.swing.JTextField txthorasp1;
     private javax.swing.JTextField txthorasp2;
     private javax.swing.JTextField txthorasp3;
     private javax.swing.JTextField txthorasp4;
+    private javax.swing.JTextField txtApellidoEmergencia;
+    private javax.swing.JTextField txtApellidoEncargado;
+    private javax.swing.JTextField txtDpiCuiEncargado;
+    private javax.swing.JTextField txtEmailEncargado;
+    private javax.swing.JTextField txtHospital;
+    private javax.swing.JTextField txtLugarTrabajoEncargado;
+    private javax.swing.JTextField txtNombreEmergencia;
+    private javax.swing.JTextField txtNombreEncargado;
+    private javax.swing.JTextField txtPadecimiento1;
+    private javax.swing.JTextField txtPadecimiento2;
+    private javax.swing.JTextField txtPadecimiento3;
+    private javax.swing.JTextField txtPadecimiento4;
+    private javax.swing.JTextField txtParentescoEmergencia;
+    private javax.swing.JTextField txtResidenciaEncargado;
+    private javax.swing.JTextField txtTelefonoEmergencia;
+    private javax.swing.JTextField txtTelefonoEncargado;
+    private javax.swing.JTextField txtTrabajoOcupacionEncargado;
     // End of variables declaration//GEN-END:variables
 }
