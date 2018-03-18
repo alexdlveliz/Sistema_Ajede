@@ -9,6 +9,7 @@ import Clases.Alergias;
 import Clases.Asociado;
 import Clases.OcupacionEncargado;
 import Clases.antecedentesMedicos;
+import Clases.contactoEmergencia;
 import Clases.datosEncargado;
 import com.toedter.calendar.JDateChooser;
 import java.awt.Color;
@@ -54,6 +55,7 @@ public class agregarjf extends javax.swing.JFrame {
     private Alergias Alergias;
     private datosEncargado encargado;
     private OcupacionEncargado ocupacionE;
+    private contactoEmergencia contacto;
 
     public agregarjf() {
         asociado = new Asociado();
@@ -61,6 +63,7 @@ public class agregarjf extends javax.swing.JFrame {
         Alergias = new Alergias();
         encargado = new datosEncargado();
         ocupacionE = new OcupacionEncargado();
+        contacto = new contactoEmergencia();
         initComponents();
         transparencia();
         Toolkit tk = Toolkit.getDefaultToolkit();
@@ -892,6 +895,20 @@ public class agregarjf extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error al ingresar los datos");
     }
     
+    private void contactoEmergencia()
+    {
+        String nombre = txtNombreEmergencia.getText();
+        String apellido = txtApellidoEmergencia.getText();
+        String parentesco = txtParentescoEmergencia.getText();
+        String telefono = txtTelefonoEmergencia.getText();
+        int idAsociado = contacto.obteneridAsociado();
+        int idEmergencia = contacto.obteneridContactoEmergencia();
+        
+        if(contacto.insertar(parentesco, nombre, apellido, idAsociado))
+            if(contacto.telefonoEmergencia(idEmergencia, telefono))
+                JOptionPane.showMessageDialog(null, "Datos ingresados correctamente");
+    }
+    
     private void DatosEncargado()
     {
         String nombre = txtNombreEncargado.getText();
@@ -930,6 +947,7 @@ public class agregarjf extends javax.swing.JFrame {
         {
             informacionMedica();
             DatosEncargado();
+            contactoEmergencia();
         }
     }//GEN-LAST:event_btnagregarasociadoActionPerformed
     private void btnatrascontemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnatrascontemActionPerformed
