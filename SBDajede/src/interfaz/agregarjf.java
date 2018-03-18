@@ -5,8 +5,11 @@
  */
 package interfaz;
 
+import Clases.Alergias;
 import Clases.Asociado;
+import Clases.OcupacionEncargado;
 import Clases.antecedentesMedicos;
+import Clases.datosEncargado;
 import com.toedter.calendar.JDateChooser;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -48,10 +51,16 @@ public class agregarjf extends javax.swing.JFrame {
     private char c;
     private Asociado asociado;
     private antecedentesMedicos antecedentes;
+    private Alergias Alergias;
+    private datosEncargado encargado;
+    private OcupacionEncargado ocupacionE;
 
     public agregarjf() {
         asociado = new Asociado();
         antecedentes = new antecedentesMedicos();
+        Alergias = new Alergias();
+        encargado = new datosEncargado();
+        ocupacionE = new OcupacionEncargado();
         initComponents();
         transparencia();
         Toolkit tk = Toolkit.getDefaultToolkit();
@@ -871,13 +880,45 @@ public class agregarjf extends javax.swing.JFrame {
                 txtPadecimiento3.getText() + " " + txtPadecimiento4.getText();
         String alergias = txtAlergia1.getText() + " " + txtAlergia2.getText() + " " + txtAlergia3.getText()
                 + " " + txtAlergia4.getText() + " " + txtAlergia5.getText();
-        int idAsociado = antecedentes.obtenerid();
-
+        int idAsociado = antecedentes.obteneridAsociado();
+        int idAntecMedicos = Alergias.obtenerIdAntMedicos();
         
         if(antecedentes.insertar(Hospital, Padecimienetos, idAsociado))
-            JOptionPane.showMessageDialog(null, "Datos ingresados correctamente");
+        {
+            if(Alergias.insertar(alergias, idAntecMedicos))
+                JOptionPane.showMessageDialog(null, "Datos ingresados correctamente");
+        }
         else
             JOptionPane.showMessageDialog(null, "Error al ingresar los datos");
+    }
+    
+    private void DatosEncargado()
+    {
+        String nombre = txtNombreEncargado.getText();
+        String apellido = txtApellidoEncargado.getText();
+        String nivelEstudio = (String)cmbnivelestudioencargado.getSelectedItem();
+        String telefono = txtTelefonoEncargado.getText();
+        String dpi = txtDpiCuiEncargado.getText();
+        String residencia = txtResidenciaEncargado.getText();
+        String email = txtEmailEncargado.getText();
+        String nombreOcupacion = txtTrabajoOcupacionEncargado.getText();
+        String lugarOcupacion = txtLugarTrabajoEncargado.getText();
+        int idEncargado = encargado.obteneridEncargado();
+        int idOcupacion = ocupacionE.obteneridOcupacion();
+        
+        if(encargado.insertar(dpi, email, nombre, apellido, residencia, nivelEstudio))
+        {
+            if(ocupacionE.insertar(nombreOcupacion, lugarOcupacion))
+            {
+                if(encargado.telefonoEncargado(idEncargado, telefono))
+                {
+                    if(ocupacionE.insertarDetalleOcupacion(idEncargado, idOcupacion))
+                        JOptionPane.showMessageDialog(null, "Datos ingresados correctamente");
+                }
+            }
+        }
+        else
+            JOptionPane.showMessageDialog(null, "Eror al ingresar los datos");
     }
     
     private void btnagregarasociadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarasociadoActionPerformed
@@ -886,7 +927,10 @@ public class agregarjf extends javax.swing.JFrame {
          * en este frame
          */
         if(datosAsociado())
+        {
             informacionMedica();
+            DatosEncargado();
+        }
     }//GEN-LAST:event_btnagregarasociadoActionPerformed
     private void btnatrascontemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnatrascontemActionPerformed
         rSPanelsSlider1.setPanelSlider(jpconteme, RSPanelsSlider.DIRECT.RIGHT);
