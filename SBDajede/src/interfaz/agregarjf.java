@@ -419,6 +419,8 @@ public class agregarjf extends javax.swing.JFrame {
         btnaddp = new javax.swing.JButton();
         lbvoluntariado = new javax.swing.JLabel();
         jpbeca = new javax.swing.JPanel();
+        btnatrasvoluntariado = new javax.swing.JButton();
+        btnsiguienteinfomed = new javax.swing.JButton();
         lbbeca = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1068,6 +1070,26 @@ public class agregarjf extends javax.swing.JFrame {
         jpbeca.setName("jpbeca"); // NOI18N
         jpbeca.setLayout(null);
 
+        btnatrasvoluntariado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/sa/icons8_Undo_70px.png"))); // NOI18N
+        btnatrasvoluntariado.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/sa/icons8_Undo_100px.png"))); // NOI18N
+        btnatrasvoluntariado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnatrasvoluntariadoMouseClicked(evt);
+            }
+        });
+        jpbeca.add(btnatrasvoluntariado);
+        btnatrasvoluntariado.setBounds(670, 460, 110, 80);
+
+        btnsiguienteinfomed.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/sa/icons8_Redo_70px.png"))); // NOI18N
+        btnsiguienteinfomed.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/sa/icons8_Redo_100px.png"))); // NOI18N
+        btnsiguienteinfomed.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnsiguienteinfomedMouseClicked(evt);
+            }
+        });
+        jpbeca.add(btnsiguienteinfomed);
+        btnsiguienteinfomed.setBounds(1070, 460, 120, 80);
+
         lbbeca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/beca2.jpg"))); // NOI18N
         lbbeca.setMaximumSize(new java.awt.Dimension(1565, 880));
         jpbeca.add(lbbeca);
@@ -1155,7 +1177,7 @@ public class agregarjf extends javax.swing.JFrame {
     }//GEN-LAST:event_btnsiguientecontemeActionPerformed
 
     private void btnatrasbecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnatrasbecaActionPerformed
-        slider.setPanelSlider(jpdatosp, RSPanelsSlider.DIRECT.RIGHT);
+        slider.setPanelSlider(jpbeca, RSPanelsSlider.DIRECT.RIGHT);
     }//GEN-LAST:event_btnatrasbecaActionPerformed
 
     private void btnsiguientedencActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsiguientedencActionPerformed
@@ -1291,6 +1313,14 @@ public class agregarjf extends javax.swing.JFrame {
         slider.setPanelSlider(jpbeca, RSPanelsSlider.DIRECT.LEFT);
     }//GEN-LAST:event_btnsiguientebecaMouseClicked
 
+    private void btnatrasvoluntariadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnatrasvoluntariadoMouseClicked
+        slider.setPanelSlider(jpvoluntariado, RSPanelsSlider.DIRECT.RIGHT);
+    }//GEN-LAST:event_btnatrasvoluntariadoMouseClicked
+
+    private void btnsiguienteinfomedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsiguienteinfomedMouseClicked
+        slider.setPanelSlider(jpinfomed, RSPanelsSlider.DIRECT.LEFT);
+    }//GEN-LAST:event_btnsiguienteinfomedMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1336,6 +1366,7 @@ public class agregarjf extends javax.swing.JFrame {
     private javax.swing.JButton btnatrasdlab;
     private javax.swing.JButton btnatrasdp;
     private javax.swing.JButton btnatrasinfme;
+    private javax.swing.JButton btnatrasvoluntariado;
     private javax.swing.JButton btnhome;
     private javax.swing.JButton btnmenu;
     private javax.swing.JButton btnminimizar;
@@ -1346,6 +1377,7 @@ public class agregarjf extends javax.swing.JFrame {
     private javax.swing.JButton btnsiguientedenc;
     private javax.swing.JButton btnsiguientedl;
     private javax.swing.JButton btnsiguientedlab;
+    private javax.swing.JButton btnsiguienteinfomed;
     private javax.swing.JButton btnsiguientevolu;
     private javax.swing.JComboBox<String> cmbgenero;
     private javax.swing.JComboBox<String> cmbnivelestudioencargado;
