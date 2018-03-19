@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import rojerusan.RSPanelsSlider;
 
 /**
@@ -18,7 +19,7 @@ import rojerusan.RSPanelsSlider;
 public class menujf extends javax.swing.JFrame {
     
     //ImageIcon menutam2 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/opcionestam2.jpg")).getImage());
-   // ImageIcon menu = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/menuprincipal.jpg")).getImage());
+   ImageIcon menu = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/menuprincipal.jpg")).getImage());
     /**
      * Creates new form menujf
      */
@@ -28,14 +29,14 @@ public class menujf extends javax.swing.JFrame {
         Toolkit tk = Toolkit.getDefaultToolkit();
         Dimension tamanio = tk.getScreenSize();
         transparencia();
-        if ((tamanio.width ==1366)&&(tamanio.height == 768))
+        if ((tamanio.width ==1920)&&(tamanio.height == 1080))
         {
             this.setSize(1565, 880);
             jPanel1.setSize(1565,880);
             rSPanelsSlider1.setSize(1565,880);
             menuprincipal.setSize(1565,880);
             lbmenuprincipal.setSize(1565,880);
-            //lbmenuprincipal.setIcon(menu);
+            lbmenuprincipal.setIcon(menu);
             this.setLocationRelativeTo(null);
             btnagregar.setLocation(198, 445);
             btneditar.setLocation(515, 430);
@@ -44,7 +45,7 @@ public class menujf extends javax.swing.JFrame {
             btnminimizarmenu.setLocation(1410, 5);
             btnsalirdmenu.setLocation(1480, 5);
         }
-        else if((tamanio.width == 1920) && (tamanio.height == 1080)) //1366.768, alex: 1708.960
+        else if((tamanio.width == 1366) && (tamanio.height == 768)) //1366.768, alex: 1708.960
         {
             this.setSize(1256, 706);
             //jpmenu.setIcon(menutam2);
@@ -146,6 +147,7 @@ public class menujf extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         setResizable(false);
+        getContentPane().setLayout(null);
 
         jPanel1.setMaximumSize(new java.awt.Dimension(1565, 880));
         jPanel1.setMinimumSize(new java.awt.Dimension(1250, 700));
@@ -384,16 +386,8 @@ public class menujf extends javax.swing.JFrame {
         jPanel1.add(rSPanelsSlider1);
         rSPanelsSlider1.setBounds(0, 0, 1250, 700);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 1250, 700);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
