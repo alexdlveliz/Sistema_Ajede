@@ -1236,6 +1236,8 @@ public class agregarjf extends javax.swing.JFrame {
          * Proceso para agregar al asociado, todos los datos que están escritos
          * en este frame
          */
+                
+         //Acá se ingresan todos los datos del asociado
         if(datosAsociado())
         {
             informacionMedica();
