@@ -56,7 +56,7 @@ public class inicio_login extends javax.swing.JFrame {
             PSTcontrasenia.setFont(fuente);
             CMBUsuarios.setLocation(980, 335);
             CMBUsuarios.setFont(fuente);
-        } else if ((tamanio.width == 1708) && (tamanio.height == 960)) //1366.760, alex: 1708.960
+        } else if ((tamanio.width == 1366) && (tamanio.height == 768)) //1366.768, alex: 1708.960
         {
             this.setSize(1256, 706);
             inicio.setIcon(iniciotam2);
