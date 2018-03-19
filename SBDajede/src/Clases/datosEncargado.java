@@ -35,16 +35,16 @@ public class datosEncargado
     {
         try{
             int idNivelEst = 0;
-            String sql = "SELECT NivelEstudio FROM nivelestudio where NivelEstudio= '" + nivelEstudio + "'";
+            String sql = "SELECT id FROM nivelestudio where NivelEstudio= '" + nivelEstudio + "'";
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while(rs.next())
             {
                 idNivelEst = rs.getInt("id");
             }
-            
-            sql = "INSERT INTO contactoemergencia(Relacion, Nombre, Apelllido, Asociado_id)"
-                    + "VALUES (?,?,?,?)";
+                       
+            sql = "INSERT INTO encargado(DPI, CorreoElectronico, Nombre, Apellido, Residencia, NivelEstudio_id)"
+                    + "VALUES (?,?,?,?,?,?)";
             
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1, dpi);
@@ -52,7 +52,7 @@ public class datosEncargado
             pst.setString(3, nombre);
             pst.setString(4, apellido);
             pst.setString(5, residencia);
-            pst.setInt(6, idNivelEst);            
+            pst.setInt(6, idNivelEst);
             int n = pst.executeUpdate();
             return n != 0;
         } catch(SQLException ex)
@@ -60,5 +60,43 @@ public class datosEncargado
             Logger.getLogger(NivelEstudio.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
+    }
+    
+    //Método para insertar datos a la tabla 'encargado'
+    public boolean telefonoEncargado(int id, String telefono)
+    {
+        try{                       
+            String sql = "INSERT INTO telefono(telefono, Encargado_id)"
+                    + "VALUES (?,?)";
+            
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, telefono);
+            pst.setInt(2, id);
+            int n = pst.executeUpdate();
+            return n != 0;
+        } catch(SQLException ex)
+        {
+            Logger.getLogger(NivelEstudio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    
+    public int obteneridEncargado()
+    {
+        int id = 0;
+        try{
+            String sql = "SELECT MAX(id) FROM encargado";
+            System.out.println(sql);
+            Statement st = con.createStatement();
+            ResultSet Rs = st.executeQuery(sql);
+            if(Rs.next())
+            {
+                id = (Rs.getInt(1)+1);
+            }
+        } catch(SQLException ex)
+        {
+            Logger.getLogger(NivelEstudio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return id;
     }
 }

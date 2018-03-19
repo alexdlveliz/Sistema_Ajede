@@ -30,7 +30,7 @@ public class contactoEmergencia
     }
     
     //Método para insertar datos al contacto de emergencia
-    public boolean insertar(String relacion, String nombre, String apellido, int AsociadioId, String telefono)
+    public boolean insertar(String relacion, String nombre, String apellido, int AsociadioId)
     {
         try{
             int idAsociado = 0;
@@ -42,17 +42,13 @@ public class contactoEmergencia
             {
                 idAsociado = rs.getInt("id");
             }
-            sql = "INSERT INTO contactoemergencia(Relacion, Nombre, Apelllido, Asociado_id)"
+            sql = "INSERT INTO contactoemergencia(Relacion, Nombre, Apellido, Asociado_id)"
                     + "VALUES (?,?,?,?)";
-            String sql2 = "INSERT INTO telefono(telefono, contactoEmergencia_id)"
-                    + "VALUES (?,?)";
             PreparedStatement pst = con.prepareStatement(sql);
-            PreparedStatement pst2 = con.prepareStatement(sql2);
             pst.setString(1, relacion);
             pst.setString(2, nombre);
             pst.setString(3, apellido);
             pst.setInt(4, idAsociado);
-            pst2.setString(1, telefono);
             int n = pst.executeUpdate();
             return n != 0;
         } catch(SQLException ex)
@@ -60,5 +56,59 @@ public class contactoEmergencia
             Logger.getLogger(NivelEstudio.class.getName()).log(Level.SEVERE, null, ex);
         }        
         return false;
-    }    
+    }
+    
+    public int obteneridAsociado()
+    {
+        int id = 0;
+        try{
+            String sql = "SELECT MAX(id) FROM asociado";     
+            Statement st = con.createStatement();
+            ResultSet Rs = st.executeQuery(sql);
+            if(Rs.next())
+            {
+                id = (Rs.getInt(1));
+            }
+        } catch(SQLException ex)
+        {
+            Logger.getLogger(NivelEstudio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return id;
+    }
+    
+    public int obteneridContactoEmergencia()
+    {
+        int id = 0;
+        try{
+            String sql = "SELECT MAX(id) FROM contactoemergencia";     
+            Statement st = con.createStatement();
+            ResultSet Rs = st.executeQuery(sql);
+            if(Rs.next())
+            {
+                id = (Rs.getInt(1)+1);
+            }
+        } catch(SQLException ex)
+        {
+            Logger.getLogger(NivelEstudio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return id;
+    }
+    
+    public boolean telefonoEmergencia(int id, String telefono)
+    {
+        try{                       
+            String sql = "INSERT INTO telefono(telefono, contactoEmergencia_id)"
+                    + "VALUES (?,?)";
+            
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, telefono);
+            pst.setInt(2, id);
+            int n = pst.executeUpdate();
+            return n != 0;
+        } catch(SQLException ex)
+        {
+            Logger.getLogger(NivelEstudio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
 }
