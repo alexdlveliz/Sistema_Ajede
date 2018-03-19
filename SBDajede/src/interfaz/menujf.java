@@ -25,7 +25,7 @@ public class menujf extends javax.swing.JFrame {
      */
     public menujf() {
         initComponents();
-        
+        this.setLocationRelativeTo(null);
         Toolkit tk = Toolkit.getDefaultToolkit();
         Dimension tamanio = tk.getScreenSize();
         transparencia();
@@ -145,7 +145,10 @@ public class menujf extends javax.swing.JFrame {
         lbvoluntariadom = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1565, 880));
+        setMinimumSize(new java.awt.Dimension(1250, 700));
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1250, 700));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -166,27 +169,32 @@ public class menujf extends javax.swing.JFrame {
 
         btnsalirdmenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Close_Window_30px.png"))); // NOI18N
         btnsalirdmenu.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Close_Window_70px.png"))); // NOI18N
+        btnsalirdmenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnsalirdmenuMouseClicked(evt);
+            }
+        });
         jPanel1.add(btnsalirdmenu);
-        btnsalirdmenu.setBounds(1160, 10, 63, 70);
+        btnsalirdmenu.setBounds(1160, 10, 80, 70);
 
         rSPanelsSlider1.setMaximumSize(new java.awt.Dimension(1565, 880));
         rSPanelsSlider1.setMinimumSize(new java.awt.Dimension(1250, 700));
         rSPanelsSlider1.setPreferredSize(new java.awt.Dimension(1250, 700));
 
+        menuprincipal.setName("menuprincipal"); // NOI18N
         menuprincipal.setLayout(null);
 
         btnagregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Add_File_70px.png"))); // NOI18N
-        btnagregar.setMargin(new java.awt.Insets(-15, 14, 35, 14));
+        btnagregar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnagregar.setName("btnagregar"); // NOI18N
         btnagregar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Add_File_100px.png"))); // NOI18N
-        btnagregar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         btnagregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnagregarActionPerformed(evt);
             }
         });
         menuprincipal.add(btnagregar);
-        btnagregar.setBounds(130, 330, 200, 140);
+        btnagregar.setBounds(130, 310, 210, 190);
 
         btneditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Edit_Property_70px.png"))); // NOI18N
         btneditar.setName("btneditar"); // NOI18N
@@ -290,6 +298,11 @@ public class menujf extends javax.swing.JFrame {
 
         btnmenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Person_at_Home_70px.png"))); // NOI18N
         btnmenu.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Person_at_Home_100px.png"))); // NOI18N
+        btnmenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnmenuMouseClicked(evt);
+            }
+        });
         jpagregarproyecto.add(btnmenu);
         btnmenu.setBounds(1050, 510, 130, 100);
 
@@ -299,6 +312,7 @@ public class menujf extends javax.swing.JFrame {
 
         rSPanelsSlider1.add(jpagregarproyecto, "card4");
 
+        jpvoluntariadom.setName("jpvoluntariadom"); // NOI18N
         jpvoluntariadom.setLayout(null);
 
         tableproyecto.setModel(new javax.swing.table.DefaultTableModel(
@@ -356,6 +370,11 @@ public class menujf extends javax.swing.JFrame {
 
         btnmenuv.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Person_at_Home_70px.png"))); // NOI18N
         btnmenuv.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Person_at_Home_100px.png"))); // NOI18N
+        btnmenuv.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnmenuvMouseClicked(evt);
+            }
+        });
         jpvoluntariadom.add(btnmenuv);
         btnmenuv.setBounds(970, 490, 160, 120);
 
@@ -399,11 +418,11 @@ public class menujf extends javax.swing.JFrame {
     }//GEN-LAST:event_btnagregarvoluntarioActionPerformed
 
     private void btnagregarproyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarproyectoActionPerformed
-
+    rSPanelsSlider1.setPanelSlider(jpagregarproyecto, RSPanelsSlider.DIRECT.DOWN);
     }//GEN-LAST:event_btnagregarproyectoActionPerformed
 
     private void btnagregarvoluntariadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarvoluntariadoActionPerformed
-
+    rSPanelsSlider1.setPanelSlider(jpvoluntariadom, RSPanelsSlider.DIRECT.DOWN);
     }//GEN-LAST:event_btnagregarvoluntariadoActionPerformed
 
     private void btnminimizarmenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnminimizarmenuActionPerformed
@@ -411,12 +430,24 @@ public class menujf extends javax.swing.JFrame {
     }//GEN-LAST:event_btnminimizarmenuActionPerformed
 
     private void btnagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarActionPerformed
-        rSPanelsSlider1.setPanelSlider(menuagregar, RSPanelsSlider.DIRECT.RIGHT);
+        rSPanelsSlider1.setPanelSlider(menuagregar, RSPanelsSlider.DIRECT.UP);
     }//GEN-LAST:event_btnagregarActionPerformed
 
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btneditarActionPerformed
+
+    private void btnsalirdmenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsalirdmenuMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_btnsalirdmenuMouseClicked
+
+    private void btnmenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmenuMouseClicked
+        rSPanelsSlider1.setPanelSlider(menuprincipal, RSPanelsSlider.DIRECT.UP);
+    }//GEN-LAST:event_btnmenuMouseClicked
+
+    private void btnmenuvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmenuvMouseClicked
+        rSPanelsSlider1.setPanelSlider(menuprincipal, RSPanelsSlider.DIRECT.UP);
+    }//GEN-LAST:event_btnmenuvMouseClicked
 
     /**
      * @param args the command line arguments
