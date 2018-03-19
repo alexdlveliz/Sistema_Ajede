@@ -233,9 +233,9 @@ public class agregarjf extends javax.swing.JFrame {
         btnsiguienteconteme.setOpaque(false);
         btnsiguienteconteme.setBorderPainted(false);
         btnsiguienteconteme.setContentAreaFilled(false);
-        btnsiguientedlab.setOpaque(false);
-        btnsiguientedlab.setBorderPainted(false);
-        btnsiguientedlab.setContentAreaFilled(false);
+        btnguardar.setOpaque(false);
+        btnguardar.setBorderPainted(false);
+        btnguardar.setContentAreaFilled(false);
         btnsiguientevolu.setOpaque(false);
         btnsiguientevolu.setBorderPainted(false);
         btnsiguientevolu.setContentAreaFilled(false);
@@ -257,6 +257,7 @@ public class agregarjf extends javax.swing.JFrame {
         btnaddp.setOpaque(false);
         btnaddp.setBorderPainted(false);
         btnaddp.setContentAreaFilled(false);
+        
         textfieldnombres.setBackground(new Color(0,0,0,0));
         textfieldapellidos.setBackground(new Color(0,0,0,0));
         textfieldedad.setBackground(new Color(0,0,0,0));
@@ -378,7 +379,7 @@ public class agregarjf extends javax.swing.JFrame {
         btnotrotelefonoencargado = new javax.swing.JButton();
         lbdatosenca = new javax.swing.JLabel();
         jpconteme = new javax.swing.JPanel();
-        btnsiguientedlab = new javax.swing.JButton();
+        btnguardar = new javax.swing.JButton();
         btnatrasdenc = new javax.swing.JButton();
         textfieldnombreemergencia = new javax.swing.JTextField();
         textfieldapellidoemergencia = new javax.swing.JTextField();
@@ -395,7 +396,6 @@ public class agregarjf extends javax.swing.JFrame {
         textfieldlugardeestudio = new javax.swing.JTextField();
         textfieldocupacion = new javax.swing.JTextField();
         textfieldlugartrabajo = new javax.swing.JTextField();
-        btnagregarasociado = new javax.swing.JButton();
         cmbnivelestudiovoluntario = new javax.swing.JComboBox<>();
         textfieldlugardeestudio2 = new javax.swing.JTextField();
         textfieldocupacion2 = new javax.swing.JTextField();
@@ -541,12 +541,12 @@ public class agregarjf extends javax.swing.JFrame {
         cmbgenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino" }));
         cmbgenero.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jpdatosp.add(cmbgenero);
-        cmbgenero.setBounds(380, 260, 190, 29);
+        cmbgenero.setBounds(390, 290, 190, 29);
 
         datecfecha.setForeground(new java.awt.Color(25, 92, 134));
         datecfecha.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jpdatosp.add(datecfecha);
-        datecfecha.setBounds(330, 360, 270, 40);
+        datecfecha.setBounds(330, 350, 270, 40);
 
         textfieldresidencia.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         textfieldresidencia.setForeground(new java.awt.Color(25, 92, 134));
@@ -772,15 +772,15 @@ public class agregarjf extends javax.swing.JFrame {
         jpconteme.setName("jpconteme"); // NOI18N
         jpconteme.setLayout(null);
 
-        btnsiguientedlab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/sa/icons8_Redo_70px.png"))); // NOI18N
-        btnsiguientedlab.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/sa/icons8_Redo_100px.png"))); // NOI18N
-        btnsiguientedlab.addActionListener(new java.awt.event.ActionListener() {
+        btnguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Save_Close_70px.png"))); // NOI18N
+        btnguardar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Save_Close_100px.png"))); // NOI18N
+        btnguardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnsiguientedlabActionPerformed(evt);
+                btnguardarActionPerformed(evt);
             }
         });
-        jpconteme.add(btnsiguientedlab);
-        btnsiguientedlab.setBounds(1080, 460, 120, 90);
+        jpconteme.add(btnguardar);
+        btnguardar.setBounds(1060, 450, 150, 130);
 
         btnatrasdenc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/sa/icons8_Undo_70px.png"))); // NOI18N
         btnatrasdenc.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/sa/icons8_Undo_100px.png"))); // NOI18N
@@ -894,16 +894,6 @@ public class agregarjf extends javax.swing.JFrame {
         });
         jpdlabo.add(textfieldlugartrabajo);
         textfieldlugartrabajo.setBounds(660, 250, 530, 30);
-
-        btnagregarasociado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/Checkmark_30px.png"))); // NOI18N
-        btnagregarasociado.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/Checkmark_50px.png"))); // NOI18N
-        btnagregarasociado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnagregarasociadoActionPerformed(evt);
-            }
-        });
-        jpdlabo.add(btnagregarasociado);
-        btnagregarasociado.setBounds(880, 450, 90, 80);
 
         cmbnivelestudiovoluntario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jpdlabo.add(cmbnivelestudiovoluntario);
@@ -1137,13 +1127,6 @@ public class agregarjf extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error al ingresar el asociado");
         }
     }
-    private void btnagregarasociadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarasociadoActionPerformed
-        /**
-         * Proceso para agregar al asociado, todos los datos que están escritos
-         * en este frame
-         */
-        datosAsociado();
-    }//GEN-LAST:event_btnagregarasociadoActionPerformed
     private void btnatrasdpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnatrasdpActionPerformed
         slider.setPanelSlider(jpdatosp, RSPanelsSlider.DIRECT.RIGHT);
 
@@ -1164,9 +1147,15 @@ public class agregarjf extends javax.swing.JFrame {
         slider.setPanelSlider(jpdenca, RSPanelsSlider.DIRECT.RIGHT);
     }//GEN-LAST:event_btnatrasdencActionPerformed
 
-    private void btnsiguientedlabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsiguientedlabActionPerformed
-        slider.setPanelSlider(jpdlabo, RSPanelsSlider.DIRECT.LEFT);
-    }//GEN-LAST:event_btnsiguientedlabActionPerformed
+    private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
+                /**
+         * Proceso para agregar al asociado, todos los datos que están escritos
+         * en este frame
+         */
+        datosAsociado();
+        menujf menu = new menujf();
+        menu.setVisible(true);
+    }//GEN-LAST:event_btnguardarActionPerformed
 
     private void btnatrasinfmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnatrasinfmeActionPerformed
         slider.setPanelSlider(jpinfomed, RSPanelsSlider.DIRECT.RIGHT);
@@ -1360,13 +1349,13 @@ public class agregarjf extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnaddp;
     private javax.swing.JButton btnaddtel;
-    private javax.swing.JButton btnagregarasociado;
     private javax.swing.JButton btnatrasbeca;
     private javax.swing.JButton btnatrasdenc;
     private javax.swing.JButton btnatrasdlab;
     private javax.swing.JButton btnatrasdp;
     private javax.swing.JButton btnatrasinfme;
     private javax.swing.JButton btnatrasvoluntariado;
+    private javax.swing.JButton btnguardar;
     private javax.swing.JButton btnhome;
     private javax.swing.JButton btnmenu;
     private javax.swing.JButton btnminimizar;
@@ -1376,7 +1365,6 @@ public class agregarjf extends javax.swing.JFrame {
     private javax.swing.JButton btnsiguienteconteme;
     private javax.swing.JButton btnsiguientedenc;
     private javax.swing.JButton btnsiguientedl;
-    private javax.swing.JButton btnsiguientedlab;
     private javax.swing.JButton btnsiguienteinfomed;
     private javax.swing.JButton btnsiguientevolu;
     private javax.swing.JComboBox<String> cmbgenero;
