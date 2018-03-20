@@ -18,11 +18,11 @@ public class busquedasjf extends javax.swing.JFrame {
      * Creates new form busquedasjf
      */
     private BusquedasVoluntarios busquedas;
-
+    private Boolean activo=true;
     public busquedasjf() {
         busquedas = new BusquedasVoluntarios();
         initComponents();
-        tablebvnombre.setModel(busquedas.BNombre("", tablebvnombre, ""));
+        tablebvnombre.setModel(busquedas.BNombre("", tablebvnombre, "",true));
         this.setLocationRelativeTo(null);
 
     }
@@ -44,8 +44,6 @@ public class busquedasjf extends javax.swing.JFrame {
         rSPanelsSlider1 = new rojerusan.RSPanelsSlider();
         jpmenua = new javax.swing.JPanel();
         btnbvnombre = new javax.swing.JButton();
-        btnbvactivos = new javax.swing.JButton();
-        btnbvinactivos = new javax.swing.JButton();
         btnbvexbecarios = new javax.swing.JButton();
         btnbvnoexbecarios = new javax.swing.JButton();
         btnbvanio = new javax.swing.JButton();
@@ -62,6 +60,7 @@ public class busquedasjf extends javax.swing.JFrame {
         tablebvnombre = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        cmbactivo = new javax.swing.JComboBox<>();
         lbvnombre = new javax.swing.JLabel();
         jpvactivos = new javax.swing.JPanel();
         txtbvactivos = new javax.swing.JTextField();
@@ -180,24 +179,6 @@ public class busquedasjf extends javax.swing.JFrame {
         });
         jpmenua.add(btnbvnombre);
         btnbvnombre.setBounds(160, 240, 140, 50);
-
-        btnbvactivos.setText("voluntario activos");
-        btnbvactivos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnbvactivosMouseClicked(evt);
-            }
-        });
-        jpmenua.add(btnbvactivos);
-        btnbvactivos.setBounds(340, 240, 140, 50);
-
-        btnbvinactivos.setText("voluntarios inactivos");
-        btnbvinactivos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnbvinactivosMouseClicked(evt);
-            }
-        });
-        jpmenua.add(btnbvinactivos);
-        btnbvinactivos.setBounds(510, 240, 150, 50);
 
         btnbvexbecarios.setText("voluntarios exbecarios");
         btnbvexbecarios.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -343,6 +324,15 @@ public class busquedasjf extends javax.swing.JFrame {
         jLabel2.setText("Apellido:");
         jpvnombre.add(jLabel2);
         jLabel2.setBounds(120, 120, 50, 16);
+
+        cmbactivo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo" }));
+        cmbactivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbactivoActionPerformed(evt);
+            }
+        });
+        jpvnombre.add(cmbactivo);
+        cmbactivo.setBounds(950, 90, 130, 26);
         jpvnombre.add(lbvnombre);
         lbvnombre.setBounds(0, 0, 1370, 740);
 
@@ -676,14 +666,6 @@ public class busquedasjf extends javax.swing.JFrame {
         rSPanelsSlider1.setPanelSlider(jpvnombre, RSPanelsSlider.DIRECT.UP);
     }//GEN-LAST:event_btnbvnombreMouseClicked
 
-    private void btnbvactivosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbvactivosMouseClicked
-        rSPanelsSlider1.setPanelSlider(jpvactivos, RSPanelsSlider.DIRECT.UP);
-    }//GEN-LAST:event_btnbvactivosMouseClicked
-
-    private void btnbvinactivosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbvinactivosMouseClicked
-        rSPanelsSlider1.setPanelSlider(jpvinactivos, RSPanelsSlider.DIRECT.UP);
-    }//GEN-LAST:event_btnbvinactivosMouseClicked
-
     private void btnbvexbecariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbvexbecariosMouseClicked
         rSPanelsSlider1.setPanelSlider(jpvexbecarios, RSPanelsSlider.DIRECT.UP);
     }//GEN-LAST:event_btnbvexbecariosMouseClicked
@@ -735,12 +717,26 @@ public class busquedasjf extends javax.swing.JFrame {
     }//GEN-LAST:event_btnrmenuaActionPerformed
 
     private void txtbvnombreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbvnombreKeyPressed
-        tablebvnombre.setModel(busquedas.BNombre(txtbvnombre.getText(), tablebvnombre, txtApellido.getText()));
+        String act=(String)cmbactivo.getSelectedItem();
+        if(act.equals("Activo"))
+            activo=true;
+        else
+            activo=false;
+            
+        tablebvnombre.setModel(busquedas.BNombre(txtbvnombre.getText(), tablebvnombre, txtApellido.getText(),activo));
     }//GEN-LAST:event_txtbvnombreKeyPressed
 
     private void txtApellidoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoKeyPressed
-        tablebvnombre.setModel(busquedas.BNombre(txtbvnombre.getText(), tablebvnombre, txtApellido.getText()));
+        String act=(String)cmbactivo.getSelectedItem();
+        activo = act.equals("Activo");
+        tablebvnombre.setModel(busquedas.BNombre(txtbvnombre.getText(), tablebvnombre, txtApellido.getText(),activo));
     }//GEN-LAST:event_txtApellidoKeyPressed
+
+    private void cmbactivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbactivoActionPerformed
+        String act=(String)cmbactivo.getSelectedItem();
+        activo = act.equals("Activo");
+        tablebvnombre.setModel(busquedas.BNombre(txtbvnombre.getText(), tablebvnombre, txtApellido.getText(),activo));
+    }//GEN-LAST:event_cmbactivoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -778,12 +774,10 @@ public class busquedasjf extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnbvactivos;
     private javax.swing.JButton btnbvanio;
     private javax.swing.JButton btnbvedad;
     private javax.swing.JButton btnbvexbecarios;
     private javax.swing.JButton btnbvgenero;
-    private javax.swing.JButton btnbvinactivos;
     private javax.swing.JButton btnbvnoexbecarios;
     private javax.swing.JButton btnbvnombre;
     private javax.swing.JButton btnbvocupacion;
@@ -793,6 +787,7 @@ public class busquedasjf extends javax.swing.JFrame {
     private javax.swing.JButton btnminimizar;
     private javax.swing.JButton btnrmenua;
     private javax.swing.JButton btnsalir;
+    private javax.swing.JComboBox<String> cmbactivo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
