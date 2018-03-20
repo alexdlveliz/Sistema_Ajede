@@ -5,6 +5,7 @@
  */
 package interfaz;
 
+import Clases.BusquedasVoluntarios;
 import rojerusan.RSPanelsSlider;
 
 /**
@@ -16,10 +17,14 @@ public class busquedasjf extends javax.swing.JFrame {
     /**
      * Creates new form busquedasjf
      */
+    private BusquedasVoluntarios busquedas;
+
     public busquedasjf() {
+        busquedas = new BusquedasVoluntarios();
         initComponents();
+        tablebvnombre.setModel(busquedas.BNombre("", tablebvnombre, ""));
         this.setLocationRelativeTo(null);
-        
+
     }
 
     /**
@@ -52,8 +57,11 @@ public class busquedasjf extends javax.swing.JFrame {
         lbmenua = new javax.swing.JLabel();
         jpvnombre = new javax.swing.JPanel();
         txtbvnombre = new javax.swing.JTextField();
+        txtApellido = new javax.swing.JTextField();
         jsbvnombre = new javax.swing.JScrollPane();
         tablebvnombre = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         lbvnombre = new javax.swing.JLabel();
         jpvactivos = new javax.swing.JPanel();
         txtbvactivos = new javax.swing.JTextField();
@@ -122,7 +130,7 @@ public class busquedasjf extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnrmenua);
-        btnrmenua.setBounds(1140, 610, 79, 23);
+        btnrmenua.setBounds(1140, 610, 80, 28);
 
         btnsalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Close_Window_30px.png"))); // NOI18N
         btnsalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -281,27 +289,60 @@ public class busquedasjf extends javax.swing.JFrame {
         jpvnombre.setLayout(null);
 
         txtbvnombre.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        txtbvnombre.setText("jTextField1");
+        txtbvnombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtbvnombreKeyPressed(evt);
+            }
+        });
         jpvnombre.add(txtbvnombre);
-        txtbvnombre.setBounds(360, 140, 650, 30);
+        txtbvnombre.setBounds(180, 70, 650, 30);
+
+        txtApellido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtApellidoKeyPressed(evt);
+            }
+        });
+        jpvnombre.add(txtApellido);
+        txtApellido.setBounds(180, 110, 650, 28);
 
         tablebvnombre.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nombre", "Apellido", "DPI", "Email", "Genero", "Fecha de nacimiento"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jsbvnombre.setViewportView(tablebvnombre);
+        if (tablebvnombre.getColumnModel().getColumnCount() > 0) {
+            tablebvnombre.getColumnModel().getColumn(0).setResizable(false);
+            tablebvnombre.getColumnModel().getColumn(1).setResizable(false);
+            tablebvnombre.getColumnModel().getColumn(3).setResizable(false);
+            tablebvnombre.getColumnModel().getColumn(4).setResizable(false);
+            tablebvnombre.getColumnModel().getColumn(5).setResizable(false);
+        }
 
         jpvnombre.add(jsbvnombre);
-        jsbvnombre.setBounds(140, 190, 1090, 440);
+        jsbvnombre.setBounds(40, 190, 1190, 470);
 
-        lbvnombre.setText("jLabel2");
+        jLabel1.setText("Nombre:");
+        jpvnombre.add(jLabel1);
+        jLabel1.setBounds(120, 80, 50, 16);
+
+        jLabel2.setText("Apellido:");
+        jpvnombre.add(jLabel2);
+        jLabel2.setBounds(120, 120, 50, 16);
         jpvnombre.add(lbvnombre);
         lbvnombre.setBounds(0, 0, 1370, 740);
 
@@ -396,7 +437,7 @@ public class busquedasjf extends javax.swing.JFrame {
 
         lbvexbecarios.setText("jLabel1");
         jpvexbecarios.add(lbvexbecarios);
-        lbvexbecarios.setBounds(-32411, -32409, 34, 14);
+        lbvexbecarios.setBounds(-32411, -32409, 41, 16);
 
         rSPanelsSlider1.add(jpvexbecarios, "card6");
 
@@ -426,7 +467,7 @@ public class busquedasjf extends javax.swing.JFrame {
 
         lbvnoexbecarios.setText("jLabel1");
         jpvnoexbecarios.add(lbvnoexbecarios);
-        lbvnoexbecarios.setBounds(-32706, -32685, 34, 14);
+        lbvnoexbecarios.setBounds(-32706, -32685, 41, 16);
 
         rSPanelsSlider1.add(jpvnoexbecarios, "card7");
 
@@ -456,7 +497,7 @@ public class busquedasjf extends javax.swing.JFrame {
 
         lbvanio.setText("jLabel1");
         jpvanio.add(lbvanio);
-        lbvanio.setBounds(-32768, -32768, 34, 14);
+        lbvanio.setBounds(-32768, -32768, 41, 16);
 
         rSPanelsSlider1.add(jpvanio, "card8");
 
@@ -677,12 +718,12 @@ public class busquedasjf extends javax.swing.JFrame {
 
     private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
 
-            this.dispose();
-        
+        this.dispose();
+
     }//GEN-LAST:event_btnsalirActionPerformed
 
     private void btnhomedpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhomedpActionPerformed
-    rSPanelsSlider1.setPanelSlider(jpmenua, RSPanelsSlider.DIRECT.RIGHT);
+        rSPanelsSlider1.setPanelSlider(jpmenua, RSPanelsSlider.DIRECT.RIGHT);
     }//GEN-LAST:event_btnhomedpActionPerformed
 
     private void btnminimizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnminimizarActionPerformed
@@ -692,6 +733,14 @@ public class busquedasjf extends javax.swing.JFrame {
     private void btnrmenuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrmenuaActionPerformed
         rSPanelsSlider1.setPanelSlider(jpmenua, RSPanelsSlider.DIRECT.RIGHT);
     }//GEN-LAST:event_btnrmenuaActionPerformed
+
+    private void txtbvnombreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbvnombreKeyPressed
+        tablebvnombre.setModel(busquedas.BNombre(txtbvnombre.getText(), tablebvnombre, txtApellido.getText()));
+    }//GEN-LAST:event_txtbvnombreKeyPressed
+
+    private void txtApellidoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoKeyPressed
+        tablebvnombre.setModel(busquedas.BNombre(txtbvnombre.getText(), tablebvnombre, txtApellido.getText()));
+    }//GEN-LAST:event_txtApellidoKeyPressed
 
     /**
      * @param args the command line arguments
@@ -744,6 +793,8 @@ public class busquedasjf extends javax.swing.JFrame {
     private javax.swing.JButton btnminimizar;
     private javax.swing.JButton btnrmenua;
     private javax.swing.JButton btnsalir;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel jpmenua;
@@ -792,6 +843,7 @@ public class busquedasjf extends javax.swing.JFrame {
     private javax.swing.JTable tablebvocupacion;
     private javax.swing.JTable tablebvprograma;
     private javax.swing.JTable tablebvpromocionbeca;
+    private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtbvactivos;
     private javax.swing.JTextField txtbvanio;
     private javax.swing.JTextField txtbvedad;
