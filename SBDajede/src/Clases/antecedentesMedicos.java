@@ -61,7 +61,6 @@ public class antecedentesMedicos
         int id = 0;
         try{
             String sql = "SELECT MAX(id) FROM asociado";
-            System.out.println(sql);
             Statement st = con.createStatement();
             ResultSet Rs = st.executeQuery(sql);
             if(Rs.next())

@@ -62,6 +62,24 @@ public class datosEncargado
         return false;
     }
     
+    public boolean insertarTutela(int idEncargado, int idAsociado)
+    {
+        try{
+            String sql = "INSERT INTO tutela(Encargado_id, Asociado_id)"
+                    + "VALUES (?,?)";
+            
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setInt(1, idEncargado);
+            pst.setInt(2, idAsociado);
+            int n = pst.executeUpdate();
+            return n != 0;
+        } catch(SQLException ex)
+        {
+            Logger.getLogger(NivelEstudio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    
     //Método para insertar datos a la tabla 'encargado'
     public boolean telefonoEncargado(int id, String telefono)
     {

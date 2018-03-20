@@ -17,19 +17,19 @@ import java.util.logging.Logger;
  *
  * @author hectortllo
  */
-public class OcupacionEncargado 
+public class Ocupacion 
 {
     private Connection con = null;
     private Conexion conexion;
     
     //Se hace la conexión a la base de datos
-    public OcupacionEncargado()
+    public Ocupacion()
     {
         conexion = new Conexion();
         con = conexion.getConnection();
     }
     
-    //Método para insertar datos a la tabla 'encargado'
+    //Método para insertar datos a la tabla 'ocupacion'
     public boolean insertar(String nombreOcupacion, String lugarOcupacion)
     {
         try{
@@ -75,6 +75,24 @@ public class OcupacionEncargado
             
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setInt(1, encargadoId);
+            pst.setInt(2, ocupacionId);
+            int n = pst.executeUpdate();
+            return n != 0;
+        } catch(SQLException ex)
+        {
+            Logger.getLogger(NivelEstudio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    
+    public boolean insertarDetalleOcupacionAsociado(int AsociadoId, int ocupacionId)
+    {
+        try{
+            String sql = "INSERT INTO detalleocupacion(Asociado_id, Ocupacion_id)"
+                    + "VALUES (?,?)";
+            
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setInt(1, AsociadoId);
             pst.setInt(2, ocupacionId);
             int n = pst.executeUpdate();
             return n != 0;

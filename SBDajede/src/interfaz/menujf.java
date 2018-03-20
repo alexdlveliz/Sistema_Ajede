@@ -5,6 +5,7 @@
  */
 package interfaz;
 
+import Clases.Proyecto;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -20,10 +21,12 @@ public class menujf extends javax.swing.JFrame {
     
     //ImageIcon menutam2 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/opcionestam2.jpg")).getImage());
    ImageIcon menu = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/menuprincipal.jpg")).getImage());
+    private Proyecto proyecto;
     /**
      * Creates new form menujf
      */
     public menujf() {
+        proyecto = new Proyecto();
         initComponents();
         this.setLocationRelativeTo(null);
         Toolkit tk = Toolkit.getDefaultToolkit();
@@ -57,6 +60,16 @@ public class menujf extends javax.swing.JFrame {
             btnminimizarmenu.setLocation(1090, 5);
             btnsalirdmenu.setLocation(1175, 5);
         }
+    }
+    
+    //Insertar proyecto
+    public void Proyecto()
+    {
+        String nombre = txtnombreproyecto.getText();
+        String descripcion = txtdescripcionp.getText();
+        if(proyecto.insertar(nombre, descripcion))
+            JOptionPane.showMessageDialog(null, "Proyecto ingresado correctamente");
+        
     }
     public void transparencia()
     {
@@ -293,6 +306,11 @@ public class menujf extends javax.swing.JFrame {
 
         btnguardarproyecto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Save_Close_70px.png"))); // NOI18N
         btnguardarproyecto.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Save_Close_100px.png"))); // NOI18N
+        btnguardarproyecto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnguardarproyectoActionPerformed(evt);
+            }
+        });
         jpagregarproyecto.add(btnguardarproyecto);
         btnguardarproyecto.setBounds(860, 510, 140, 100);
 
@@ -448,6 +466,11 @@ public class menujf extends javax.swing.JFrame {
     private void btnmenuvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmenuvMouseClicked
         rSPanelsSlider1.setPanelSlider(menuprincipal, RSPanelsSlider.DIRECT.UP);
     }//GEN-LAST:event_btnmenuvMouseClicked
+
+    private void btnguardarproyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarproyectoActionPerformed
+        // TODO add your handling code here:
+        Proyecto();
+    }//GEN-LAST:event_btnguardarproyectoActionPerformed
 
     /**
      * @param args the command line arguments
