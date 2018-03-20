@@ -1135,9 +1135,8 @@ public class agregarjf extends javax.swing.JFrame {
         String residencia = textfieldresidencia.getText();
         String nivEst = (String) cmbnivelestudiovoluntario.getSelectedItem();
         String tipoSangre = (String) cmbtipodesangre.getSelectedItem();
-        String lugarOcupacion = textfieldlugardeestudio.getText() + " " + textfieldlugardeestudio2.getText()
-                + " " + textfieldlugartrabajo.getText() + " " + textfieldlugartrabajo2.getText();
-        String ocupacion = textfieldocupacion.getText() + textfieldocupacion2.getText();
+        String lugarOcupacion = textfieldlugardeestudio.getText();
+        String ocupacion = textfieldocupacion.getText();
         int idOcupacion = ocupacionE.obteneridOcupacion();
         int idAsociado = antecedentes.obteneridAsociado();
         boolean genero1 = false;
@@ -1145,8 +1144,8 @@ public class agregarjf extends javax.swing.JFrame {
             genero1 = true;
         }
         if (asociado.insertar(nombre, apellido, genero1, fecha, email, talla, residencia, true, PerfilFB, tipoSangre, nivEst, Dpi)) {
-            //ocupacionE.insertar(ocupacion, lugarOcupacion);
-            //ocupacionE.insertarDetalleOcupacionAsociado(idAsociado, idOcupacion);
+            ocupacionE.insertar(ocupacion, lugarOcupacion);
+            ocupacionE.insertarDetalleOcupacionAsociado(idAsociado, idOcupacion);
             JOptionPane.showMessageDialog(null, "Asociado Ingresado correctamente");
             return true;
         } else {
@@ -1250,13 +1249,16 @@ public class agregarjf extends javax.swing.JFrame {
          */
                 
          //Acá se ingresan todos los datos del asociado
-        if(datosAsociado())
+        if(validarContactoEmergencia())
         {
-            informacionMedica();
-            DatosEncargado();
-            contactoEmergencia();
-            menujf menu = new menujf();
-            menu.setVisible(true);
+            if(datosAsociado())
+            {
+                informacionMedica();
+                DatosEncargado();
+                contactoEmergencia();
+                menujf menu = new menujf();
+                menu.setVisible(true);
+            }
         }
     }//GEN-LAST:event_btnguardarActionPerformed
 
@@ -1265,7 +1267,8 @@ public class agregarjf extends javax.swing.JFrame {
     }//GEN-LAST:event_btnatrasinfmeActionPerformed
 
     private void btnsiguientecontemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsiguientecontemeActionPerformed
-        slider.setPanelSlider(jpconteme, RSPanelsSlider.DIRECT.LEFT);
+        if(validarDatosEncargado())
+            slider.setPanelSlider(jpconteme, RSPanelsSlider.DIRECT.LEFT);
     }//GEN-LAST:event_btnsiguientecontemeActionPerformed
 
     private void btnatrasbecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnatrasbecaActionPerformed
@@ -1342,6 +1345,69 @@ public class agregarjf extends javax.swing.JFrame {
         } else {
             return true;
         }
+    }
+    
+    private boolean validarDatosEncargado()
+    {
+        if(textfieldnombreencargado.getText().length() == 0)
+        {
+            JOptionPane.showMessageDialog(null, "El campo nombre está vacío, favor de llenarlo");
+            textfieldnombreencargado.requestFocus();
+            return false;
+        } else if(textfieldapellidoencargado.getText().length() == 0)
+        {
+            JOptionPane.showMessageDialog(null, "El campo apellido está vacío, favor de llenarlo");
+            textfieldapellidoencargado.requestFocus();
+            return false;
+        } else if(textfieldtelefonoencargado.getText().length() == 0)
+        {
+            JOptionPane.showMessageDialog(null, "El campo teléfono está vacío, favor de llenarlo");
+            textfieldtelefono.requestFocus();
+            return false;
+        } else if(textfielddpiencargado.getText().length() == 0)
+        {
+            JOptionPane.showMessageDialog(null, "El campo DPI/CUI está vacío, favor de llenarlo");
+            textfielddpiencargado.requestFocus();
+            return false;
+        } else if(textfieldresidenciaencargado.getText().length() == 0)
+        {
+            JOptionPane.showMessageDialog(null, "El campo Residencia está vacío, favor de llenarlo");
+            textfieldresidenciaencargado.requestFocus();
+            return false;
+        } else if(textfieldocupacionencargado.getText().length() == 0)
+        {
+            JOptionPane.showMessageDialog(null, "El campo Trabajo/Ocupación está vacío, favor de llenarlo");
+            textfieldocupacionencargado.requestFocus();
+            return false;
+        } else if(textfieldlugarencargado.getText().length() == 0)
+        {
+            JOptionPane.showMessageDialog(null, "El campo Lugar de Trabajo/Ocupación está vacío, favor de llenarlo");
+            textfieldlugarencargado.requestFocus();
+            return false;
+        } else
+            return true;
+    }
+    
+    private boolean validarContactoEmergencia()
+    {
+        if(textfieldnombreemergencia.getText().length() == 0)
+        {
+            JOptionPane.showMessageDialog(null, "El campo nombre está vacío, favor de llenarlo");
+            textfieldnombreemergencia.requestFocus();
+            return false;
+        } else if(textfieldapellidoemergencia.getText().length() == 0)
+        {
+            JOptionPane.showMessageDialog(null, "El campo apellido está vacío, favor de llenarlo");
+            textfieldapellidoemergencia.requestFocus();
+            return false;
+        } else if(textfieldparentescoemergencia.getText().length() == 0)
+        {
+            JOptionPane.showMessageDialog(null, "El campo Parentesco/Relación está vacío, favor de llenarlo");
+            textfieldparentescoemergencia.requestFocus();
+            return false;
+        } 
+        else 
+            return true;
     }
     private void btnsiguientedlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsiguientedlActionPerformed
         if (validarDatosPersonales()) {

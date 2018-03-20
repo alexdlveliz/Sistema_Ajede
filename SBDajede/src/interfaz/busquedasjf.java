@@ -110,7 +110,6 @@ public class busquedasjf extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(1565, 880));
         setMinimumSize(new java.awt.Dimension(1250, 700));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1250, 700));
 
         jPanel1.setMaximumSize(new java.awt.Dimension(1565, 880));
         jPanel1.setMinimumSize(new java.awt.Dimension(1250, 700));
@@ -123,7 +122,7 @@ public class busquedasjf extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnrmenua);
-        btnrmenua.setBounds(1140, 610, 87, 25);
+        btnrmenua.setBounds(1140, 610, 79, 23);
 
         btnsalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Close_Window_30px.png"))); // NOI18N
         btnsalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -397,7 +396,7 @@ public class busquedasjf extends javax.swing.JFrame {
 
         lbvexbecarios.setText("jLabel1");
         jpvexbecarios.add(lbvexbecarios);
-        lbvexbecarios.setBounds(-32411, -32409, 41, 16);
+        lbvexbecarios.setBounds(-32411, -32409, 34, 14);
 
         rSPanelsSlider1.add(jpvexbecarios, "card6");
 
@@ -427,7 +426,7 @@ public class busquedasjf extends javax.swing.JFrame {
 
         lbvnoexbecarios.setText("jLabel1");
         jpvnoexbecarios.add(lbvnoexbecarios);
-        lbvnoexbecarios.setBounds(-32706, -32685, 41, 16);
+        lbvnoexbecarios.setBounds(-32706, -32685, 34, 14);
 
         rSPanelsSlider1.add(jpvnoexbecarios, "card7");
 
@@ -457,7 +456,7 @@ public class busquedasjf extends javax.swing.JFrame {
 
         lbvanio.setText("jLabel1");
         jpvanio.add(lbvanio);
-        lbvanio.setBounds(-32768, -32768, 41, 16);
+        lbvanio.setBounds(-32768, -32768, 34, 14);
 
         rSPanelsSlider1.add(jpvanio, "card8");
 

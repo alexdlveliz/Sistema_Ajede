@@ -230,6 +230,11 @@ public class menujf extends javax.swing.JFrame {
                 btnbuscarMouseClicked(evt);
             }
         });
+        btnbuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbuscarActionPerformed(evt);
+            }
+        });
         menuprincipal.add(btnbuscar);
         btnbuscar.setBounds(910, 310, 230, 170);
 
@@ -324,6 +329,11 @@ public class menujf extends javax.swing.JFrame {
         btnguardarproyecto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnguardarproyectoMouseClicked(evt);
+            }
+        });
+        btnguardarproyecto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnguardarproyectoActionPerformed(evt);
             }
         });
         jpagregarproyecto.add(btnguardarproyecto);
@@ -481,6 +491,14 @@ public class menujf extends javax.swing.JFrame {
     private void btnguardarproyectoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnguardarproyectoMouseClicked
         Proyecto();
     }//GEN-LAST:event_btnguardarproyectoMouseClicked
+
+    private void btnguardarproyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarproyectoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnguardarproyectoActionPerformed
+
+    private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnbuscarActionPerformed
 
     /**
      * @param args the command line arguments
