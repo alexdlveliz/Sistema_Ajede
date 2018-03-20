@@ -350,16 +350,30 @@ public class menujf extends javax.swing.JFrame {
 
         tableproyecto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "No", "Nombre Proyecto", "Descripcion"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tableproyecto);
+        if (tableproyecto.getColumnModel().getColumnCount() > 0) {
+            tableproyecto.getColumnModel().getColumn(0).setResizable(false);
+            tableproyecto.getColumnModel().getColumn(0).setPreferredWidth(20);
+            tableproyecto.getColumnModel().getColumn(1).setResizable(false);
+            tableproyecto.getColumnModel().getColumn(2).setResizable(false);
+        }
 
         jpvoluntariadom.add(jScrollPane1);
         jScrollPane1.setBounds(50, 170, 550, 210);
@@ -412,7 +426,6 @@ public class menujf extends javax.swing.JFrame {
         btnmenuv.setBounds(970, 490, 160, 120);
 
         txtproyecto.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        txtproyecto.setText("ejemplo proyecto 1");
         jpvoluntariadom.add(txtproyecto);
         txtproyecto.setBounds(200, 110, 400, 40);
 
