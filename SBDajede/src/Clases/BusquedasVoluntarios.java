@@ -28,7 +28,7 @@ public class BusquedasVoluntarios {
         con = conexion.getConnection();
     }
 
-    public DefaultTableModel BNombre(String nombre, JTable tabla, String apellido) {
+    public DefaultTableModel BNombre(String nombre, JTable tabla, String apellido, boolean activo) {
         try {
             String titulos[] = new String[6];
             for (byte i = 0; i < 6; i++) {
@@ -36,7 +36,7 @@ public class BusquedasVoluntarios {
             }
             boolean genero;
             String registros[] = new String[6];
-            String sql = "Select * from asociado where Nombre LIKE '%" + nombre + "%' and Apellido LIKE '%" + apellido + "%'";
+            String sql = "Select * from asociado where Nombre LIKE '%" + nombre + "%' and Apellido LIKE '%" + apellido + "%' and Activo="+activo;
             DefaultTableModel modelo = new DefaultTableModel(null, titulos);
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
