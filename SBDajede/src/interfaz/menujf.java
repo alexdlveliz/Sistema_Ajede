@@ -212,6 +212,11 @@ public class menujf extends javax.swing.JFrame {
         btnbuscar.setPreferredSize(new java.awt.Dimension(150, 25));
         btnbuscar.setRequestFocusEnabled(false);
         btnbuscar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Search_100px.png"))); // NOI18N
+        btnbuscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnbuscarMouseClicked(evt);
+            }
+        });
         menuprincipal.add(btnbuscar);
         btnbuscar.setBounds(910, 310, 230, 170);
 
@@ -448,6 +453,12 @@ public class menujf extends javax.swing.JFrame {
     private void btnmenuvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmenuvMouseClicked
         rSPanelsSlider1.setPanelSlider(menuprincipal, RSPanelsSlider.DIRECT.UP);
     }//GEN-LAST:event_btnmenuvMouseClicked
+
+    private void btnbuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbuscarMouseClicked
+        this.dispose();
+        busquedasjf buscar = new busquedasjf();
+        buscar.setVisible(true);
+    }//GEN-LAST:event_btnbuscarMouseClicked
 
     /**
      * @param args the command line arguments

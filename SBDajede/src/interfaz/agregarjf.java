@@ -52,7 +52,8 @@ public class agregarjf extends javax.swing.JFrame {
     public agregarjf() {
         asociado = new Asociado();
         initComponents();
-        //transparencia();
+        this.setLocationRelativeTo(null);
+        transparencia();
         Toolkit tk = Toolkit.getDefaultToolkit();
         Dimension tamanio = tk.getScreenSize();
         cmbnivelestudioencargado.setModel(asociado.NivEst());
@@ -425,8 +426,9 @@ public class agregarjf extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1565, 880));
+        setMinimumSize(new java.awt.Dimension(1250, 700));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1255, 705));
+        setPreferredSize(new java.awt.Dimension(1250, 700));
 
         jPanel1.setBackground(new java.awt.Color(255, 51, 255));
         jPanel1.setMaximumSize(new java.awt.Dimension(1565, 880));
@@ -465,7 +467,7 @@ public class agregarjf extends javax.swing.JFrame {
         btnminimizar.setBounds(1100, 0, 80, 70);
 
         slider.setMaximumSize(new java.awt.Dimension(1565, 880));
-        slider.setMinimumSize(new java.awt.Dimension(1275, 725));
+        slider.setMinimumSize(new java.awt.Dimension(1250, 700));
         slider.setPreferredSize(new java.awt.Dimension(1250, 700));
 
         jpdatosp.setBackground(new java.awt.Color(18, 44, 62));
@@ -798,15 +800,15 @@ public class agregarjf extends javax.swing.JFrame {
 
         textfieldapellidoemergencia.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jpconteme.add(textfieldapellidoemergencia);
-        textfieldapellidoemergencia.setBounds(170, 230, 430, 40);
+        textfieldapellidoemergencia.setBounds(170, 225, 430, 40);
 
         textfieldparentescoemergencia.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jpconteme.add(textfieldparentescoemergencia);
-        textfieldparentescoemergencia.setBounds(320, 300, 280, 30);
+        textfieldparentescoemergencia.setBounds(320, 288, 280, 40);
 
         textfieldtelefonoemergencia1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jpconteme.add(textfieldtelefonoemergencia1);
-        textfieldtelefonoemergencia1.setBounds(180, 360, 150, 30);
+        textfieldtelefonoemergencia1.setBounds(173, 355, 150, 30);
 
         textfieldtelefonoemergencia2.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jpconteme.add(textfieldtelefonoemergencia2);
@@ -814,15 +816,15 @@ public class agregarjf extends javax.swing.JFrame {
 
         textfieldtelefonoemergencia3.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jpconteme.add(textfieldtelefonoemergencia3);
-        textfieldtelefonoemergencia3.setBounds(50, 480, 530, 30);
+        textfieldtelefonoemergencia3.setBounds(50, 473, 530, 30);
 
         textfieldtelefonoemergencia4.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jpconteme.add(textfieldtelefonoemergencia4);
-        textfieldtelefonoemergencia4.setBounds(50, 530, 530, 30);
+        textfieldtelefonoemergencia4.setBounds(50, 520, 530, 30);
 
         textfieldtelefonoemergencia5.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jpconteme.add(textfieldtelefonoemergencia5);
-        textfieldtelefonoemergencia5.setBounds(50, 570, 530, 30);
+        textfieldtelefonoemergencia5.setBounds(50, 567, 530, 30);
 
         lbconteme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/contaceme2.jpg"))); // NOI18N
         lbconteme.setMaximumSize(new java.awt.Dimension(1565, 880));
