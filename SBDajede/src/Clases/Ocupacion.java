@@ -17,70 +17,42 @@ import java.util.logging.Logger;
  *
  * @author hectortllo
  */
-public class contactoEmergencia 
+public class Ocupacion 
 {
     private Connection con = null;
     private Conexion conexion;
     
     //Se hace la conexión a la base de datos
-    public contactoEmergencia()
+    public Ocupacion()
     {
         conexion = new Conexion();
         con = conexion.getConnection();
     }
     
-    //Método para insertar datos al contacto de emergencia
-    public boolean insertar(String relacion, String nombre, String apellido, int AsociadioId)
+    //Método para insertar datos a la tabla 'ocupacion'
+    public boolean insertar(String nombreOcupacion, String lugarOcupacion)
     {
         try{
-            int idAsociado = 0;
-            //Se busca en la tabla asociado la persona a la que corresponde el id que viene por parámetro
-            String sql = "SELECT id FROM asociado WHERE id='" + AsociadioId + "'";
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-            while(rs.next())
-            {
-                idAsociado = rs.getInt("id");
-            }
-            sql = "INSERT INTO contactoemergencia(Relacion, Nombre, Apellido, Asociado_id)"
-                    + "VALUES (?,?,?,?)";
+            String sql = "INSERT INTO ocupacion(nombreOcupacion, lugarOcupacion)"
+                    + "VALUES (?,?)";
+            
             PreparedStatement pst = con.prepareStatement(sql);
-            pst.setString(1, relacion);
-            pst.setString(2, nombre);
-            pst.setString(3, apellido);
-            pst.setInt(4, idAsociado);
+            pst.setString(1, nombreOcupacion);
+            pst.setString(2, lugarOcupacion);
             int n = pst.executeUpdate();
             return n != 0;
         } catch(SQLException ex)
         {
             Logger.getLogger(NivelEstudio.class.getName()).log(Level.SEVERE, null, ex);
-        }        
+        }
         return false;
     }
     
-    public int obteneridAsociado()
+    public int obteneridOcupacion()
     {
         int id = 0;
         try{
-            String sql = "SELECT MAX(id) FROM asociado";     
-            Statement st = con.createStatement();
-            ResultSet Rs = st.executeQuery(sql);
-            if(Rs.next())
-            {
-                id = (Rs.getInt(1));
-            }
-        } catch(SQLException ex)
-        {
-            Logger.getLogger(NivelEstudio.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return id;
-    }
-    
-    public int obteneridContactoEmergencia()
-    {
-        int id = 0;
-        try{
-            String sql = "SELECT MAX(id) FROM contactoemergencia";     
+            String sql = "SELECT MAX(id) FROM ocupacion";
             Statement st = con.createStatement();
             ResultSet Rs = st.executeQuery(sql);
             if(Rs.next())
@@ -94,15 +66,34 @@ public class contactoEmergencia
         return id;
     }
     
-    public boolean telefonoEmergencia(int id, String telefono)
+    //Método para insertar datos a la tabla 'detalleocupacion'
+    public boolean insertarDetalleOcupacion(int encargadoId, int ocupacionId)
     {
-        try{                       
-            String sql = "INSERT INTO telefono(telefono, contactoEmergencia_id)"
+        try{
+            String sql = "INSERT INTO detalleocupacion(Encargado_id, Ocupacion_id)"
                     + "VALUES (?,?)";
             
             PreparedStatement pst = con.prepareStatement(sql);
-            pst.setString(1, telefono);
-            pst.setInt(2, id);
+            pst.setInt(1, encargadoId);
+            pst.setInt(2, ocupacionId);
+            int n = pst.executeUpdate();
+            return n != 0;
+        } catch(SQLException ex)
+        {
+            Logger.getLogger(NivelEstudio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    
+    public boolean insertarDetalleOcupacionAsociado(int AsociadoId, int ocupacionId)
+    {
+        try{
+            String sql = "INSERT INTO detalleocupacion(Asociado_id, Ocupacion_id)"
+                    + "VALUES (?,?)";
+            
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setInt(1, AsociadoId);
+            pst.setInt(2, ocupacionId);
             int n = pst.executeUpdate();
             return n != 0;
         } catch(SQLException ex)

@@ -17,36 +17,35 @@ import java.util.logging.Logger;
  *
  * @author hectortllo
  */
-public class antecedentesMedicos 
+public class Alergias 
 {
     private Connection con = null;
     private Conexion conexion;
     
     //Se hace la conexión a la base de datos
-    public antecedentesMedicos()
+    public Alergias()
     {
         conexion = new Conexion();
         con = conexion.getConnection();
     }
     
-    //Método para insertar los antecedentes médicos del asociado
-    public boolean insertar(String Hospital, String Enfermedad, int idAsociado)
+    //Método para insertar alergias del asociado
+    public boolean insertar(String Alergias, int idAntecMedicos)
     {
         try{
-            int id_Asociado = 0;
-            String sql = "SELECT id FROM asociado WHERE id='" + idAsociado + "'";
+            int id_AntecMedicos = 0;
+            String sql = "SELECT id FROM antecedentesmedicos WHERE id='" + idAntecMedicos + "'";
             Statement st = con.createStatement();
             ResultSet Rs = st.executeQuery(sql);
             while(Rs.next())
             {
-                id_Asociado = Rs.getInt("id");
+                id_AntecMedicos = Rs.getInt("id");
             }
-            sql = "INSERT INTO antecedentesmedicos(Hospital, Enfermedad, Asociado_id)"
-                    + "VALUES (?,?,?)";
+            sql = "INSERT INTO alergias(Alergia, AntecedentesMedicos_id)"
+                    + "VALUES (?,?)";
             PreparedStatement pst = con.prepareStatement(sql);
-            pst.setString(1, Hospital);
-            pst.setString(2, Enfermedad);
-            pst.setInt(3, id_Asociado);
+            pst.setString(1, Alergias);
+            pst.setInt(2, id_AntecMedicos);
             int n = pst.executeUpdate();
             return n != 0;
         } catch(SQLException ex)
@@ -56,16 +55,18 @@ public class antecedentesMedicos
         return false;
     }
     
-    public int obteneridAsociado()
+    //Obtener el id de Antecedentes Médicos
+    public int obtenerIdAntMedicos()
     {
         int id = 0;
         try{
-            String sql = "SELECT MAX(id) FROM asociado";
+            String sql = "SELECT MAX(id) FROM antecedentesmedicos";
+            System.out.println(sql);
             Statement st = con.createStatement();
             ResultSet Rs = st.executeQuery(sql);
             if(Rs.next())
             {
-                id = (Rs.getInt(1));
+                id = (Rs.getInt(1)+1);
             }
         } catch(SQLException ex)
         {

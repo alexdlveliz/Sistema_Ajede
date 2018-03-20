@@ -5,7 +5,12 @@
  */
 package interfaz;
 
+import Clases.Alergias;
 import Clases.Asociado;
+import Clases.Ocupacion;
+import Clases.antecedentesMedicos;
+import Clases.contactoEmergencia;
+import Clases.datosEncargado;
 import com.toedter.calendar.JDateChooser;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -48,9 +53,19 @@ public class agregarjf extends javax.swing.JFrame {
      */
     private char c;
     private Asociado asociado;
+    private antecedentesMedicos antecedentes;
+    private Alergias Alergias;
+    private contactoEmergencia contacto;
+    private datosEncargado encargado;
+    private Ocupacion ocupacionE;
 
     public agregarjf() {
         asociado = new Asociado();
+        antecedentes = new antecedentesMedicos();
+        Alergias = new Alergias();
+        contacto = new contactoEmergencia();
+        encargado = new datosEncargado();
+        ocupacionE = new Ocupacion();
         initComponents();
         this.setLocationRelativeTo(null);
         transparencia();
@@ -1106,7 +1121,8 @@ public class agregarjf extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void datosAsociado() {
+    //Se inserta el asociado y su ocupación
+    private boolean datosAsociado() {
         String nombre = textfieldnombres.getText();
         String apellido = textfieldapellidos.getText();
         String Dpi = textfielddpi.getText();
@@ -1119,16 +1135,94 @@ public class agregarjf extends javax.swing.JFrame {
         String residencia = textfieldresidencia.getText();
         String nivEst = (String) cmbnivelestudiovoluntario.getSelectedItem();
         String tipoSangre = (String) cmbtipodesangre.getSelectedItem();
+        String lugarOcupacion = textfieldlugardeestudio.getText() + " " + textfieldlugardeestudio2.getText()
+                + " " + textfieldlugartrabajo.getText() + " " + textfieldlugartrabajo2.getText();
+        String ocupacion = textfieldocupacion.getText() + textfieldocupacion2.getText();
+        int idOcupacion = ocupacionE.obteneridOcupacion();
+        int idAsociado = antecedentes.obteneridAsociado();
         boolean genero1 = false;
         if (genero.equals("Masculino")) {
             genero1 = true;
         }
         if (asociado.insertar(nombre, apellido, genero1, fecha, email, talla, residencia, true, PerfilFB, tipoSangre, nivEst, Dpi)) {
+            //ocupacionE.insertar(ocupacion, lugarOcupacion);
+            //ocupacionE.insertarDetalleOcupacionAsociado(idAsociado, idOcupacion);
             JOptionPane.showMessageDialog(null, "Asociado Ingresado correctamente");
+            return true;
         } else {
             JOptionPane.showMessageDialog(null, "Error al ingresar el asociado");
+            return false;
         }
     }
+        
+    //Se inserta la información médica del asociado
+    private void informacionMedica()
+    {
+        String Hospital = textfieldhospital.getText();
+        String padecimientos = textfieldpadecimiento1.getText() + " " + textfieldpadecimiento2.getText()
+                + " " + textfieldpadecimiento3.getText() + " " + textfieldpadecimiento4.getText();
+        String alergias = textfieldalergia1.getText() + " " + textfieldalergia2.getText() + " "
+                + textfieldalergia3.getText() + " " + textfieldalergia4.getText() + " " + textfieldalergia5.getText();
+        
+        int idAsociado = antecedentes.obteneridAsociado();
+        System.out.println("idAsociado informació médica: " + idAsociado);
+        int idAntecMedicos = Alergias.obtenerIdAntMedicos();
+        
+        if(antecedentes.insertar(Hospital, padecimientos, idAsociado))
+        {
+            JOptionPane.showMessageDialog(null, "Médicos ingresados correctamente");
+            if(Alergias.insertar(alergias, idAntecMedicos))
+                JOptionPane.showMessageDialog(null, "Alergias ingresadas correctamente");
+        }
+        else
+            JOptionPane.showMessageDialog(null, "Error al ingresar Información médica");
+        
+    }
+    
+    //Se insertar el contacto de emergencia del asociado
+    private void contactoEmergencia()
+    {
+        String nombre = textfieldnombreemergencia.getText();
+        String apellido = textfieldapellidoemergencia.getText();
+        String parentesco = textfieldparentescoemergencia.getText();
+        String telefono = textfieldtelefonoemergencia1.getText();
+        int idAsociado = contacto.obteneridAsociado();
+        int idEmergencia = contacto.obteneridContactoEmergencia();
+        
+        if(contacto.insertar(parentesco, nombre, apellido, idAsociado))
+        {
+            if(contacto.telefonoEmergencia(idEmergencia, telefono))
+                JOptionPane.showMessageDialog(null, "Datos ingresados correctmente");
+        }
+        else
+            JOptionPane.showMessageDialog(null, "Error al ingresar contacto emergencia");
+    }
+    
+    //Se insertan los datos del encargado del asociado
+    private void DatosEncargado()
+    {
+        String nombre = textfieldnombreencargado.getText();
+        String apellido = textfieldapellidoencargado.getText();
+        String nivelEstudio = (String)cmbnivelestudioencargado.getSelectedItem();
+        String telefono = textfieldtelefonoencargado.getText();
+        String dpi = textfielddpiencargado.getText();
+        String residencia = textfieldresidenciaencargado.getText();
+        String email = textfieldcorreoencargado.getText();
+        String nombreOcupacion = textfieldocupacionencargado.getText();
+        String lugarOcupacion = textfieldlugarencargado.getText();
+        int idAsociado = antecedentes.obteneridAsociado();
+        int idEncargado = encargado.obteneridEncargado();
+        int idOcupacion = ocupacionE.obteneridOcupacion();
+        
+        if(encargado.insertar(dpi, email, nombre, apellido, residencia, nivelEstudio))
+        {
+            ocupacionE.insertar(nombreOcupacion, lugarOcupacion);
+            encargado.telefonoEncargado(idEncargado, telefono);
+            ocupacionE.insertarDetalleOcupacion(idEncargado, idOcupacion);
+            encargado.insertarTutela(idEncargado, idAsociado);
+        }
+    }
+    
     private void btnatrasdpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnatrasdpActionPerformed
         slider.setPanelSlider(jpdatosp, RSPanelsSlider.DIRECT.RIGHT);
 
@@ -1154,9 +1248,16 @@ public class agregarjf extends javax.swing.JFrame {
          * Proceso para agregar al asociado, todos los datos que están escritos
          * en este frame
          */
-        datosAsociado();
-        menujf menu = new menujf();
-        menu.setVisible(true);
+                
+         //Acá se ingresan todos los datos del asociado
+        if(datosAsociado())
+        {
+            informacionMedica();
+            DatosEncargado();
+            contactoEmergencia();
+            menujf menu = new menujf();
+            menu.setVisible(true);
+        }
     }//GEN-LAST:event_btnguardarActionPerformed
 
     private void btnatrasinfmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnatrasinfmeActionPerformed
