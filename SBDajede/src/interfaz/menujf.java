@@ -140,8 +140,8 @@ public class menujf extends javax.swing.JFrame {
         txtnombreproyecto = new javax.swing.JTextField();
         txtdescripcionp = new javax.swing.JTextField();
         btnaddproyecto = new javax.swing.JButton();
-        btnguardarproyecto = new javax.swing.JButton();
         btnmenu = new javax.swing.JButton();
+        btnguardarproyecto = new javax.swing.JButton();
         lbproyectos = new javax.swing.JLabel();
         jpvoluntariadom = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -309,16 +309,6 @@ public class menujf extends javax.swing.JFrame {
         jpagregarproyecto.add(btnaddproyecto);
         btnaddproyecto.setBounds(940, 320, 150, 80);
 
-        btnguardarproyecto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Save_Close_70px.png"))); // NOI18N
-        btnguardarproyecto.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Save_Close_100px.png"))); // NOI18N
-        btnguardarproyecto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnguardarproyectoActionPerformed(evt);
-            }
-        });
-        jpagregarproyecto.add(btnguardarproyecto);
-        btnguardarproyecto.setBounds(860, 510, 140, 100);
-
         btnmenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Person_at_Home_70px.png"))); // NOI18N
         btnmenu.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Person_at_Home_100px.png"))); // NOI18N
         btnmenu.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -328,6 +318,16 @@ public class menujf extends javax.swing.JFrame {
         });
         jpagregarproyecto.add(btnmenu);
         btnmenu.setBounds(1050, 510, 130, 100);
+
+        btnguardarproyecto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Save_Close_70px.png"))); // NOI18N
+        btnguardarproyecto.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Save_Close_100px.png"))); // NOI18N
+        btnguardarproyecto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnguardarproyectoMouseClicked(evt);
+            }
+        });
+        jpagregarproyecto.add(btnguardarproyecto);
+        btnguardarproyecto.setBounds(860, 510, 140, 100);
 
         lbproyectos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/proyectos2.jpg"))); // NOI18N
         jpagregarproyecto.add(lbproyectos);
@@ -477,6 +477,10 @@ public class menujf extends javax.swing.JFrame {
         busquedasjf buscar = new busquedasjf();
         buscar.setVisible(true);
     }//GEN-LAST:event_btnbuscarMouseClicked
+
+    private void btnguardarproyectoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnguardarproyectoMouseClicked
+        Proyecto();
+    }//GEN-LAST:event_btnguardarproyectoMouseClicked
 
     /**
      * @param args the command line arguments
