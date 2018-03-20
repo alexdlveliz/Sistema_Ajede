@@ -726,11 +726,21 @@ public class agregarjf extends javax.swing.JFrame {
         textfieldnombreencargado.setBackground(new java.awt.Color(255, 0, 255));
         textfieldnombreencargado.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         textfieldnombreencargado.setBorder(null);
+        textfieldnombreencargado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textfieldnombreencargadoKeyTyped(evt);
+            }
+        });
         jpdenca.add(textfieldnombreencargado);
         textfieldnombreencargado.setBounds(160, 170, 440, 30);
 
         textfieldapellidoencargado.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         textfieldapellidoencargado.setBorder(null);
+        textfieldapellidoencargado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textfieldapellidoencargadoKeyTyped(evt);
+            }
+        });
         jpdenca.add(textfieldapellidoencargado);
         textfieldapellidoencargado.setBounds(170, 230, 430, 40);
 
@@ -763,11 +773,21 @@ public class agregarjf extends javax.swing.JFrame {
 
         textfieldocupacionencargado.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         textfieldocupacionencargado.setBorder(null);
+        textfieldocupacionencargado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textfieldocupacionencargadoKeyTyped(evt);
+            }
+        });
         jpdenca.add(textfieldocupacionencargado);
         textfieldocupacionencargado.setBounds(660, 220, 550, 40);
 
         textfieldlugarencargado.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         textfieldlugarencargado.setBorder(null);
+        textfieldlugarencargado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textfieldlugarencargadoKeyTyped(evt);
+            }
+        });
         jpdenca.add(textfieldlugarencargado);
         textfieldlugarencargado.setBounds(660, 320, 550, 40);
 
@@ -810,14 +830,29 @@ public class agregarjf extends javax.swing.JFrame {
         btnatrasdenc.setBounds(670, 440, 120, 110);
 
         textfieldnombreemergencia.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldnombreemergencia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textfieldnombreemergenciaKeyTyped(evt);
+            }
+        });
         jpconteme.add(textfieldnombreemergencia);
         textfieldnombreemergencia.setBounds(170, 160, 430, 40);
 
         textfieldapellidoemergencia.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldapellidoemergencia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textfieldapellidoemergenciaKeyTyped(evt);
+            }
+        });
         jpconteme.add(textfieldapellidoemergencia);
         textfieldapellidoemergencia.setBounds(170, 225, 430, 40);
 
         textfieldparentescoemergencia.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldparentescoemergencia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textfieldparentescoemergenciaKeyTyped(evt);
+            }
+        });
         jpconteme.add(textfieldparentescoemergencia);
         textfieldparentescoemergencia.setBounds(320, 288, 280, 40);
 
@@ -1478,6 +1513,55 @@ public class agregarjf extends javax.swing.JFrame {
     private void btnsiguienteinfomedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsiguienteinfomedMouseClicked
         slider.setPanelSlider(jpinfomed, RSPanelsSlider.DIRECT.LEFT);
     }//GEN-LAST:event_btnsiguienteinfomedMouseClicked
+
+    private void textfieldnombreencargadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textfieldnombreencargadoKeyTyped
+        c = evt.getKeyChar();
+        if ((int) c >= 0 && (int) c <= 64 && (int) c != 32) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_textfieldnombreencargadoKeyTyped
+
+    private void textfieldapellidoencargadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textfieldapellidoencargadoKeyTyped
+        c = evt.getKeyChar();
+        if ((int) c >= 0 && (int) c <= 64 && (int) c != 32) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_textfieldapellidoencargadoKeyTyped
+
+    private void textfieldocupacionencargadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textfieldocupacionencargadoKeyTyped
+        c = evt.getKeyChar();
+        if ((int) c >= 0 && (int) c <= 64 && (int) c != 32) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_textfieldocupacionencargadoKeyTyped
+
+    private void textfieldlugarencargadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textfieldlugarencargadoKeyTyped
+        c = evt.getKeyChar();
+        if ((int) c >= 0 && (int) c <= 64 && (int) c != 32) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_textfieldlugarencargadoKeyTyped
+
+    private void textfieldnombreemergenciaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textfieldnombreemergenciaKeyTyped
+        c = evt.getKeyChar();
+        if ((int) c >= 0 && (int) c <= 64 && (int) c != 32) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_textfieldnombreemergenciaKeyTyped
+
+    private void textfieldapellidoemergenciaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textfieldapellidoemergenciaKeyTyped
+        c = evt.getKeyChar();
+        if ((int) c >= 0 && (int) c <= 64 && (int) c != 32) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_textfieldapellidoemergenciaKeyTyped
+
+    private void textfieldparentescoemergenciaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textfieldparentescoemergenciaKeyTyped
+        c = evt.getKeyChar();
+        if ((int) c >= 0 && (int) c <= 64 && (int) c != 32) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_textfieldparentescoemergenciaKeyTyped
 
     /**
      * @param args the command line arguments
