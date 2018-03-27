@@ -9,8 +9,13 @@ import Clases.Proyecto;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.RowFilter;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 import rojerusan.RSPanelsSlider;
 
 /**
@@ -18,27 +23,35 @@ import rojerusan.RSPanelsSlider;
  * @author Nahomi
  */
 public class menujf extends javax.swing.JFrame {
-    
+
     //ImageIcon menutam2 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/opcionestam2.jpg")).getImage());
-   ImageIcon menu = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/menuprincipal.jpg")).getImage());
-    private Proyecto proyecto;
+    ImageIcon menu = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/menuprincipal.jpg")).getImage());
+    private final Proyecto proyecto;
+    private int IDproyecto;
+    private ArrayList<Integer> listaPuestos;
+    private ArrayList<Integer> listaIdmiembros;
+
     /**
      * Creates new form menujf
      */
     public menujf() {
         proyecto = new Proyecto();
+        listaPuestos = new ArrayList<>();
+        listaIdmiembros = new ArrayList<>();
         initComponents();
+        tablevoluntarios.setModel(proyecto.Voluntarios("", tablevoluntarios));
+        tableproyecto.setModel(proyecto.Proyectos("", tableproyecto));
+        cmbPuestos.setModel(proyecto.puestos());
         this.setLocationRelativeTo(null);
         Toolkit tk = Toolkit.getDefaultToolkit();
         Dimension tamanio = tk.getScreenSize();
         transparencia();
-        if ((tamanio.width ==1920)&&(tamanio.height == 1080))
-        {
+        if ((tamanio.width == 1920) && (tamanio.height == 1080)) {
             this.setSize(1565, 880);
-            jPanel1.setSize(1565,880);
-            rSPanelsSlider1.setSize(1565,880);
-            menuprincipal.setSize(1565,880);
-            lbmenuprincipal.setSize(1565,880);
+            jPanel1.setSize(1565, 880);
+            rSPanelsSlider1.setSize(1565, 880);
+            menuprincipal.setSize(1565, 880);
+            lbmenuprincipal.setSize(1565, 880);
             lbmenuprincipal.setIcon(menu);
             this.setLocationRelativeTo(null);
             btnagregar.setLocation(198, 445);
@@ -47,8 +60,7 @@ public class menujf extends javax.swing.JFrame {
             btnbuscar.setLocation(1165, 425);
             btnminimizarmenu.setLocation(1410, 5);
             btnsalirdmenu.setLocation(1480, 5);
-        }
-        else if((tamanio.width == 1366) && (tamanio.height == 768)) //1366.768, alex: 1708.960
+        } else if ((tamanio.width == 1366) && (tamanio.height == 768)) //1366.768, alex: 1708.960
         {
             this.setSize(1256, 706);
             //jpmenu.setIcon(menutam2);
@@ -61,18 +73,18 @@ public class menujf extends javax.swing.JFrame {
             btnsalirdmenu.setLocation(1175, 5);
         }
     }
-    
+
     //Insertar proyecto
-    public void Proyecto()
-    {
+    public void Proyecto() {
         String nombre = txtnombreproyecto.getText();
         String descripcion = txtdescripcionp.getText();
-        if(proyecto.insertar(nombre, descripcion))
+        if (proyecto.insertarProyecto(nombre, descripcion)) {
             JOptionPane.showMessageDialog(null, "Proyecto ingresado correctamente");
-        
+        }
+
     }
-    public void transparencia()
-    {
+
+    public void transparencia() {
         btnagregar.setOpaque(false);
         btnagregar.setContentAreaFilled(false);
         btnagregar.setBorderPainted(false);
@@ -100,8 +112,8 @@ public class menujf extends javax.swing.JFrame {
         btnagregarvoluntariado.setOpaque(false);
         btnagregarvoluntariado.setContentAreaFilled(false);
         btnagregarvoluntariado.setBorderPainted(false);
-        txtnombreproyecto.setBackground(new Color(0,0,0,0));
-        txtdescripcionp.setBackground(new Color (0,0,0,0));
+        txtnombreproyecto.setBackground(new Color(0, 0, 0, 0));
+        txtdescripcionp.setBackground(new Color(0, 0, 0, 0));
         btnaddproyecto.setOpaque(false);
         btnaddproyecto.setContentAreaFilled(false);
         btnaddproyecto.setBorderPainted(false);
@@ -112,6 +124,7 @@ public class menujf extends javax.swing.JFrame {
         btnmenu.setContentAreaFilled(false);
         btnmenu.setBorderPainted(false);
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -121,6 +134,18 @@ public class menujf extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        PMProyecto = new javax.swing.JPopupMenu();
+        jMenu1 = new javax.swing.JMenu();
+        MIProyecto = new javax.swing.JMenuItem();
+        PMVoluntariado = new javax.swing.JPopupMenu();
+        jMenu3 = new javax.swing.JMenu();
+        MIVoluntarios = new javax.swing.JMenuItem();
+        PMMiembro = new javax.swing.JPopupMenu();
+        jMenu2 = new javax.swing.JMenu();
+        MIMiembro = new javax.swing.JMenuItem();
+        MICambiarProyecto = new javax.swing.JMenuItem();
+        MIPuestos = new javax.swing.JMenuItem();
+        cmbPuestos = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         btnminimizarmenu = new javax.swing.JButton();
         btnsalirdmenu = new javax.swing.JButton();
@@ -147,7 +172,7 @@ public class menujf extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableproyecto = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tablepuestos = new javax.swing.JTable();
+        tablemiembros = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
         tablevoluntarios = new javax.swing.JTable();
         btnguardarvoluntarioado = new javax.swing.JButton();
@@ -155,7 +180,71 @@ public class menujf extends javax.swing.JFrame {
         txtproyecto = new javax.swing.JTextField();
         txtvoluntarios = new javax.swing.JTextField();
         txtmiembros = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        txtProyectoSelect = new javax.swing.JTextField();
         lbvoluntariadom = new javax.swing.JLabel();
+
+        PMProyecto.setToolTipText("");
+        PMProyecto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jMenu1.setText("Opciones");
+        jMenu1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        MIProyecto.setText("Seleccionar Proyecto");
+        MIProyecto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        MIProyecto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MIProyectoActionPerformed(evt);
+            }
+        });
+        jMenu1.add(MIProyecto);
+
+        PMProyecto.add(jMenu1);
+
+        jMenu3.setText("Opciones");
+        jMenu3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        MIVoluntarios.setText("Agregar miembro");
+        MIVoluntarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        MIVoluntarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MIVoluntariosActionPerformed(evt);
+            }
+        });
+        jMenu3.add(MIVoluntarios);
+
+        PMVoluntariado.add(jMenu3);
+
+        jMenu2.setText("Opciones");
+        jMenu2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        MIMiembro.setText("Remover Miembro");
+        MIMiembro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        MIMiembro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MIMiembroActionPerformed(evt);
+            }
+        });
+        jMenu2.add(MIMiembro);
+
+        MICambiarProyecto.setText("Cambiar Proyecto");
+        MICambiarProyecto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        MICambiarProyecto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MICambiarProyectoActionPerformed(evt);
+            }
+        });
+        jMenu2.add(MICambiarProyecto);
+
+        MIPuestos.setText("Asignar puesto");
+        MIPuestos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MIPuestosActionPerformed(evt);
+            }
+        });
+        jMenu2.add(MIPuestos);
+
+        PMMiembro.add(jMenu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1565, 880));
@@ -367,29 +456,38 @@ public class menujf extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tableproyecto.setComponentPopupMenu(PMProyecto);
+        tableproyecto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tableproyecto.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tableproyecto);
         if (tableproyecto.getColumnModel().getColumnCount() > 0) {
-            tableproyecto.getColumnModel().getColumn(0).setResizable(false);
-            tableproyecto.getColumnModel().getColumn(0).setPreferredWidth(20);
+            tableproyecto.getColumnModel().getColumn(0).setPreferredWidth(1);
             tableproyecto.getColumnModel().getColumn(1).setResizable(false);
             tableproyecto.getColumnModel().getColumn(2).setResizable(false);
         }
 
         jpvoluntariadom.add(jScrollPane1);
-        jScrollPane1.setBounds(50, 170, 550, 210);
+        jScrollPane1.setBounds(50, 170, 550, 160);
 
-        tablepuestos.setModel(new javax.swing.table.DefaultTableModel(
+        tablemiembros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nombres", "Apellidos", "Puesto"
             }
-        ));
-        jScrollPane2.setViewportView(tablepuestos);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablemiembros.setComponentPopupMenu(PMMiembro);
+        tablemiembros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jScrollPane2.setViewportView(tablemiembros);
 
         jpvoluntariadom.add(jScrollPane2);
         jScrollPane2.setBounds(50, 460, 550, 210);
@@ -402,16 +500,39 @@ public class menujf extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "No", "Nombre", "Apellido", "Género"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablevoluntarios.setComponentPopupMenu(PMVoluntariado);
+        tablevoluntarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jScrollPane3.setViewportView(tablevoluntarios);
+        if (tablevoluntarios.getColumnModel().getColumnCount() > 0) {
+            tablevoluntarios.getColumnModel().getColumn(0).setMinWidth(0);
+            tablevoluntarios.getColumnModel().getColumn(0).setPreferredWidth(1);
+            tablevoluntarios.getColumnModel().getColumn(0).setMaxWidth(2);
+            tablevoluntarios.getColumnModel().getColumn(3).setMinWidth(80);
+            tablevoluntarios.getColumnModel().getColumn(3).setPreferredWidth(80);
+            tablevoluntarios.getColumnModel().getColumn(3).setMaxWidth(80);
+        }
 
         jpvoluntariadom.add(jScrollPane3);
-        jScrollPane3.setBounds(640, 170, 570, 210);
+        jScrollPane3.setBounds(640, 170, 560, 210);
 
         btnguardarvoluntarioado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Save_Close_70px.png"))); // NOI18N
         btnguardarvoluntarioado.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Save_Close_100px.png"))); // NOI18N
+        btnguardarvoluntarioado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnguardarvoluntarioadoActionPerformed(evt);
+            }
+        });
         jpvoluntariadom.add(btnguardarvoluntarioado);
         btnguardarvoluntarioado.setBounds(740, 490, 180, 100);
 
@@ -426,18 +547,46 @@ public class menujf extends javax.swing.JFrame {
         btnmenuv.setBounds(970, 490, 160, 120);
 
         txtproyecto.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
+        txtproyecto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtproyectoKeyPressed(evt);
+            }
+        });
         jpvoluntariadom.add(txtproyecto);
         txtproyecto.setBounds(200, 110, 400, 40);
 
         txtvoluntarios.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        txtvoluntarios.setText("ejemplo abril torres");
+        txtvoluntarios.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtvoluntariosKeyPressed(evt);
+            }
+        });
         jpvoluntariadom.add(txtvoluntarios);
         txtvoluntarios.setBounds(830, 110, 370, 40);
 
         txtmiembros.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        txtmiembros.setText("ejemplo heidy torres");
+        txtmiembros.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtmiembrosKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtmiembrosKeyTyped(evt);
+            }
+        });
         jpvoluntariadom.add(txtmiembros);
         txtmiembros.setBounds(230, 405, 370, 40);
+
+        jLabel1.setBackground(new java.awt.Color(102, 255, 204));
+        jLabel1.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Proyecto Seleccionado:");
+        jpvoluntariadom.add(jLabel1);
+        jLabel1.setBounds(40, 340, 200, 40);
+
+        txtProyectoSelect.setEditable(false);
+        txtProyectoSelect.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
+        jpvoluntariadom.add(txtProyectoSelect);
+        txtProyectoSelect.setBounds(240, 340, 360, 40);
 
         lbvoluntariadom.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         lbvoluntariadom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/voluntariadom2.jpg"))); // NOI18N
@@ -464,11 +613,13 @@ public class menujf extends javax.swing.JFrame {
     }//GEN-LAST:event_btnagregarvoluntarioActionPerformed
 
     private void btnagregarproyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarproyectoActionPerformed
-    rSPanelsSlider1.setPanelSlider(jpagregarproyecto, RSPanelsSlider.DIRECT.DOWN);
+        rSPanelsSlider1.setPanelSlider(jpagregarproyecto, RSPanelsSlider.DIRECT.DOWN);
     }//GEN-LAST:event_btnagregarproyectoActionPerformed
 
     private void btnagregarvoluntariadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarvoluntariadoActionPerformed
-    rSPanelsSlider1.setPanelSlider(jpvoluntariadom, RSPanelsSlider.DIRECT.DOWN);
+        rSPanelsSlider1.setPanelSlider(jpvoluntariadom, RSPanelsSlider.DIRECT.DOWN);
+
+
     }//GEN-LAST:event_btnagregarvoluntariadoActionPerformed
 
     private void btnminimizarmenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnminimizarmenuActionPerformed
@@ -513,6 +664,185 @@ public class menujf extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnbuscarActionPerformed
 
+    private void MIProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MIProyectoActionPerformed
+        /**
+         * Al precionar la opcion del menu en la tabla proyecto selecciono el
+         * numero de fila que tiene guardo en una variable local el id del
+         * proyecto que me servirá para insertar el voluntariado verifico si
+         * selecciono alguna fila de la tabla en el caso de no seleccionar una
+         * fila me devuelve menos 1 tomo el nombre que esta en la fila
+         * seleccionada y columna 1 puesto que se que en esa columna se guardan
+         * los nombres de los proyectos muestro el nombre en un textfield no
+         * editable para que el usuario no pueda cambiar el nombre hago que el
+         * menu de la tabla opciones se deshabilite esto para no poder cambiar
+         * el proyecto en caso contrario solo muestra un mensaje
+         */
+        int select = tableproyecto.getSelectedRow();
+        IDproyecto = Integer.parseInt((String)tableproyecto.getValueAt(select, 0));
+        System.out.println(IDproyecto);
+        if (select != -1) {
+            String nombre = (String) tableproyecto.getValueAt(select, 1);
+            txtProyectoSelect.setText(nombre);
+            MIProyecto.setEnabled(false);
+        } else {
+            JOptionPane.showMessageDialog(null, "Por favor seleccione un elemento de la tabla");
+        }
+    }//GEN-LAST:event_MIProyectoActionPerformed
+
+    private void MICambiarProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MICambiarProyectoActionPerformed
+        //Si en la tabal miembros selecciona la opcion del menu cambiar proyecto se habilita el boton en la tabla proyectos
+        MIProyecto.setEnabled(true);
+    }//GEN-LAST:event_MICambiarProyectoActionPerformed
+
+    private void MIVoluntariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MIVoluntariosActionPerformed
+        /**
+         * Tomo el conjunto de filas seleccionadas y las guardo en un arreglo
+         * declaro un modelo para la tabala miembros obtengo el modelo de esa
+         * tabla un ciclo que va a a añadir los datos en otra tabla tomando solo
+         * el nombre, apellido y el puesto se lo asigno también agrego en una
+         * arraylist el id del puesto esto igual me servirá para cuando inserte
+         * Tomar nota que le agrego 5 porque el puesto "Voluntario" en la base
+         * de datos tiene id 5 agrego a una arraylist a los miembras tomando su
+         * id Tomar nota que el id me lo devuelve cuando pido los datos y se lo
+         * agrego al modelo por ultimo le mando el modelo a la tabla miembros
+         */
+        int seleccionados[] = tablevoluntarios.getSelectedRows();
+        String datos[] = new String[3];
+        DefaultTableModel modelo = (DefaultTableModel) tablemiembros.getModel();
+        int temp;
+        for (int i = 0; i < seleccionados.length; i++) {
+            temp = Integer.parseInt((String) tablevoluntarios.getValueAt(seleccionados[i], 0));
+            listaIdmiembros.add(temp);
+            datos[0] = (String) tablevoluntarios.getValueAt(seleccionados[i], 1);
+            datos[1] = (String) tablevoluntarios.getValueAt(seleccionados[i], 2);
+            datos[2] = "Voluntaria/o";
+            listaPuestos.add(6);
+            modelo.addRow(datos);
+        }
+
+        tablemiembros.setModel(modelo);
+
+    }//GEN-LAST:event_MIVoluntariosActionPerformed
+
+    private void MIMiembroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MIMiembroActionPerformed
+        /**
+         * Este es para remover lguno de los voluntarios que se hayan agregado
+         * anteriormente obtengo el conjunto de filas seleccionadas declaro un
+         * modelo de la tabla miembros un ciclo donde voy a remover cada uno de
+         * las filas que tiene el modelo Tomar nota que le digo que remueva la
+         * fila que esta almacenado en seleccionados -i esto lo hago para que no
+         * mee de error ya que las filas del modelo al borrar 1 el actual se
+         * mueve a la izquierda y así sucesuvamente ejemplo quiero eliminar los
+         * registros 0 y 2 de una tabla de 5 registros datos a eliminar
+         * registros primera vuelta segunda vuelta 0 0 se elimina 0 se mantiene
+         * el 0 que era 1 cuando entro 2 1 el 1 se vuelve 0 se elimina el 1 que
+         * en realidad es 2 2 el 2 se vuelve 1 1 sigue en 1 que en realidad es 3
+         * ya que se eliminaron 2 registos 3 .... .... 4 .... .... n n=n-1 n=n-1
+         * operacion 0-0=0 2-1=1 lo mismo pasa con los arraylist
+         */
+        int seleccionados[] = tablemiembros.getSelectedRows();
+        DefaultTableModel modelo = (DefaultTableModel) tablemiembros.getModel();
+        for (int i = 0; i < seleccionados.length; i++) {
+            modelo.removeRow(seleccionados[i] - i);
+            listaPuestos.remove(seleccionados[i] - i);
+            listaIdmiembros.remove(seleccionados[i] - i);
+        }
+        tablemiembros.setModel(modelo);
+    }//GEN-LAST:event_MIMiembroActionPerformed
+
+    private void txtproyectoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtproyectoKeyPressed
+        //filtro de busqueda para el proyecto
+        tableproyecto.setModel(proyecto.Proyectos(txtproyecto.getText(), tableproyecto));
+    }//GEN-LAST:event_txtproyectoKeyPressed
+
+    private void txtvoluntariosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtvoluntariosKeyPressed
+        //filtro de busqueda para el asociado
+        tablevoluntarios.setModel(proyecto.Voluntarios(txtvoluntarios.getText(), tablevoluntarios));
+    }//GEN-LAST:event_txtvoluntariosKeyPressed
+    //filtro de busqueda para la tabla miembros
+    private void filtro(String consulta, JTable jtableBuscar) {
+        /**
+         * *
+         * Nota cabe recordar que la tabla miembro no esta conectada aun con la
+         * BD por ende se crea este metodo
+         */
+        if (consulta.length() != 0) {
+            //hago el primer caracter mayuscula
+            consulta = Character.toUpperCase(consulta.charAt(0)) + consulta.substring(1, consulta.length());
+        }
+        DefaultTableModel dm = (DefaultTableModel) jtableBuscar.getModel();
+        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<>(dm);
+        jtableBuscar.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(consulta, 0));
+    }
+    private void txtmiembrosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtmiembrosKeyPressed
+        //filro de busqueda para miembros
+        filtro(txtmiembros.getText(), tablemiembros);
+    }//GEN-LAST:event_txtmiembrosKeyPressed
+
+    private void txtmiembrosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtmiembrosKeyTyped
+
+    }//GEN-LAST:event_txtmiembrosKeyTyped
+
+    private void btnguardarvoluntarioadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarvoluntarioadoActionPerformed
+        /**
+         * este metodo inserta a la Base de datos lo que esta en la tabla de
+         * miembros que seria el voluntariado declaro una variable bandera ciclo
+         * for con 2 condiciones que Tomar en cuenta que como inserto varios
+         * asociados a la tabla volunariado si regresa que es falso bandera va a
+         * ser false para romper el cicclo y dmostrar un error al usuario si
+         * siempre es verdadera bandera sigue como true y al salir del ciclo
+         * como bandera es true me muestra un m,ensaje que se inserto todos los
+         * miembros.
+         */
+        boolean bandera = true;
+        for (int i = 0; (i < tablemiembros.getRowCount()) && (bandera); i++) {
+            if (!proyecto.insertarVoluntariado(IDproyecto, listaIdmiembros.get(i), 0, listaPuestos.get(i))) {
+                bandera = false;
+            }
+        }
+        if (bandera) {
+            JOptionPane.showMessageDialog(null, "Se insertaron correctamente los datos");
+        } else {
+            JOptionPane.showMessageDialog(null, "Hubo un error al insertar los datos");
+        }
+
+    }//GEN-LAST:event_btnguardarvoluntarioadoActionPerformed
+
+    private void MIPuestosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MIPuestosActionPerformed
+        /**
+         * Este metod me sitve para mostrar un joption pane con un combo box
+         * dentro de el para que cambié el puesto a mi manera if preciona
+         * aceptar al option pane hace lo siguiente tomamos todas las filas
+         * seleccionadas tomamos el puesto que se selecciono y el indice que
+         * este trae ciclo for para darle el nuevo pueto en la tabla y en el
+         * arraylist
+         */
+        int respuesta = JOptionPane.showConfirmDialog(null, cmbPuestos, "seleccione un puesto", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (respuesta == 0) {
+            ArrayList<String> temp = new ArrayList<>();
+            int seleccionados[] = tablemiembros.getSelectedRows();
+            for (int i = 0; i < seleccionados.length; i++) {
+                temp.add((String) tablemiembros.getValueAt(seleccionados[i], 0));
+            }
+            String puesto = (String) cmbPuestos.getSelectedItem();
+            int index = cmbPuestos.getSelectedIndex(), k;
+            String temp1;
+            DefaultTableModel modelo = (DefaultTableModel) tablemiembros.getModel();
+            for (int i = 0; i < modelo.getRowCount(); i++) {
+                temp1 = (String) modelo.getValueAt(i, 0);
+                for (int j = 0; j < temp.size(); j++) {
+                    if (temp1.equals(temp.get(j))) {
+                        modelo.setValueAt(puesto, i, 2);
+                        listaPuestos.set(i, index + 1);
+                    }
+                }
+            }
+
+            tablemiembros.setModel(modelo);
+        }
+    }//GEN-LAST:event_MIPuestosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -549,6 +879,14 @@ public class menujf extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem MICambiarProyecto;
+    private javax.swing.JMenuItem MIMiembro;
+    private javax.swing.JMenuItem MIProyecto;
+    private javax.swing.JMenuItem MIPuestos;
+    private javax.swing.JMenuItem MIVoluntarios;
+    private javax.swing.JPopupMenu PMMiembro;
+    private javax.swing.JPopupMenu PMProyecto;
+    private javax.swing.JPopupMenu PMVoluntariado;
     private javax.swing.JButton btnaddproyecto;
     private javax.swing.JButton btnagregar;
     private javax.swing.JButton btnagregarproyecto;
@@ -563,6 +901,11 @@ public class menujf extends javax.swing.JFrame {
     private javax.swing.JButton btnmenuv;
     private javax.swing.JButton btnminimizarmenu;
     private javax.swing.JButton btnsalirdmenu;
+    private javax.swing.JComboBox<String> cmbPuestos;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -576,9 +919,10 @@ public class menujf extends javax.swing.JFrame {
     private javax.swing.JPanel menuagregar;
     private javax.swing.JPanel menuprincipal;
     private rojerusan.RSPanelsSlider rSPanelsSlider1;
+    private javax.swing.JTable tablemiembros;
     private javax.swing.JTable tableproyecto;
-    private javax.swing.JTable tablepuestos;
     private javax.swing.JTable tablevoluntarios;
+    private javax.swing.JTextField txtProyectoSelect;
     private javax.swing.JTextField txtdescripcionp;
     private javax.swing.JTextField txtmiembros;
     private javax.swing.JTextField txtnombreproyecto;
