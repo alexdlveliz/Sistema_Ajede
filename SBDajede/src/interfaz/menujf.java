@@ -64,7 +64,7 @@ public class menujf extends javax.swing.JFrame {
             this.setSize(1250, 700);
             //jpmenu.setIcon(menutam2);
             this.setLocationRelativeTo(null);
-            btnagregar.setLocation(191, 320); ///NAHOMI, AQUÍ ES 190, 320
+            btnagregar.setLocation(190, 320);
             btneditar.setLocation(853, 320);
             btnbuscar.setLocation(500, 320);
             btnminimizarmenu.setLocation(1090, 5);
