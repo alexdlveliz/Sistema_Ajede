@@ -121,6 +121,42 @@ public class menujf extends javax.swing.JFrame {
         btnrmenu.setOpaque(false);
         btnrmenu.setContentAreaFilled(false);
         btnrmenu.setBorderPainted(false);
+        btnrgeneral.setOpaque(false);
+        btnrgeneral.setContentAreaFilled(false);
+        btnrgeneral.setBorderPainted(false);
+        btnractivos.setOpaque(false);
+        btnractivos.setContentAreaFilled(false);
+        btnractivos.setBorderPainted(false);
+        btnrinactivos.setOpaque(false);
+        btnrinactivos.setContentAreaFilled(false);
+        btnrinactivos.setBorderPainted(false);
+        btnredad.setOpaque(false);
+        btnredad.setContentAreaFilled(false);
+        btnredad.setBorderPainted(false);
+        btnrporanio.setOpaque(false);
+        btnrporanio.setContentAreaFilled(false);
+        btnrporanio.setBorderPainted(false);
+        btnrgenero.setOpaque(false);
+        btnrgenero.setContentAreaFilled(false);
+        btnrgenero.setBorderPainted(false);
+        btnrexbecario.setOpaque(false);
+        btnrexbecario.setContentAreaFilled(false);
+        btnrexbecario.setBorderPainted(false);
+        btnrnoexbecarios.setOpaque(false);
+        btnrnoexbecarios.setContentAreaFilled(false);
+        btnrnoexbecarios.setBorderPainted(false);
+        btnrprograma.setOpaque(false);
+        btnrprograma.setContentAreaFilled(false);
+        btnrprograma.setBorderPainted(false);
+        btnrtrabajando.setOpaque(false);
+        btnrtrabajando.setContentAreaFilled(false);
+        btnrtrabajando.setBorderPainted(false);
+        btnrnivelest.setOpaque(false);
+        btnrnivelest.setContentAreaFilled(false);
+        btnrnivelest.setBorderPainted(false);
+        btnrpromocion.setOpaque(false);
+        btnrpromocion.setContentAreaFilled(false);
+        btnrpromocion.setBorderPainted(false);
     }
 
     /**
@@ -614,51 +650,64 @@ public class menujf extends javax.swing.JFrame {
         jpmreportes.add(btnrmenu);
         btnrmenu.setBounds(1060, 460, 130, 80);
 
-        btnractivos.setText("jButton1");
+        btnractivos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/activos.png"))); // NOI18N
+        btnractivos.setName(""); // NOI18N
+        btnractivos.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/activosdos.png"))); // NOI18N
         jpmreportes.add(btnractivos);
-        btnractivos.setBounds(280, 80, 130, 80);
+        btnractivos.setBounds(280, 70, 130, 90);
 
-        btnrinactivos.setText("jButton1");
+        btnrinactivos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/inactivo.png"))); // NOI18N
+        btnrinactivos.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/inactivodos.png"))); // NOI18N
         jpmreportes.add(btnrinactivos);
-        btnrinactivos.setBounds(490, 80, 130, 80);
+        btnrinactivos.setBounds(490, 70, 130, 90);
 
-        btnredad.setText("jButton1");
+        btnredad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/edad.png"))); // NOI18N
+        btnredad.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/edaddos.png"))); // NOI18N
         jpmreportes.add(btnredad);
-        btnredad.setBounds(70, 290, 130, 80);
+        btnredad.setBounds(70, 280, 130, 90);
 
-        btnrporanio.setText("jButton1");
+        btnrporanio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/anio.png"))); // NOI18N
+        btnrporanio.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/aniodos.png"))); // NOI18N
         jpmreportes.add(btnrporanio);
-        btnrporanio.setBounds(280, 290, 130, 80);
+        btnrporanio.setBounds(280, 280, 130, 90);
 
-        btnrgenero.setText("jButton1");
+        btnrgenero.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/genero.png"))); // NOI18N
+        btnrgenero.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/generodos.png"))); // NOI18N
         jpmreportes.add(btnrgenero);
-        btnrgenero.setBounds(490, 290, 130, 80);
+        btnrgenero.setBounds(490, 280, 130, 90);
 
-        btnrexbecario.setText("jButton1");
+        btnrexbecario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/exbecarios.png"))); // NOI18N
+        btnrexbecario.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/exbecariosdos.png"))); // NOI18N
         jpmreportes.add(btnrexbecario);
-        btnrexbecario.setBounds(710, 200, 130, 80);
+        btnrexbecario.setBounds(710, 190, 130, 90);
 
-        btnrprograma.setText("jButton1");
+        btnrprograma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/programa.png"))); // NOI18N
+        btnrprograma.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/programados.png"))); // NOI18N
         jpmreportes.add(btnrprograma);
-        btnrprograma.setBounds(70, 500, 130, 80);
+        btnrprograma.setBounds(70, 490, 130, 90);
 
-        btnrtrabajando.setText("jButton1");
+        btnrtrabajando.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/trabajando.png"))); // NOI18N
+        btnrtrabajando.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/trabajandodos.png"))); // NOI18N
         jpmreportes.add(btnrtrabajando);
-        btnrtrabajando.setBounds(280, 500, 130, 80);
+        btnrtrabajando.setBounds(290, 490, 120, 90);
 
-        btnrnivelest.setText("jButton1");
+        btnrnivelest.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/nivele.png"))); // NOI18N
+        btnrnivelest.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/niveledos.png"))); // NOI18N
         jpmreportes.add(btnrnivelest);
         btnrnivelest.setBounds(490, 490, 130, 80);
 
-        btnrnoexbecarios.setText("jButton1");
+        btnrnoexbecarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/noexbecarios.png"))); // NOI18N
+        btnrnoexbecarios.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/noexbecariodos.png"))); // NOI18N
         jpmreportes.add(btnrnoexbecarios);
         btnrnoexbecarios.setBounds(710, 410, 130, 80);
 
-        btnrpromocion.setText("jButton1");
+        btnrpromocion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/promocion.png"))); // NOI18N
+        btnrpromocion.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/promociondos.png"))); // NOI18N
         jpmreportes.add(btnrpromocion);
         btnrpromocion.setBounds(890, 310, 130, 80);
 
         btnrgeneral.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/general.png"))); // NOI18N
+        btnrgeneral.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/generaldos.png"))); // NOI18N
         jpmreportes.add(btnrgeneral);
         btnrgeneral.setBounds(70, 70, 130, 90);
 
