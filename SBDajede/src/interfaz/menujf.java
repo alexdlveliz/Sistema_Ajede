@@ -25,7 +25,7 @@ import rojerusan.RSPanelsSlider;
 public class menujf extends javax.swing.JFrame {
 
     //ImageIcon menutam2 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/opcionestam2.jpg")).getImage());
-    ImageIcon menu = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/menuprincipal.jpg")).getImage());
+    ImageIcon menu = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/menuprincipalv2t1.jpg")).getImage());
     private final Proyecto proyecto;
     private int IDproyecto;
     private ArrayList<Integer> listaPuestos;
@@ -47,7 +47,7 @@ public class menujf extends javax.swing.JFrame {
         Dimension tamanio = tk.getScreenSize();
         transparencia();
         if ((tamanio.width == 1920) && (tamanio.height == 1080)) {
-            this.setSize(1565, 880);
+            this.setSize(1560, 880);
             jPanel1.setSize(1565, 880);
             rSPanelsSlider1.setSize(1565, 880);
             menuprincipal.setSize(1565, 880);
@@ -56,18 +56,16 @@ public class menujf extends javax.swing.JFrame {
             this.setLocationRelativeTo(null);
             btnagregar.setLocation(198, 445);
             btneditar.setLocation(515, 430);
-            btneliminar.setLocation(838, 415);
             btnbuscar.setLocation(1165, 425);
             btnminimizarmenu.setLocation(1410, 5);
             btnsalirdmenu.setLocation(1480, 5);
         } else if ((tamanio.width == 1366) && (tamanio.height == 768)) //1366.768, alex: 1708.960
         {
-            this.setSize(1256, 706);
+            this.setSize(1250, 700);
             //jpmenu.setIcon(menutam2);
             this.setLocationRelativeTo(null);
             btnagregar.setLocation(133, 345);
             btneditar.setLocation(390, 330);
-            btneliminar.setLocation(645, 320);
             btnbuscar.setLocation(917, 330);
             btnminimizarmenu.setLocation(1090, 5);
             btnsalirdmenu.setLocation(1175, 5);
@@ -88,9 +86,6 @@ public class menujf extends javax.swing.JFrame {
         btnagregar.setOpaque(false);
         btnagregar.setContentAreaFilled(false);
         btnagregar.setBorderPainted(false);
-        btneliminar.setOpaque(false);
-        btneliminar.setContentAreaFilled(false);
-        btneliminar.setBorderPainted(false);
         btneditar.setOpaque(false);
         btneditar.setContentAreaFilled(false);
         btneditar.setBorderPainted(false);
@@ -123,6 +118,9 @@ public class menujf extends javax.swing.JFrame {
         btnmenu.setOpaque(false);
         btnmenu.setContentAreaFilled(false);
         btnmenu.setBorderPainted(false);
+        btnrmenu.setOpaque(false);
+        btnrmenu.setContentAreaFilled(false);
+        btnrmenu.setBorderPainted(false);
     }
 
     /**
@@ -154,7 +152,6 @@ public class menujf extends javax.swing.JFrame {
         btnagregar = new javax.swing.JButton();
         btneditar = new javax.swing.JButton();
         btnbuscar = new javax.swing.JButton();
-        btneliminar = new javax.swing.JButton();
         lbmenuprincipal = new javax.swing.JLabel();
         menuagregar = new javax.swing.JPanel();
         btnagregarvoluntario = new javax.swing.JButton();
@@ -183,6 +180,21 @@ public class menujf extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         txtProyectoSelect = new javax.swing.JTextField();
         lbvoluntariadom = new javax.swing.JLabel();
+        jpmreportes = new javax.swing.JPanel();
+        btnrmenu = new javax.swing.JButton();
+        btnractivos = new javax.swing.JButton();
+        btnrinactivos = new javax.swing.JButton();
+        btnredad = new javax.swing.JButton();
+        btnrporanio = new javax.swing.JButton();
+        btnrgenero = new javax.swing.JButton();
+        btnrexbecario = new javax.swing.JButton();
+        btnrprograma = new javax.swing.JButton();
+        btnrtrabajando = new javax.swing.JButton();
+        btnrnivelest = new javax.swing.JButton();
+        btnrnoexbecarios = new javax.swing.JButton();
+        btnrpromocion = new javax.swing.JButton();
+        btnrgeneral = new javax.swing.JButton();
+        lbmreportes = new javax.swing.JLabel();
 
         PMProyecto.setToolTipText("");
         PMProyecto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -284,6 +296,7 @@ public class menujf extends javax.swing.JFrame {
         rSPanelsSlider1.setPreferredSize(new java.awt.Dimension(1250, 700));
 
         menuprincipal.setName("menuprincipal"); // NOI18N
+        menuprincipal.setPreferredSize(new java.awt.Dimension(1250, 700));
         menuprincipal.setLayout(null);
 
         btnagregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Add_File_70px.png"))); // NOI18N
@@ -296,7 +309,7 @@ public class menujf extends javax.swing.JFrame {
             }
         });
         menuprincipal.add(btnagregar);
-        btnagregar.setBounds(130, 310, 210, 190);
+        btnagregar.setBounds(190, 300, 210, 190);
 
         btneditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Edit_Property_70px.png"))); // NOI18N
         btneditar.setName("btneditar"); // NOI18N
@@ -307,7 +320,7 @@ public class menujf extends javax.swing.JFrame {
             }
         });
         menuprincipal.add(btneditar);
-        btneditar.setBounds(400, 320, 210, 170);
+        btneditar.setBounds(850, 320, 210, 170);
 
         btnbuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Search_70px.png"))); // NOI18N
         btnbuscar.setName("btnbuscar"); // NOI18N
@@ -325,18 +338,9 @@ public class menujf extends javax.swing.JFrame {
             }
         });
         menuprincipal.add(btnbuscar);
-        btnbuscar.setBounds(910, 310, 230, 170);
+        btnbuscar.setBounds(510, 310, 240, 180);
 
-        btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Delete_User_Male_70px.png"))); // NOI18N
-        btneliminar.setName("btneliminar"); // NOI18N
-        btneliminar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Delete_User_Male_100px.png"))); // NOI18N
-        menuprincipal.add(btneliminar);
-        btneliminar.setBounds(640, 300, 230, 180);
-
-        lbmenuprincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/opcionestam2.jpg"))); // NOI18N
-        lbmenuprincipal.setMaximumSize(new java.awt.Dimension(1250, 700));
-        lbmenuprincipal.setMinimumSize(new java.awt.Dimension(1250, 700));
-        lbmenuprincipal.setPreferredSize(new java.awt.Dimension(1250, 700));
+        lbmenuprincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/menuprincipalv2t2.jpg"))); // NOI18N
         lbmenuprincipal.setRequestFocusEnabled(false);
         menuprincipal.add(lbmenuprincipal);
         lbmenuprincipal.setBounds(0, 0, 1250, 700);
@@ -578,7 +582,6 @@ public class menujf extends javax.swing.JFrame {
 
         jLabel1.setBackground(new java.awt.Color(102, 255, 204));
         jLabel1.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Proyecto Seleccionado:");
         jpvoluntariadom.add(jLabel1);
         jLabel1.setBounds(40, 340, 200, 40);
@@ -596,6 +599,76 @@ public class menujf extends javax.swing.JFrame {
         lbvoluntariadom.getAccessibleContext().setAccessibleName("");
 
         rSPanelsSlider1.add(jpvoluntariadom, "card5");
+
+        jpmreportes.setName("jpmreportes"); // NOI18N
+        jpmreportes.setPreferredSize(new java.awt.Dimension(1250, 700));
+        jpmreportes.setLayout(null);
+
+        btnrmenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Person_at_Home_70px.png"))); // NOI18N
+        btnrmenu.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Person_at_Home_100px.png"))); // NOI18N
+        btnrmenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnrmenuMouseClicked(evt);
+            }
+        });
+        jpmreportes.add(btnrmenu);
+        btnrmenu.setBounds(1060, 460, 130, 80);
+
+        btnractivos.setText("jButton1");
+        jpmreportes.add(btnractivos);
+        btnractivos.setBounds(280, 80, 130, 80);
+
+        btnrinactivos.setText("jButton1");
+        jpmreportes.add(btnrinactivos);
+        btnrinactivos.setBounds(490, 80, 130, 80);
+
+        btnredad.setText("jButton1");
+        jpmreportes.add(btnredad);
+        btnredad.setBounds(70, 290, 130, 80);
+
+        btnrporanio.setText("jButton1");
+        jpmreportes.add(btnrporanio);
+        btnrporanio.setBounds(280, 290, 130, 80);
+
+        btnrgenero.setText("jButton1");
+        jpmreportes.add(btnrgenero);
+        btnrgenero.setBounds(490, 290, 130, 80);
+
+        btnrexbecario.setText("jButton1");
+        jpmreportes.add(btnrexbecario);
+        btnrexbecario.setBounds(710, 200, 130, 80);
+
+        btnrprograma.setText("jButton1");
+        jpmreportes.add(btnrprograma);
+        btnrprograma.setBounds(70, 500, 130, 80);
+
+        btnrtrabajando.setText("jButton1");
+        jpmreportes.add(btnrtrabajando);
+        btnrtrabajando.setBounds(280, 500, 130, 80);
+
+        btnrnivelest.setText("jButton1");
+        jpmreportes.add(btnrnivelest);
+        btnrnivelest.setBounds(490, 490, 130, 80);
+
+        btnrnoexbecarios.setText("jButton1");
+        jpmreportes.add(btnrnoexbecarios);
+        btnrnoexbecarios.setBounds(710, 410, 130, 80);
+
+        btnrpromocion.setText("jButton1");
+        jpmreportes.add(btnrpromocion);
+        btnrpromocion.setBounds(890, 310, 130, 80);
+
+        btnrgeneral.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/general.png"))); // NOI18N
+        jpmreportes.add(btnrgeneral);
+        btnrgeneral.setBounds(70, 70, 130, 90);
+
+        lbmreportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/reportestam2.jpg"))); // NOI18N
+        lbmreportes.setText("jLabel2");
+        lbmreportes.setPreferredSize(new java.awt.Dimension(1250, 700));
+        jpmreportes.add(lbmreportes);
+        lbmreportes.setBounds(0, 0, 1250, 700);
+
+        rSPanelsSlider1.add(jpmreportes, "card6");
 
         jPanel1.add(rSPanelsSlider1);
         rSPanelsSlider1.setBounds(0, 0, 1250, 700);
@@ -631,7 +704,7 @@ public class menujf extends javax.swing.JFrame {
     }//GEN-LAST:event_btnagregarActionPerformed
 
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
-        // TODO add your handling code here:
+        rSPanelsSlider1.setPanelSlider(jpmreportes, RSPanelsSlider.DIRECT.UP);
     }//GEN-LAST:event_btneditarActionPerformed
 
     private void btnsalirdmenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsalirdmenuMouseClicked
@@ -843,6 +916,10 @@ public class menujf extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_MIPuestosActionPerformed
 
+    private void btnrmenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnrmenuMouseClicked
+        rSPanelsSlider1.setPanelSlider(menuprincipal, RSPanelsSlider.DIRECT.DOWN);
+    }//GEN-LAST:event_btnrmenuMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -894,12 +971,24 @@ public class menujf extends javax.swing.JFrame {
     private javax.swing.JButton btnagregarvoluntario;
     private javax.swing.JButton btnbuscar;
     private javax.swing.JButton btneditar;
-    private javax.swing.JButton btneliminar;
     private javax.swing.JButton btnguardarproyecto;
     private javax.swing.JButton btnguardarvoluntarioado;
     private javax.swing.JButton btnmenu;
     private javax.swing.JButton btnmenuv;
     private javax.swing.JButton btnminimizarmenu;
+    private javax.swing.JButton btnractivos;
+    private javax.swing.JButton btnredad;
+    private javax.swing.JButton btnrexbecario;
+    private javax.swing.JButton btnrgeneral;
+    private javax.swing.JButton btnrgenero;
+    private javax.swing.JButton btnrinactivos;
+    private javax.swing.JButton btnrmenu;
+    private javax.swing.JButton btnrnivelest;
+    private javax.swing.JButton btnrnoexbecarios;
+    private javax.swing.JButton btnrporanio;
+    private javax.swing.JButton btnrprograma;
+    private javax.swing.JButton btnrpromocion;
+    private javax.swing.JButton btnrtrabajando;
     private javax.swing.JButton btnsalirdmenu;
     private javax.swing.JComboBox<String> cmbPuestos;
     private javax.swing.JLabel jLabel1;
@@ -911,9 +1000,11 @@ public class menujf extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JPanel jpagregarproyecto;
+    private javax.swing.JPanel jpmreportes;
     private javax.swing.JPanel jpvoluntariadom;
     private javax.swing.JLabel lbmenuagregar;
     private javax.swing.JLabel lbmenuprincipal;
+    private javax.swing.JLabel lbmreportes;
     private javax.swing.JLabel lbproyectos;
     private javax.swing.JLabel lbvoluntariadom;
     private javax.swing.JPanel menuagregar;

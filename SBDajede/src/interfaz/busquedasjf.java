@@ -129,7 +129,7 @@ public class busquedasjf extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnrmenua);
-        btnrmenua.setBounds(1140, 610, 80, 28);
+        btnrmenua.setBounds(1140, 610, 87, 25);
 
         btnsalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Close_Window_30px.png"))); // NOI18N
         btnsalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -284,7 +284,7 @@ public class busquedasjf extends javax.swing.JFrame {
             }
         });
         jpvnombre.add(txtApellido);
-        txtApellido.setBounds(180, 110, 650, 28);
+        txtApellido.setBounds(180, 110, 650, 22);
 
         tablebvnombre.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -332,7 +332,7 @@ public class busquedasjf extends javax.swing.JFrame {
             }
         });
         jpvnombre.add(cmbactivo);
-        cmbactivo.setBounds(950, 90, 130, 26);
+        cmbactivo.setBounds(950, 90, 130, 22);
         jpvnombre.add(lbvnombre);
         lbvnombre.setBounds(0, 0, 1370, 740);
 
