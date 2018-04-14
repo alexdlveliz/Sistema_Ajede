@@ -5,6 +5,7 @@
  */
 package interfaz;
 
+import Clases.ImpresionReportes;
 import Clases.Proyecto;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -30,11 +31,13 @@ public class menujf extends javax.swing.JFrame {
     private int IDproyecto;
     private ArrayList<Integer> listaPuestos;
     private ArrayList<Integer> listaIdmiembros;
+    private ImpresionReportes reportes;
 
     /**
      * Creates new form menujf
      */
     public menujf() {
+        reportes = new ImpresionReportes();
         proyecto = new Proyecto();
         listaPuestos = new ArrayList<>();
         listaIdmiembros = new ArrayList<>();
@@ -673,6 +676,11 @@ public class menujf extends javax.swing.JFrame {
 
         btnrgenero.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/genero.png"))); // NOI18N
         btnrgenero.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/generodos.png"))); // NOI18N
+        btnrgenero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnrgeneroActionPerformed(evt);
+            }
+        });
         jpmreportes.add(btnrgenero);
         btnrgenero.setBounds(500, 280, 130, 90);
 
@@ -693,6 +701,11 @@ public class menujf extends javax.swing.JFrame {
 
         btnrnivelest.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/nivele.png"))); // NOI18N
         btnrnivelest.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/niveledos.png"))); // NOI18N
+        btnrnivelest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnrnivelestActionPerformed(evt);
+            }
+        });
         jpmreportes.add(btnrnivelest);
         btnrnivelest.setBounds(500, 490, 130, 80);
 
@@ -800,7 +813,7 @@ public class menujf extends javax.swing.JFrame {
          * el proyecto en caso contrario solo muestra un mensaje
          */
         int select = tableproyecto.getSelectedRow();
-        IDproyecto = Integer.parseInt((String)tableproyecto.getValueAt(select, 0));
+        IDproyecto = Integer.parseInt((String) tableproyecto.getValueAt(select, 0));
         System.out.println(IDproyecto);
         if (select != -1) {
             String nombre = (String) tableproyecto.getValueAt(select, 1);
@@ -968,6 +981,18 @@ public class menujf extends javax.swing.JFrame {
     private void btnrmenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnrmenuMouseClicked
         rSPanelsSlider1.setPanelSlider(menuprincipal, RSPanelsSlider.DIRECT.DOWN);
     }//GEN-LAST:event_btnrmenuMouseClicked
+
+    private void btnrgeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrgeneroActionPerformed
+        if (!reportes.ReportGenero()) {
+            JOptionPane.showMessageDialog(null, "Error al intentar Acceder");
+        }
+    }//GEN-LAST:event_btnrgeneroActionPerformed
+
+    private void btnrnivelestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrnivelestActionPerformed
+        if (!reportes.ReportNivEst()) {
+            JOptionPane.showMessageDialog(null, "Error al intentar Acceder");
+        }
+    }//GEN-LAST:event_btnrnivelestActionPerformed
 
     /**
      * @param args the command line arguments
