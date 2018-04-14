@@ -37,7 +37,6 @@ public class busquedasjf extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnrmenua = new javax.swing.JButton();
         btnsalir = new javax.swing.JButton();
         btnhome = new javax.swing.JButton();
         btnminimizar = new javax.swing.JButton();
@@ -52,6 +51,7 @@ public class busquedasjf extends javax.swing.JFrame {
         btnbvprograma = new javax.swing.JButton();
         btnbvpromocionbeca = new javax.swing.JButton();
         btnbvocupacion = new javax.swing.JButton();
+        btnrmenua = new javax.swing.JButton();
         lbmenua = new javax.swing.JLabel();
         jpvnombre = new javax.swing.JPanel();
         txtbvnombre = new javax.swing.JTextField();
@@ -122,15 +122,6 @@ public class busquedasjf extends javax.swing.JFrame {
         jPanel1.setMinimumSize(new java.awt.Dimension(1250, 700));
         jPanel1.setLayout(null);
 
-        btnrmenua.setText("jButton12");
-        btnrmenua.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnrmenuaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnrmenua);
-        btnrmenua.setBounds(1140, 610, 87, 25);
-
         btnsalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Close_Window_30px.png"))); // NOI18N
         btnsalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnsalir.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Close_Window_70px.png"))); // NOI18N
@@ -178,7 +169,7 @@ public class busquedasjf extends javax.swing.JFrame {
             }
         });
         jpmenua.add(btnbvnombre);
-        btnbvnombre.setBounds(160, 240, 140, 50);
+        btnbvnombre.setBounds(60, 260, 140, 50);
 
         btnbvexbecarios.setText("voluntarios exbecarios");
         btnbvexbecarios.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -187,7 +178,7 @@ public class busquedasjf extends javax.swing.JFrame {
             }
         });
         jpmenua.add(btnbvexbecarios);
-        btnbvexbecarios.setBounds(710, 240, 160, 50);
+        btnbvexbecarios.setBounds(790, 480, 160, 50);
 
         btnbvnoexbecarios.setText("voluntarios no exbecarios");
         btnbvnoexbecarios.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -196,7 +187,7 @@ public class busquedasjf extends javax.swing.JFrame {
             }
         });
         jpmenua.add(btnbvnoexbecarios);
-        btnbvnoexbecarios.setBounds(900, 240, 180, 50);
+        btnbvnoexbecarios.setBounds(540, 240, 180, 50);
 
         btnbvanio.setText("voluntarios por año");
         btnbvanio.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -205,7 +196,7 @@ public class busquedasjf extends javax.swing.JFrame {
             }
         });
         jpmenua.add(btnbvanio);
-        btnbvanio.setBounds(160, 360, 150, 40);
+        btnbvanio.setBounds(300, 250, 150, 40);
 
         btnbvedad.setText("voluntarios por edad");
         btnbvedad.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -214,7 +205,7 @@ public class busquedasjf extends javax.swing.JFrame {
             }
         });
         jpmenua.add(btnbvedad);
-        btnbvedad.setBounds(350, 360, 150, 40);
+        btnbvedad.setBounds(800, 270, 150, 40);
 
         btnbvgenero.setText("voluntarios por genero");
         btnbvgenero.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -223,7 +214,7 @@ public class busquedasjf extends javax.swing.JFrame {
             }
         });
         jpmenua.add(btnbvgenero);
-        btnbvgenero.setBounds(540, 360, 170, 40);
+        btnbvgenero.setBounds(1020, 280, 170, 40);
 
         btnbvprograma.setText("voluntarios por programa");
         btnbvprograma.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -237,7 +228,7 @@ public class busquedasjf extends javax.swing.JFrame {
             }
         });
         jpmenua.add(btnbvprograma);
-        btnbvprograma.setBounds(730, 360, 180, 40);
+        btnbvprograma.setBounds(280, 500, 180, 40);
 
         btnbvpromocionbeca.setText("voluntarios por promocion de beca");
         btnbvpromocionbeca.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -246,7 +237,7 @@ public class busquedasjf extends javax.swing.JFrame {
             }
         });
         jpmenua.add(btnbvpromocionbeca);
-        btnbvpromocionbeca.setBounds(920, 360, 240, 40);
+        btnbvpromocionbeca.setBounds(520, 500, 240, 40);
 
         btnbvocupacion.setText("voluntarios por ocupacion");
         btnbvocupacion.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -255,9 +246,18 @@ public class busquedasjf extends javax.swing.JFrame {
             }
         });
         jpmenua.add(btnbvocupacion);
-        btnbvocupacion.setBounds(160, 450, 190, 40);
+        btnbvocupacion.setBounds(40, 510, 190, 40);
 
-        lbmenua.setText("jLabel1");
+        btnrmenua.setText("jButton12");
+        btnrmenua.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnrmenuaActionPerformed(evt);
+            }
+        });
+        jpmenua.add(btnrmenua);
+        btnrmenua.setBounds(1050, 460, 120, 90);
+
+        lbmenua.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/menubusquedastam2.jpg"))); // NOI18N
         jpmenua.add(lbmenua);
         lbmenua.setBounds(0, 0, 1250, 700);
 

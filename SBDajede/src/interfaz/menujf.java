@@ -648,7 +648,7 @@ public class menujf extends javax.swing.JFrame {
             }
         });
         jpmreportes.add(btnrmenu);
-        btnrmenu.setBounds(1060, 460, 130, 80);
+        btnrmenu.setBounds(1070, 470, 130, 80);
 
         btnractivos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/activos.png"))); // NOI18N
         btnractivos.setName(""); // NOI18N
@@ -656,10 +656,10 @@ public class menujf extends javax.swing.JFrame {
         jpmreportes.add(btnractivos);
         btnractivos.setBounds(280, 70, 130, 90);
 
-        btnrinactivos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/inactivo.png"))); // NOI18N
-        btnrinactivos.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/inactivodos.png"))); // NOI18N
+        btnrinactivos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/proyecto.png"))); // NOI18N
+        btnrinactivos.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/proyectodos.png"))); // NOI18N
         jpmreportes.add(btnrinactivos);
-        btnrinactivos.setBounds(490, 70, 130, 90);
+        btnrinactivos.setBounds(500, 70, 130, 90);
 
         btnredad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/edad.png"))); // NOI18N
         btnredad.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/edaddos.png"))); // NOI18N
@@ -674,7 +674,7 @@ public class menujf extends javax.swing.JFrame {
         btnrgenero.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/genero.png"))); // NOI18N
         btnrgenero.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/generodos.png"))); // NOI18N
         jpmreportes.add(btnrgenero);
-        btnrgenero.setBounds(490, 280, 130, 90);
+        btnrgenero.setBounds(500, 280, 130, 90);
 
         btnrexbecario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/exbecarios.png"))); // NOI18N
         btnrexbecario.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/exbecariosdos.png"))); // NOI18N
@@ -694,7 +694,7 @@ public class menujf extends javax.swing.JFrame {
         btnrnivelest.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/nivele.png"))); // NOI18N
         btnrnivelest.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/niveledos.png"))); // NOI18N
         jpmreportes.add(btnrnivelest);
-        btnrnivelest.setBounds(490, 490, 130, 80);
+        btnrnivelest.setBounds(500, 490, 130, 80);
 
         btnrnoexbecarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/noexbecarios.png"))); // NOI18N
         btnrnoexbecarios.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/noexbecariodos.png"))); // NOI18N
@@ -704,7 +704,7 @@ public class menujf extends javax.swing.JFrame {
         btnrpromocion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/promocion.png"))); // NOI18N
         btnrpromocion.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/promociondos.png"))); // NOI18N
         jpmreportes.add(btnrpromocion);
-        btnrpromocion.setBounds(890, 310, 130, 80);
+        btnrpromocion.setBounds(900, 310, 130, 80);
 
         btnrgeneral.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/general.png"))); // NOI18N
         btnrgeneral.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/generaldos.png"))); // NOI18N

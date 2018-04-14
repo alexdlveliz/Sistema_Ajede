@@ -36,8 +36,8 @@ public class agregarjf extends javax.swing.JFrame {
     ImageIcon dlabo2 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/datoslaborales2.jpg")).getImage());
     ImageIcon voluntariado1 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/voluntariado1.jpg")).getImage());
     ImageIcon voluntariado2 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/voluntariado2.jpg")).getImage());
-    ImageIcon beca1 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/beca1.jpg")).getImage());
-    ImageIcon beca2 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/beca2.jpg")).getImage());
+    ImageIcon beca1 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/ajede1.jpg")).getImage());
+    ImageIcon beca2 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/ajede2.jpg")).getImage());
     ImageIcon infomed1 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/infomed1.jpg")).getImage());
     ImageIcon infomed2 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/infomed2.jpg")).getImage());
     ImageIcon datosenc1 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/datosenc1.jpg")).getImage());
@@ -165,43 +165,7 @@ public class agregarjf extends javax.swing.JFrame {
             textfieldlugartrabajo2.setFont(fuente2);
             btnsiguientevolu.setLocation(1360, 567);
             btnatrasdp.setLocation(845, 567);
-            cmbproyecto1.setLocation(123, 285);
-            cmbproyecto1.setSize(610, 44);
-            cmbproyecto1.setFont(fuente2);
-            cmbproyecto2.setLocation(123, 347);
-            cmbproyecto2.setSize(610, 44);
-            cmbproyecto2.setFont(fuente2);
-            cmbproyecto3.setLocation(123, 400);
-            cmbproyecto3.setSize(610, 44);
-            cmbproyecto3.setFont(fuente2);
-            cmbproyecto4.setLocation(125, 453);
-            cmbproyecto4.setSize(610, 44);
-            cmbproyecto4.setFont(fuente2);
-            cmbpuestop1.setLocation(880, 285);
-            cmbpuestop1.setSize(610, 44);
-            cmbpuestop1.setFont(fuente2);
-            cmbpuestop2.setLocation(880, 347);
-            cmbpuestop2.setSize(610, 44);
-            cmbpuestop2.setFont(fuente2);
-            cmbpuestop3.setLocation(880, 400);
-            cmbpuestop3.setSize(610, 44);
-            cmbpuestop3.setFont(fuente2);
-            cmbpuestop4.setLocation(880, 453);
-            cmbpuestop4.setSize(610, 44);
-            cmbpuestop4.setFont(fuente2); 
             btnsiguientebeca.setLocation(1360, 578);
-            txthorasp1.setLocation(146, 665);
-            txthorasp1.setSize(230, 44);
-            txthorasp1.setFont(fuente2);
-            txthorasp2.setLocation(494, 665);
-            txthorasp2.setSize(230, 44);
-            txthorasp2.setFont(fuente2);
-            txthorasp3.setLocation(146, 730);
-            txthorasp3.setSize(230, 44);
-            txthorasp3.setFont(fuente2);
-            txthorasp4.setLocation(494, 730);
-            txthorasp4.setSize(230, 44);
-            txthorasp4.setFont(fuente2);
             btnatrasdlab.setLocation(845, 578);
             btnaddp.setLocation(1097, 580);
         }
@@ -211,7 +175,7 @@ public class agregarjf extends javax.swing.JFrame {
             this.setSize(1250, 700);
             //lbdp.setIcon(dp2);
             lbdlabo.setIcon(dlabo2);
-            lbvoluntariado.setIcon(voluntariado2);
+            //lbvoluntariado.setIcon(voluntariado2);
             lbbeca.setIcon(beca2);
             lbinfomed.setIcon(infomed2);
             lbdatosenca.setIcon(datosenc2);
@@ -320,19 +284,7 @@ public class agregarjf extends javax.swing.JFrame {
         textfieldlugardeestudio2.setBackground(new Color(0,0,0,0));
         textfieldocupacion2.setBackground(new Color(0,0,0,0));
         textfieldlugartrabajo2.setBackground(new Color(0,0,0,0));
-        cmbproyecto1.setBackground(new Color(0,0,0,0));
-        cmbproyecto2.setBackground(new Color(0,0,0,0));
-        cmbproyecto3.setBackground(new Color(0,0,0,0));
-        cmbproyecto4.setBackground(new Color(0,0,0,0));
-        cmbpuestop1.setBackground(new Color(0,0,0,0));
-        cmbpuestop2.setBackground(new Color(0,0,0,0));
-        cmbpuestop3.setBackground(new Color(0,0,0,0));
-        cmbpuestop4.setBackground(new Color(0,0,0,0));
-        txthorasp1.setBackground(new Color(0,0,0,0));
-        txthorasp2.setBackground(new Color(0,0,0,0));
-        txthorasp3.setBackground(new Color(0,0,0,0));
-        txthorasp4.setBackground(new Color(0,0,0,0));
-        
+       
     }
 
     /**
@@ -418,32 +370,28 @@ public class agregarjf extends javax.swing.JFrame {
         textfieldlugartrabajo2 = new javax.swing.JTextField();
         lbdlabo = new javax.swing.JLabel();
         jpvoluntariado = new javax.swing.JPanel();
-        cmbproyecto1 = new javax.swing.JComboBox<>();
-        cmbproyecto2 = new javax.swing.JComboBox<>();
-        cmbproyecto3 = new javax.swing.JComboBox<>();
-        cmbproyecto4 = new javax.swing.JComboBox<>();
-        cmbpuestop1 = new javax.swing.JComboBox<>();
-        cmbpuestop2 = new javax.swing.JComboBox<>();
-        cmbpuestop3 = new javax.swing.JComboBox<>();
-        cmbpuestop4 = new javax.swing.JComboBox<>();
-        txthorasp1 = new javax.swing.JTextField();
-        txthorasp2 = new javax.swing.JTextField();
-        txthorasp3 = new javax.swing.JTextField();
-        txthorasp4 = new javax.swing.JTextField();
         btnatrasdlab = new javax.swing.JButton();
         btnsiguientebeca = new javax.swing.JButton();
         btnaddp = new javax.swing.JButton();
+        ptxt = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        proyectostable = new javax.swing.JTable();
         lbvoluntariado = new javax.swing.JLabel();
         jpbeca = new javax.swing.JPanel();
         btnatrasvoluntariado = new javax.swing.JButton();
         btnsiguienteinfomed = new javax.swing.JButton();
+        cmbexbecario = new javax.swing.JComboBox<>();
+        cmbactivosina = new javax.swing.JComboBox<>();
+        jYearChooser1 = new com.toedter.calendar.JYearChooser();
+        jYearChooser2 = new com.toedter.calendar.JYearChooser();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        programastable = new javax.swing.JTable();
         lbbeca = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1565, 880));
         setMinimumSize(new java.awt.Dimension(1250, 700));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1250, 700));
 
         jPanel1.setBackground(new java.awt.Color(255, 51, 255));
         jPanel1.setMaximumSize(new java.awt.Dimension(1565, 880));
@@ -1003,80 +951,6 @@ public class agregarjf extends javax.swing.JFrame {
         jpvoluntariado.setName("jpvoluntariado"); // NOI18N
         jpvoluntariado.setLayout(null);
 
-        cmbproyecto1.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        cmbproyecto1.setForeground(new java.awt.Color(25, 92, 134));
-        cmbproyecto1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jpvoluntariado.add(cmbproyecto1);
-        cmbproyecto1.setBounds(100, 230, 480, 30);
-
-        cmbproyecto2.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        cmbproyecto2.setForeground(new java.awt.Color(25, 92, 134));
-        cmbproyecto2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jpvoluntariado.add(cmbproyecto2);
-        cmbproyecto2.setBounds(100, 280, 480, 30);
-
-        cmbproyecto3.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        cmbproyecto3.setForeground(new java.awt.Color(25, 92, 134));
-        cmbproyecto3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jpvoluntariado.add(cmbproyecto3);
-        cmbproyecto3.setBounds(100, 320, 480, 30);
-
-        cmbproyecto4.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        cmbproyecto4.setForeground(new java.awt.Color(25, 92, 134));
-        cmbproyecto4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cmbproyecto4.setVerifyInputWhenFocusTarget(false);
-        jpvoluntariado.add(cmbproyecto4);
-        cmbproyecto4.setBounds(100, 367, 480, 30);
-
-        cmbpuestop1.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        cmbpuestop1.setForeground(new java.awt.Color(25, 92, 134));
-        cmbpuestop1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cmbpuestop1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbpuestop1ActionPerformed(evt);
-            }
-        });
-        jpvoluntariado.add(cmbpuestop1);
-        cmbpuestop1.setBounds(710, 230, 470, 30);
-
-        cmbpuestop2.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        cmbpuestop2.setForeground(new java.awt.Color(25, 92, 134));
-        cmbpuestop2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jpvoluntariado.add(cmbpuestop2);
-        cmbpuestop2.setBounds(710, 280, 470, 30);
-
-        cmbpuestop3.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        cmbpuestop3.setForeground(new java.awt.Color(25, 92, 134));
-        cmbpuestop3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jpvoluntariado.add(cmbpuestop3);
-        cmbpuestop3.setBounds(710, 320, 470, 30);
-
-        cmbpuestop4.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        cmbpuestop4.setForeground(new java.awt.Color(25, 92, 134));
-        cmbpuestop4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jpvoluntariado.add(cmbpuestop4);
-        cmbpuestop4.setBounds(710, 360, 470, 40);
-
-        txthorasp1.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        txthorasp1.setForeground(new java.awt.Color(25, 92, 134));
-        jpvoluntariado.add(txthorasp1);
-        txthorasp1.setBounds(120, 533, 170, 30);
-
-        txthorasp2.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        txthorasp2.setForeground(new java.awt.Color(25, 92, 134));
-        jpvoluntariado.add(txthorasp2);
-        txthorasp2.setBounds(400, 533, 170, 30);
-
-        txthorasp3.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        txthorasp3.setForeground(new java.awt.Color(25, 92, 134));
-        jpvoluntariado.add(txthorasp3);
-        txthorasp3.setBounds(120, 583, 170, 30);
-
-        txthorasp4.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        txthorasp4.setForeground(new java.awt.Color(25, 92, 134));
-        jpvoluntariado.add(txthorasp4);
-        txthorasp4.setBounds(400, 583, 170, 30);
-
         btnatrasdlab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/sa/icons8_Undo_70px.png"))); // NOI18N
         btnatrasdlab.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/sa/icons8_Undo_100px.png"))); // NOI18N
         btnatrasdlab.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1095,9 +969,29 @@ public class agregarjf extends javax.swing.JFrame {
             }
         });
         jpvoluntariado.add(btnsiguientebeca);
-        btnsiguientebeca.setBounds(1070, 450, 120, 100);
+        btnsiguientebeca.setBounds(1080, 450, 120, 100);
         jpvoluntariado.add(btnaddp);
-        btnaddp.setBounds(860, 450, 130, 70);
+        btnaddp.setBounds(860, 450, 140, 70);
+
+        ptxt.setText("jTextField1");
+        jpvoluntariado.add(ptxt);
+        ptxt.setBounds(70, 240, 510, 40);
+
+        proyectostable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(proyectostable);
+
+        jpvoluntariado.add(jScrollPane1);
+        jScrollPane1.setBounds(70, 290, 510, 340);
 
         lbvoluntariado.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         lbvoluntariado.setForeground(new java.awt.Color(25, 92, 134));
@@ -1130,9 +1024,37 @@ public class agregarjf extends javax.swing.JFrame {
             }
         });
         jpbeca.add(btnsiguienteinfomed);
-        btnsiguienteinfomed.setBounds(1070, 460, 120, 80);
+        btnsiguienteinfomed.setBounds(1080, 460, 120, 80);
 
-        lbbeca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/beca2.jpg"))); // NOI18N
+        cmbexbecario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jpbeca.add(cmbexbecario);
+        cmbexbecario.setBounds(320, 510, 250, 40);
+
+        cmbactivosina.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jpbeca.add(cmbactivosina);
+        cmbactivosina.setBounds(320, 450, 250, 40);
+        jpbeca.add(jYearChooser1);
+        jYearChooser1.setBounds(240, 340, 330, 30);
+        jpbeca.add(jYearChooser2);
+        jYearChooser2.setBounds(240, 250, 330, 30);
+
+        programastable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(programastable);
+
+        jpbeca.add(jScrollPane2);
+        jScrollPane2.setBounds(660, 230, 540, 180);
+
+        lbbeca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/ajede2.jpg"))); // NOI18N
         lbbeca.setMaximumSize(new java.awt.Dimension(1565, 880));
         jpbeca.add(lbbeca);
         lbbeca.setBounds(0, 0, 1250, 700);
@@ -1146,11 +1068,11 @@ public class agregarjf extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1275, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -1494,10 +1416,6 @@ public class agregarjf extends javax.swing.JFrame {
         textfieldlugartrabajo2.setText("");
     }//GEN-LAST:event_textfieldlugartrabajo2MouseClicked
 
-    private void cmbpuestop1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbpuestop1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbpuestop1ActionPerformed
-
     private void btnatrasdlabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnatrasdlabMouseClicked
         slider.setPanelSlider(jpdlabo, RSPanelsSlider.DIRECT.RIGHT);
     }//GEN-LAST:event_btnatrasdlabMouseClicked
@@ -1620,21 +1538,19 @@ public class agregarjf extends javax.swing.JFrame {
     private javax.swing.JButton btnsiguientedl;
     private javax.swing.JButton btnsiguienteinfomed;
     private javax.swing.JButton btnsiguientevolu;
+    private javax.swing.JComboBox<String> cmbactivosina;
+    private javax.swing.JComboBox<String> cmbexbecario;
     private javax.swing.JComboBox<String> cmbgenero;
     private javax.swing.JComboBox<String> cmbnivelestudioencargado;
     private javax.swing.JComboBox<String> cmbnivelestudiovoluntario;
-    private javax.swing.JComboBox<String> cmbproyecto1;
-    private javax.swing.JComboBox<String> cmbproyecto2;
-    private javax.swing.JComboBox<String> cmbproyecto3;
-    private javax.swing.JComboBox<String> cmbproyecto4;
-    private javax.swing.JComboBox<String> cmbpuestop1;
-    private javax.swing.JComboBox<String> cmbpuestop2;
-    private javax.swing.JComboBox<String> cmbpuestop3;
-    private javax.swing.JComboBox<String> cmbpuestop4;
     private javax.swing.JComboBox<String> cmbtalla;
     private javax.swing.JComboBox<String> cmbtipodesangre;
     private com.toedter.calendar.JDateChooser datecfecha;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private com.toedter.calendar.JYearChooser jYearChooser1;
+    private com.toedter.calendar.JYearChooser jYearChooser2;
     private javax.swing.JPanel jpbeca;
     private javax.swing.JPanel jpconteme;
     private javax.swing.JPanel jpdatosp;
@@ -1649,6 +1565,9 @@ public class agregarjf extends javax.swing.JFrame {
     private javax.swing.JLabel lbdp;
     private javax.swing.JLabel lbinfomed;
     private javax.swing.JLabel lbvoluntariado;
+    private javax.swing.JTable programastable;
+    private javax.swing.JTable proyectostable;
+    private javax.swing.JTextField ptxt;
     private rojerusan.RSPanelsSlider slider;
     private javax.swing.JTextField textfieldalergia1;
     private javax.swing.JTextField textfieldalergia2;
@@ -1690,9 +1609,5 @@ public class agregarjf extends javax.swing.JFrame {
     private javax.swing.JTextField textfieldtelefonoemergencia4;
     private javax.swing.JTextField textfieldtelefonoemergencia5;
     private javax.swing.JTextField textfieldtelefonoencargado;
-    private javax.swing.JTextField txthorasp1;
-    private javax.swing.JTextField txthorasp2;
-    private javax.swing.JTextField txthorasp3;
-    private javax.swing.JTextField txthorasp4;
     // End of variables declaration//GEN-END:variables
 }
