@@ -168,6 +168,85 @@ public class agregarjf extends javax.swing.JFrame {
             btnsiguientebeca.setLocation(1360, 578);
             btnatrasdlab.setLocation(845, 578);
             btnaddp.setLocation(1097, 580);
+            ptxt.setLocation(90, 300);
+            ptxt.setSize(635, 40);
+            jScrollPane1.setLocation(90, 360);
+            jScrollPane1.setSize(635, 435);
+            jYearChooser2.setLocation(300, 305);
+            jYearChooser2.setSize(410,50);
+            jYearChooser1.setLocation(300, 415);
+            jYearChooser1.setSize(410,50);
+            jScrollPane2.setLocation(815, 270);
+            jScrollPane2.setSize(680, 250);
+            cmbactivosina.setLocation(390, 563);
+            cmbactivosina.setSize(321, 40);
+            cmbexbecario.setLocation(390, 640);
+            cmbexbecario.setSize(321, 40);
+            btnatrasvoluntariado.setLocation(850, 590);
+            btnsiguienteinfomed.setLocation(1350, 590);
+            textfieldhospital.setLocation(60, 310);
+            textfieldhospital.setSize(675, 23);
+            textfieldalergia1.setLocation(1027, 230);
+            textfieldalergia1.setSize(492, 30);
+            textfieldalergia2.setLocation(810, 293);
+            textfieldalergia2.setSize(705, 23);
+            textfieldalergia3.setLocation(810, 350);
+            textfieldalergia3.setSize(705, 23);
+            textfieldalergia4.setLocation(810, 400);
+            textfieldalergia4.setSize(705, 23);
+            textfieldalergia5.setLocation(810, 460);
+            textfieldalergia5.setSize(590, 23);
+            textfieldpadecimiento1.setLocation(57, 525);
+            textfieldpadecimiento1.setSize(675, 23);
+            textfieldpadecimiento2.setLocation(57, 585);
+            textfieldpadecimiento2.setSize(675, 23);
+            textfieldpadecimiento3.setLocation(57, 645);
+            textfieldpadecimiento3.setSize(675, 23);
+            textfieldpadecimiento4.setLocation(57, 700);
+            textfieldpadecimiento4.setSize(675, 23);
+            btnatrasbeca.setLocation(815, 590);
+            btnsiguientedenc.setLocation(1355, 590);
+            cmbtipodesangre.setLocation(1000, 665);
+            textfieldnombreencargado.setLocation(200, 220);
+            textfieldnombreencargado.setSize(540, 30);
+            textfieldapellidoencargado.setLocation(210, 297);
+            textfieldapellidoencargado.setSize(530, 30);
+            cmbnivelestudioencargado.setLocation(310, 370);
+            cmbnivelestudioencargado.setSize(430, 40);
+            textfieldtelefonoencargado.setLocation(340, 440);
+            textfieldtelefonoencargado.setSize(410, 40);
+            textfielddpiencargado.setLocation(205, 565);
+            textfielddpiencargado.setSize(520,40);
+            textfieldresidenciaencargado.setLocation(245, 655);
+            textfieldresidenciaencargado.setSize(480, 40);
+            textfieldcorreoencargado.setLocation(240, 740);
+            textfieldcorreoencargado.setSize(485, 40);
+            textfieldocupacionencargado.setLocation(815, 285);
+            textfieldocupacionencargado.setSize(700, 40);
+            textfieldlugarencargado.setLocation(815, 415);
+            textfieldlugarencargado.setSize(700, 40);
+            btnatrasinfme.setLocation(840, 570);
+            btnsiguienteconteme.setLocation(1355, 570);
+            btnotrotelefonoencargado.setLocation(1103, 570);
+            btnsiguienteconteme.setSize(120, 110);
+            textfieldnombreemergencia.setLocation(210, 200);
+            textfieldnombreemergencia.setSize(530, 40);
+            textfieldapellidoemergencia.setLocation(210, 290);
+            textfieldapellidoemergencia.setSize(530, 40);
+            textfieldparentescoemergencia.setLocation(410, 365);
+            textfieldparentescoemergencia.setSize(340, 40);
+            textfieldtelefonoemergencia1.setLocation(215, 450);
+            textfieldtelefonoemergencia1.setSize(190, 30);
+            textfieldtelefonoemergencia2.setLocation(60, 545);
+            textfieldtelefonoemergencia2.setSize(670, 30);
+            textfieldtelefonoemergencia3.setLocation(60, 605);
+            textfieldtelefonoemergencia3.setSize(670, 30);
+            textfieldtelefonoemergencia4.setLocation(60, 662);
+            textfieldtelefonoemergencia4.setSize(670, 30);
+            textfieldtelefonoemergencia5.setLocation(60, 715);
+            textfieldtelefonoemergencia5.setSize(670, 30);
+            btnatrasdenc.setLocation(850, 575);
+            btnguardar.setLocation(1345, 575);
         }
         else if((tamanio.width == 1366) && (tamanio.height == 768)) //1366x768, 1708x960
         {
@@ -506,7 +585,7 @@ public class agregarjf extends javax.swing.JFrame {
         cmbgenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino" }));
         cmbgenero.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jpdatosp.add(cmbgenero);
-        cmbgenero.setBounds(390, 290, 190, 33);
+        cmbgenero.setBounds(390, 290, 190, 29);
 
         datecfecha.setForeground(new java.awt.Color(25, 92, 134));
         datecfecha.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
@@ -537,7 +616,7 @@ public class agregarjf extends javax.swing.JFrame {
         cmbtalla.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "XS", "S", "M", "L", "XL" }));
         cmbtalla.setBorder(null);
         jpdatosp.add(cmbtalla);
-        cmbtalla.setBounds(870, 250, 60, 33);
+        cmbtalla.setBounds(870, 250, 60, 27);
 
         textfieldtelefono.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         textfieldtelefono.setForeground(new java.awt.Color(25, 92, 134));
@@ -778,6 +857,7 @@ public class agregarjf extends javax.swing.JFrame {
         btnatrasdenc.setBounds(670, 440, 120, 110);
 
         textfieldnombreemergencia.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldnombreemergencia.setBorder(null);
         textfieldnombreemergencia.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 textfieldnombreemergenciaKeyTyped(evt);
@@ -787,6 +867,7 @@ public class agregarjf extends javax.swing.JFrame {
         textfieldnombreemergencia.setBounds(170, 160, 430, 40);
 
         textfieldapellidoemergencia.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldapellidoemergencia.setBorder(null);
         textfieldapellidoemergencia.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 textfieldapellidoemergenciaKeyTyped(evt);
@@ -796,6 +877,7 @@ public class agregarjf extends javax.swing.JFrame {
         textfieldapellidoemergencia.setBounds(170, 225, 430, 40);
 
         textfieldparentescoemergencia.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldparentescoemergencia.setBorder(null);
         textfieldparentescoemergencia.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 textfieldparentescoemergenciaKeyTyped(evt);
@@ -805,22 +887,27 @@ public class agregarjf extends javax.swing.JFrame {
         textfieldparentescoemergencia.setBounds(320, 288, 280, 40);
 
         textfieldtelefonoemergencia1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldtelefonoemergencia1.setBorder(null);
         jpconteme.add(textfieldtelefonoemergencia1);
         textfieldtelefonoemergencia1.setBounds(173, 355, 150, 30);
 
         textfieldtelefonoemergencia2.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldtelefonoemergencia2.setBorder(null);
         jpconteme.add(textfieldtelefonoemergencia2);
         textfieldtelefonoemergencia2.setBounds(50, 430, 530, 30);
 
         textfieldtelefonoemergencia3.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldtelefonoemergencia3.setBorder(null);
         jpconteme.add(textfieldtelefonoemergencia3);
         textfieldtelefonoemergencia3.setBounds(50, 473, 530, 30);
 
         textfieldtelefonoemergencia4.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldtelefonoemergencia4.setBorder(null);
         jpconteme.add(textfieldtelefonoemergencia4);
         textfieldtelefonoemergencia4.setBounds(50, 520, 530, 30);
 
         textfieldtelefonoemergencia5.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textfieldtelefonoemergencia5.setBorder(null);
         jpconteme.add(textfieldtelefonoemergencia5);
         textfieldtelefonoemergencia5.setBounds(50, 567, 530, 30);
 

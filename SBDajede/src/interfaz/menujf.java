@@ -57,12 +57,12 @@ public class menujf extends javax.swing.JFrame {
             lbmenuprincipal.setSize(1565, 880);
             lbmenuprincipal.setIcon(menu);
             this.setLocationRelativeTo(null);
-            btnagregar.setLocation(198, 445);
-            btneditar.setLocation(515, 430);
-            btnbuscar.setLocation(1165, 425);
+            btnagregar.setLocation(260, 405);
+            btneditar.setLocation(680, 405);
+            btnbuscar.setLocation(1075, 405);
             btnminimizarmenu.setLocation(1410, 5);
             btnsalirdmenu.setLocation(1480, 5);
-        } else if ((tamanio.width == 1708) && (tamanio.height == 960)) //1366.768, alex: 1708.960
+        } else if ((tamanio.width == 1366) && (tamanio.height == 768)) //1366.768, alex: 1708.960
         {
             this.setSize(1250, 700);
             //jpmenu.setIcon(menutam2);
