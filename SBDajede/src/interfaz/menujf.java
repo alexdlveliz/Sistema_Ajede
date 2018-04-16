@@ -25,7 +25,7 @@ import rojerusan.RSPanelsSlider;
  */
 public class menujf extends javax.swing.JFrame {
 
-    //ImageIcon menutam2 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/opcionestam2.jpg")).getImage());
+    ImageIcon menua1 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/menuat1.jpg")).getImage());
     ImageIcon menu = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/menuprincipalv2t1.jpg")).getImage());
     private final Proyecto proyecto;
     private int IDproyecto;
@@ -62,6 +62,12 @@ public class menujf extends javax.swing.JFrame {
             btnbuscar.setLocation(1075, 405);
             btnminimizarmenu.setLocation(1410, 5);
             btnsalirdmenu.setLocation(1480, 5);
+            menuagregar.setSize(1565,880);
+            lbmenuagregar.setSize(1565, 880);
+            lbmenuagregar.setIcon(menua1);
+            btnagregarvoluntario.setLocation(260, 405);
+            btnagregarproyecto.setLocation(680, 405);
+            btnagregarvoluntariado.setLocation(1075, 405);
         } else if ((tamanio.width == 1366) && (tamanio.height == 768)) //1366.768, alex: 1708.960
         {
             this.setSize(1250, 700);

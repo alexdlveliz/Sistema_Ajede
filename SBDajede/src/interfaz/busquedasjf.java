@@ -53,7 +53,7 @@ public class busquedasjf extends javax.swing.JFrame {
         btnbvocupacion = new javax.swing.JButton();
         btnrmenua = new javax.swing.JButton();
         lbmenua = new javax.swing.JLabel();
-        jpvnombre = new javax.swing.JPanel();
+        jpvactivosina = new javax.swing.JPanel();
         txtbvnombre = new javax.swing.JTextField();
         txtApellido = new javax.swing.JTextField();
         jsbvnombre = new javax.swing.JScrollPane();
@@ -62,55 +62,48 @@ public class busquedasjf extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         cmbactivo = new javax.swing.JComboBox<>();
         lbvnombre = new javax.swing.JLabel();
-        jpvactivos = new javax.swing.JPanel();
+        jpgeneral = new javax.swing.JPanel();
         txtbvactivos = new javax.swing.JTextField();
         jsbvactivos = new javax.swing.JScrollPane();
         tablebvactivos = new javax.swing.JTable();
+        txtbvactivos1 = new javax.swing.JTextField();
         lbvactivos = new javax.swing.JLabel();
-        jpvinactivos = new javax.swing.JPanel();
-        txtbvinactivos = new javax.swing.JTextField();
+        jpvexbnexb = new javax.swing.JPanel();
+        txtnvexbnexb = new javax.swing.JTextField();
         jsbvinactivos = new javax.swing.JScrollPane();
         tablebvinactivos = new javax.swing.JTable();
+        txtavexbnexb = new javax.swing.JTextField();
+        cmbexbnexb = new javax.swing.JComboBox<>();
         lbvinactivos = new javax.swing.JLabel();
-        jpvexbecarios = new javax.swing.JPanel();
-        txtbvexbecarios = new javax.swing.JTextField();
-        jsbvexbecarios = new javax.swing.JScrollPane();
-        tablebvexbecarios = new javax.swing.JTable();
-        lbvexbecarios = new javax.swing.JLabel();
-        jpvnoexbecarios = new javax.swing.JPanel();
-        txtbvnoexbecarios = new javax.swing.JTextField();
-        jsbvnoexbecarios = new javax.swing.JScrollPane();
-        tablebvnoexbecarios = new javax.swing.JTable();
-        lbvnoexbecarios = new javax.swing.JLabel();
         jpvanio = new javax.swing.JPanel();
         txtbvanio = new javax.swing.JTextField();
         jsbvanio = new javax.swing.JScrollPane();
         tablebvanio = new javax.swing.JTable();
         lbvanio = new javax.swing.JLabel();
         jpvedad = new javax.swing.JPanel();
-        txtbvedad = new javax.swing.JTextField();
         jsbvedad = new javax.swing.JScrollPane();
         tablebvedad = new javax.swing.JTable();
+        cmbedad = new javax.swing.JComboBox<>();
         lbvedad = new javax.swing.JLabel();
         jpvgenero = new javax.swing.JPanel();
-        txtbvgenero = new javax.swing.JTextField();
         jsbvgenero = new javax.swing.JScrollPane();
         tablebvgenero = new javax.swing.JTable();
+        cmbgenero = new javax.swing.JComboBox<>();
         lbvgenero = new javax.swing.JLabel();
         jpvprograma = new javax.swing.JPanel();
-        txtbvprograma = new javax.swing.JTextField();
         jsbvprograma = new javax.swing.JScrollPane();
         tablebvprograma = new javax.swing.JTable();
+        cmbprograma = new javax.swing.JComboBox<>();
         lbvprograma = new javax.swing.JLabel();
         jpvpromocionbeca = new javax.swing.JPanel();
-        txtbvpromocionbeca = new javax.swing.JTextField();
         jsbvpromocionbeca = new javax.swing.JScrollPane();
         tablebvpromocionbeca = new javax.swing.JTable();
+        cmbapromocion = new javax.swing.JComboBox<>();
         lbvpromocionbeca = new javax.swing.JLabel();
         jpvocupacion = new javax.swing.JPanel();
-        txtbvocupacion = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablebvocupacion = new javax.swing.JTable();
+        cmbocupacion = new javax.swing.JComboBox<>();
         lbvocupacion = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -255,7 +248,7 @@ public class busquedasjf extends javax.swing.JFrame {
             }
         });
         jpmenua.add(btnrmenua);
-        btnrmenua.setBounds(1050, 460, 120, 90);
+        btnrmenua.setBounds(1040, 460, 130, 90);
 
         lbmenua.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/menubusquedastam2.jpg"))); // NOI18N
         jpmenua.add(lbmenua);
@@ -263,11 +256,11 @@ public class busquedasjf extends javax.swing.JFrame {
 
         rSPanelsSlider1.add(jpmenua, "card9");
 
-        jpvnombre.setMaximumSize(new java.awt.Dimension(1565, 880));
-        jpvnombre.setMinimumSize(new java.awt.Dimension(1250, 700));
-        jpvnombre.setName("jpvnombre"); // NOI18N
-        jpvnombre.setPreferredSize(new java.awt.Dimension(1250, 700));
-        jpvnombre.setLayout(null);
+        jpvactivosina.setMaximumSize(new java.awt.Dimension(1565, 880));
+        jpvactivosina.setMinimumSize(new java.awt.Dimension(1250, 700));
+        jpvactivosina.setName("jpvactivosina"); // NOI18N
+        jpvactivosina.setPreferredSize(new java.awt.Dimension(1250, 700));
+        jpvactivosina.setLayout(null);
 
         txtbvnombre.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         txtbvnombre.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -275,16 +268,16 @@ public class busquedasjf extends javax.swing.JFrame {
                 txtbvnombreKeyPressed(evt);
             }
         });
-        jpvnombre.add(txtbvnombre);
-        txtbvnombre.setBounds(180, 70, 650, 30);
+        jpvactivosina.add(txtbvnombre);
+        txtbvnombre.setBounds(310, 200, 340, 40);
 
         txtApellido.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtApellidoKeyPressed(evt);
             }
         });
-        jpvnombre.add(txtApellido);
-        txtApellido.setBounds(180, 110, 650, 22);
+        jpvactivosina.add(txtApellido);
+        txtApellido.setBounds(310, 270, 340, 40);
 
         tablebvnombre.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -314,16 +307,16 @@ public class busquedasjf extends javax.swing.JFrame {
             tablebvnombre.getColumnModel().getColumn(5).setResizable(false);
         }
 
-        jpvnombre.add(jsbvnombre);
-        jsbvnombre.setBounds(40, 190, 1190, 470);
+        jpvactivosina.add(jsbvnombre);
+        jsbvnombre.setBounds(120, 340, 1010, 320);
 
         jLabel1.setText("Nombre:");
-        jpvnombre.add(jLabel1);
-        jLabel1.setBounds(120, 80, 50, 16);
+        jpvactivosina.add(jLabel1);
+        jLabel1.setBounds(160, 170, 50, 16);
 
         jLabel2.setText("Apellido:");
-        jpvnombre.add(jLabel2);
-        jLabel2.setBounds(120, 120, 50, 16);
+        jpvactivosina.add(jLabel2);
+        jLabel2.setBounds(160, 220, 50, 16);
 
         cmbactivo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo" }));
         cmbactivo.addActionListener(new java.awt.event.ActionListener() {
@@ -331,23 +324,25 @@ public class busquedasjf extends javax.swing.JFrame {
                 cmbactivoActionPerformed(evt);
             }
         });
-        jpvnombre.add(cmbactivo);
-        cmbactivo.setBounds(950, 90, 130, 22);
-        jpvnombre.add(lbvnombre);
+        jpvactivosina.add(cmbactivo);
+        cmbactivo.setBounds(850, 240, 190, 30);
+
+        lbvnombre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/vactnact2.jpg"))); // NOI18N
+        jpvactivosina.add(lbvnombre);
         lbvnombre.setBounds(0, 0, 1370, 740);
 
-        rSPanelsSlider1.add(jpvnombre, "card3");
+        rSPanelsSlider1.add(jpvactivosina, "card3");
 
-        jpvactivos.setMaximumSize(new java.awt.Dimension(1565, 880));
-        jpvactivos.setMinimumSize(new java.awt.Dimension(1250, 700));
-        jpvactivos.setName("jpvactivos"); // NOI18N
-        jpvactivos.setPreferredSize(new java.awt.Dimension(1250, 700));
-        jpvactivos.setLayout(null);
+        jpgeneral.setMaximumSize(new java.awt.Dimension(1565, 880));
+        jpgeneral.setMinimumSize(new java.awt.Dimension(1250, 700));
+        jpgeneral.setName("jpgeneral"); // NOI18N
+        jpgeneral.setPreferredSize(new java.awt.Dimension(1250, 700));
+        jpgeneral.setLayout(null);
 
         txtbvactivos.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         txtbvactivos.setText("jTextField1");
-        jpvactivos.add(txtbvactivos);
-        txtbvactivos.setBounds(360, 140, 650, 30);
+        jpgeneral.add(txtbvactivos);
+        txtbvactivos.setBounds(310, 250, 410, 40);
 
         tablebvactivos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -362,22 +357,27 @@ public class busquedasjf extends javax.swing.JFrame {
         ));
         jsbvactivos.setViewportView(tablebvactivos);
 
-        jpvactivos.add(jsbvactivos);
-        jsbvactivos.setBounds(140, 190, 1090, 440);
+        jpgeneral.add(jsbvactivos);
+        jsbvactivos.setBounds(110, 320, 1030, 350);
 
-        lbvactivos.setText("jLabel1");
-        jpvactivos.add(lbvactivos);
+        txtbvactivos1.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
+        txtbvactivos1.setText("jTextField1");
+        jpgeneral.add(txtbvactivos1);
+        txtbvactivos1.setBounds(310, 190, 410, 40);
+
+        lbvactivos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/vinfog2.jpg"))); // NOI18N
+        jpgeneral.add(lbvactivos);
         lbvactivos.setBounds(0, 0, 1370, 740);
 
-        rSPanelsSlider1.add(jpvactivos, "card4");
+        rSPanelsSlider1.add(jpgeneral, "card4");
 
-        jpvinactivos.setName("jpvinactivos"); // NOI18N
-        jpvinactivos.setLayout(null);
+        jpvexbnexb.setName("jpvexbnexb"); // NOI18N
+        jpvexbnexb.setLayout(null);
 
-        txtbvinactivos.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        txtbvinactivos.setText("jTextField1");
-        jpvinactivos.add(txtbvinactivos);
-        txtbvinactivos.setBounds(360, 140, 650, 30);
+        txtnvexbnexb.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
+        txtnvexbnexb.setText("jTextField1");
+        jpvexbnexb.add(txtnvexbnexb);
+        txtnvexbnexb.setBounds(300, 200, 350, 50);
 
         tablebvinactivos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -392,74 +392,24 @@ public class busquedasjf extends javax.swing.JFrame {
         ));
         jsbvinactivos.setViewportView(tablebvinactivos);
 
-        jpvinactivos.add(jsbvinactivos);
-        jsbvinactivos.setBounds(140, 190, 1090, 440);
+        jpvexbnexb.add(jsbvinactivos);
+        jsbvinactivos.setBounds(110, 350, 1030, 310);
 
-        lbvinactivos.setText("jLabel1");
-        jpvinactivos.add(lbvinactivos);
+        txtavexbnexb.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
+        txtavexbnexb.setText("jTextField1");
+        jpvexbnexb.add(txtavexbnexb);
+        txtavexbnexb.setBounds(300, 270, 350, 50);
+
+        cmbexbnexb.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
+        cmbexbnexb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jpvexbnexb.add(cmbexbnexb);
+        cmbexbnexb.setBounds(840, 240, 210, 40);
+
+        lbvinactivos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/vexbnb2.jpg"))); // NOI18N
+        jpvexbnexb.add(lbvinactivos);
         lbvinactivos.setBounds(0, 0, 1370, 740);
 
-        rSPanelsSlider1.add(jpvinactivos, "card5");
-
-        jpvexbecarios.setName("jpvexbecarios"); // NOI18N
-        jpvexbecarios.setLayout(null);
-
-        txtbvexbecarios.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        txtbvexbecarios.setText("jTextField1");
-        jpvexbecarios.add(txtbvexbecarios);
-        txtbvexbecarios.setBounds(360, 140, 650, 30);
-
-        tablebvexbecarios.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jsbvexbecarios.setViewportView(tablebvexbecarios);
-
-        jpvexbecarios.add(jsbvexbecarios);
-        jsbvexbecarios.setBounds(140, 190, 1090, 440);
-
-        lbvexbecarios.setText("jLabel1");
-        jpvexbecarios.add(lbvexbecarios);
-        lbvexbecarios.setBounds(-32411, -32409, 41, 16);
-
-        rSPanelsSlider1.add(jpvexbecarios, "card6");
-
-        jpvnoexbecarios.setName("jpvnoexbecarios"); // NOI18N
-        jpvnoexbecarios.setLayout(null);
-
-        txtbvnoexbecarios.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        txtbvnoexbecarios.setText("jTextField1");
-        jpvnoexbecarios.add(txtbvnoexbecarios);
-        txtbvnoexbecarios.setBounds(360, 140, 650, 30);
-
-        tablebvnoexbecarios.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jsbvnoexbecarios.setViewportView(tablebvnoexbecarios);
-
-        jpvnoexbecarios.add(jsbvnoexbecarios);
-        jsbvnoexbecarios.setBounds(140, 190, 1090, 440);
-
-        lbvnoexbecarios.setText("jLabel1");
-        jpvnoexbecarios.add(lbvnoexbecarios);
-        lbvnoexbecarios.setBounds(-32706, -32685, 41, 16);
-
-        rSPanelsSlider1.add(jpvnoexbecarios, "card7");
+        rSPanelsSlider1.add(jpvexbnexb, "card5");
 
         jpvanio.setName("jpvanio"); // NOI18N
         jpvanio.setLayout(null);
@@ -483,21 +433,16 @@ public class busquedasjf extends javax.swing.JFrame {
         jsbvanio.setViewportView(tablebvanio);
 
         jpvanio.add(jsbvanio);
-        jsbvanio.setBounds(140, 190, 1090, 440);
+        jsbvanio.setBounds(100, 260, 1090, 440);
 
-        lbvanio.setText("jLabel1");
+        lbvanio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/vainicio2.jpg"))); // NOI18N
         jpvanio.add(lbvanio);
-        lbvanio.setBounds(-32768, -32768, 41, 16);
+        lbvanio.setBounds(-32768, -32768, 1250, 700);
 
         rSPanelsSlider1.add(jpvanio, "card8");
 
         jpvedad.setName("jpvedad"); // NOI18N
         jpvedad.setLayout(null);
-
-        txtbvedad.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        txtbvedad.setText("jTextField1");
-        jpvedad.add(txtbvedad);
-        txtbvedad.setBounds(360, 140, 650, 30);
 
         tablebvedad.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -513,9 +458,15 @@ public class busquedasjf extends javax.swing.JFrame {
         jsbvedad.setViewportView(tablebvedad);
 
         jpvedad.add(jsbvedad);
-        jsbvedad.setBounds(140, 190, 1090, 440);
+        jsbvedad.setBounds(100, 280, 1040, 380);
 
-        lbvedad.setText("jLabel1");
+        cmbedad.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
+        cmbedad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jpvedad.add(cmbedad);
+        cmbedad.setBounds(250, 200, 200, 40);
+
+        lbvedad.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
+        lbvedad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/vedad2.jpg"))); // NOI18N
         jpvedad.add(lbvedad);
         lbvedad.setBounds(0, 0, 1370, 740);
 
@@ -523,11 +474,6 @@ public class busquedasjf extends javax.swing.JFrame {
 
         jpvgenero.setName("jpvgenero"); // NOI18N
         jpvgenero.setLayout(null);
-
-        txtbvgenero.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        txtbvgenero.setText("jTextField1");
-        jpvgenero.add(txtbvgenero);
-        txtbvgenero.setBounds(360, 140, 650, 30);
 
         tablebvgenero.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -543,9 +489,14 @@ public class busquedasjf extends javax.swing.JFrame {
         jsbvgenero.setViewportView(tablebvgenero);
 
         jpvgenero.add(jsbvgenero);
-        jsbvgenero.setBounds(140, 190, 1090, 440);
+        jsbvgenero.setBounds(110, 270, 1030, 390);
 
-        lbvgenero.setText("jLabel1");
+        cmbgenero.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
+        cmbgenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jpvgenero.add(cmbgenero);
+        cmbgenero.setBounds(250, 200, 260, 30);
+
+        lbvgenero.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/vgenero2.jpg"))); // NOI18N
         jpvgenero.add(lbvgenero);
         lbvgenero.setBounds(0, 0, 1370, 740);
 
@@ -553,11 +504,6 @@ public class busquedasjf extends javax.swing.JFrame {
 
         jpvprograma.setName("jpvprograma"); // NOI18N
         jpvprograma.setLayout(null);
-
-        txtbvprograma.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        txtbvprograma.setText("jTextField1");
-        jpvprograma.add(txtbvprograma);
-        txtbvprograma.setBounds(360, 140, 650, 30);
 
         tablebvprograma.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -573,9 +519,14 @@ public class busquedasjf extends javax.swing.JFrame {
         jsbvprograma.setViewportView(tablebvprograma);
 
         jpvprograma.add(jsbvprograma);
-        jsbvprograma.setBounds(140, 190, 1090, 440);
+        jsbvprograma.setBounds(110, 280, 1040, 380);
 
-        lbvprograma.setText("jLabel1");
+        cmbprograma.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
+        cmbprograma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jpvprograma.add(cmbprograma);
+        cmbprograma.setBounds(300, 210, 340, 50);
+
+        lbvprograma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/vprograma2.jpg"))); // NOI18N
         jpvprograma.add(lbvprograma);
         lbvprograma.setBounds(0, 0, 1370, 740);
 
@@ -583,11 +534,6 @@ public class busquedasjf extends javax.swing.JFrame {
 
         jpvpromocionbeca.setName("jpvpromocionbeca"); // NOI18N
         jpvpromocionbeca.setLayout(null);
-
-        txtbvpromocionbeca.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        txtbvpromocionbeca.setText("jTextField1");
-        jpvpromocionbeca.add(txtbvpromocionbeca);
-        txtbvpromocionbeca.setBounds(360, 140, 650, 30);
 
         tablebvpromocionbeca.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -603,9 +549,14 @@ public class busquedasjf extends javax.swing.JFrame {
         jsbvpromocionbeca.setViewportView(tablebvpromocionbeca);
 
         jpvpromocionbeca.add(jsbvpromocionbeca);
-        jsbvpromocionbeca.setBounds(140, 190, 1090, 440);
+        jsbvpromocionbeca.setBounds(100, 280, 1040, 380);
 
-        lbvpromocionbeca.setText("jLabel1");
+        cmbapromocion.setFont(new java.awt.Font("Yu Gothic Light", 0, 24)); // NOI18N
+        cmbapromocion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jpvpromocionbeca.add(cmbapromocion);
+        cmbapromocion.setBounds(370, 200, 210, 40);
+
+        lbvpromocionbeca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/vpromocion2.jpg"))); // NOI18N
         jpvpromocionbeca.add(lbvpromocionbeca);
         lbvpromocionbeca.setBounds(0, 0, 1370, 740);
 
@@ -613,11 +564,6 @@ public class busquedasjf extends javax.swing.JFrame {
 
         jpvocupacion.setName("jpvocupacion"); // NOI18N
         jpvocupacion.setLayout(null);
-
-        txtbvocupacion.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        txtbvocupacion.setText("jTextField1");
-        jpvocupacion.add(txtbvocupacion);
-        txtbvocupacion.setBounds(360, 140, 650, 30);
 
         tablebvocupacion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -633,9 +579,14 @@ public class busquedasjf extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tablebvocupacion);
 
         jpvocupacion.add(jScrollPane1);
-        jScrollPane1.setBounds(140, 190, 1090, 440);
+        jScrollPane1.setBounds(100, 290, 1040, 380);
 
-        lbvocupacion.setText("jLabel1");
+        cmbocupacion.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
+        cmbocupacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jpvocupacion.add(cmbocupacion);
+        cmbocupacion.setBounds(300, 200, 420, 40);
+
+        lbvocupacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/vocupacion2.jpg"))); // NOI18N
         jpvocupacion.add(lbvocupacion);
         lbvocupacion.setBounds(0, 0, 1370, 740);
 
@@ -663,15 +614,15 @@ public class busquedasjf extends javax.swing.JFrame {
     }//GEN-LAST:event_btnbvprogramaActionPerformed
 
     private void btnbvnombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbvnombreMouseClicked
-        rSPanelsSlider1.setPanelSlider(jpvnombre, RSPanelsSlider.DIRECT.UP);
+        rSPanelsSlider1.setPanelSlider(jpvactivosina, RSPanelsSlider.DIRECT.UP);
     }//GEN-LAST:event_btnbvnombreMouseClicked
 
     private void btnbvexbecariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbvexbecariosMouseClicked
-        rSPanelsSlider1.setPanelSlider(jpvexbecarios, RSPanelsSlider.DIRECT.UP);
+        rSPanelsSlider1.setPanelSlider(jpvexbnexb, RSPanelsSlider.DIRECT.UP);
     }//GEN-LAST:event_btnbvexbecariosMouseClicked
 
     private void btnbvnoexbecariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbvnoexbecariosMouseClicked
-        rSPanelsSlider1.setPanelSlider(jpvnoexbecarios, RSPanelsSlider.DIRECT.UP);
+        rSPanelsSlider1.setPanelSlider(jpvactivosina, RSPanelsSlider.DIRECT.UP);
     }//GEN-LAST:event_btnbvnoexbecariosMouseClicked
 
     private void btnbvanioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbvanioMouseClicked
@@ -788,29 +739,31 @@ public class busquedasjf extends javax.swing.JFrame {
     private javax.swing.JButton btnrmenua;
     private javax.swing.JButton btnsalir;
     private javax.swing.JComboBox<String> cmbactivo;
+    private javax.swing.JComboBox<String> cmbapromocion;
+    private javax.swing.JComboBox<String> cmbedad;
+    private javax.swing.JComboBox<String> cmbexbnexb;
+    private javax.swing.JComboBox<String> cmbgenero;
+    private javax.swing.JComboBox<String> cmbocupacion;
+    private javax.swing.JComboBox<String> cmbprograma;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel jpgeneral;
     private javax.swing.JPanel jpmenua;
-    private javax.swing.JPanel jpvactivos;
+    private javax.swing.JPanel jpvactivosina;
     private javax.swing.JPanel jpvanio;
     private javax.swing.JPanel jpvedad;
-    private javax.swing.JPanel jpvexbecarios;
+    private javax.swing.JPanel jpvexbnexb;
     private javax.swing.JPanel jpvgenero;
-    private javax.swing.JPanel jpvinactivos;
-    private javax.swing.JPanel jpvnoexbecarios;
-    private javax.swing.JPanel jpvnombre;
     private javax.swing.JPanel jpvocupacion;
     private javax.swing.JPanel jpvprograma;
     private javax.swing.JPanel jpvpromocionbeca;
     private javax.swing.JScrollPane jsbvactivos;
     private javax.swing.JScrollPane jsbvanio;
     private javax.swing.JScrollPane jsbvedad;
-    private javax.swing.JScrollPane jsbvexbecarios;
     private javax.swing.JScrollPane jsbvgenero;
     private javax.swing.JScrollPane jsbvinactivos;
-    private javax.swing.JScrollPane jsbvnoexbecarios;
     private javax.swing.JScrollPane jsbvnombre;
     private javax.swing.JScrollPane jsbvprograma;
     private javax.swing.JScrollPane jsbvpromocionbeca;
@@ -818,10 +771,8 @@ public class busquedasjf extends javax.swing.JFrame {
     private javax.swing.JLabel lbvactivos;
     private javax.swing.JLabel lbvanio;
     private javax.swing.JLabel lbvedad;
-    private javax.swing.JLabel lbvexbecarios;
     private javax.swing.JLabel lbvgenero;
     private javax.swing.JLabel lbvinactivos;
-    private javax.swing.JLabel lbvnoexbecarios;
     private javax.swing.JLabel lbvnombre;
     private javax.swing.JLabel lbvocupacion;
     private javax.swing.JLabel lbvprograma;
@@ -830,25 +781,18 @@ public class busquedasjf extends javax.swing.JFrame {
     private javax.swing.JTable tablebvactivos;
     private javax.swing.JTable tablebvanio;
     private javax.swing.JTable tablebvedad;
-    private javax.swing.JTable tablebvexbecarios;
     private javax.swing.JTable tablebvgenero;
     private javax.swing.JTable tablebvinactivos;
-    private javax.swing.JTable tablebvnoexbecarios;
     private javax.swing.JTable tablebvnombre;
     private javax.swing.JTable tablebvocupacion;
     private javax.swing.JTable tablebvprograma;
     private javax.swing.JTable tablebvpromocionbeca;
     private javax.swing.JTextField txtApellido;
+    private javax.swing.JTextField txtavexbnexb;
     private javax.swing.JTextField txtbvactivos;
+    private javax.swing.JTextField txtbvactivos1;
     private javax.swing.JTextField txtbvanio;
-    private javax.swing.JTextField txtbvedad;
-    private javax.swing.JTextField txtbvexbecarios;
-    private javax.swing.JTextField txtbvgenero;
-    private javax.swing.JTextField txtbvinactivos;
-    private javax.swing.JTextField txtbvnoexbecarios;
     private javax.swing.JTextField txtbvnombre;
-    private javax.swing.JTextField txtbvocupacion;
-    private javax.swing.JTextField txtbvprograma;
-    private javax.swing.JTextField txtbvpromocionbeca;
+    private javax.swing.JTextField txtnvexbnexb;
     // End of variables declaration//GEN-END:variables
 }
