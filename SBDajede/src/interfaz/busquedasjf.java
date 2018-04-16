@@ -58,8 +58,6 @@ public class busquedasjf extends javax.swing.JFrame {
         txtApellido = new javax.swing.JTextField();
         jsbvnombre = new javax.swing.JScrollPane();
         tablebvnombre = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         cmbactivo = new javax.swing.JComboBox<>();
         lbvnombre = new javax.swing.JLabel();
         jpgeneral = new javax.swing.JPanel();
@@ -269,7 +267,7 @@ public class busquedasjf extends javax.swing.JFrame {
             }
         });
         jpvactivosina.add(txtbvnombre);
-        txtbvnombre.setBounds(310, 200, 340, 40);
+        txtbvnombre.setBounds(310, 180, 340, 40);
 
         txtApellido.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -277,7 +275,7 @@ public class busquedasjf extends javax.swing.JFrame {
             }
         });
         jpvactivosina.add(txtApellido);
-        txtApellido.setBounds(310, 270, 340, 40);
+        txtApellido.setBounds(310, 250, 340, 40);
 
         tablebvnombre.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -308,15 +306,7 @@ public class busquedasjf extends javax.swing.JFrame {
         }
 
         jpvactivosina.add(jsbvnombre);
-        jsbvnombre.setBounds(120, 340, 1010, 320);
-
-        jLabel1.setText("Nombre:");
-        jpvactivosina.add(jLabel1);
-        jLabel1.setBounds(160, 170, 50, 16);
-
-        jLabel2.setText("Apellido:");
-        jpvactivosina.add(jLabel2);
-        jLabel2.setBounds(160, 220, 50, 16);
+        jsbvnombre.setBounds(100, 320, 1050, 320);
 
         cmbactivo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo" }));
         cmbactivo.addActionListener(new java.awt.event.ActionListener() {
@@ -325,11 +315,11 @@ public class busquedasjf extends javax.swing.JFrame {
             }
         });
         jpvactivosina.add(cmbactivo);
-        cmbactivo.setBounds(850, 240, 190, 30);
+        cmbactivo.setBounds(850, 220, 190, 30);
 
         lbvnombre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/vactnact2.jpg"))); // NOI18N
         jpvactivosina.add(lbvnombre);
-        lbvnombre.setBounds(0, 0, 1370, 740);
+        lbvnombre.setBounds(0, 0, 1250, 700);
 
         rSPanelsSlider1.add(jpvactivosina, "card3");
 
@@ -342,7 +332,7 @@ public class busquedasjf extends javax.swing.JFrame {
         txtbvactivos.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         txtbvactivos.setText("jTextField1");
         jpgeneral.add(txtbvactivos);
-        txtbvactivos.setBounds(310, 250, 410, 40);
+        txtbvactivos.setBounds(310, 230, 410, 40);
 
         tablebvactivos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -358,16 +348,16 @@ public class busquedasjf extends javax.swing.JFrame {
         jsbvactivos.setViewportView(tablebvactivos);
 
         jpgeneral.add(jsbvactivos);
-        jsbvactivos.setBounds(110, 320, 1030, 350);
+        jsbvactivos.setBounds(100, 300, 1050, 350);
 
         txtbvactivos1.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         txtbvactivos1.setText("jTextField1");
         jpgeneral.add(txtbvactivos1);
-        txtbvactivos1.setBounds(310, 190, 410, 40);
+        txtbvactivos1.setBounds(310, 170, 410, 40);
 
         lbvactivos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/vinfog2.jpg"))); // NOI18N
         jpgeneral.add(lbvactivos);
-        lbvactivos.setBounds(0, 0, 1370, 740);
+        lbvactivos.setBounds(0, 0, 1250, 700);
 
         rSPanelsSlider1.add(jpgeneral, "card4");
 
@@ -377,7 +367,7 @@ public class busquedasjf extends javax.swing.JFrame {
         txtnvexbnexb.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         txtnvexbnexb.setText("jTextField1");
         jpvexbnexb.add(txtnvexbnexb);
-        txtnvexbnexb.setBounds(300, 200, 350, 50);
+        txtnvexbnexb.setBounds(300, 180, 350, 50);
 
         tablebvinactivos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -393,21 +383,21 @@ public class busquedasjf extends javax.swing.JFrame {
         jsbvinactivos.setViewportView(tablebvinactivos);
 
         jpvexbnexb.add(jsbvinactivos);
-        jsbvinactivos.setBounds(110, 350, 1030, 310);
+        jsbvinactivos.setBounds(100, 320, 1050, 320);
 
         txtavexbnexb.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         txtavexbnexb.setText("jTextField1");
         jpvexbnexb.add(txtavexbnexb);
-        txtavexbnexb.setBounds(300, 270, 350, 50);
+        txtavexbnexb.setBounds(300, 250, 350, 50);
 
         cmbexbnexb.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         cmbexbnexb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jpvexbnexb.add(cmbexbnexb);
-        cmbexbnexb.setBounds(840, 240, 210, 40);
+        cmbexbnexb.setBounds(840, 220, 210, 40);
 
         lbvinactivos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/vexbnb2.jpg"))); // NOI18N
         jpvexbnexb.add(lbvinactivos);
-        lbvinactivos.setBounds(0, 0, 1370, 740);
+        lbvinactivos.setBounds(0, 0, 1250, 700);
 
         rSPanelsSlider1.add(jpvexbnexb, "card5");
 
@@ -433,11 +423,11 @@ public class busquedasjf extends javax.swing.JFrame {
         jsbvanio.setViewportView(tablebvanio);
 
         jpvanio.add(jsbvanio);
-        jsbvanio.setBounds(100, 260, 1090, 440);
+        jsbvanio.setBounds(100, 260, 1050, 390);
 
-        lbvanio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/vainicio2.jpg"))); // NOI18N
+        lbvanio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/vanio2.jpeg"))); // NOI18N
         jpvanio.add(lbvanio);
-        lbvanio.setBounds(-32768, -32768, 1250, 700);
+        lbvanio.setBounds(0, 0, 1250, 700);
 
         rSPanelsSlider1.add(jpvanio, "card8");
 
@@ -458,17 +448,17 @@ public class busquedasjf extends javax.swing.JFrame {
         jsbvedad.setViewportView(tablebvedad);
 
         jpvedad.add(jsbvedad);
-        jsbvedad.setBounds(100, 280, 1040, 380);
+        jsbvedad.setBounds(100, 260, 1050, 380);
 
         cmbedad.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         cmbedad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jpvedad.add(cmbedad);
-        cmbedad.setBounds(250, 200, 200, 40);
+        cmbedad.setBounds(250, 180, 200, 40);
 
         lbvedad.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         lbvedad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/vedad2.jpg"))); // NOI18N
         jpvedad.add(lbvedad);
-        lbvedad.setBounds(0, 0, 1370, 740);
+        lbvedad.setBounds(0, 0, 1250, 700);
 
         rSPanelsSlider1.add(jpvedad, "card9");
 
@@ -489,16 +479,16 @@ public class busquedasjf extends javax.swing.JFrame {
         jsbvgenero.setViewportView(tablebvgenero);
 
         jpvgenero.add(jsbvgenero);
-        jsbvgenero.setBounds(110, 270, 1030, 390);
+        jsbvgenero.setBounds(100, 250, 1050, 390);
 
         cmbgenero.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         cmbgenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jpvgenero.add(cmbgenero);
-        cmbgenero.setBounds(250, 200, 260, 30);
+        cmbgenero.setBounds(250, 180, 260, 30);
 
         lbvgenero.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/vgenero2.jpg"))); // NOI18N
         jpvgenero.add(lbvgenero);
-        lbvgenero.setBounds(0, 0, 1370, 740);
+        lbvgenero.setBounds(0, 0, 1250, 700);
 
         rSPanelsSlider1.add(jpvgenero, "card10");
 
@@ -519,16 +509,16 @@ public class busquedasjf extends javax.swing.JFrame {
         jsbvprograma.setViewportView(tablebvprograma);
 
         jpvprograma.add(jsbvprograma);
-        jsbvprograma.setBounds(110, 280, 1040, 380);
+        jsbvprograma.setBounds(100, 250, 1050, 380);
 
         cmbprograma.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         cmbprograma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jpvprograma.add(cmbprograma);
-        cmbprograma.setBounds(300, 210, 340, 50);
+        cmbprograma.setBounds(310, 190, 340, 50);
 
         lbvprograma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/vprograma2.jpg"))); // NOI18N
         jpvprograma.add(lbvprograma);
-        lbvprograma.setBounds(0, 0, 1370, 740);
+        lbvprograma.setBounds(0, 0, 1250, 700);
 
         rSPanelsSlider1.add(jpvprograma, "card11");
 
@@ -549,16 +539,16 @@ public class busquedasjf extends javax.swing.JFrame {
         jsbvpromocionbeca.setViewportView(tablebvpromocionbeca);
 
         jpvpromocionbeca.add(jsbvpromocionbeca);
-        jsbvpromocionbeca.setBounds(100, 280, 1040, 380);
+        jsbvpromocionbeca.setBounds(100, 260, 1050, 380);
 
         cmbapromocion.setFont(new java.awt.Font("Yu Gothic Light", 0, 24)); // NOI18N
         cmbapromocion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jpvpromocionbeca.add(cmbapromocion);
-        cmbapromocion.setBounds(370, 200, 210, 40);
+        cmbapromocion.setBounds(370, 180, 210, 40);
 
         lbvpromocionbeca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/vpromocion2.jpg"))); // NOI18N
         jpvpromocionbeca.add(lbvpromocionbeca);
-        lbvpromocionbeca.setBounds(0, 0, 1370, 740);
+        lbvpromocionbeca.setBounds(0, 0, 1250, 700);
 
         rSPanelsSlider1.add(jpvpromocionbeca, "card12");
 
@@ -579,16 +569,16 @@ public class busquedasjf extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tablebvocupacion);
 
         jpvocupacion.add(jScrollPane1);
-        jScrollPane1.setBounds(100, 290, 1040, 380);
+        jScrollPane1.setBounds(100, 270, 1050, 380);
 
         cmbocupacion.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         cmbocupacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jpvocupacion.add(cmbocupacion);
-        cmbocupacion.setBounds(300, 200, 420, 40);
+        cmbocupacion.setBounds(300, 180, 420, 40);
 
         lbvocupacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/vocupacion2.jpg"))); // NOI18N
         jpvocupacion.add(lbvocupacion);
-        lbvocupacion.setBounds(0, 0, 1370, 740);
+        lbvocupacion.setBounds(0, 0, 1250, 700);
 
         rSPanelsSlider1.add(jpvocupacion, "card13");
 
@@ -603,7 +593,7 @@ public class busquedasjf extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
         );
 
         pack();
@@ -745,8 +735,6 @@ public class busquedasjf extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbgenero;
     private javax.swing.JComboBox<String> cmbocupacion;
     private javax.swing.JComboBox<String> cmbprograma;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel jpgeneral;

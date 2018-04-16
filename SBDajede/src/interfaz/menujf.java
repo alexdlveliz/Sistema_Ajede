@@ -68,7 +68,7 @@ public class menujf extends javax.swing.JFrame {
             btnagregarvoluntario.setLocation(260, 405);
             btnagregarproyecto.setLocation(680, 405);
             btnagregarvoluntariado.setLocation(1075, 405);
-        } else if ((tamanio.width == 1366) && (tamanio.height == 768)) //1366.768, alex: 1708.960
+        } else if ((tamanio.width == 1708) && (tamanio.height == 960)) //1366.768, alex: 1708.960
         {
             this.setSize(1250, 700);
             //jpmenu.setIcon(menutam2);
@@ -662,6 +662,11 @@ public class menujf extends javax.swing.JFrame {
         btnractivos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/activos.png"))); // NOI18N
         btnractivos.setName(""); // NOI18N
         btnractivos.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/activosdos.png"))); // NOI18N
+        btnractivos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnractivosActionPerformed(evt);
+            }
+        });
         jpmreportes.add(btnractivos);
         btnractivos.setBounds(280, 70, 130, 90);
 
@@ -727,6 +732,11 @@ public class menujf extends javax.swing.JFrame {
 
         btnrgeneral.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/general.png"))); // NOI18N
         btnrgeneral.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/generaldos.png"))); // NOI18N
+        btnrgeneral.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnrgeneralActionPerformed(evt);
+            }
+        });
         jpmreportes.add(btnrgeneral);
         btnrgeneral.setBounds(70, 70, 130, 90);
 
@@ -999,6 +1009,14 @@ public class menujf extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error al intentar Acceder");
         }
     }//GEN-LAST:event_btnrnivelestActionPerformed
+
+    private void btnrgeneralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrgeneralActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnrgeneralActionPerformed
+
+    private void btnractivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnractivosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnractivosActionPerformed
 
     /**
      * @param args the command line arguments

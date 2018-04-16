@@ -1722,11 +1722,6 @@
                   </Constraints>
                 </Component>
                 <Component class="com.toedter.calendar.JYearChooser" name="jYearChooser1">
-                  <Properties>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="86" green="5c" red="19" type="rgb"/>
-                    </Property>
-                  </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="240" y="340" width="330" height="30"/>
@@ -1734,11 +1729,6 @@
                   </Constraints>
                 </Component>
                 <Component class="com.toedter.calendar.JYearChooser" name="jYearChooser2">
-                  <Properties>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="86" green="5c" red="19" type="rgb"/>
-                    </Property>
-                  </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="240" y="250" width="330" height="30"/>

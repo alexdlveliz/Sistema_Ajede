@@ -1211,12 +1211,8 @@ public class agregarjf extends javax.swing.JFrame {
         cmbactivosina.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jpbeca.add(cmbactivosina);
         cmbactivosina.setBounds(320, 450, 250, 40);
-
-        jYearChooser1.setForeground(new java.awt.Color(25, 92, 134));
         jpbeca.add(jYearChooser1);
         jYearChooser1.setBounds(240, 340, 330, 30);
-
-        jYearChooser2.setForeground(new java.awt.Color(25, 92, 134));
         jpbeca.add(jYearChooser2);
         jYearChooser2.setBounds(240, 250, 330, 30);
 
