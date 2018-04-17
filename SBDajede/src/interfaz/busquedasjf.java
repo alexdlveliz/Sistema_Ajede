@@ -6,6 +6,7 @@
 package interfaz;
 
 import Clases.BusquedasVoluntarios;
+import java.awt.Color;
 import rojerusan.RSPanelsSlider;
 
 /**
@@ -22,9 +23,87 @@ public class busquedasjf extends javax.swing.JFrame {
     public busquedasjf() {
         busquedas = new BusquedasVoluntarios();
         initComponents();
+        transparencia();
         tablebvnombre.setModel(busquedas.BNombre("", tablebvnombre, "",true));
         this.setLocationRelativeTo(null);
 
+    }
+    public void transparencia()
+    {
+        cmbbusoed.setBackground(new Color(0,0,0,0));
+        btnbevoluntariado.setOpaque(false);
+        btnbevoluntariado.setContentAreaFilled(false);
+        btnbevoluntariado.setBorderPainted(false);
+        btnbevoluntarios.setOpaque(false);
+        btnbevoluntarios.setContentAreaFilled(false);
+        btnbevoluntarios.setBorderPainted(false);
+        btnbeproyecto.setOpaque(false);
+        btnbeproyecto.setContentAreaFilled(false);
+        btnbeproyecto.setBorderPainted(false);
+        btnbvnombre.setOpaque(false);
+        btnbvnombre.setContentAreaFilled(false);
+        btnbvnombre.setBorderPainted(false);
+        btnbvexbecarios.setOpaque(false);
+        btnbvexbecarios.setContentAreaFilled(false);
+        btnbvexbecarios.setBorderPainted(false);
+        btnbvactivosina.setOpaque(false);
+        btnbvactivosina.setContentAreaFilled(false);
+        btnbvactivosina.setBorderPainted(false);
+        btnbvanio.setOpaque(false);
+        btnbvanio.setContentAreaFilled(false);
+        btnbvanio.setBorderPainted(false);
+        btnbvedad.setOpaque(false);
+        btnbvedad.setContentAreaFilled(false);
+        btnbvedad.setBorderPainted(false);
+        btnbvgenero.setOpaque(false);
+        btnbvgenero.setContentAreaFilled(false);
+        btnbvgenero.setBorderPainted(false);
+        btnbvprograma.setOpaque(false);
+        btnbvprograma.setContentAreaFilled(false);
+        btnbvprograma.setBorderPainted(false);
+        btnbvpromocionbeca.setOpaque(false);
+        btnbvpromocionbeca.setContentAreaFilled(false);
+        btnbvpromocionbeca.setBorderPainted(false);
+        btnbvocupacion.setOpaque(false);
+        btnbvocupacion.setContentAreaFilled(false);
+        btnbvocupacion.setBorderPainted(false);
+        btnrmenua.setOpaque(false);
+        btnrmenua.setContentAreaFilled(false);
+        btnrmenua.setBorderPainted(false);
+        txtbvnombre.setBackground(new Color(0,0,0,0));
+        txtApellido.setBackground(new Color(0,0,0,0));
+        cmbactivo.setBackground(new Color(0,0,0,0));
+        txtbapellidosg.setBackground(new Color(0,0,0,0));
+        txtbnombreg.setBackground(new Color(0,0,0,0));
+        txtnvexbnexb.setBackground(new Color(0,0,0,0));
+        cmbexbnexb.setBackground(new Color(0,0,0,0));
+        cmbgenero.setBackground(new Color(0,0,0,0));
+        cmbedad.setBackground(new Color(0,0,0,0));
+        cmbanio.setBackground(new Color(0,0,0,0));
+        cmbprograma.setBackground(new Color(0,0,0,0));
+        cmbapromocion.setBackground(new Color(0,0,0,0));
+        cmbocupacion.setBackground(new Color(0,0,0,0));
+        cmbbproyectos.setBackground(new Color(0,0,0,0));
+        txtbmiembros.setBackground(new Color(0,0,0,0));
+        txtbproyecto.setBackground(new Color(0,0,0,0));
+        txtbvoluntarios.setBackground(new Color(0,0,0,0));
+        txtemiembros.setBackground(new Color(0,0,0,0));
+        txteproyecto.setBackground(new Color(0,0,0,0));
+        txtevoluntarios.setBackground(new Color(0,0,0,0));
+        txtedescripcion.setBackground(new Color(0,0,0,0));
+        cmbproyecto.setBackground(new Color(0,0,0,0));
+        btnevoluntariadog.setOpaque(false);
+        btnevoluntariadog.setContentAreaFilled(false);
+        btnevoluntariadog.setBorderPainted(false);
+        btnmenuboe.setOpaque(false);
+        btnmenuboe.setContentAreaFilled(false);
+        btnmenuboe.setBorderPainted(false);
+        btnmenubused.setOpaque(false);
+        btnmenubused.setContentAreaFilled(false);
+        btnmenubused.setBorderPainted(false);
+        btnguardareproyect.setOpaque(false);
+        btnguardareproyect.setContentAreaFilled(false);
+        btnguardareproyect.setBorderPainted(false);
     }
 
     /**
@@ -40,11 +119,18 @@ public class busquedasjf extends javax.swing.JFrame {
         btnsalir = new javax.swing.JButton();
         btnhome = new javax.swing.JButton();
         btnminimizar = new javax.swing.JButton();
+        btnregresar = new javax.swing.JButton();
         rSPanelsSlider1 = new rojerusan.RSPanelsSlider();
+        jpmenuboe = new javax.swing.JPanel();
+        cmbbusoed = new javax.swing.JComboBox<>();
+        btnbevoluntariado = new javax.swing.JButton();
+        btnbevoluntarios = new javax.swing.JButton();
+        btnbeproyecto = new javax.swing.JButton();
+        lbmenuboe = new javax.swing.JLabel();
         jpmenua = new javax.swing.JPanel();
         btnbvnombre = new javax.swing.JButton();
         btnbvexbecarios = new javax.swing.JButton();
-        btnbvnoexbecarios = new javax.swing.JButton();
+        btnbvactivosina = new javax.swing.JButton();
         btnbvanio = new javax.swing.JButton();
         btnbvedad = new javax.swing.JButton();
         btnbvgenero = new javax.swing.JButton();
@@ -61,10 +147,10 @@ public class busquedasjf extends javax.swing.JFrame {
         cmbactivo = new javax.swing.JComboBox<>();
         lbvnombre = new javax.swing.JLabel();
         jpgeneral = new javax.swing.JPanel();
-        txtbvactivos = new javax.swing.JTextField();
+        txtbapellidosg = new javax.swing.JTextField();
         jsbvactivos = new javax.swing.JScrollPane();
         tablebvactivos = new javax.swing.JTable();
-        txtbvactivos1 = new javax.swing.JTextField();
+        txtbnombreg = new javax.swing.JTextField();
         lbvactivos = new javax.swing.JLabel();
         jpvexbnexb = new javax.swing.JPanel();
         txtnvexbnexb = new javax.swing.JTextField();
@@ -74,9 +160,9 @@ public class busquedasjf extends javax.swing.JFrame {
         cmbexbnexb = new javax.swing.JComboBox<>();
         lbvinactivos = new javax.swing.JLabel();
         jpvanio = new javax.swing.JPanel();
-        txtbvanio = new javax.swing.JTextField();
         jsbvanio = new javax.swing.JScrollPane();
         tablebvanio = new javax.swing.JTable();
+        cmbanio = new javax.swing.JComboBox<>();
         lbvanio = new javax.swing.JLabel();
         jpvedad = new javax.swing.JPanel();
         jsbvedad = new javax.swing.JScrollPane();
@@ -103,6 +189,41 @@ public class busquedasjf extends javax.swing.JFrame {
         tablebvocupacion = new javax.swing.JTable();
         cmbocupacion = new javax.swing.JComboBox<>();
         lbvocupacion = new javax.swing.JLabel();
+        jpbeproyecto = new javax.swing.JPanel();
+        cmbbproyectos = new javax.swing.JComboBox<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jtablebproyectos = new javax.swing.JTable();
+        lbbproyectos = new javax.swing.JLabel();
+        jpbvoluntariado = new javax.swing.JPanel();
+        txtbmiembros = new javax.swing.JTextField();
+        txtbproyecto = new javax.swing.JTextField();
+        txtbvoluntarios = new javax.swing.JTextField();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tblmiembros = new javax.swing.JTable();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tblproyecto = new javax.swing.JTable();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tblvoluntarios = new javax.swing.JTable();
+        lbbvoluntariado = new javax.swing.JLabel();
+        jpevoluntariado = new javax.swing.JPanel();
+        txtemiembros = new javax.swing.JTextField();
+        txteproyecto = new javax.swing.JTextField();
+        txtevoluntarios = new javax.swing.JTextField();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        tbemiembros = new javax.swing.JTable();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        tbeproyecto = new javax.swing.JTable();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        tbevoluntarios = new javax.swing.JTable();
+        btnevoluntariadog = new javax.swing.JButton();
+        btnmenuboe = new javax.swing.JButton();
+        lbevoluntariado = new javax.swing.JLabel();
+        jpeproyecto = new javax.swing.JPanel();
+        btnmenubused = new javax.swing.JButton();
+        btnguardareproyect = new javax.swing.JButton();
+        cmbproyecto = new javax.swing.JComboBox<>();
+        txtedescripcion = new javax.swing.JTextField();
+        lbeproyectos = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1565, 880));
@@ -144,70 +265,126 @@ public class busquedasjf extends javax.swing.JFrame {
         jPanel1.add(btnminimizar);
         btnminimizar.setBounds(1100, 0, 80, 70);
 
+        btnregresar.setText("jButton1");
+        jPanel1.add(btnregresar);
+        btnregresar.setBounds(950, 260, 79, 25);
+
         rSPanelsSlider1.setMaximumSize(new java.awt.Dimension(1565, 880));
         rSPanelsSlider1.setMinimumSize(new java.awt.Dimension(1250, 700));
         rSPanelsSlider1.setPreferredSize(new java.awt.Dimension(1250, 700));
+
+        jpmenuboe.setName("jpmenuboe"); // NOI18N
+        jpmenuboe.setLayout(null);
+
+        cmbbusoed.setFont(new java.awt.Font("Yu Gothic Light", 1, 24)); // NOI18N
+        cmbbusoed.setForeground(new java.awt.Color(255, 255, 255));
+        cmbbusoed.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Buscar", "Editar" }));
+        jpmenuboe.add(cmbbusoed);
+        cmbbusoed.setBounds(457, 185, 330, 40);
+
+        btnbevoluntariado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Hand_70px.png"))); // NOI18N
+        btnbevoluntariado.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Hand_100px.png"))); // NOI18N
+        btnbevoluntariado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnbevoluntariadoMouseClicked(evt);
+            }
+        });
+        jpmenuboe.add(btnbevoluntariado);
+        btnbevoluntariado.setBounds(830, 360, 170, 130);
+
+        btnbevoluntarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Contacts_70px.png"))); // NOI18N
+        btnbevoluntarios.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Contacts_100px.png"))); // NOI18N
+        btnbevoluntarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnbevoluntariosMouseClicked(evt);
+            }
+        });
+        jpmenuboe.add(btnbevoluntarios);
+        btnbevoluntarios.setBounds(250, 360, 170, 130);
+
+        btnbeproyecto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Construction_70px_1.png"))); // NOI18N
+        btnbeproyecto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnbeproyectoMouseClicked(evt);
+            }
+        });
+        jpmenuboe.add(btnbeproyecto);
+        btnbeproyecto.setBounds(550, 360, 170, 130);
+
+        lbmenuboe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/opcbm2.jpg"))); // NOI18N
+        jpmenuboe.add(lbmenuboe);
+        lbmenuboe.setBounds(0, 0, 1250, 700);
+
+        rSPanelsSlider1.add(jpmenuboe, "card12");
 
         jpmenua.setMaximumSize(new java.awt.Dimension(1565, 880));
         jpmenua.setMinimumSize(new java.awt.Dimension(1250, 700));
         jpmenua.setName("jpmenua"); // NOI18N
         jpmenua.setLayout(null);
 
-        btnbvnombre.setText("volutario nombre");
+        btnbvnombre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/nombre.png"))); // NOI18N
+        btnbvnombre.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/nombredos.png"))); // NOI18N
         btnbvnombre.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnbvnombreMouseClicked(evt);
             }
         });
         jpmenua.add(btnbvnombre);
-        btnbvnombre.setBounds(60, 260, 140, 50);
+        btnbvnombre.setBounds(60, 220, 150, 100);
 
-        btnbvexbecarios.setText("voluntarios exbecarios");
+        btnbvexbecarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/exbecarios.png"))); // NOI18N
+        btnbvexbecarios.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/exbecariosdos.png"))); // NOI18N
         btnbvexbecarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnbvexbecariosMouseClicked(evt);
             }
         });
         jpmenua.add(btnbvexbecarios);
-        btnbvexbecarios.setBounds(790, 480, 160, 50);
+        btnbvexbecarios.setBounds(790, 460, 160, 80);
 
-        btnbvnoexbecarios.setText("voluntarios no exbecarios");
-        btnbvnoexbecarios.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnbvactivosina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/activos.png"))); // NOI18N
+        btnbvactivosina.setToolTipText("");
+        btnbvactivosina.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnbvnoexbecariosMouseClicked(evt);
+                btnbvactivosinaMouseClicked(evt);
             }
         });
-        jpmenua.add(btnbvnoexbecarios);
-        btnbvnoexbecarios.setBounds(540, 240, 180, 50);
+        jpmenua.add(btnbvactivosina);
+        btnbvactivosina.setBounds(550, 210, 150, 80);
 
-        btnbvanio.setText("voluntarios por año");
+        btnbvanio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/anio.png"))); // NOI18N
+        btnbvanio.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/aniodos.png"))); // NOI18N
         btnbvanio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnbvanioMouseClicked(evt);
             }
         });
         jpmenua.add(btnbvanio);
-        btnbvanio.setBounds(300, 250, 150, 40);
+        btnbvanio.setBounds(300, 210, 150, 90);
 
-        btnbvedad.setText("voluntarios por edad");
+        btnbvedad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/edad.png"))); // NOI18N
+        btnbvedad.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/edaddos.png"))); // NOI18N
         btnbvedad.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnbvedadMouseClicked(evt);
             }
         });
         jpmenua.add(btnbvedad);
-        btnbvedad.setBounds(800, 270, 150, 40);
+        btnbvedad.setBounds(790, 230, 160, 90);
 
-        btnbvgenero.setText("voluntarios por genero");
+        btnbvgenero.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/genero.png"))); // NOI18N
+        btnbvgenero.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/generodos.png"))); // NOI18N
         btnbvgenero.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnbvgeneroMouseClicked(evt);
             }
         });
         jpmenua.add(btnbvgenero);
-        btnbvgenero.setBounds(1020, 280, 170, 40);
+        btnbvgenero.setBounds(1030, 230, 160, 90);
 
-        btnbvprograma.setText("voluntarios por programa");
+        btnbvprograma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/programa.png"))); // NOI18N
+        btnbvprograma.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/programados.png"))); // NOI18N
+        btnbvprograma.setVerifyInputWhenFocusTarget(false);
         btnbvprograma.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnbvprogramaMouseClicked(evt);
@@ -219,34 +396,37 @@ public class busquedasjf extends javax.swing.JFrame {
             }
         });
         jpmenua.add(btnbvprograma);
-        btnbvprograma.setBounds(280, 500, 180, 40);
+        btnbvprograma.setBounds(290, 460, 170, 90);
 
-        btnbvpromocionbeca.setText("voluntarios por promocion de beca");
+        btnbvpromocionbeca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/promocion.png"))); // NOI18N
+        btnbvpromocionbeca.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/promociondos.png"))); // NOI18N
         btnbvpromocionbeca.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnbvpromocionbecaMouseClicked(evt);
             }
         });
         jpmenua.add(btnbvpromocionbeca);
-        btnbvpromocionbeca.setBounds(520, 500, 240, 40);
+        btnbvpromocionbeca.setBounds(540, 460, 170, 90);
 
-        btnbvocupacion.setText("voluntarios por ocupacion");
+        btnbvocupacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/trabajando.png"))); // NOI18N
+        btnbvocupacion.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/trabajandodos.png"))); // NOI18N
         btnbvocupacion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnbvocupacionMouseClicked(evt);
             }
         });
         jpmenua.add(btnbvocupacion);
-        btnbvocupacion.setBounds(40, 510, 190, 40);
+        btnbvocupacion.setBounds(50, 460, 170, 100);
 
-        btnrmenua.setText("jButton12");
+        btnrmenua.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Person_at_Home_70px.png"))); // NOI18N
+        btnrmenua.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Person_at_Home_100px.png"))); // NOI18N
         btnrmenua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnrmenuaActionPerformed(evt);
             }
         });
         jpmenua.add(btnrmenua);
-        btnrmenua.setBounds(1040, 460, 130, 90);
+        btnrmenua.setBounds(1040, 470, 130, 90);
 
         lbmenua.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/menubusquedastam2.jpg"))); // NOI18N
         jpmenua.add(lbmenua);
@@ -329,10 +509,10 @@ public class busquedasjf extends javax.swing.JFrame {
         jpgeneral.setPreferredSize(new java.awt.Dimension(1250, 700));
         jpgeneral.setLayout(null);
 
-        txtbvactivos.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        txtbvactivos.setText("jTextField1");
-        jpgeneral.add(txtbvactivos);
-        txtbvactivos.setBounds(310, 230, 410, 40);
+        txtbapellidosg.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
+        txtbapellidosg.setText("jTextField1");
+        jpgeneral.add(txtbapellidosg);
+        txtbapellidosg.setBounds(310, 230, 410, 40);
 
         tablebvactivos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -350,10 +530,10 @@ public class busquedasjf extends javax.swing.JFrame {
         jpgeneral.add(jsbvactivos);
         jsbvactivos.setBounds(100, 300, 1050, 350);
 
-        txtbvactivos1.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        txtbvactivos1.setText("jTextField1");
-        jpgeneral.add(txtbvactivos1);
-        txtbvactivos1.setBounds(310, 170, 410, 40);
+        txtbnombreg.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
+        txtbnombreg.setText("jTextField1");
+        jpgeneral.add(txtbnombreg);
+        txtbnombreg.setBounds(310, 170, 410, 40);
 
         lbvactivos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/vinfog2.jpg"))); // NOI18N
         jpgeneral.add(lbvactivos);
@@ -404,11 +584,6 @@ public class busquedasjf extends javax.swing.JFrame {
         jpvanio.setName("jpvanio"); // NOI18N
         jpvanio.setLayout(null);
 
-        txtbvanio.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        txtbvanio.setText("jTextField1");
-        jpvanio.add(txtbvanio);
-        txtbvanio.setBounds(360, 140, 650, 30);
-
         tablebvanio.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -424,6 +599,11 @@ public class busquedasjf extends javax.swing.JFrame {
 
         jpvanio.add(jsbvanio);
         jsbvanio.setBounds(100, 260, 1050, 390);
+
+        cmbanio.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
+        cmbanio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jpvanio.add(cmbanio);
+        cmbanio.setBounds(240, 200, 200, 40);
 
         lbvanio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/vanio2.jpeg"))); // NOI18N
         jpvanio.add(lbvanio);
@@ -582,6 +762,228 @@ public class busquedasjf extends javax.swing.JFrame {
 
         rSPanelsSlider1.add(jpvocupacion, "card13");
 
+        jpbeproyecto.setMaximumSize(new java.awt.Dimension(1565, 880));
+        jpbeproyecto.setMinimumSize(new java.awt.Dimension(1250, 700));
+        jpbeproyecto.setName("jpbeproyecto"); // NOI18N
+        jpbeproyecto.setLayout(null);
+
+        cmbbproyectos.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 24)); // NOI18N
+        jpbeproyecto.add(cmbbproyectos);
+        cmbbproyectos.setBounds(310, 200, 320, 30);
+
+        jtablebproyectos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jtablebproyectos);
+
+        jpbeproyecto.add(jScrollPane2);
+        jScrollPane2.setBounds(110, 260, 1030, 380);
+
+        lbbproyectos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/proyectos1.jpg"))); // NOI18N
+        jpbeproyecto.add(lbbproyectos);
+        lbbproyectos.setBounds(0, 0, 1250, 700);
+
+        rSPanelsSlider1.add(jpbeproyecto, "card13");
+
+        jpbvoluntariado.setMaximumSize(new java.awt.Dimension(1566, 880));
+        jpbvoluntariado.setMinimumSize(new java.awt.Dimension(1250, 700));
+        jpbvoluntariado.setName("jpbvoluntariado"); // NOI18N
+        jpbvoluntariado.setLayout(null);
+
+        txtbmiembros.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
+        txtbmiembros.setText("jTextField1");
+        jpbvoluntariado.add(txtbmiembros);
+        txtbmiembros.setBounds(230, 405, 370, 40);
+
+        txtbproyecto.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
+        txtbproyecto.setText("jTextField1");
+        jpbvoluntariado.add(txtbproyecto);
+        txtbproyecto.setBounds(200, 110, 400, 40);
+
+        txtbvoluntarios.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
+        txtbvoluntarios.setText("jTextField1");
+        jpbvoluntariado.add(txtbvoluntarios);
+        txtbvoluntarios.setBounds(830, 110, 370, 40);
+
+        tblmiembros.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(tblmiembros);
+
+        jpbvoluntariado.add(jScrollPane3);
+        jScrollPane3.setBounds(50, 460, 550, 210);
+
+        tblproyecto.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane4.setViewportView(tblproyecto);
+
+        jpbvoluntariado.add(jScrollPane4);
+        jScrollPane4.setBounds(50, 170, 550, 210);
+
+        tblvoluntarios.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane5.setViewportView(tblvoluntarios);
+
+        jpbvoluntariado.add(jScrollPane5);
+        jScrollPane5.setBounds(640, 170, 560, 210);
+
+        lbbvoluntariado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/vbvoluntariado1.jpg"))); // NOI18N
+        jpbvoluntariado.add(lbbvoluntariado);
+        lbbvoluntariado.setBounds(0, 0, 1250, 700);
+
+        rSPanelsSlider1.add(jpbvoluntariado, "card14");
+
+        jpevoluntariado.setMaximumSize(new java.awt.Dimension(1565, 880));
+        jpevoluntariado.setMinimumSize(new java.awt.Dimension(1250, 700));
+        jpevoluntariado.setName("jpevoluntariado"); // NOI18N
+        jpevoluntariado.setPreferredSize(new java.awt.Dimension(1250, 700));
+        jpevoluntariado.setLayout(null);
+
+        txtemiembros.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
+        txtemiembros.setText("jTextField1");
+        jpevoluntariado.add(txtemiembros);
+        txtemiembros.setBounds(230, 405, 370, 40);
+
+        txteproyecto.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
+        txteproyecto.setText("jTextField1");
+        jpevoluntariado.add(txteproyecto);
+        txteproyecto.setBounds(200, 110, 400, 40);
+
+        txtevoluntarios.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
+        txtevoluntarios.setText("jTextField1");
+        jpevoluntariado.add(txtevoluntarios);
+        txtevoluntarios.setBounds(830, 110, 370, 40);
+
+        tbemiembros.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane6.setViewportView(tbemiembros);
+
+        jpevoluntariado.add(jScrollPane6);
+        jScrollPane6.setBounds(50, 460, 550, 210);
+
+        tbeproyecto.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane7.setViewportView(tbeproyecto);
+
+        jpevoluntariado.add(jScrollPane7);
+        jScrollPane7.setBounds(50, 170, 550, 210);
+
+        tbevoluntarios.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane8.setViewportView(tbevoluntarios);
+
+        jpevoluntariado.add(jScrollPane8);
+        jScrollPane8.setBounds(640, 170, 560, 210);
+
+        btnevoluntariadog.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Save_Close_70px.png"))); // NOI18N
+        btnevoluntariadog.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Save_Close_100px.png"))); // NOI18N
+        jpevoluntariado.add(btnevoluntariadog);
+        btnevoluntariadog.setBounds(750, 490, 150, 100);
+
+        btnmenuboe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Person_at_Home_70px.png"))); // NOI18N
+        btnmenuboe.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Person_at_Home_100px.png"))); // NOI18N
+        jpevoluntariado.add(btnmenuboe);
+        btnmenuboe.setBounds(970, 500, 160, 100);
+
+        lbevoluntariado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/voluntariadom2.jpg"))); // NOI18N
+        jpevoluntariado.add(lbevoluntariado);
+        lbevoluntariado.setBounds(0, 0, 1250, 700);
+
+        rSPanelsSlider1.add(jpevoluntariado, "card15");
+
+        jpeproyecto.setMaximumSize(new java.awt.Dimension(1565, 880));
+        jpeproyecto.setMinimumSize(new java.awt.Dimension(1250, 700));
+        jpeproyecto.setName("jpeproyecto"); // NOI18N
+        jpeproyecto.setPreferredSize(new java.awt.Dimension(1250, 700));
+        jpeproyecto.setLayout(null);
+
+        btnmenubused.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Person_at_Home_70px.png"))); // NOI18N
+        btnmenubused.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Person_at_Home_100px.png"))); // NOI18N
+        jpeproyecto.add(btnmenubused);
+        btnmenubused.setBounds(1040, 520, 150, 90);
+
+        btnguardareproyect.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Save_Close_70px.png"))); // NOI18N
+        btnguardareproyect.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Save_Close_100px.png"))); // NOI18N
+        jpeproyecto.add(btnguardareproyect);
+        btnguardareproyect.setBounds(860, 520, 140, 90);
+
+        cmbproyecto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jpeproyecto.add(cmbproyecto);
+        cmbproyecto.setBounds(80, 250, 720, 30);
+
+        txtedescripcion.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        txtedescripcion.setText("jTextField1");
+        jpeproyecto.add(txtedescripcion);
+        txtedescripcion.setBounds(80, 380, 710, 260);
+
+        lbeproyectos.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
+        lbeproyectos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/edproyectos1.jpg"))); // NOI18N
+        jpeproyecto.add(lbeproyectos);
+        lbeproyectos.setBounds(0, 0, 1250, 700);
+
+        rSPanelsSlider1.add(jpeproyecto, "card16");
+
         jPanel1.add(rSPanelsSlider1);
         rSPanelsSlider1.setBounds(0, 0, 1370, 740);
 
@@ -604,39 +1006,39 @@ public class busquedasjf extends javax.swing.JFrame {
     }//GEN-LAST:event_btnbvprogramaActionPerformed
 
     private void btnbvnombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbvnombreMouseClicked
-        rSPanelsSlider1.setPanelSlider(jpvactivosina, RSPanelsSlider.DIRECT.UP);
+        rSPanelsSlider1.setPanelSlider(jpgeneral, RSPanelsSlider.DIRECT.RIGHT);
     }//GEN-LAST:event_btnbvnombreMouseClicked
 
     private void btnbvexbecariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbvexbecariosMouseClicked
-        rSPanelsSlider1.setPanelSlider(jpvexbnexb, RSPanelsSlider.DIRECT.UP);
+        rSPanelsSlider1.setPanelSlider(jpvexbnexb, RSPanelsSlider.DIRECT.RIGHT);
     }//GEN-LAST:event_btnbvexbecariosMouseClicked
 
-    private void btnbvnoexbecariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbvnoexbecariosMouseClicked
-        rSPanelsSlider1.setPanelSlider(jpvactivosina, RSPanelsSlider.DIRECT.UP);
-    }//GEN-LAST:event_btnbvnoexbecariosMouseClicked
+    private void btnbvactivosinaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbvactivosinaMouseClicked
+        rSPanelsSlider1.setPanelSlider(jpvactivosina, RSPanelsSlider.DIRECT.RIGHT);
+    }//GEN-LAST:event_btnbvactivosinaMouseClicked
 
     private void btnbvanioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbvanioMouseClicked
-        rSPanelsSlider1.setPanelSlider(jpvanio, RSPanelsSlider.DIRECT.UP);
+        rSPanelsSlider1.setPanelSlider(jpvanio, RSPanelsSlider.DIRECT.RIGHT);
     }//GEN-LAST:event_btnbvanioMouseClicked
 
     private void btnbvedadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbvedadMouseClicked
-        rSPanelsSlider1.setPanelSlider(jpvedad, RSPanelsSlider.DIRECT.UP);
+        rSPanelsSlider1.setPanelSlider(jpvedad, RSPanelsSlider.DIRECT.RIGHT);
     }//GEN-LAST:event_btnbvedadMouseClicked
 
     private void btnbvgeneroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbvgeneroMouseClicked
-        rSPanelsSlider1.setPanelSlider(jpvgenero, RSPanelsSlider.DIRECT.UP);
+        rSPanelsSlider1.setPanelSlider(jpvgenero, RSPanelsSlider.DIRECT.RIGHT);
     }//GEN-LAST:event_btnbvgeneroMouseClicked
 
     private void btnbvprogramaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbvprogramaMouseClicked
-        rSPanelsSlider1.setPanelSlider(jpvprograma, RSPanelsSlider.DIRECT.UP);
+        rSPanelsSlider1.setPanelSlider(jpvexbnexb, RSPanelsSlider.DIRECT.RIGHT);
     }//GEN-LAST:event_btnbvprogramaMouseClicked
 
     private void btnbvpromocionbecaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbvpromocionbecaMouseClicked
-        rSPanelsSlider1.setPanelSlider(jpvpromocionbeca, RSPanelsSlider.DIRECT.UP);
+        rSPanelsSlider1.setPanelSlider(jpvpromocionbeca, RSPanelsSlider.DIRECT.RIGHT);
     }//GEN-LAST:event_btnbvpromocionbecaMouseClicked
 
     private void btnbvocupacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbvocupacionMouseClicked
-        rSPanelsSlider1.setPanelSlider(jpvocupacion, RSPanelsSlider.DIRECT.UP);
+        rSPanelsSlider1.setPanelSlider(jpvocupacion, RSPanelsSlider.DIRECT.RIGHT);
     }//GEN-LAST:event_btnbvocupacionMouseClicked
 
     private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
@@ -679,6 +1081,32 @@ public class busquedasjf extends javax.swing.JFrame {
         tablebvnombre.setModel(busquedas.BNombre(txtbvnombre.getText(), tablebvnombre, txtApellido.getText(),activo));
     }//GEN-LAST:event_cmbactivoActionPerformed
 
+    private void btnbevoluntariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbevoluntariosMouseClicked
+        if(cmbbusoed.getSelectedItem().equals("Buscar") )
+        {
+                 rSPanelsSlider1.setPanelSlider(jpmenua, RSPanelsSlider.DIRECT.DOWN);
+        }
+        else if(cmbbusoed.getSelectedItem().equals("Editar"))
+        {
+                 rSPanelsSlider1.setPanelSlider(jpgeneral, RSPanelsSlider.DIRECT.RIGHT);
+        }
+    }//GEN-LAST:event_btnbevoluntariosMouseClicked
+
+    private void btnbeproyectoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbeproyectoMouseClicked
+        rSPanelsSlider1.setPanelSlider(jpbeproyecto, RSPanelsSlider.DIRECT.DOWN);
+    }//GEN-LAST:event_btnbeproyectoMouseClicked
+
+    private void btnbevoluntariadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbevoluntariadoMouseClicked
+                if(cmbbusoed.getSelectedItem().equals("Buscar") )
+        {
+                 rSPanelsSlider1.setPanelSlider(jpbvoluntariado, RSPanelsSlider.DIRECT.DOWN);
+        }
+        else if(cmbbusoed.getSelectedItem().equals("Editar"))
+        {
+                 rSPanelsSlider1.setPanelSlider(jpevoluntariado, RSPanelsSlider.DIRECT.DOWN);
+        }
+    }//GEN-LAST:event_btnbevoluntariadoMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -715,30 +1143,54 @@ public class busquedasjf extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnbeproyecto;
+    private javax.swing.JButton btnbevoluntariado;
+    private javax.swing.JButton btnbevoluntarios;
+    private javax.swing.JButton btnbvactivosina;
     private javax.swing.JButton btnbvanio;
     private javax.swing.JButton btnbvedad;
     private javax.swing.JButton btnbvexbecarios;
     private javax.swing.JButton btnbvgenero;
-    private javax.swing.JButton btnbvnoexbecarios;
     private javax.swing.JButton btnbvnombre;
     private javax.swing.JButton btnbvocupacion;
     private javax.swing.JButton btnbvprograma;
     private javax.swing.JButton btnbvpromocionbeca;
+    private javax.swing.JButton btnevoluntariadog;
+    private javax.swing.JButton btnguardareproyect;
     private javax.swing.JButton btnhome;
+    private javax.swing.JButton btnmenuboe;
+    private javax.swing.JButton btnmenubused;
     private javax.swing.JButton btnminimizar;
+    private javax.swing.JButton btnregresar;
     private javax.swing.JButton btnrmenua;
     private javax.swing.JButton btnsalir;
     private javax.swing.JComboBox<String> cmbactivo;
+    private javax.swing.JComboBox<String> cmbanio;
     private javax.swing.JComboBox<String> cmbapromocion;
+    private javax.swing.JComboBox<String> cmbbproyectos;
+    private javax.swing.JComboBox<String> cmbbusoed;
     private javax.swing.JComboBox<String> cmbedad;
     private javax.swing.JComboBox<String> cmbexbnexb;
     private javax.swing.JComboBox<String> cmbgenero;
     private javax.swing.JComboBox<String> cmbocupacion;
     private javax.swing.JComboBox<String> cmbprograma;
+    private javax.swing.JComboBox<String> cmbproyecto;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JPanel jpbeproyecto;
+    private javax.swing.JPanel jpbvoluntariado;
+    private javax.swing.JPanel jpeproyecto;
+    private javax.swing.JPanel jpevoluntariado;
     private javax.swing.JPanel jpgeneral;
     private javax.swing.JPanel jpmenua;
+    private javax.swing.JPanel jpmenuboe;
     private javax.swing.JPanel jpvactivosina;
     private javax.swing.JPanel jpvanio;
     private javax.swing.JPanel jpvedad;
@@ -755,7 +1207,13 @@ public class busquedasjf extends javax.swing.JFrame {
     private javax.swing.JScrollPane jsbvnombre;
     private javax.swing.JScrollPane jsbvprograma;
     private javax.swing.JScrollPane jsbvpromocionbeca;
+    private javax.swing.JTable jtablebproyectos;
+    private javax.swing.JLabel lbbproyectos;
+    private javax.swing.JLabel lbbvoluntariado;
+    private javax.swing.JLabel lbeproyectos;
+    private javax.swing.JLabel lbevoluntariado;
     private javax.swing.JLabel lbmenua;
+    private javax.swing.JLabel lbmenuboe;
     private javax.swing.JLabel lbvactivos;
     private javax.swing.JLabel lbvanio;
     private javax.swing.JLabel lbvedad;
@@ -775,12 +1233,24 @@ public class busquedasjf extends javax.swing.JFrame {
     private javax.swing.JTable tablebvocupacion;
     private javax.swing.JTable tablebvprograma;
     private javax.swing.JTable tablebvpromocionbeca;
+    private javax.swing.JTable tbemiembros;
+    private javax.swing.JTable tbeproyecto;
+    private javax.swing.JTable tbevoluntarios;
+    private javax.swing.JTable tblmiembros;
+    private javax.swing.JTable tblproyecto;
+    private javax.swing.JTable tblvoluntarios;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtavexbnexb;
-    private javax.swing.JTextField txtbvactivos;
-    private javax.swing.JTextField txtbvactivos1;
-    private javax.swing.JTextField txtbvanio;
+    private javax.swing.JTextField txtbapellidosg;
+    private javax.swing.JTextField txtbmiembros;
+    private javax.swing.JTextField txtbnombreg;
+    private javax.swing.JTextField txtbproyecto;
     private javax.swing.JTextField txtbvnombre;
+    private javax.swing.JTextField txtbvoluntarios;
+    private javax.swing.JTextField txtedescripcion;
+    private javax.swing.JTextField txtemiembros;
+    private javax.swing.JTextField txteproyecto;
+    private javax.swing.JTextField txtevoluntarios;
     private javax.swing.JTextField txtnvexbnexb;
     // End of variables declaration//GEN-END:variables
 }
