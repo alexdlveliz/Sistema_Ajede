@@ -27,7 +27,7 @@ public class menujf extends javax.swing.JFrame {
 
     ImageIcon menua1 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/menuat1.jpg")).getImage());
     ImageIcon menu = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/menuprincipalv2t1.jpg")).getImage());
-    ImageIcon menur = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/buscar/mrreportes1.jpg")).getImage());
+    ImageIcon menur = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/mrreportes1.jpg")).getImage());
     private final Proyecto proyecto;
     private int IDproyecto;
     private ArrayList<Integer> listaPuestos;

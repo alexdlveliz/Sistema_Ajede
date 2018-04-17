@@ -26,13 +26,13 @@ ImageIcon edp1 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/bus
 ImageIcon evol = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/evoluntariado1.jpg")).getImage());
 ImageIcon bproyectos = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/proyectos1.jpg")).getImage());
 ImageIcon eproyectos = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/proyectos1.jpg")).getImage());
-ImageIcon vacinac = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vactinact1.jpg")).getImage());
-ImageIcon vanio = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vanio1.jpg")).getImage());
+ImageIcon vacinac = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vactnact1.jpg")).getImage()); //vactinact1
+ImageIcon vanio = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vainicio1.jpg")).getImage());
 ImageIcon vedad = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vedad1.jpg")).getImage());
 ImageIcon vexbnexb = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vexbnexb1.jpg")).getImage());
 ImageIcon vgenero = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vgenero1.jpg")).getImage());
 ImageIcon vinfog = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vinfog1.jpg")).getImage());
-ImageIcon vocupacion = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vocupacion11.jpg")).getImage());
+ImageIcon vocupacion = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vocupacion1.jpg")).getImage());
 ImageIcon vprograma = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vprograma1.jpg")).getImage());
 ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vpromocion1.jpg")).getImage());
     /**
@@ -51,6 +51,7 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         transparencia();
         if ((tamanio.width == 1920) && (tamanio.height == 1080)) {
             this.setSize(1560, 880);
+            this.setLocationRelativeTo(null);
             jPanel1.setSize(1565, 880);
             rSPanelsSlider1.setSize(1565, 880);
             jpmenuboe.setSize(1565, 880);
