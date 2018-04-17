@@ -27,6 +27,7 @@ public class menujf extends javax.swing.JFrame {
 
     ImageIcon menua1 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/menuat1.jpg")).getImage());
     ImageIcon menu = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/menuprincipalv2t1.jpg")).getImage());
+    ImageIcon menur = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/buscar/mrreportes1.jpg")).getImage());
     private final Proyecto proyecto;
     private int IDproyecto;
     private ArrayList<Integer> listaPuestos;
@@ -58,8 +59,8 @@ public class menujf extends javax.swing.JFrame {
             lbmenuprincipal.setIcon(menu);
             this.setLocationRelativeTo(null);
             btnagregar.setLocation(260, 405);
-            btneditar.setLocation(680, 405);
-            btnbuscar.setLocation(1075, 405);
+            btnbuscar.setLocation(680, 405);
+            btnreportes.setLocation(1075, 405);
             btnminimizarmenu.setLocation(1410, 5);
             btnsalirdmenu.setLocation(1480, 5);
             menuagregar.setSize(1565,880);
@@ -68,14 +69,17 @@ public class menujf extends javax.swing.JFrame {
             btnagregarvoluntario.setLocation(260, 405);
             btnagregarproyecto.setLocation(680, 405);
             btnagregarvoluntariado.setLocation(1075, 405);
+            jpmreportes.setSize(1565, 880);
+            lbmreportes.setSize(1565, 880);
+            lbmreportes.setIcon(menur);
         } else if ((tamanio.width == 1708) && (tamanio.height == 960)) //1366.768, alex: 1708.960
         {
             this.setSize(1250, 700);
             //jpmenu.setIcon(menutam2);
             this.setLocationRelativeTo(null);
             btnagregar.setLocation(190, 320);
-            btneditar.setLocation(853, 320);
-            btnbuscar.setLocation(500, 320);
+            btnbuscar.setLocation(853, 320);
+            btnreportes.setLocation(500, 320);
             btnminimizarmenu.setLocation(1090, 5);
             btnsalirdmenu.setLocation(1175, 5);
         }
@@ -95,12 +99,12 @@ public class menujf extends javax.swing.JFrame {
         btnagregar.setOpaque(false);
         btnagregar.setContentAreaFilled(false);
         btnagregar.setBorderPainted(false);
-        btneditar.setOpaque(false);
-        btneditar.setContentAreaFilled(false);
-        btneditar.setBorderPainted(false);
         btnbuscar.setOpaque(false);
         btnbuscar.setContentAreaFilled(false);
         btnbuscar.setBorderPainted(false);
+        btnreportes.setOpaque(false);
+        btnreportes.setContentAreaFilled(false);
+        btnreportes.setBorderPainted(false);
         btnsalirdmenu.setOpaque(false);
         btnsalirdmenu.setContentAreaFilled(false);
         btnsalirdmenu.setBorderPainted(false);
@@ -195,8 +199,8 @@ public class menujf extends javax.swing.JFrame {
         rSPanelsSlider1 = new rojerusan.RSPanelsSlider();
         menuprincipal = new javax.swing.JPanel();
         btnagregar = new javax.swing.JButton();
-        btneditar = new javax.swing.JButton();
         btnbuscar = new javax.swing.JButton();
+        btnreportes = new javax.swing.JButton();
         lbmenuprincipal = new javax.swing.JLabel();
         menuagregar = new javax.swing.JPanel();
         btnagregarvoluntario = new javax.swing.JButton();
@@ -304,10 +308,8 @@ public class menujf extends javax.swing.JFrame {
         PMMiembro.add(jMenu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1565, 880));
         setMinimumSize(new java.awt.Dimension(1250, 700));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1250, 700));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -356,34 +358,34 @@ public class menujf extends javax.swing.JFrame {
         menuprincipal.add(btnagregar);
         btnagregar.setBounds(190, 300, 210, 190);
 
-        btneditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Search_70px.png"))); // NOI18N
-        btneditar.setName("btneditar"); // NOI18N
-        btneditar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Search_100px.png"))); // NOI18N
-        btneditar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btneditarActionPerformed(evt);
-            }
-        });
-        menuprincipal.add(btneditar);
-        btneditar.setBounds(850, 320, 210, 170);
-
-        btnbuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Edit_Property_70px.png"))); // NOI18N
+        btnbuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Search_70px.png"))); // NOI18N
         btnbuscar.setName("btnbuscar"); // NOI18N
-        btnbuscar.setPreferredSize(new java.awt.Dimension(150, 25));
-        btnbuscar.setRequestFocusEnabled(false);
-        btnbuscar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Edit_Property_100px.png"))); // NOI18N
-        btnbuscar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnbuscarMouseClicked(evt);
-            }
-        });
+        btnbuscar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Search_100px.png"))); // NOI18N
         btnbuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnbuscarActionPerformed(evt);
             }
         });
         menuprincipal.add(btnbuscar);
-        btnbuscar.setBounds(510, 310, 240, 180);
+        btnbuscar.setBounds(520, 310, 210, 170);
+
+        btnreportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Edit_Property_70px.png"))); // NOI18N
+        btnreportes.setName("btnreportes"); // NOI18N
+        btnreportes.setPreferredSize(new java.awt.Dimension(150, 25));
+        btnreportes.setRequestFocusEnabled(false);
+        btnreportes.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Edit_Property_100px.png"))); // NOI18N
+        btnreportes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnreportesMouseClicked(evt);
+            }
+        });
+        btnreportes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnreportesActionPerformed(evt);
+            }
+        });
+        menuprincipal.add(btnreportes);
+        btnreportes.setBounds(840, 310, 240, 180);
 
         lbmenuprincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/menuprincipalv2t2.jpg"))); // NOI18N
         lbmenuprincipal.setRequestFocusEnabled(false);
@@ -781,9 +783,12 @@ public class menujf extends javax.swing.JFrame {
         rSPanelsSlider1.setPanelSlider(menuagregar, RSPanelsSlider.DIRECT.UP);
     }//GEN-LAST:event_btnagregarActionPerformed
 
-    private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
-        rSPanelsSlider1.setPanelSlider(jpmreportes, RSPanelsSlider.DIRECT.UP);
-    }//GEN-LAST:event_btneditarActionPerformed
+    private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
+        this.dispose();
+        busquedasjf buscar = new busquedasjf();
+        buscar.setVisible(true);
+        
+    }//GEN-LAST:event_btnbuscarActionPerformed
 
     private void btnsalirdmenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsalirdmenuMouseClicked
         this.dispose();
@@ -797,11 +802,9 @@ public class menujf extends javax.swing.JFrame {
         rSPanelsSlider1.setPanelSlider(menuprincipal, RSPanelsSlider.DIRECT.UP);
     }//GEN-LAST:event_btnmenuvMouseClicked
 
-    private void btnbuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbuscarMouseClicked
-        this.dispose();
-        busquedasjf buscar = new busquedasjf();
-        buscar.setVisible(true);
-    }//GEN-LAST:event_btnbuscarMouseClicked
+    private void btnreportesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnreportesMouseClicked
+        rSPanelsSlider1.setPanelSlider(jpmreportes, RSPanelsSlider.DIRECT.UP);
+    }//GEN-LAST:event_btnreportesMouseClicked
 
     private void btnguardarproyectoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnguardarproyectoMouseClicked
         Proyecto();
@@ -811,9 +814,9 @@ public class menujf extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnguardarproyectoActionPerformed
 
-    private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnbuscarActionPerformed
+    private void btnreportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreportesActionPerformed
+        rSPanelsSlider1.setPanelSlider(jpmreportes, RSPanelsSlider.DIRECT.UP);
+    }//GEN-LAST:event_btnreportesActionPerformed
 
     private void MIProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MIProyectoActionPerformed
         /**
@@ -1068,7 +1071,6 @@ public class menujf extends javax.swing.JFrame {
     private javax.swing.JButton btnagregarvoluntariado;
     private javax.swing.JButton btnagregarvoluntario;
     private javax.swing.JButton btnbuscar;
-    private javax.swing.JButton btneditar;
     private javax.swing.JButton btnguardarproyecto;
     private javax.swing.JButton btnguardarvoluntarioado;
     private javax.swing.JButton btnmenu;
@@ -1076,6 +1078,7 @@ public class menujf extends javax.swing.JFrame {
     private javax.swing.JButton btnminimizarmenu;
     private javax.swing.JButton btnractivos;
     private javax.swing.JButton btnredad;
+    private javax.swing.JButton btnreportes;
     private javax.swing.JButton btnrexbecario;
     private javax.swing.JButton btnrgeneral;
     private javax.swing.JButton btnrgenero;

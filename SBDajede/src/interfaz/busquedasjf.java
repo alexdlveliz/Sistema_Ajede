@@ -7,6 +7,9 @@ package interfaz;
 
 import Clases.BusquedasVoluntarios;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import javax.swing.ImageIcon;
 import rojerusan.RSPanelsSlider;
 
 /**
@@ -14,7 +17,24 @@ import rojerusan.RSPanelsSlider;
  * @author Nahomi
  */
 public class busquedasjf extends javax.swing.JFrame {
-
+ImageIcon menuboe = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/opcbm1.jpg")).getImage());
+ImageIcon menureportes = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/mrreportes1.jpg")).getImage());
+ImageIcon menubusquedas = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/mbusquedas1.jpg")).getImage());
+ImageIcon bvoluntariado = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/bvoluntariado1.jpg")).getImage());
+ImageIcon evoluntariado = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/voluntariadom1.jpg")).getImage());
+ImageIcon edp1 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/edproyectos1.jpg")).getImage());
+ImageIcon evol = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/evoluntariado1.jpg")).getImage());
+ImageIcon bproyectos = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/proyectos1.jpg")).getImage());
+ImageIcon eproyectos = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/proyectos1.jpg")).getImage());
+ImageIcon vacinac = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vactinact1.jpg")).getImage());
+ImageIcon vanio = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vanio1.jpg")).getImage());
+ImageIcon vedad = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vedad1.jpg")).getImage());
+ImageIcon vexbnexb = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vexbnexb1.jpg")).getImage());
+ImageIcon vgenero = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vgenero1.jpg")).getImage());
+ImageIcon vinfog = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vinfog1.jpg")).getImage());
+ImageIcon vocupacion = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vocupacion11.jpg")).getImage());
+ImageIcon vprograma = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vprograma1.jpg")).getImage());
+ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vpromocion1.jpg")).getImage());
     /**
      * Creates new form busquedasjf
      */
@@ -26,6 +46,59 @@ public class busquedasjf extends javax.swing.JFrame {
         transparencia();
         tablebvnombre.setModel(busquedas.BNombre("", tablebvnombre, "",true));
         this.setLocationRelativeTo(null);
+        Toolkit tk = Toolkit.getDefaultToolkit();
+        Dimension tamanio = tk.getScreenSize();
+        transparencia();
+        if ((tamanio.width == 1920) && (tamanio.height == 1080)) {
+            this.setSize(1560, 880);
+            jPanel1.setSize(1565, 880);
+            rSPanelsSlider1.setSize(1565, 880);
+            jpmenuboe.setSize(1565, 880);
+            lbmenuboe.setSize(1565, 880);
+            lbmenuboe.setIcon(menuboe);
+            jpmenua.setSize(1565, 880);
+            lbmenua.setSize(1565, 880);
+            lbmenua.setIcon(menubusquedas);
+            jpvactivosina.setSize(1565, 880);
+            lbvnombre.setSize(1565, 880);
+            lbvnombre.setIcon(vacinac);
+            jpgeneral.setSize(1565, 880);
+            lbgeneral.setSize(1565, 880);
+            lbgeneral.setIcon(vinfog);
+            jpvexbnexb.setSize(1565, 880);
+            lbexbnexb.setSize(1565, 880);
+            lbexbnexb.setIcon(vexbnexb);
+            jpvanio.setSize(1565, 880);
+            lbvanio.setSize(1565, 880);
+            lbvanio.setIcon(vanio);
+            jpvedad.setSize(1565, 880);
+            lbvedad.setSize(1565, 880);
+            lbvedad.setIcon(vedad);
+            jpvgenero.setSize(1565, 880);
+            lbvgenero.setSize(1565, 880);
+            lbvgenero.setIcon(vgenero);
+            jpvprograma.setSize(1565, 880);
+            lbvprograma.setSize(1565, 880);
+            lbvprograma.setIcon(vprograma);
+            jpvpromocionbeca.setSize(1565, 880);
+            lbvpromocionbeca.setSize(1565, 880);
+            lbvpromocionbeca.setIcon(vpromo);
+            jpvocupacion.setSize(1565, 880);
+            lbvocupacion.setSize(1565, 880);
+            lbvocupacion.setIcon(vocupacion);
+            jpbproyecto.setSize(1565, 880);
+            lbbproyectos.setSize(1565, 880);
+            lbbproyectos.setIcon(bproyectos);
+            jpeproyecto.setSize(1565, 880);
+            lbeproyectos.setSize(1565, 880);
+            lbeproyectos.setIcon(eproyectos);
+            jpbvoluntariado.setSize(1565, 880);
+            lbbvoluntariado.setSize(1565, 880);
+            lbbvoluntariado.setIcon(bvoluntariado);
+            jpevoluntariado.setSize(1565, 880);
+            lbevoluntariado.setSize(1565, 880);
+            lbevoluntariado.setIcon(evoluntariado);
+        }
 
     }
     public void transparencia()
@@ -151,14 +224,14 @@ public class busquedasjf extends javax.swing.JFrame {
         jsbvactivos = new javax.swing.JScrollPane();
         tablebvactivos = new javax.swing.JTable();
         txtbnombreg = new javax.swing.JTextField();
-        lbvactivos = new javax.swing.JLabel();
+        lbgeneral = new javax.swing.JLabel();
         jpvexbnexb = new javax.swing.JPanel();
         txtnvexbnexb = new javax.swing.JTextField();
         jsbvinactivos = new javax.swing.JScrollPane();
         tablebvinactivos = new javax.swing.JTable();
         txtavexbnexb = new javax.swing.JTextField();
         cmbexbnexb = new javax.swing.JComboBox<>();
-        lbvinactivos = new javax.swing.JLabel();
+        lbexbnexb = new javax.swing.JLabel();
         jpvanio = new javax.swing.JPanel();
         jsbvanio = new javax.swing.JScrollPane();
         tablebvanio = new javax.swing.JTable();
@@ -189,7 +262,7 @@ public class busquedasjf extends javax.swing.JFrame {
         tablebvocupacion = new javax.swing.JTable();
         cmbocupacion = new javax.swing.JComboBox<>();
         lbvocupacion = new javax.swing.JLabel();
-        jpbeproyecto = new javax.swing.JPanel();
+        jpbproyecto = new javax.swing.JPanel();
         cmbbproyectos = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtablebproyectos = new javax.swing.JTable();
@@ -541,9 +614,9 @@ public class busquedasjf extends javax.swing.JFrame {
         jpgeneral.add(txtbnombreg);
         txtbnombreg.setBounds(310, 170, 410, 40);
 
-        lbvactivos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/vinfog2.jpg"))); // NOI18N
-        jpgeneral.add(lbvactivos);
-        lbvactivos.setBounds(0, 0, 1250, 700);
+        lbgeneral.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/vinfog2.jpg"))); // NOI18N
+        jpgeneral.add(lbgeneral);
+        lbgeneral.setBounds(0, 0, 1250, 700);
 
         rSPanelsSlider1.add(jpgeneral, "card4");
 
@@ -581,9 +654,9 @@ public class busquedasjf extends javax.swing.JFrame {
         jpvexbnexb.add(cmbexbnexb);
         cmbexbnexb.setBounds(840, 220, 210, 40);
 
-        lbvinactivos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/vexbnb2.jpg"))); // NOI18N
-        jpvexbnexb.add(lbvinactivos);
-        lbvinactivos.setBounds(0, 0, 1250, 700);
+        lbexbnexb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/vexbnb2.jpg"))); // NOI18N
+        jpvexbnexb.add(lbexbnexb);
+        lbexbnexb.setBounds(0, 0, 1250, 700);
 
         rSPanelsSlider1.add(jpvexbnexb, "card5");
 
@@ -768,13 +841,13 @@ public class busquedasjf extends javax.swing.JFrame {
 
         rSPanelsSlider1.add(jpvocupacion, "card13");
 
-        jpbeproyecto.setMaximumSize(new java.awt.Dimension(1565, 880));
-        jpbeproyecto.setMinimumSize(new java.awt.Dimension(1250, 700));
-        jpbeproyecto.setName("jpbeproyecto"); // NOI18N
-        jpbeproyecto.setLayout(null);
+        jpbproyecto.setMaximumSize(new java.awt.Dimension(1565, 880));
+        jpbproyecto.setMinimumSize(new java.awt.Dimension(1250, 700));
+        jpbproyecto.setName("jpbproyecto"); // NOI18N
+        jpbproyecto.setLayout(null);
 
         cmbbproyectos.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 24)); // NOI18N
-        jpbeproyecto.add(cmbbproyectos);
+        jpbproyecto.add(cmbbproyectos);
         cmbbproyectos.setBounds(310, 200, 320, 30);
 
         jtablebproyectos.setModel(new javax.swing.table.DefaultTableModel(
@@ -790,14 +863,14 @@ public class busquedasjf extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(jtablebproyectos);
 
-        jpbeproyecto.add(jScrollPane2);
+        jpbproyecto.add(jScrollPane2);
         jScrollPane2.setBounds(110, 260, 1030, 380);
 
-        lbbproyectos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/proyectos1.jpg"))); // NOI18N
-        jpbeproyecto.add(lbbproyectos);
+        lbbproyectos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/proyectos2.jpg"))); // NOI18N
+        jpbproyecto.add(lbbproyectos);
         lbbproyectos.setBounds(0, 0, 1250, 700);
 
-        rSPanelsSlider1.add(jpbeproyecto, "card13");
+        rSPanelsSlider1.add(jpbproyecto, "card13");
 
         jpbvoluntariado.setMaximumSize(new java.awt.Dimension(1566, 880));
         jpbvoluntariado.setMinimumSize(new java.awt.Dimension(1250, 700));
@@ -984,7 +1057,7 @@ public class busquedasjf extends javax.swing.JFrame {
         txtedescripcion.setBounds(80, 380, 710, 260);
 
         lbeproyectos.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        lbeproyectos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/edproyectos1.jpg"))); // NOI18N
+        lbeproyectos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/edproyectos2.jpg"))); // NOI18N
         jpeproyecto.add(lbeproyectos);
         lbeproyectos.setBounds(0, 0, 1250, 700);
 
@@ -1099,7 +1172,7 @@ public class busquedasjf extends javax.swing.JFrame {
     }//GEN-LAST:event_btnbevoluntariosMouseClicked
 
     private void btnbeproyectoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbeproyectoMouseClicked
-        rSPanelsSlider1.setPanelSlider(jpbeproyecto, RSPanelsSlider.DIRECT.DOWN);
+        rSPanelsSlider1.setPanelSlider(jpbproyecto, RSPanelsSlider.DIRECT.DOWN);
     }//GEN-LAST:event_btnbeproyectoMouseClicked
 
     private void btnbevoluntariadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbevoluntariadoMouseClicked
@@ -1194,7 +1267,7 @@ public class busquedasjf extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JPanel jpbeproyecto;
+    private javax.swing.JPanel jpbproyecto;
     private javax.swing.JPanel jpbvoluntariado;
     private javax.swing.JPanel jpeproyecto;
     private javax.swing.JPanel jpevoluntariado;
@@ -1222,13 +1295,13 @@ public class busquedasjf extends javax.swing.JFrame {
     private javax.swing.JLabel lbbvoluntariado;
     private javax.swing.JLabel lbeproyectos;
     private javax.swing.JLabel lbevoluntariado;
+    private javax.swing.JLabel lbexbnexb;
+    private javax.swing.JLabel lbgeneral;
     private javax.swing.JLabel lbmenua;
     private javax.swing.JLabel lbmenuboe;
-    private javax.swing.JLabel lbvactivos;
     private javax.swing.JLabel lbvanio;
     private javax.swing.JLabel lbvedad;
     private javax.swing.JLabel lbvgenero;
-    private javax.swing.JLabel lbvinactivos;
     private javax.swing.JLabel lbvnombre;
     private javax.swing.JLabel lbvocupacion;
     private javax.swing.JLabel lbvprograma;

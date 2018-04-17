@@ -689,7 +689,7 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lbvactivos">
+                <Component class="javax.swing.JLabel" name="lbgeneral">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/fondos/busquedas/vinfog2.jpg"/>
@@ -792,7 +792,7 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lbvinactivos">
+                <Component class="javax.swing.JLabel" name="lbexbnexb">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/fondos/busquedas/vexbnb2.jpg"/>
@@ -1271,7 +1271,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="jpbeproyecto">
+            <Container class="javax.swing.JPanel" name="jpbproyecto">
               <Properties>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[1565, 880]"/>
@@ -1279,7 +1279,7 @@
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[1250, 700]"/>
                 </Property>
-                <Property name="name" type="java.lang.String" value="jpbeproyecto" noResource="true"/>
+                <Property name="name" type="java.lang.String" value="jpbproyecto" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
@@ -1338,7 +1338,7 @@
                 <Component class="javax.swing.JLabel" name="lbbproyectos">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/fondos/busquedas/proyectos1.jpg"/>
+                      <Image iconType="3" name="/fondos/busquedas/proyectos2.jpg"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -1776,7 +1776,7 @@
                       <Font name="Yu Gothic UI Light" size="24" style="0"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/fondos/busquedas/edproyectos1.jpg"/>
+                      <Image iconType="3" name="/fondos/busquedas/edproyectos2.jpg"/>
                     </Property>
                   </Properties>
                   <Constraints>
