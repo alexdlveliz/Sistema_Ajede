@@ -356,9 +356,9 @@ public class menujf extends javax.swing.JFrame {
         menuprincipal.add(btnagregar);
         btnagregar.setBounds(190, 300, 210, 190);
 
-        btneditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Edit_Property_70px.png"))); // NOI18N
+        btneditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Search_70px.png"))); // NOI18N
         btneditar.setName("btneditar"); // NOI18N
-        btneditar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Edit_Property_100px.png"))); // NOI18N
+        btneditar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Search_100px.png"))); // NOI18N
         btneditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btneditarActionPerformed(evt);
@@ -367,11 +367,11 @@ public class menujf extends javax.swing.JFrame {
         menuprincipal.add(btneditar);
         btneditar.setBounds(850, 320, 210, 170);
 
-        btnbuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Search_70px.png"))); // NOI18N
+        btnbuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Edit_Property_70px.png"))); // NOI18N
         btnbuscar.setName("btnbuscar"); // NOI18N
         btnbuscar.setPreferredSize(new java.awt.Dimension(150, 25));
         btnbuscar.setRequestFocusEnabled(false);
-        btnbuscar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Search_100px.png"))); // NOI18N
+        btnbuscar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Edit_Property_100px.png"))); // NOI18N
         btnbuscar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnbuscarMouseClicked(evt);

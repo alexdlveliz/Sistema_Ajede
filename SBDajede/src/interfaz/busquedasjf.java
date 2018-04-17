@@ -265,9 +265,15 @@ public class busquedasjf extends javax.swing.JFrame {
         jPanel1.add(btnminimizar);
         btnminimizar.setBounds(1100, 0, 80, 70);
 
-        btnregresar.setText("jButton1");
+        btnregresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/Back_30px.png"))); // NOI18N
+        btnregresar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/Back_70px.png"))); // NOI18N
+        btnregresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnregresarActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnregresar);
-        btnregresar.setBounds(950, 260, 79, 25);
+        btnregresar.setBounds(940, 0, 80, 70);
 
         rSPanelsSlider1.setMaximumSize(new java.awt.Dimension(1565, 880));
         rSPanelsSlider1.setMinimumSize(new java.awt.Dimension(1250, 700));
@@ -1106,6 +1112,10 @@ public class busquedasjf extends javax.swing.JFrame {
                  rSPanelsSlider1.setPanelSlider(jpevoluntariado, RSPanelsSlider.DIRECT.DOWN);
         }
     }//GEN-LAST:event_btnbevoluntariadoMouseClicked
+
+    private void btnregresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregresarActionPerformed
+        rSPanelsSlider1.setPanelSlider(jpmenuboe, RSPanelsSlider.DIRECT.UP);
+    }//GEN-LAST:event_btnregresarActionPerformed
 
     /**
      * @param args the command line arguments
