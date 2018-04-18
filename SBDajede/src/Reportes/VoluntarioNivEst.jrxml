@@ -80,7 +80,7 @@ ORDER BY
 					<textElement textAlignment="Right">
 						<font size="14" isBold="false"/>
 					</textElement>
-					<text><![CDATA[Add a description here]]></text>
+					<text><![CDATA[AJEDE Reportes]]></text>
 				</staticText>
 			</frame>
 		</band>

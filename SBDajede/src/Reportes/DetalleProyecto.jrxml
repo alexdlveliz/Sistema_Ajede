@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="dcce5b0c-6eac-4a55-b9e9-4a7593a31359">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="dcce5b0c-6eac-4a55-b9e9-4a7593a31359">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT
      count(voluntariado.`idVoluntariado`) AS TVoluntariados,
@@ -50,18 +53,18 @@ GROUP BY
 			<frame>
 				<reportElement uuid="b617d521-d25f-4aec-8627-65cb817370cc" mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699"/>
 				<staticText>
-					<reportElement uuid="320f328b-187d-44d3-916f-60a7f423ae83" x="20" y="20" width="234" height="43" forecolor="#FFFFFF"/>
+					<reportElement uuid="320f328b-187d-44d3-916f-60a7f423ae83" x="20" y="20" width="297" height="43" forecolor="#FFFFFF"/>
 					<textElement>
 						<font size="34" isBold="true"/>
 					</textElement>
-					<text><![CDATA[TITLE]]></text>
+					<text><![CDATA[Detalle Proyectos]]></text>
 				</staticText>
 				<staticText>
 					<reportElement uuid="1c863717-5ada-4592-9a36-1dc738b6d16c" x="395" y="43" width="180" height="20" forecolor="#FFFFFF"/>
 					<textElement textAlignment="Right">
 						<font size="14" isBold="false"/>
 					</textElement>
-					<text><![CDATA[Add a description here]]></text>
+					<text><![CDATA[AJEDE Reportes]]></text>
 				</staticText>
 			</frame>
 		</band>
@@ -79,14 +82,14 @@ GROUP BY
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[TVoluntariados]]></text>
+				<text><![CDATA[No. voluntarios]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="9ef12e44-d7a7-4612-b208-41751bed7b8e" mode="Opaque" x="185" y="0" width="185" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[THoras]]></text>
+				<text><![CDATA[Horas del proyecto]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="07fda6ae-7e91-481a-b370-4988e9a7dd74" mode="Opaque" x="370" y="0" width="185" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
@@ -121,7 +124,7 @@ GROUP BY
 				<textElement>
 					<font size="14"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{finalizado}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{finalizado}.equals(true) ? "Finalizado" : "No finalizado"]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

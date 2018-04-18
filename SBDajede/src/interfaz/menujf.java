@@ -63,7 +63,7 @@ public class menujf extends javax.swing.JFrame {
             btnreportes.setLocation(1075, 405);
             btnminimizarmenu.setLocation(1410, 5);
             btnsalirdmenu.setLocation(1480, 5);
-            menuagregar.setSize(1565,880);
+            menuagregar.setSize(1565, 880);
             lbmenuagregar.setSize(1565, 880);
             lbmenuagregar.setIcon(menua1);
             btnagregarvoluntario.setLocation(345, 440);
@@ -205,7 +205,9 @@ public class menujf extends javax.swing.JFrame {
         MIMiembro = new javax.swing.JMenuItem();
         MICambiarProyecto = new javax.swing.JMenuItem();
         MIPuestos = new javax.swing.JMenuItem();
-        cmbPuestos = new javax.swing.JComboBox<>();
+        cmbPuestos = new rojerusan.RSComboMetro();
+        cmbGenero = new rojerusan.RSComboMetro();
+        cmbA_I = new rojerusan.RSComboMetro();
         jPanel1 = new javax.swing.JPanel();
         btnminimizarmenu = new javax.swing.JButton();
         btnsalirdmenu = new javax.swing.JButton();
@@ -319,6 +321,10 @@ public class menujf extends javax.swing.JFrame {
         jMenu2.add(MIPuestos);
 
         PMMiembro.add(jMenu2);
+
+        cmbGenero.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Femenino", "Ambos" }));
+
+        cmbA_I.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Activo", "Inactivo", "Ambos" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1250, 700));
@@ -805,7 +811,7 @@ public class menujf extends javax.swing.JFrame {
         this.dispose();
         busquedasjf buscar = new busquedasjf();
         buscar.setVisible(true);
-        
+
     }//GEN-LAST:event_btnbuscarActionPerformed
 
     private void btnsalirdmenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsalirdmenuMouseClicked
@@ -1020,8 +1026,22 @@ public class menujf extends javax.swing.JFrame {
     }//GEN-LAST:event_btnrmenuMouseClicked
 
     private void btnrgeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrgeneroActionPerformed
-        if (!reportes.ReportGenero()) {
-            JOptionPane.showMessageDialog(null, "Error al intentar Acceder");
+        int respuesta = JOptionPane.showConfirmDialog(null, cmbGenero, "seleccione un puesto", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (respuesta == 0) {
+            String genero = (String) cmbGenero.getSelectedItem();
+            if (genero.equals("Masculino")) {
+                if (!reportes.ReportGeneros(true)) {
+                    JOptionPane.showMessageDialog(null, "Error al intentar Acceder");
+                }
+            } else if (genero.equals("Femenino")) {
+                if (!reportes.ReportGeneros(false)) {
+                    JOptionPane.showMessageDialog(null, "Error al intentar Acceder");
+                }
+            } else {
+                if (!reportes.ReportGenero()) {
+                    JOptionPane.showMessageDialog(null, "Error al intentar Acceder");
+                }
+            }
         }
     }//GEN-LAST:event_btnrgeneroActionPerformed
 
@@ -1036,11 +1056,29 @@ public class menujf extends javax.swing.JFrame {
     }//GEN-LAST:event_btnrgeneralActionPerformed
 
     private void btnractivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnractivosActionPerformed
-        // TODO add your handling code here:
+        int respuesta = JOptionPane.showConfirmDialog(null, cmbA_I, "seleccione un puesto", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (respuesta == 0) {
+            String genero = (String) cmbA_I.getSelectedItem();
+            if (genero.equals("Activo")) {
+                if (!reportes.ReportA_I(true)) {
+                    JOptionPane.showMessageDialog(null, "Error al intentar Acceder");
+                }
+            } else if (genero.equals("Inactivo")) {
+                if (!reportes.ReportA_I(false)) {
+                    JOptionPane.showMessageDialog(null, "Error al intentar Acceder");
+                }
+            } else {
+                if (!reportes.ReportGenero()) {
+                    JOptionPane.showMessageDialog(null, "Error al intentar Acceder");
+                }
+            }
+        }
     }//GEN-LAST:event_btnractivosActionPerformed
 
     private void btnrproyectosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrproyectosActionPerformed
-        // TODO add your handling code here:
+        if (!reportes.ReportDetProyecto()) {
+            JOptionPane.showMessageDialog(null, "Error al intentar Acceder");
+        }
     }//GEN-LAST:event_btnrproyectosActionPerformed
 
     /**
@@ -1113,7 +1151,9 @@ public class menujf extends javax.swing.JFrame {
     private javax.swing.JButton btnrproyectos;
     private javax.swing.JButton btnrtrabajando;
     private javax.swing.JButton btnsalirdmenu;
-    private javax.swing.JComboBox<String> cmbPuestos;
+    private rojerusan.RSComboMetro cmbA_I;
+    private rojerusan.RSComboMetro cmbGenero;
+    private rojerusan.RSComboMetro cmbPuestos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;

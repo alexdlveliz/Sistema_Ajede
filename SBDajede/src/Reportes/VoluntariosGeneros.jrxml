@@ -3,6 +3,9 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
+	<parameter name="Genero" class="java.lang.Boolean">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[SELECT
      asociado.`Genero` AS Genero,
@@ -12,14 +15,16 @@
      nivelestudio.`NivelEstudio` AS NivelEstudio
 FROM
      `nivelestudio` nivelestudio INNER JOIN `asociado` asociado ON nivelestudio.`id` = asociado.`NivelEstudio_id`
+WHERE
+      Genero = $P{Genero}
 ORDER BY
      Genero]]>
 	</queryString>
+	<field name="Genero" class="java.lang.Integer"/>
 	<field name="FechaNacimiento" class="java.lang.String"/>
 	<field name="Nombre" class="java.lang.String"/>
 	<field name="Apellido" class="java.lang.String"/>
 	<field name="NivelEstudio" class="java.lang.String"/>
-	<field name="Genero" class="java.lang.Integer"/>
 	<variable name="Conteo" class="java.lang.Integer" resetType="Group" resetGroup="Genero" calculation="Count">
 		<variableExpression><![CDATA[$F{Nombre}]]></variableExpression>
 	</variable>
@@ -84,7 +89,7 @@ ORDER BY
 					<textElement textAlignment="Right">
 						<font size="14" isBold="false"/>
 					</textElement>
-					<text><![CDATA[AJEDE Reportes]]></text>
+					<text><![CDATA[AJEDE REPORTES]]></text>
 				</staticText>
 			</frame>
 		</band>

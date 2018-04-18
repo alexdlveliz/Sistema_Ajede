@@ -3,6 +3,7 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
+	<parameter name="estado" class="java.lang.Boolean"/>
 	<queryString>
 		<![CDATA[SELECT
      asociado.`Genero` AS Genero,
@@ -13,6 +14,8 @@
      asociado.`FechaNacimiento` AS FechaNacimiento
 FROM
      `nivelestudio` nivelestudio INNER JOIN `asociado` asociado ON nivelestudio.`id` = asociado.`NivelEstudio_id`
+WHERE
+      Activo = $P{estado}
 ORDER BY
      Activo]]>
 	</queryString>
