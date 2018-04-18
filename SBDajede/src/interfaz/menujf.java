@@ -31,9 +31,10 @@ public class menujf extends javax.swing.JFrame {
     ImageIcon menur = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/mrreportes1.jpg")).getImage());
     private final Proyecto proyecto;
     private int IDproyecto;
-    private ArrayList<Integer> listaPuestos;
-    private ArrayList<Integer> listaIdmiembros;
-    private ImpresionReportes reportes;
+    private final ArrayList<Integer> listaPuestos;
+    private final ArrayList<Integer> listaIdmiembros;
+    private final ImpresionReportes reportes;
+    private ArrayList<Long> fechas;
 
     /**
      * Creates new form menujf
@@ -43,10 +44,12 @@ public class menujf extends javax.swing.JFrame {
         proyecto = new Proyecto();
         listaPuestos = new ArrayList<>();
         listaIdmiembros = new ArrayList<>();
+        fechas = proyecto.getFechas();
         initComponents();
         tablevoluntarios.setModel(proyecto.Voluntarios("", tablevoluntarios));
         tableproyecto.setModel(proyecto.Proyectos("", tableproyecto));
         cmbPuestos.setModel(proyecto.puestos());
+        cmbEdades.setModel(proyecto.getEdades());
         this.setLocationRelativeTo(null);
         Toolkit tk = Toolkit.getDefaultToolkit();
         Dimension tamanio = tk.getScreenSize();
@@ -209,6 +212,7 @@ public class menujf extends javax.swing.JFrame {
         cmbPuestos = new rojerusan.RSComboMetro();
         cmbGenero = new rojerusan.RSComboMetro();
         cmbA_I = new rojerusan.RSComboMetro();
+        cmbEdades = new rojerusan.RSComboMetro();
         jPanel1 = new javax.swing.JPanel();
         btnminimizarmenu = new javax.swing.JButton();
         btnsalirdmenu = new javax.swing.JButton();
@@ -326,6 +330,8 @@ public class menujf extends javax.swing.JFrame {
         cmbGenero.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Femenino", "Ambos" }));
 
         cmbA_I.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Activo", "Inactivo", "Ambos" }));
+
+        cmbEdades.setMaximumRowCount(4);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1250, 700));
@@ -1104,10 +1110,23 @@ public class menujf extends javax.swing.JFrame {
     }//GEN-LAST:event_btnrproyectosActionPerformed
 
     private void btnredadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnredadActionPerformed
-        if (!reportes.ReportEdad()) {
-            new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al intentar Acceder",
-                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
-                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+        int respuesta = JOptionPane.showConfirmDialog(null, cmbEdades, "seleccione una edad", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (respuesta == 0) {
+            int index = cmbEdades.getSelectedIndex();
+            if (index == fechas.size()) {
+                if (!reportes.ReportEdad()) {
+                    new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al intentar Acceder",
+                            5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                            RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+                }
+            } else {
+                if (!reportes.ReportEdades(fechas.get(index))) {
+                    new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al intentar Acceder",
+                            5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                            RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+                }
+            }
+
         }
     }//GEN-LAST:event_btnredadActionPerformed
 
@@ -1182,6 +1201,7 @@ public class menujf extends javax.swing.JFrame {
     private javax.swing.JButton btnrtrabajando;
     private javax.swing.JButton btnsalirdmenu;
     private rojerusan.RSComboMetro cmbA_I;
+    private rojerusan.RSComboMetro cmbEdades;
     private rojerusan.RSComboMetro cmbGenero;
     private rojerusan.RSComboMetro cmbPuestos;
     private javax.swing.JLabel jLabel1;

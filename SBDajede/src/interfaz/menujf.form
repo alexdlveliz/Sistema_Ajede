@@ -138,6 +138,11 @@
         </Property>
       </Properties>
     </Component>
+    <Component class="rojerusan.RSComboMetro" name="cmbEdades">
+      <Properties>
+        <Property name="maximumRowCount" type="int" value="4"/>
+      </Properties>
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>

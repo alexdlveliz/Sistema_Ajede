@@ -10,8 +10,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -23,11 +25,35 @@ public class Proyecto extends Usuario {
 
     private Connection con = null;
     private final Conexion conexion;
+    private final ArrayList<Long> fechas;
 
     //Se hace la conexión a la base de datos
     public Proyecto() {
         conexion = new Conexion();
         con = conexion.getConnection();
+        fechas = new ArrayList<>();
+    }
+
+    public ArrayList<Long> getFechas() {
+        return fechas;
+    }
+
+    public DefaultComboBoxModel getEdades() {
+        try {
+            DefaultComboBoxModel datos = new DefaultComboBoxModel();
+            String sql = "SELECT DISTINCT YEAR(FechaNacimiento) AS anio, YEAR(NOW()) as anioA FROM asociado ORDER BY anio DESC;";
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                fechas.add(rs.getLong("anio"));
+                datos.addElement((rs.getInt("anioA") - rs.getInt("anio")));
+            }
+            datos.addElement("Todas las edades");
+            return datos;
+        } catch (SQLException ex) {
+            Logger.getLogger(Proyecto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 
     //Método para insertarProyecto proyecto
@@ -55,7 +81,7 @@ public class Proyecto extends Usuario {
             }
             boolean genero;
             String registros[] = new String[4];
-            String sql = "Select * from asociado where Nombre LIKE '%" + nombre + "%' and Activo=true";
+            String sql = "select id, Nombre, Apellido, Genero, YEAR(NOW()) as anio from asociado where Nombre LIKE '%" + nombre + "%' and Activo=true";
             DefaultTableModel modelo = new DefaultTableModel(null, titulos);
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
@@ -71,6 +97,7 @@ public class Proyecto extends Usuario {
                 }
                 modelo.addRow(registros);
             }
+
             return modelo;
         } catch (SQLException ex) {
             Logger.getLogger(Proyecto.class.getName()).log(Level.SEVERE, null, ex);
@@ -86,7 +113,7 @@ public class Proyecto extends Usuario {
             }
             boolean genero;
             String registros[] = new String[3];
-            String sql = "Select * from proyecto where nombreProyecto LIKE '%" + nombre + "%' and finalizado=false";
+            String sql = "Select id, nombreProyecto, descripcion  from proyecto where nombreProyecto LIKE '%" + nombre + "%' and finalizado=false";
             DefaultTableModel modelo = new DefaultTableModel(null, titulos);
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
