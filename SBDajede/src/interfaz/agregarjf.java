@@ -24,6 +24,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JPanel;
+import rojerusan.RSNotifyAnimated;
+import rojerusan.RSNotifyFade;
 
 /**
  *
@@ -1281,10 +1283,14 @@ public class agregarjf extends javax.swing.JFrame {
         if (asociado.insertar(nombre, apellido, genero1, fecha, email, talla, residencia, true, PerfilFB, tipoSangre, nivEst, Dpi)) {
             ocupacionE.insertar(ocupacion, lugarOcupacion);
             ocupacionE.insertarDetalleOcupacionAsociado(idAsociado, idOcupacion);
-            JOptionPane.showMessageDialog(null, "Asociado Ingresado correctamente");
+            new rojerusan.RSNotifyAnimated("¡ÉXITO!", "Asociado Ingresado correctamente", 
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.SUCCESS).setVisible(true);
             return true;
         } else {
-            JOptionPane.showMessageDialog(null, "Error al ingresar el asociado");
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al ingresar el asociado", 
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
             return false;
         }
     }
@@ -1304,12 +1310,16 @@ public class agregarjf extends javax.swing.JFrame {
         
         if(antecedentes.insertar(Hospital, padecimientos, idAsociado))
         {
-            JOptionPane.showMessageDialog(null, "Médicos ingresados correctamente");
+            //JOptionPane.showMessageDialog(null, "Médicos ingresados correctamente");
             if(Alergias.insertar(alergias, idAntecMedicos))
                 JOptionPane.showMessageDialog(null, "Alergias ingresadas correctamente");
         }
         else
-            JOptionPane.showMessageDialog(null, "Error al ingresar Información médica");
+        {
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al ingresar Información médica", 
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+        }
         
     }
     
@@ -1466,15 +1476,21 @@ public class agregarjf extends javax.swing.JFrame {
 
     private boolean validarDatosPersonales() {
         if (textfieldnombres.getText().length() == 0) {
-            JOptionPane.showMessageDialog(null, "El campo nombre esta vacio, favor de ingresar los nombres");
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "El campo nombre está vacío, favor de ingresar el nombre", 
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
             textfieldnombres.requestFocus();
             return false;
         } else if (textfieldapellidos.getText().length() == 0) {
-            JOptionPane.showMessageDialog(null, "El campo apellido esta vacio, favor de ingresar los apellidos");
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "El campo apellido esta vacio, favor de ingresar los apellidos", 
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
             textfieldapellidos.requestFocus();
             return false;
         } else if (getFecha(datecfecha) == null) {
-            JOptionPane.showMessageDialog(null, "El campo fecha esta vacio, favor de ingresar la fecha de nacimiento");
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "El campo fecha esta vacio, favor de ingresar la fecha de nacimiento", 
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
             datecfecha.requestFocus();
             return false;
         } else {
@@ -1486,37 +1502,51 @@ public class agregarjf extends javax.swing.JFrame {
     {
         if(textfieldnombreencargado.getText().length() == 0)
         {
-            JOptionPane.showMessageDialog(null, "El campo nombre está vacío, favor de llenarlo");
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "El campo nombre está vacío, favor de llenarlo", 
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
             textfieldnombreencargado.requestFocus();
             return false;
         } else if(textfieldapellidoencargado.getText().length() == 0)
         {
-            JOptionPane.showMessageDialog(null, "El campo apellido está vacío, favor de llenarlo");
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "El campo apellido está vacío, favor de llenarlo", 
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
             textfieldapellidoencargado.requestFocus();
             return false;
         } else if(textfieldtelefonoencargado.getText().length() == 0)
         {
-            JOptionPane.showMessageDialog(null, "El campo teléfono está vacío, favor de llenarlo");
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "El campo teléfono está vacío, favor de llenarlo", 
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
             textfieldtelefono.requestFocus();
             return false;
         } else if(textfielddpiencargado.getText().length() == 0)
         {
-            JOptionPane.showMessageDialog(null, "El campo DPI/CUI está vacío, favor de llenarlo");
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "El campo DPI/CUI está vacío, favor de llenarlo", 
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
             textfielddpiencargado.requestFocus();
             return false;
         } else if(textfieldresidenciaencargado.getText().length() == 0)
         {
-            JOptionPane.showMessageDialog(null, "El campo Residencia está vacío, favor de llenarlo");
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "El campo Residencia está vacío, favor de llenarlo", 
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
             textfieldresidenciaencargado.requestFocus();
             return false;
         } else if(textfieldocupacionencargado.getText().length() == 0)
         {
-            JOptionPane.showMessageDialog(null, "El campo Trabajo/Ocupación está vacío, favor de llenarlo");
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "El campo Trabajo/Ocupación está vacío, favor de llenarlo", 
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
             textfieldocupacionencargado.requestFocus();
             return false;
         } else if(textfieldlugarencargado.getText().length() == 0)
         {
-            JOptionPane.showMessageDialog(null, "El campo Lugar de Trabajo/Ocupación está vacío, favor de llenarlo");
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "El campo Lugar de Trabajo/Ocupación está vacío, favor de llenarlo", 
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
             textfieldlugarencargado.requestFocus();
             return false;
         } else
@@ -1527,17 +1557,23 @@ public class agregarjf extends javax.swing.JFrame {
     {
         if(textfieldnombreemergencia.getText().length() == 0)
         {
-            JOptionPane.showMessageDialog(null, "El campo nombre está vacío, favor de llenarlo");
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "El campo nombre está vacío, favor de llenarlo", 
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
             textfieldnombreemergencia.requestFocus();
             return false;
         } else if(textfieldapellidoemergencia.getText().length() == 0)
         {
-            JOptionPane.showMessageDialog(null, "El campo apellido está vacío, favor de llenarlo");
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "El campo apellido está vacío, favor de llenarlo", 
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
             textfieldapellidoemergencia.requestFocus();
             return false;
         } else if(textfieldparentescoemergencia.getText().length() == 0)
         {
-            JOptionPane.showMessageDialog(null, "El campo Parentesco/Relación está vacío, favor de llenarlo");
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "El campo Parentesco/Relación está vacío, favor de llenarlo", 
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
             textfieldparentescoemergencia.requestFocus();
             return false;
         } 
