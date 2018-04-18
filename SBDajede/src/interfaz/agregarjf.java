@@ -32,7 +32,8 @@ import rojerusan.RSNotifyFade;
  * @author Nahomi
  */
 public class agregarjf extends javax.swing.JFrame {
-    ImageIcon dp1= new ImageIcon(new ImageIcon(getClass().getResource("/fondos/datospersonales1.jpg")).getImage());
+
+    ImageIcon dp1 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/datospersonales1.jpg")).getImage());
     ImageIcon dp2 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/datospersonales2.jpg")).getImage());
     ImageIcon dlabo1 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/datoslaborales1.jpg")).getImage());
     ImageIcon dlabo2 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/datoslaborales2.jpg")).getImage());
@@ -46,9 +47,8 @@ public class agregarjf extends javax.swing.JFrame {
     ImageIcon datosenc2 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/datosenc2.jpg")).getImage());
     ImageIcon contacem1 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/contaceme1.jpg")).getImage());
     ImageIcon contacem2 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/contaceme2.jpg")).getImage());
-    Font fuente = new Font("Yu Gothic UI Light", Font.PLAIN,34);
-    Font fuente2 = new Font("Yu Gothic UI Light", Font.PLAIN,28);
-    
+    Font fuente = new Font("Yu Gothic UI Light", Font.PLAIN, 34);
+    Font fuente2 = new Font("Yu Gothic UI Light", Font.PLAIN, 28);
 
     /**
      * Creates new form agregarjf
@@ -84,22 +84,22 @@ public class agregarjf extends javax.swing.JFrame {
             slider.setSize(1565, 880);
             jpdatosp.setSize(1595, 890);
             lbdp.setSize(1595, 890);
-            lbdlabo.setSize(1565,880);
-            jpdlabo.setSize(1565,880);
-            jpvoluntariado.setSize(1565,880);
-            lbvoluntariado.setSize(1565,880);
-            jpinfomed.setSize(1565,880);
+            lbdlabo.setSize(1565, 880);
+            jpdlabo.setSize(1565, 880);
+            jpvoluntariado.setSize(1565, 880);
+            lbvoluntariado.setSize(1565, 880);
+            jpinfomed.setSize(1565, 880);
             lbinfomed.setSize(1565, 880);
-            jpdenca.setSize(1565,880);
-            lbdatosenca.setSize(1565,880);
-            jpconteme.setSize(1565,880);
-            lbconteme.setSize(1565,880);
+            jpdenca.setSize(1565, 880);
+            lbdatosenca.setSize(1565, 880);
+            jpconteme.setSize(1565, 880);
+            lbconteme.setSize(1565, 880);
             lbdp.setIcon(dp1);
             lbdlabo.setIcon(dlabo1);
             lbvoluntariado.setIcon(voluntariado1);
             lbbeca.setIcon(beca1);
-            jpbeca.setSize(1565,880);
-            lbbeca.setSize(1565,880);
+            jpbeca.setSize(1565, 880);
+            lbbeca.setSize(1565, 880);
             lbinfomed.setIcon(infomed1);
             lbdatosenca.setIcon(datosenc1);
             lbconteme.setIcon(contacem1);
@@ -113,24 +113,24 @@ public class agregarjf extends javax.swing.JFrame {
             textfieldnombres.setFont(fuente);
             textfieldapellidos.setSize(510, 44);
             textfieldapellidos.setFont(fuente);
-            textfieldapellidos.setLocation(215,286);
-            textfieldedad.setSize(110,44);
-            textfieldedad.setLocation(160,369);
+            textfieldapellidos.setLocation(215, 286);
+            textfieldedad.setSize(110, 44);
+            textfieldedad.setLocation(160, 369);
             textfieldedad.setFont(fuente);
-            cmbgenero.setLocation(475,370);
-            cmbgenero.setSize(270,44);
+            cmbgenero.setLocation(475, 370);
+            cmbgenero.setSize(270, 44);
             cmbgenero.setFont(fuente);
-            datecfecha.setLocation(420,455);
-            datecfecha.setSize(320,44);
+            datecfecha.setLocation(420, 455);
+            datecfecha.setSize(320, 44);
             datecfecha.setFont(fuente);
             textfielddpi.setLocation(220, 560);
-            textfielddpi.setSize(500,44);
+            textfielddpi.setSize(500, 44);
             textfielddpi.setFont(fuente);
-            textfieldresidencia.setLocation(265,645);
-            textfieldresidencia.setSize(455,44);
+            textfieldresidencia.setLocation(265, 645);
+            textfieldresidencia.setSize(455, 44);
             textfieldresidencia.setFont(fuente);
             textfieldcorreo.setLocation(255, 735);
-            textfieldcorreo.setSize(468,44);
+            textfieldcorreo.setSize(468, 44);
             textfieldcorreo.setFont(fuente);
             btnmenu.setLocation(837, 567);
             btnsiguientedl.setLocation(1360, 567);
@@ -139,31 +139,31 @@ public class agregarjf extends javax.swing.JFrame {
             textfieldtelefono.setSize(395, 44);
             textfieldtelefono.setFont(fuente);
             cmbtalla.setLocation(1100, 300);
-            cmbtalla.setSize(395,44);
+            cmbtalla.setSize(395, 44);
             cmbtalla.setFont(fuente);
             textfieldperfil.setLocation(1190, 224);
-            textfieldperfil.setSize(310,44);
+            textfieldperfil.setSize(310, 44);
             textfieldperfil.setFont(fuente);
             cmbnivelestudiovoluntario.setLocation(350, 222);
             cmbnivelestudiovoluntario.setSize(410, 44);
             cmbnivelestudiovoluntario.setFont(fuente);
             textfieldlugardeestudio.setLocation(80, 400);
-            textfieldlugardeestudio.setSize(670,50);
+            textfieldlugardeestudio.setSize(670, 50);
             textfieldlugardeestudio.setFont(fuente);
             textfieldlugardeestudio2.setLocation(80, 456);
-            textfieldlugardeestudio2.setSize(670,50);
+            textfieldlugardeestudio2.setSize(670, 50);
             textfieldlugardeestudio2.setFont(fuente);
             textfieldocupacion.setLocation(80, 644);
-            textfieldocupacion.setSize(670,50);
+            textfieldocupacion.setSize(670, 50);
             textfieldocupacion.setFont(fuente);
             textfieldocupacion2.setLocation(80, 700);
-            textfieldocupacion2.setSize(670,50);
+            textfieldocupacion2.setSize(670, 50);
             textfieldocupacion2.setFont(fuente);
             textfieldlugartrabajo.setLocation(840, 310);
-            textfieldlugartrabajo.setSize(650,50);
+            textfieldlugartrabajo.setSize(650, 50);
             textfieldlugartrabajo.setFont(fuente);
             textfieldlugartrabajo2.setLocation(840, 383);
-            textfieldlugartrabajo2.setSize(650,50);
+            textfieldlugartrabajo2.setSize(650, 50);
             textfieldlugartrabajo2.setFont(fuente);
             btnsiguientevolu.setLocation(1360, 567);
             btnatrasdp.setLocation(845, 567);
@@ -177,10 +177,10 @@ public class agregarjf extends javax.swing.JFrame {
             jScrollPane1.setSize(635, 435);
             jScrollPane1.setFont(fuente);
             jYearChooser2.setLocation(300, 305);
-            jYearChooser2.setSize(410,50);
+            jYearChooser2.setSize(410, 50);
             jYearChooser2.setFont(fuente);
             jYearChooser1.setLocation(300, 415);
-            jYearChooser1.setSize(410,50);
+            jYearChooser1.setSize(410, 50);
             jYearChooser1.setFont(fuente);
             jScrollPane2.setLocation(815, 270);
             jScrollPane2.setSize(680, 250);
@@ -227,7 +227,7 @@ public class agregarjf extends javax.swing.JFrame {
             btnsiguientedenc.setLocation(1355, 590);
             cmbtipodesangre.setLocation(1000, 661);
             cmbtipodesangre.setFont(fuente);
-            cmbtipodesangre.setSize(280,50);
+            cmbtipodesangre.setSize(280, 50);
             textfieldnombreencargado.setLocation(215, 210);
             textfieldnombreencargado.setSize(530, 44);
             textfieldnombreencargado.setFont(fuente);
@@ -241,7 +241,7 @@ public class agregarjf extends javax.swing.JFrame {
             textfieldtelefonoencargado.setSize(410, 40);
             textfieldtelefonoencargado.setFont(fuente);
             textfielddpiencargado.setLocation(210, 562);
-            textfielddpiencargado.setSize(520,40);
+            textfielddpiencargado.setSize(520, 40);
             textfielddpiencargado.setFont(fuente);
             textfieldresidenciaencargado.setLocation(250, 647);
             textfieldresidenciaencargado.setSize(480, 44);
@@ -285,8 +285,7 @@ public class agregarjf extends javax.swing.JFrame {
             textfieldtelefonoemergencia5.setFont(fuente);
             btnatrasdenc.setLocation(850, 575);
             btnguardar.setLocation(1345, 575);
-        }
-        else if((tamanio.width == 1366) && (tamanio.height == 768)) //1366x768, 1708x960
+        } else if ((tamanio.width == 1366) && (tamanio.height == 768)) //1366x768, 1708x960
         {
             this.setLocationRelativeTo(null);
             this.setSize(1250, 700);
@@ -298,11 +297,10 @@ public class agregarjf extends javax.swing.JFrame {
 //            lbdatosenca.setIcon(datosenc2);
 //            lbconteme.setIcon(contacem2);
         }
-        
+
     }
 
-    public void transparencia() 
-    {
+    public void transparencia() {
         btnmenu.setOpaque(false);
         btnmenu.setBorderPainted(false);
         btnmenu.setContentAreaFilled(false);
@@ -354,53 +352,53 @@ public class agregarjf extends javax.swing.JFrame {
         btnaddp.setOpaque(false);
         btnaddp.setBorderPainted(false);
         btnaddp.setContentAreaFilled(false);
-        
-        textfieldnombres.setBackground(new Color(0,0,0,0));
-        textfieldapellidos.setBackground(new Color(0,0,0,0));
-        textfieldedad.setBackground(new Color(0,0,0,0));
-        cmbgenero.setBackground(new Color(0,0,0,0));
-        datecfecha.setBackground(new Color(0,0,0,0));
-        textfielddpi.setBackground(new Color(0,0,0,0));
-        textfieldresidencia.setBackground(new Color(0,0,0,0));
-        textfieldcorreo.setBackground(new Color(0,0,0,0));
-        textfieldperfil.setBackground(new Color(0,0,0,0));
-        cmbtalla.setBackground(new Color(0,0,0,0));
-        textfieldtelefono.setBackground(new Color(0,0,0,0));
-        textfieldhospital.setBackground(new Color(0,0,0,0));
-        textfieldpadecimiento1.setBackground(new Color(0,0,0,0));
-        textfieldpadecimiento2.setBackground(new Color(0,0,0,0));
-        textfieldpadecimiento3.setBackground(new Color(0,0,0,0));
-        textfieldpadecimiento4.setBackground(new Color(0,0,0,0));
-        textfieldalergia1.setBackground(new Color(0,0,0,0));
-        textfieldalergia2.setBackground(new Color(0,0,0,0));
-        textfieldalergia3.setBackground(new Color(0,0,0,0));
-        textfieldalergia4.setBackground(new Color(0,0,0,0));
-        textfieldalergia5.setBackground(new Color(0,0,0,0));
-        cmbtipodesangre.setBackground(new Color(0,0,0,0));
-        textfieldnombreencargado.setBackground(new Color(0,0,0,0));
-        textfieldapellidoencargado.setBackground(new Color(0,0,0,0));
-        textfieldtelefonoencargado.setBackground(new Color(0,0,0,0));
-        cmbnivelestudioencargado.setBackground(new Color(0,0,0,0));
-        textfielddpiencargado.setBackground(new Color(0,0,0,0));
-        textfieldresidenciaencargado.setBackground(new Color(0,0,0,0));
-        textfieldcorreoencargado.setBackground(new Color(0,0,0,0));
-        textfieldocupacionencargado.setBackground(new Color(0,0,0,0));
-        textfieldlugarencargado.setBackground(new Color(0,0,0,0));
-        textfieldnombreemergencia.setBackground(new Color(0,0,0,0));
-        textfieldapellidoemergencia.setBackground(new Color(0,0,0,0));
-        textfieldparentescoemergencia.setBackground(new Color(0,0,0,0));
-        textfieldtelefonoemergencia1.setBackground(new Color(0,0,0,0));
-        textfieldtelefonoemergencia2.setBackground(new Color(0,0,0,0));
-        textfieldtelefonoemergencia3.setBackground(new Color(0,0,0,0));
-        textfieldtelefonoemergencia4.setBackground(new Color(0,0,0,0));
-        textfieldtelefonoemergencia5.setBackground(new Color(0,0,0,0));
-        cmbnivelestudiovoluntario.setBackground(new Color(0,0,0,0));
-        textfieldlugardeestudio.setBackground(new Color(0,0,0,0));
-        textfieldocupacion.setBackground(new Color(0,0,0,0));
-        textfieldlugartrabajo.setBackground(new Color(0,0,0,0));
-        textfieldlugardeestudio2.setBackground(new Color(0,0,0,0));
-        textfieldocupacion2.setBackground(new Color(0,0,0,0));
-        textfieldlugartrabajo2.setBackground(new Color(0,0,0,0));
+
+        textfieldnombres.setBackground(new Color(0, 0, 0, 0));
+        textfieldapellidos.setBackground(new Color(0, 0, 0, 0));
+        textfieldedad.setBackground(new Color(0, 0, 0, 0));
+        cmbgenero.setBackground(new Color(0, 0, 0, 0));
+        datecfecha.setBackground(new Color(0, 0, 0, 0));
+        textfielddpi.setBackground(new Color(0, 0, 0, 0));
+        textfieldresidencia.setBackground(new Color(0, 0, 0, 0));
+        textfieldcorreo.setBackground(new Color(0, 0, 0, 0));
+        textfieldperfil.setBackground(new Color(0, 0, 0, 0));
+        cmbtalla.setBackground(new Color(0, 0, 0, 0));
+        textfieldtelefono.setBackground(new Color(0, 0, 0, 0));
+        textfieldhospital.setBackground(new Color(0, 0, 0, 0));
+        textfieldpadecimiento1.setBackground(new Color(0, 0, 0, 0));
+        textfieldpadecimiento2.setBackground(new Color(0, 0, 0, 0));
+        textfieldpadecimiento3.setBackground(new Color(0, 0, 0, 0));
+        textfieldpadecimiento4.setBackground(new Color(0, 0, 0, 0));
+        textfieldalergia1.setBackground(new Color(0, 0, 0, 0));
+        textfieldalergia2.setBackground(new Color(0, 0, 0, 0));
+        textfieldalergia3.setBackground(new Color(0, 0, 0, 0));
+        textfieldalergia4.setBackground(new Color(0, 0, 0, 0));
+        textfieldalergia5.setBackground(new Color(0, 0, 0, 0));
+        cmbtipodesangre.setBackground(new Color(0, 0, 0, 0));
+        textfieldnombreencargado.setBackground(new Color(0, 0, 0, 0));
+        textfieldapellidoencargado.setBackground(new Color(0, 0, 0, 0));
+        textfieldtelefonoencargado.setBackground(new Color(0, 0, 0, 0));
+        cmbnivelestudioencargado.setBackground(new Color(0, 0, 0, 0));
+        textfielddpiencargado.setBackground(new Color(0, 0, 0, 0));
+        textfieldresidenciaencargado.setBackground(new Color(0, 0, 0, 0));
+        textfieldcorreoencargado.setBackground(new Color(0, 0, 0, 0));
+        textfieldocupacionencargado.setBackground(new Color(0, 0, 0, 0));
+        textfieldlugarencargado.setBackground(new Color(0, 0, 0, 0));
+        textfieldnombreemergencia.setBackground(new Color(0, 0, 0, 0));
+        textfieldapellidoemergencia.setBackground(new Color(0, 0, 0, 0));
+        textfieldparentescoemergencia.setBackground(new Color(0, 0, 0, 0));
+        textfieldtelefonoemergencia1.setBackground(new Color(0, 0, 0, 0));
+        textfieldtelefonoemergencia2.setBackground(new Color(0, 0, 0, 0));
+        textfieldtelefonoemergencia3.setBackground(new Color(0, 0, 0, 0));
+        textfieldtelefonoemergencia4.setBackground(new Color(0, 0, 0, 0));
+        textfieldtelefonoemergencia5.setBackground(new Color(0, 0, 0, 0));
+        cmbnivelestudiovoluntario.setBackground(new Color(0, 0, 0, 0));
+        textfieldlugardeestudio.setBackground(new Color(0, 0, 0, 0));
+        textfieldocupacion.setBackground(new Color(0, 0, 0, 0));
+        textfieldlugartrabajo.setBackground(new Color(0, 0, 0, 0));
+        textfieldlugardeestudio2.setBackground(new Color(0, 0, 0, 0));
+        textfieldocupacion2.setBackground(new Color(0, 0, 0, 0));
+        textfieldlugartrabajo2.setBackground(new Color(0, 0, 0, 0));
         btnatrasvoluntariado.setOpaque(false);
         btnatrasvoluntariado.setBorderPainted(false);
         btnatrasvoluntariado.setContentAreaFilled(false);
@@ -419,10 +417,10 @@ public class agregarjf extends javax.swing.JFrame {
         btnotrotelefonoencargado.setOpaque(false);
         btnotrotelefonoencargado.setBorderPainted(false);
         btnotrotelefonoencargado.setContentAreaFilled(false);
-        ptxt.setBackground(new Color(0,0,0,0));
-        cmbexbecario.setBackground(new Color(0,0,0,0));
-        cmbactivosina.setBackground(new Color(0,0,0,0));
-       
+        ptxt.setBackground(new Color(0, 0, 0, 0));
+        cmbexbecario.setBackground(new Color(0, 0, 0, 0));
+        cmbactivosina.setBackground(new Color(0, 0, 0, 0));
+
     }
 
     /**
@@ -644,7 +642,7 @@ public class agregarjf extends javax.swing.JFrame {
         cmbgenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino" }));
         cmbgenero.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jpdatosp.add(cmbgenero);
-        cmbgenero.setBounds(390, 290, 190, 38);
+        cmbgenero.setBounds(390, 290, 190, 42);
 
         datecfecha.setForeground(new java.awt.Color(25, 92, 134));
         datecfecha.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
@@ -675,7 +673,7 @@ public class agregarjf extends javax.swing.JFrame {
         cmbtalla.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "XS", "S", "M", "L", "XL" }));
         cmbtalla.setBorder(null);
         jpdatosp.add(cmbtalla);
-        cmbtalla.setBounds(870, 240, 60, 36);
+        cmbtalla.setBounds(870, 240, 60, 42);
 
         textfieldtelefono.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         textfieldtelefono.setForeground(new java.awt.Color(25, 92, 134));
@@ -1283,71 +1281,65 @@ public class agregarjf extends javax.swing.JFrame {
         if (asociado.insertar(nombre, apellido, genero1, fecha, email, talla, residencia, true, PerfilFB, tipoSangre, nivEst, Dpi)) {
             ocupacionE.insertar(ocupacion, lugarOcupacion);
             ocupacionE.insertarDetalleOcupacionAsociado(idAsociado, idOcupacion);
-            new rojerusan.RSNotifyAnimated("¡ÉXITO!", "Asociado Ingresado correctamente", 
+            new rojerusan.RSNotifyAnimated("¡ÉXITO!", "Asociado Ingresado correctamente",
                     5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
                     RSNotifyAnimated.TypeNotify.SUCCESS).setVisible(true);
             return true;
         } else {
-            new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al ingresar el asociado", 
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al ingresar el asociado",
                     5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
                     RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
             return false;
         }
     }
-        
+
     //Se inserta la información médica del asociado
-    private void informacionMedica()
-    {
+    private void informacionMedica() {
         String Hospital = textfieldhospital.getText();
         String padecimientos = textfieldpadecimiento1.getText() + " " + textfieldpadecimiento2.getText()
                 + " " + textfieldpadecimiento3.getText() + " " + textfieldpadecimiento4.getText();
         String alergias = textfieldalergia1.getText() + " " + textfieldalergia2.getText() + " "
                 + textfieldalergia3.getText() + " " + textfieldalergia4.getText() + " " + textfieldalergia5.getText();
-        
+
         int idAsociado = antecedentes.obteneridAsociado();
-        System.out.println("idAsociado informació médica: " + idAsociado);
         int idAntecMedicos = Alergias.obtenerIdAntMedicos();
-        
-        if(antecedentes.insertar(Hospital, padecimientos, idAsociado))
-        {
+
+        if (antecedentes.insertar(Hospital, padecimientos, idAsociado)) {
             //JOptionPane.showMessageDialog(null, "Médicos ingresados correctamente");
-            if(Alergias.insertar(alergias, idAntecMedicos))
+            if (Alergias.insertar(alergias, idAntecMedicos)) {
                 JOptionPane.showMessageDialog(null, "Alergias ingresadas correctamente");
-        }
-        else
-        {
-            new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al ingresar Información médica", 
+            }
+        } else {
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al ingresar Información médica",
                     5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
                     RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
         }
-        
+
     }
-    
+
     //Se insertar el contacto de emergencia del asociado
-    private void contactoEmergencia()
-    {
+    private void contactoEmergencia() {
         String nombre = textfieldnombreemergencia.getText();
         String apellido = textfieldapellidoemergencia.getText();
         String parentesco = textfieldparentescoemergencia.getText();
         String telefono = textfieldtelefonoemergencia1.getText();
         int idAsociado = contacto.obteneridAsociado();
         int idEmergencia = contacto.obteneridContactoEmergencia();
-        
-        if(contacto.insertar(parentesco, nombre, apellido, idAsociado))
-        {
-            if(contacto.telefonoEmergencia(idEmergencia, telefono))
+
+        if (contacto.insertar(parentesco, nombre, apellido, idAsociado)) {
+            if (contacto.telefonoEmergencia(idEmergencia, telefono)) {
                 JOptionPane.showMessageDialog(null, "Datos ingresados correctmente");
-        }
-        else
+            }
+        } else {
             JOptionPane.showMessageDialog(null, "Error al ingresar contacto emergencia");
+        }
     }
-    
+
     //Se insertan los datos del encargado del asociado
-    private void DatosEncargado()
-    {
+    private void DatosEncargado() {
         String nombre = textfieldnombreencargado.getText();
         String apellido = textfieldapellidoencargado.getText();
-        String nivelEstudio = (String)cmbnivelestudioencargado.getSelectedItem();
+        String nivelEstudio = (String) cmbnivelestudioencargado.getSelectedItem();
         String telefono = textfieldtelefonoencargado.getText();
         String dpi = textfielddpiencargado.getText();
         String residencia = textfieldresidenciaencargado.getText();
@@ -1357,30 +1349,29 @@ public class agregarjf extends javax.swing.JFrame {
         int idAsociado = antecedentes.obteneridAsociado();
         int idEncargado = encargado.obteneridEncargado();
         int idOcupacion = ocupacionE.obteneridOcupacion();
-        
-        if(encargado.insertar(dpi, email, nombre, apellido, residencia, nivelEstudio))
-        {
+
+        if (encargado.insertar(dpi, email, nombre, apellido, residencia, nivelEstudio)) {
             ocupacionE.insertar(nombreOcupacion, lugarOcupacion);
             encargado.telefonoEncargado(idEncargado, telefono);
             ocupacionE.insertarDetalleOcupacion(idEncargado, idOcupacion);
             encargado.insertarTutela(idEncargado, idAsociado);
         }
     }
-    
+
     private void btnatrasdpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnatrasdpActionPerformed
         slider.setPanelSlider(jpdatosp, RSPanelsSlider.DIRECT.RIGHT);
 
     }//GEN-LAST:event_btnatrasdpActionPerformed
 
-    private void btnminimizardpActionPerformed(java.awt.event.ActionEvent evt) {                                               
+    private void btnminimizardpActionPerformed(java.awt.event.ActionEvent evt) {
         this.setExtendedState(ICONIFIED);
-    }                                              
+    }
 
     private void btnsiguientevoluActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsiguientevoluActionPerformed
         slider.setPanelSlider(jpvoluntariado, RSPanelsSlider.DIRECT.LEFT);
     }//GEN-LAST:event_btnsiguientevoluActionPerformed
     private void btnminimizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnminimizarActionPerformed
-         this.setExtendedState(ICONIFIED);
+        this.setExtendedState(ICONIFIED);
     }//GEN-LAST:event_btnminimizarActionPerformed
 
     private void btnatrasdencActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnatrasdencActionPerformed
@@ -1388,16 +1379,14 @@ public class agregarjf extends javax.swing.JFrame {
     }//GEN-LAST:event_btnatrasdencActionPerformed
 
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
-                /**
+        /**
          * Proceso para agregar al asociado, todos los datos que están escritos
          * en este frame
          */
-                
-         //Acá se ingresan todos los datos del asociado
-        if(validarContactoEmergencia())
-        {
-            if(datosAsociado())
-            {
+
+        //Acá se ingresan todos los datos del asociado
+        if (validarContactoEmergencia()) {
+            if (datosAsociado()) {
                 informacionMedica();
                 DatosEncargado();
                 contactoEmergencia();
@@ -1412,8 +1401,9 @@ public class agregarjf extends javax.swing.JFrame {
     }//GEN-LAST:event_btnatrasinfmeActionPerformed
 
     private void btnsiguientecontemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsiguientecontemeActionPerformed
-        if(validarDatosEncargado())
+        if (validarDatosEncargado()) {
             slider.setPanelSlider(jpconteme, RSPanelsSlider.DIRECT.LEFT);
+        }
     }//GEN-LAST:event_btnsiguientecontemeActionPerformed
 
     private void btnatrasbecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnatrasbecaActionPerformed
@@ -1476,19 +1466,19 @@ public class agregarjf extends javax.swing.JFrame {
 
     private boolean validarDatosPersonales() {
         if (textfieldnombres.getText().length() == 0) {
-            new rojerusan.RSNotifyAnimated("¡ERROR!", "El campo nombre está vacío, favor de ingresar el nombre", 
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "El campo nombre está vacío, favor de ingresar el nombre",
                     5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
                     RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
             textfieldnombres.requestFocus();
             return false;
         } else if (textfieldapellidos.getText().length() == 0) {
-            new rojerusan.RSNotifyAnimated("¡ERROR!", "El campo apellido esta vacio, favor de ingresar los apellidos", 
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "El campo apellido esta vacio, favor de ingresar los apellidos",
                     5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
                     RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
             textfieldapellidos.requestFocus();
             return false;
         } else if (getFecha(datecfecha) == null) {
-            new rojerusan.RSNotifyAnimated("¡ERROR!", "El campo fecha esta vacio, favor de ingresar la fecha de nacimiento", 
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "El campo fecha esta vacio, favor de ingresar la fecha de nacimiento",
                     5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
                     RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
             datecfecha.requestFocus();
@@ -1497,88 +1487,77 @@ public class agregarjf extends javax.swing.JFrame {
             return true;
         }
     }
-    
-    private boolean validarDatosEncargado()
-    {
-        if(textfieldnombreencargado.getText().length() == 0)
-        {
-            new rojerusan.RSNotifyAnimated("¡ERROR!", "El campo nombre está vacío, favor de llenarlo", 
+
+    private boolean validarDatosEncargado() {
+        if (textfieldnombreencargado.getText().length() == 0) {
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "El campo nombre está vacío, favor de llenarlo",
                     5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
                     RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
             textfieldnombreencargado.requestFocus();
             return false;
-        } else if(textfieldapellidoencargado.getText().length() == 0)
-        {
-            new rojerusan.RSNotifyAnimated("¡ERROR!", "El campo apellido está vacío, favor de llenarlo", 
+        } else if (textfieldapellidoencargado.getText().length() == 0) {
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "El campo apellido está vacío, favor de llenarlo",
                     5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
                     RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
             textfieldapellidoencargado.requestFocus();
             return false;
-        } else if(textfieldtelefonoencargado.getText().length() == 0)
-        {
-            new rojerusan.RSNotifyAnimated("¡ERROR!", "El campo teléfono está vacío, favor de llenarlo", 
+        } else if (textfieldtelefonoencargado.getText().length() == 0) {
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "El campo teléfono está vacío, favor de llenarlo",
                     5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
                     RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
             textfieldtelefono.requestFocus();
             return false;
-        } else if(textfielddpiencargado.getText().length() == 0)
-        {
-            new rojerusan.RSNotifyAnimated("¡ERROR!", "El campo DPI/CUI está vacío, favor de llenarlo", 
+        } else if (textfielddpiencargado.getText().length() == 0) {
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "El campo DPI/CUI está vacío, favor de llenarlo",
                     5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
                     RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
             textfielddpiencargado.requestFocus();
             return false;
-        } else if(textfieldresidenciaencargado.getText().length() == 0)
-        {
-            new rojerusan.RSNotifyAnimated("¡ERROR!", "El campo Residencia está vacío, favor de llenarlo", 
+        } else if (textfieldresidenciaencargado.getText().length() == 0) {
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "El campo Residencia está vacío, favor de llenarlo",
                     5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
                     RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
             textfieldresidenciaencargado.requestFocus();
             return false;
-        } else if(textfieldocupacionencargado.getText().length() == 0)
-        {
-            new rojerusan.RSNotifyAnimated("¡ERROR!", "El campo Trabajo/Ocupación está vacío, favor de llenarlo", 
+        } else if (textfieldocupacionencargado.getText().length() == 0) {
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "El campo Trabajo/Ocupación está vacío, favor de llenarlo",
                     5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
                     RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
             textfieldocupacionencargado.requestFocus();
             return false;
-        } else if(textfieldlugarencargado.getText().length() == 0)
-        {
-            new rojerusan.RSNotifyAnimated("¡ERROR!", "El campo Lugar de Trabajo/Ocupación está vacío, favor de llenarlo", 
+        } else if (textfieldlugarencargado.getText().length() == 0) {
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "El campo Lugar de Trabajo/Ocupación está vacío, favor de llenarlo",
                     5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
                     RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
             textfieldlugarencargado.requestFocus();
             return false;
-        } else
+        } else {
             return true;
+        }
     }
-    
-    private boolean validarContactoEmergencia()
-    {
-        if(textfieldnombreemergencia.getText().length() == 0)
-        {
-            new rojerusan.RSNotifyAnimated("¡ERROR!", "El campo nombre está vacío, favor de llenarlo", 
+
+    private boolean validarContactoEmergencia() {
+        if (textfieldnombreemergencia.getText().length() == 0) {
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "El campo nombre está vacío, favor de llenarlo",
                     5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
                     RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
             textfieldnombreemergencia.requestFocus();
             return false;
-        } else if(textfieldapellidoemergencia.getText().length() == 0)
-        {
-            new rojerusan.RSNotifyAnimated("¡ERROR!", "El campo apellido está vacío, favor de llenarlo", 
+        } else if (textfieldapellidoemergencia.getText().length() == 0) {
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "El campo apellido está vacío, favor de llenarlo",
                     5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
                     RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
             textfieldapellidoemergencia.requestFocus();
             return false;
-        } else if(textfieldparentescoemergencia.getText().length() == 0)
-        {
-            new rojerusan.RSNotifyAnimated("¡ERROR!", "El campo Parentesco/Relación está vacío, favor de llenarlo", 
+        } else if (textfieldparentescoemergencia.getText().length() == 0) {
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "El campo Parentesco/Relación está vacío, favor de llenarlo",
                     5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
                     RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
             textfieldparentescoemergencia.requestFocus();
             return false;
-        } 
-        else 
+        } else {
             return true;
+        }
     }
     private void btnsiguientedlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsiguientedlActionPerformed
         if (validarDatosPersonales()) {
@@ -1594,7 +1573,7 @@ public class agregarjf extends javax.swing.JFrame {
             this.dispose();
         }
     }//GEN-LAST:event_btnhomedpActionPerformed
-/**/
+    /**/
     private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
         int respuesta = JOptionPane.showConfirmDialog(null, "¿Desea salir sin guardar cambios?", "¡¡¡ATENCIÓN!!!", WARNING_MESSAGE);
         if (respuesta == 0) {

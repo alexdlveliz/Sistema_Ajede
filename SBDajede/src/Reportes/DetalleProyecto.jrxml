@@ -89,7 +89,7 @@ GROUP BY
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Horas del proyecto]]></text>
+				<text><![CDATA[Horas totales del proyecto]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="07fda6ae-7e91-481a-b370-4988e9a7dd74" mode="Opaque" x="370" y="0" width="185" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
@@ -107,21 +107,21 @@ GROUP BY
 			</line>
 			<textField isStretchWithOverflow="true">
 				<reportElement uuid="eb934c19-0f13-49f1-bdd0-1cf11402bc8d" x="0" y="0" width="185" height="20"/>
-				<textElement>
+				<textElement textAlignment="Center">
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{TVoluntariados}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement uuid="29d44988-3960-46ec-9915-79efbdea5ce2" x="185" y="0" width="185" height="20"/>
-				<textElement>
+				<textElement textAlignment="Center">
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{THoras}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement uuid="70bb9dfd-8496-40e1-b25b-61f89d12d0ed" x="370" y="0" width="185" height="20"/>
-				<textElement>
+				<textElement textAlignment="Center">
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{finalizado}.equals(true) ? "Finalizado" : "No finalizado"]]></textFieldExpression>

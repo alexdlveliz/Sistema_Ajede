@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="92611a20-50e0-45da-89e5-2aa88100483a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT 
+    nombre,
+    apellido,
+    genero,
+    YEAR(FechaNacimiento) AS anio,
+    YEAR(NOW()),
+    NivelEstudio
+FROM
+    asociado
+        INNER JOIN
+    nivelestudio ON asociado.NivelEstudio_id = nivelestudio.id
+ORDER BY anio desc;]]>
+	</queryString>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="apellido" class="java.lang.String"/>
+	<field name="genero" class="java.lang.Integer"/>
+	<field name="anio" class="java.lang.Integer"/>
+	<field name="YEAR(NOW())" class="java.lang.Integer"/>
+	<field name="NivelEstudio" class="java.lang.String"/>
+	<group name="anio">
+		<groupExpression><![CDATA[$F{anio}]]></groupExpression>
+		<groupHeader>
+			<band height="33">
+				<staticText>
+					<reportElement uuid="38cf593c-e4c9-4115-bbcc-216da9c62f7e" mode="Opaque" x="0" y="0" width="100" height="32" forecolor="#666666" backcolor="#E6E6E6"/>
+					<textElement>
+						<font size="24"/>
+					</textElement>
+					<text><![CDATA[Edad]]></text>
+				</staticText>
+				<textField>
+					<reportElement uuid="4107ba0c-3eda-4c6b-80c1-9636795f5101" mode="Opaque" x="100" y="0" width="472" height="32" forecolor="#006699" backcolor="#E6E6E6"/>
+					<textElement>
+						<font size="24" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new Integer($F{YEAR(NOW())}-$F{anio})]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement uuid="e2a8c892-dfbc-426c-b31d-d3ca792653d0" x="-20" y="32" width="595" height="1" forecolor="#666666"/>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement uuid="9d0919e4-68f1-486a-aee1-794e57059d32" mode="Opaque" x="-20" y="-20" width="612" height="92" backcolor="#006699"/>
+				<staticText>
+					<reportElement uuid="7120742d-d51f-4448-9e49-1272406c9df9" x="20" y="20" width="344" height="43" forecolor="#FFFFFF"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Voluntarios por edad]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="a886c4b0-d5ff-459a-9899-66e9c069e158" x="412" y="72" width="180" height="20" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[AJEDE REPORTES]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement uuid="4d59f077-52fe-4e09-b1f3-4e961517feee" x="-20" y="20" width="595" height="1" forecolor="#666666"/>
+			</line>
+			<staticText>
+				<reportElement uuid="e4673dbe-e6dc-4d92-97f8-61271d26a828" mode="Opaque" x="0" y="0" width="209" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="cb92b958-065f-41dd-a441-89ade8a0a47f" mode="Opaque" x="209" y="0" width="159" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0bdee7ef-1d20-4bdc-b98d-4de875175cb3" mode="Opaque" x="368" y="0" width="89" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Género]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e65d82f8-8881-4aa3-a63c-bb2855753828" mode="Opaque" x="457" y="0" width="115" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nivel de estudio]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement uuid="b360f580-5f8f-478b-9e16-aa2559897a0d" positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="52708031-6ad2-4174-a25b-d4dac4e33672" x="0" y="0" width="209" height="20"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="cb4058b9-4d37-4933-8048-9545dffba3b6" x="209" y="0" width="159" height="20"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{apellido}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="d591b74a-b7be-4c70-b1f4-001bed165cb1" x="368" y="0" width="89" height="20"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[(($F{genero}.equals(new Integer(0))) ? "Femenino" : "Masculino")]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="6f045979-0596-4ca6-8043-66a366020340" x="457" y="0" width="115" height="20"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NivelEstudio}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement uuid="eda7bb6c-b1a8-4278-9006-8ec8b56ef996" mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="14e893ee-5116-42a2-b128-1e2baa2c76e0" mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="4d15f391-eee5-4035-bc2f-9130ca7fe540" x="0" y="4" width="100" height="13"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

@@ -17,6 +17,7 @@ import javax.swing.JTable;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
+import rojerusan.RSNotifyAnimated;
 import rojerusan.RSPanelsSlider;
 
 /**
@@ -703,6 +704,11 @@ public class menujf extends javax.swing.JFrame {
 
         btnredad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/edad.png"))); // NOI18N
         btnredad.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/edaddos.png"))); // NOI18N
+        btnredad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnredadActionPerformed(evt);
+            }
+        });
         jpmreportes.add(btnredad);
         btnredad.setBounds(70, 280, 130, 90);
 
@@ -1031,15 +1037,21 @@ public class menujf extends javax.swing.JFrame {
             String genero = (String) cmbGenero.getSelectedItem();
             if (genero.equals("Masculino")) {
                 if (!reportes.ReportGeneros(true)) {
-                    JOptionPane.showMessageDialog(null, "Error al intentar Acceder");
+                    new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al intentar Acceder",
+                            5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                            RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
                 }
             } else if (genero.equals("Femenino")) {
                 if (!reportes.ReportGeneros(false)) {
-                    JOptionPane.showMessageDialog(null, "Error al intentar Acceder");
+                    new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al intentar Acceder",
+                            5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                            RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
                 }
             } else {
                 if (!reportes.ReportGenero()) {
-                    JOptionPane.showMessageDialog(null, "Error al intentar Acceder");
+                    new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al intentar Acceder",
+                            5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                            RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
                 }
             }
         }
@@ -1047,7 +1059,9 @@ public class menujf extends javax.swing.JFrame {
 
     private void btnrnivelestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrnivelestActionPerformed
         if (!reportes.ReportNivEst()) {
-            JOptionPane.showMessageDialog(null, "Error al intentar Acceder");
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al intentar Acceder",
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
         }
     }//GEN-LAST:event_btnrnivelestActionPerformed
 
@@ -1061,15 +1075,21 @@ public class menujf extends javax.swing.JFrame {
             String genero = (String) cmbA_I.getSelectedItem();
             if (genero.equals("Activo")) {
                 if (!reportes.ReportA_I(true)) {
-                    JOptionPane.showMessageDialog(null, "Error al intentar Acceder");
+                    new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al intentar Acceder",
+                            5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                            RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
                 }
             } else if (genero.equals("Inactivo")) {
                 if (!reportes.ReportA_I(false)) {
-                    JOptionPane.showMessageDialog(null, "Error al intentar Acceder");
+                    new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al intentar Acceder",
+                            5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                            RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
                 }
             } else {
                 if (!reportes.ReportGenero()) {
-                    JOptionPane.showMessageDialog(null, "Error al intentar Acceder");
+                    new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al intentar Acceder",
+                            5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                            RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
                 }
             }
         }
@@ -1077,9 +1097,19 @@ public class menujf extends javax.swing.JFrame {
 
     private void btnrproyectosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrproyectosActionPerformed
         if (!reportes.ReportDetProyecto()) {
-            JOptionPane.showMessageDialog(null, "Error al intentar Acceder");
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al intentar Acceder",
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
         }
     }//GEN-LAST:event_btnrproyectosActionPerformed
+
+    private void btnredadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnredadActionPerformed
+        if (!reportes.ReportEdad()) {
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al intentar Acceder",
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+        }
+    }//GEN-LAST:event_btnredadActionPerformed
 
     /**
      * @param args the command line arguments
