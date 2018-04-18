@@ -66,12 +66,25 @@ public class menujf extends javax.swing.JFrame {
             menuagregar.setSize(1565,880);
             lbmenuagregar.setSize(1565, 880);
             lbmenuagregar.setIcon(menua1);
-            btnagregarvoluntario.setLocation(260, 405);
-            btnagregarproyecto.setLocation(680, 405);
-            btnagregarvoluntariado.setLocation(1075, 405);
+            btnagregarvoluntario.setLocation(345, 440);
+            btnagregarproyecto.setLocation(685, 440);
+            btnagregarvoluntariado.setLocation(1055, 440);
             jpmreportes.setSize(1565, 880);
             lbmreportes.setSize(1565, 880);
             lbmreportes.setIcon(menur);
+            btnrgeneral.setLocation(95, 120);
+            btnractivos.setLocation(370, 120);
+            btnrproyectos.setLocation(640, 120);
+            btnredad.setLocation(95, 380);
+            btnrporanio.setLocation(365, 380);
+            btnrgenero.setLocation(630, 380);
+            btnrexbecario.setLocation(905, 250);
+            btnrprograma.setLocation(95, 650);
+            btnrtrabajando.setLocation(375, 650);
+            btnrnivelest.setLocation(630, 650);
+            btnrnoexbecarios.setLocation(905, 540);
+            btnrpromocion.setLocation(1140, 420);
+            btnrmenu.setLocation(1355, 615);
         } else if ((tamanio.width == 1708) && (tamanio.height == 960)) //1366.768, alex: 1708.960
         {
             this.setSize(1250, 700);
@@ -140,9 +153,9 @@ public class menujf extends javax.swing.JFrame {
         btnractivos.setOpaque(false);
         btnractivos.setContentAreaFilled(false);
         btnractivos.setBorderPainted(false);
-        btnrinactivos.setOpaque(false);
-        btnrinactivos.setContentAreaFilled(false);
-        btnrinactivos.setBorderPainted(false);
+        btnrproyectos.setOpaque(false);
+        btnrproyectos.setContentAreaFilled(false);
+        btnrproyectos.setBorderPainted(false);
         btnredad.setOpaque(false);
         btnredad.setContentAreaFilled(false);
         btnredad.setBorderPainted(false);
@@ -232,7 +245,7 @@ public class menujf extends javax.swing.JFrame {
         jpmreportes = new javax.swing.JPanel();
         btnrmenu = new javax.swing.JButton();
         btnractivos = new javax.swing.JButton();
-        btnrinactivos = new javax.swing.JButton();
+        btnrproyectos = new javax.swing.JButton();
         btnredad = new javax.swing.JButton();
         btnrporanio = new javax.swing.JButton();
         btnrgenero = new javax.swing.JButton();
@@ -672,10 +685,15 @@ public class menujf extends javax.swing.JFrame {
         jpmreportes.add(btnractivos);
         btnractivos.setBounds(280, 70, 130, 90);
 
-        btnrinactivos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/proyecto.png"))); // NOI18N
-        btnrinactivos.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/proyectodos.png"))); // NOI18N
-        jpmreportes.add(btnrinactivos);
-        btnrinactivos.setBounds(500, 70, 130, 90);
+        btnrproyectos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/proyecto.png"))); // NOI18N
+        btnrproyectos.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/proyectodos.png"))); // NOI18N
+        btnrproyectos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnrproyectosActionPerformed(evt);
+            }
+        });
+        jpmreportes.add(btnrproyectos);
+        btnrproyectos.setBounds(500, 70, 130, 90);
 
         btnredad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/edad.png"))); // NOI18N
         btnredad.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/edaddos.png"))); // NOI18N
@@ -1021,6 +1039,10 @@ public class menujf extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnractivosActionPerformed
 
+    private void btnrproyectosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrproyectosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnrproyectosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1082,13 +1104,13 @@ public class menujf extends javax.swing.JFrame {
     private javax.swing.JButton btnrexbecario;
     private javax.swing.JButton btnrgeneral;
     private javax.swing.JButton btnrgenero;
-    private javax.swing.JButton btnrinactivos;
     private javax.swing.JButton btnrmenu;
     private javax.swing.JButton btnrnivelest;
     private javax.swing.JButton btnrnoexbecarios;
     private javax.swing.JButton btnrporanio;
     private javax.swing.JButton btnrprograma;
     private javax.swing.JButton btnrpromocion;
+    private javax.swing.JButton btnrproyectos;
     private javax.swing.JButton btnrtrabajando;
     private javax.swing.JButton btnsalirdmenu;
     private javax.swing.JComboBox<String> cmbPuestos;

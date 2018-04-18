@@ -99,6 +99,25 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
             jpevoluntariado.setSize(1565, 880);
             lbevoluntariado.setSize(1565, 880);
             lbevoluntariado.setIcon(evoluntariado);
+            btnsalir.setLocation(1487, 0);
+            btnminimizar.setLocation(1412, 0);
+            btnhome.setLocation(1340, 0);
+            btnregresar.setLocation(1270, 0);
+            cmbbusoed.setLocation(569, 235);
+            cmbbusoed.setSize(415, 40);
+            btnbevoluntarios.setLocation(330, 465);
+            btnbeproyecto.setLocation(690, 465);
+            btnbevoluntariado.setLocation(1050, 465);
+            btnbvnombre.setLocation(87, 280);
+            btnbvanio.setLocation(395, 280);
+            btnbvactivosina.setLocation(710, 280);
+            btnbvedad.setLocation(1020, 280);
+            btnbvgenero.setLocation(1320, 280);
+            btnbvocupacion.setLocation(87, 590);
+            btnbvprograma.setLocation(385, 590);
+            btnbvpromocionbeca.setLocation(705, 590);
+            btnbvexbecarios.setLocation(1020, 590);
+            btnrmenua.setLocation(1333, 590); //1030,590
         }
 
     }
@@ -178,6 +197,18 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         btnguardareproyect.setOpaque(false);
         btnguardareproyect.setContentAreaFilled(false);
         btnguardareproyect.setBorderPainted(false);
+        btnsalir.setOpaque(false);
+        btnsalir.setContentAreaFilled(false);
+        btnsalir.setBorderPainted(false);
+        btnminimizar.setOpaque(false);
+        btnminimizar.setContentAreaFilled(false);
+        btnminimizar.setBorderPainted(false);
+        btnhome.setOpaque(false);
+        btnhome.setContentAreaFilled(false);
+        btnhome.setBorderPainted(false);
+        btnregresar.setOpaque(false);
+        btnregresar.setContentAreaFilled(false);
+        btnregresar.setBorderPainted(false);
     }
 
     /**
@@ -379,10 +410,16 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
                 btnbevoluntariosMouseClicked(evt);
             }
         });
+        btnbevoluntarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbevoluntariosActionPerformed(evt);
+            }
+        });
         jpmenuboe.add(btnbevoluntarios);
         btnbevoluntarios.setBounds(250, 360, 170, 130);
 
         btnbeproyecto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Construction_70px_1.png"))); // NOI18N
+        btnbeproyecto.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Construction_100px_1.png"))); // NOI18N
         btnbeproyecto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnbeproyectoMouseClicked(evt);
@@ -1190,6 +1227,10 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
     private void btnregresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregresarActionPerformed
         rSPanelsSlider1.setPanelSlider(jpmenuboe, RSPanelsSlider.DIRECT.UP);
     }//GEN-LAST:event_btnregresarActionPerformed
+
+    private void btnbevoluntariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbevoluntariosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnbevoluntariosActionPerformed
 
     /**
      * @param args the command line arguments
