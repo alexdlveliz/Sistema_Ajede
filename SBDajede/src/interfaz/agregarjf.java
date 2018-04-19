@@ -24,6 +24,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JPanel;
+import rojeru_san.componentes.RSDateChooser;
 import rojerusan.RSNotifyAnimated;
 import rojerusan.RSNotifyFade;
 
@@ -120,9 +121,9 @@ public class agregarjf extends javax.swing.JFrame {
             cmbgenero.setLocation(475, 370);
             cmbgenero.setSize(270, 44);
             cmbgenero.setFont(fuente);
-            datecfecha.setLocation(420, 455);
-            datecfecha.setSize(320, 44);
-            datecfecha.setFont(fuente);
+            fechas.setLocation(420, 455);
+            fechas.setSize(320, 44);
+            fechas.setFont(fuente);
             textfielddpi.setLocation(220, 560);
             textfielddpi.setSize(500, 44);
             textfielddpi.setFont(fuente);
@@ -173,9 +174,9 @@ public class agregarjf extends javax.swing.JFrame {
             ptxt.setLocation(90, 300);
             ptxt.setSize(635, 44);
             ptxt.setFont(fuente);
-            jScrollPane1.setLocation(90, 360);
-            jScrollPane1.setSize(635, 435);
-            jScrollPane1.setFont(fuente);
+            scrollp.setLocation(90, 360);
+            scrollp.setSize(635, 435);
+            scrollp.setFont(fuente);
             jYearChooser2.setLocation(300, 305);
             jYearChooser2.setSize(410, 50);
             jYearChooser2.setFont(fuente);
@@ -357,7 +358,7 @@ public class agregarjf extends javax.swing.JFrame {
         textfieldapellidos.setBackground(new Color(0, 0, 0, 0));
         textfieldedad.setBackground(new Color(0, 0, 0, 0));
         cmbgenero.setBackground(new Color(0, 0, 0, 0));
-        datecfecha.setBackground(new Color(0, 0, 0, 0));
+        fechas.setBackground(new Color(0, 0, 0, 0));
         textfielddpi.setBackground(new Color(0, 0, 0, 0));
         textfieldresidencia.setBackground(new Color(0, 0, 0, 0));
         textfieldcorreo.setBackground(new Color(0, 0, 0, 0));
@@ -445,13 +446,13 @@ public class agregarjf extends javax.swing.JFrame {
         textfieldedad = new javax.swing.JTextField();
         textfieldapellidos = new javax.swing.JTextField();
         cmbgenero = new javax.swing.JComboBox<>();
-        datecfecha = new com.toedter.calendar.JDateChooser();
         textfieldresidencia = new javax.swing.JTextField();
         textfieldcorreo = new javax.swing.JTextField();
         textfieldperfil = new javax.swing.JTextField();
         cmbtalla = new javax.swing.JComboBox<>();
         textfieldtelefono = new javax.swing.JTextField();
         textfielddpi = new javax.swing.JTextField();
+        fechas = new rojeru_san.componentes.RSDateChooser();
         lbdp = new javax.swing.JLabel();
         jpinfomed = new javax.swing.JPanel();
         btnsiguientedenc = new javax.swing.JButton();
@@ -510,8 +511,8 @@ public class agregarjf extends javax.swing.JFrame {
         btnsiguientebeca = new javax.swing.JButton();
         btnaddp = new javax.swing.JButton();
         ptxt = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        proyectostable = new javax.swing.JTable();
+        scrollp = new javax.swing.JScrollPane();
+        tableproyecto = new rojerusan.RSTableMetro();
         lbvoluntariado = new javax.swing.JLabel();
         jpbeca = new javax.swing.JPanel();
         btnatrasvoluntariado = new javax.swing.JButton();
@@ -642,12 +643,7 @@ public class agregarjf extends javax.swing.JFrame {
         cmbgenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino" }));
         cmbgenero.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jpdatosp.add(cmbgenero);
-        cmbgenero.setBounds(390, 290, 190, 42);
-
-        datecfecha.setForeground(new java.awt.Color(25, 92, 134));
-        datecfecha.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        jpdatosp.add(datecfecha);
-        datecfecha.setBounds(330, 350, 270, 40);
+        cmbgenero.setBounds(390, 287, 190, 38);
 
         textfieldresidencia.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         textfieldresidencia.setForeground(new java.awt.Color(25, 92, 134));
@@ -673,7 +669,7 @@ public class agregarjf extends javax.swing.JFrame {
         cmbtalla.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "XS", "S", "M", "L", "XL" }));
         cmbtalla.setBorder(null);
         jpdatosp.add(cmbtalla);
-        cmbtalla.setBounds(870, 240, 60, 42);
+        cmbtalla.setBounds(870, 235, 60, 36);
 
         textfieldtelefono.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         textfieldtelefono.setForeground(new java.awt.Color(25, 92, 134));
@@ -686,6 +682,12 @@ public class agregarjf extends javax.swing.JFrame {
         textfielddpi.setBorder(null);
         jpdatosp.add(textfielddpi);
         textfielddpi.setBounds(180, 430, 390, 40);
+
+        fechas.setColorBackground(new java.awt.Color(22, 54, 77));
+        fechas.setColorDiaActual(new java.awt.Color(0, 255, 255));
+        fechas.setFuente(new java.awt.Font("Yu Gothic UI Light", 1, 24)); // NOI18N
+        jpdatosp.add(fechas);
+        fechas.setBounds(330, 353, 270, 40);
 
         lbdp.setForeground(new java.awt.Color(25, 92, 134));
         lbdp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/datospersonales2.jpg"))); // NOI18N
@@ -1142,30 +1144,62 @@ public class agregarjf extends javax.swing.JFrame {
         });
         jpvoluntariado.add(btnsiguientebeca);
         btnsiguientebeca.setBounds(1080, 450, 120, 100);
+
+        btnaddp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Plus_50px.png"))); // NOI18N
+        btnaddp.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Plus_75px.png"))); // NOI18N
         jpvoluntariado.add(btnaddp);
         btnaddp.setBounds(860, 450, 140, 70);
 
         ptxt.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         ptxt.setForeground(new java.awt.Color(25, 92, 134));
-        ptxt.setText("jTextField1");
+        ptxt.setBorder(null);
+        ptxt.setOpaque(false);
         jpvoluntariado.add(ptxt);
         ptxt.setBounds(70, 240, 510, 40);
 
-        proyectostable.setModel(new javax.swing.table.DefaultTableModel(
+        tableproyecto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "No.", "Proyecto", "Descripción"
             }
-        ));
-        jScrollPane1.setViewportView(proyectostable);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, true, false
+            };
 
-        jpvoluntariado.add(jScrollPane1);
-        jScrollPane1.setBounds(70, 290, 510, 340);
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tableproyecto.setColorBackgoundHead(new java.awt.Color(22, 54, 77));
+        tableproyecto.setColorBordeFilas(new java.awt.Color(255, 255, 255));
+        tableproyecto.setColorBordeHead(new java.awt.Color(255, 255, 255));
+        tableproyecto.setColorFilasBackgound1(new java.awt.Color(163, 214, 249));
+        tableproyecto.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
+        tableproyecto.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
+        tableproyecto.setColorFilasForeground2(new java.awt.Color(0, 0, 0));
+        tableproyecto.setColorSelBackgound(new java.awt.Color(22, 54, 77));
+        tableproyecto.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tableproyecto.setFuenteFilas(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tableproyecto.setFuenteFilasSelect(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tableproyecto.setFuenteHead(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
+        tableproyecto.setRowHeight(22);
+        tableproyecto.getTableHeader().setReorderingAllowed(false);
+        scrollp.setViewportView(tableproyecto);
+
+        jpvoluntariado.add(scrollp);
+        scrollp.setBounds(60, 290, 520, 350);
 
         lbvoluntariado.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         lbvoluntariado.setForeground(new java.awt.Color(25, 92, 134));
@@ -1262,7 +1296,7 @@ public class agregarjf extends javax.swing.JFrame {
         String apellido = textfieldapellidos.getText();
         String Dpi = textfielddpi.getText();
         String genero = (String) cmbgenero.getSelectedItem();
-        String fecha = getFecha(datecfecha);
+        String fecha = getFecha(fechas);
         String talla = (String) cmbtalla.getSelectedItem();
         String PerfilFB = textfieldperfil.getText();
         String telefono = textfieldtelefono.getText();
@@ -1445,9 +1479,9 @@ public class agregarjf extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnmenuActionPerformed
 
-    public String getFecha(JDateChooser jd) {
-        if (jd.getDate() != null) {
-            return formato.format(jd.getDate());
+    public String getFecha(RSDateChooser jd) {
+        if (jd.getDatoFecha() != null) {
+            return formato.format(jd.getDatoFecha());
         } else {
             return null;
         }
@@ -1477,11 +1511,11 @@ public class agregarjf extends javax.swing.JFrame {
                     RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
             textfieldapellidos.requestFocus();
             return false;
-        } else if (getFecha(datecfecha) == null) {
+        } else if (getFecha(fechas) == null) {
             new rojerusan.RSNotifyAnimated("¡ERROR!", "El campo fecha esta vacio, favor de ingresar la fecha de nacimiento",
                     5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
                     RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
-            datecfecha.requestFocus();
+            fechas.requestFocus();
             return false;
         } else {
             return true;
@@ -1738,9 +1772,8 @@ public class agregarjf extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbnivelestudiovoluntario;
     private javax.swing.JComboBox<String> cmbtalla;
     private javax.swing.JComboBox<String> cmbtipodesangre;
-    private com.toedter.calendar.JDateChooser datecfecha;
+    private rojeru_san.componentes.RSDateChooser fechas;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private com.toedter.calendar.JYearChooser jYearChooser1;
     private com.toedter.calendar.JYearChooser jYearChooser2;
@@ -1759,9 +1792,10 @@ public class agregarjf extends javax.swing.JFrame {
     private javax.swing.JLabel lbinfomed;
     private javax.swing.JLabel lbvoluntariado;
     private javax.swing.JTable programastable;
-    private javax.swing.JTable proyectostable;
     private javax.swing.JTextField ptxt;
+    private javax.swing.JScrollPane scrollp;
     private rojerusan.RSPanelsSlider slider;
+    private rojerusan.RSTableMetro tableproyecto;
     private javax.swing.JTextField textfieldalergia1;
     private javax.swing.JTextField textfieldalergia2;
     private javax.swing.JTextField textfieldalergia3;

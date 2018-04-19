@@ -247,47 +247,48 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         jpvactivosina = new javax.swing.JPanel();
         txtbvnombre = new javax.swing.JTextField();
         txtApellido = new javax.swing.JTextField();
-        jsbvnombre = new javax.swing.JScrollPane();
-        tablebvnombre = new javax.swing.JTable();
         cmbactivo = new javax.swing.JComboBox<>();
+        scrolln = new javax.swing.JScrollPane();
+        tablebvnombre = new rojerusan.RSTableMetro();
         lbvnombre = new javax.swing.JLabel();
         jpgeneral = new javax.swing.JPanel();
         txtbapellidosg = new javax.swing.JTextField();
-        jsbvactivos = new javax.swing.JScrollPane();
-        tablebvactivos = new javax.swing.JTable();
         txtbnombreg = new javax.swing.JTextField();
+        scrollg = new javax.swing.JScrollPane();
+        tablebvgeneral = new rojerusan.RSTableMetro();
         lbgeneral = new javax.swing.JLabel();
         jpvexbnexb = new javax.swing.JPanel();
         txtnvexbnexb = new javax.swing.JTextField();
-        jsbvinactivos = new javax.swing.JScrollPane();
-        tablebvinactivos = new javax.swing.JTable();
         txtavexbnexb = new javax.swing.JTextField();
         cmbexbnexb = new javax.swing.JComboBox<>();
+        scrollgex = new javax.swing.JScrollPane();
+        tablebvexbecarios = new rojerusan.RSTableMetro();
         lbexbnexb = new javax.swing.JLabel();
         jpvanio = new javax.swing.JPanel();
-        jsbvanio = new javax.swing.JScrollPane();
-        tablebvanio = new javax.swing.JTable();
         cmbanio = new javax.swing.JComboBox<>();
+        scrollgai = new javax.swing.JScrollPane();
+        tablebvanioi = new rojerusan.RSTableMetro();
         lbvanio = new javax.swing.JLabel();
         jpvedad = new javax.swing.JPanel();
-        jsbvedad = new javax.swing.JScrollPane();
-        tablebvedad = new javax.swing.JTable();
         cmbedad = new javax.swing.JComboBox<>();
+        scrolled = new javax.swing.JScrollPane();
+        tablebvedad = new rojerusan.RSTableMetro();
         lbvedad = new javax.swing.JLabel();
         jpvgenero = new javax.swing.JPanel();
-        jsbvgenero = new javax.swing.JScrollPane();
-        tablebvgenero = new javax.swing.JTable();
         cmbgenero = new javax.swing.JComboBox<>();
+        scrollge = new javax.swing.JScrollPane();
+        tablebvgenero = new rojerusan.RSTableMetro();
         lbvgenero = new javax.swing.JLabel();
         jpvprograma = new javax.swing.JPanel();
-        jsbvprograma = new javax.swing.JScrollPane();
-        tablebvprograma = new javax.swing.JTable();
         cmbprograma = new javax.swing.JComboBox<>();
+        scrollpro = new javax.swing.JScrollPane();
+        tablebvprograma = new rojerusan.RSTableMetro();
+        jLabel1 = new javax.swing.JLabel();
         lbvprograma = new javax.swing.JLabel();
         jpvpromocionbeca = new javax.swing.JPanel();
-        jsbvpromocionbeca = new javax.swing.JScrollPane();
-        tablebvpromocionbeca = new javax.swing.JTable();
         cmbapromocion = new javax.swing.JComboBox<>();
+        scrollpromo = new javax.swing.JScrollPane();
+        tablebvpromo = new rojerusan.RSTableMetro();
         lbvpromocionbeca = new javax.swing.JLabel();
         jpvocupacion = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -296,32 +297,32 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         lbvocupacion = new javax.swing.JLabel();
         jpbproyecto = new javax.swing.JPanel();
         cmbbproyectos = new javax.swing.JComboBox<>();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jtablebproyectos = new javax.swing.JTable();
+        scrollproy = new javax.swing.JScrollPane();
+        tablebvproyecto = new rojerusan.RSTableMetro();
         lbbproyectos = new javax.swing.JLabel();
         jpbvoluntariado = new javax.swing.JPanel();
         txtbmiembros = new javax.swing.JTextField();
         txtbproyecto = new javax.swing.JTextField();
         txtbvoluntarios = new javax.swing.JTextField();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        tblmiembros = new javax.swing.JTable();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        tblproyecto = new javax.swing.JTable();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        tblvoluntarios = new javax.swing.JTable();
+        scrollgvproy = new javax.swing.JScrollPane();
+        tablevproy = new rojerusan.RSTableMetro();
+        scrollvvol = new javax.swing.JScrollPane();
+        tablevvol = new rojerusan.RSTableMetro();
+        scrollvmiembros = new javax.swing.JScrollPane();
+        tablevmiembros = new rojerusan.RSTableMetro();
         lbbvoluntariado = new javax.swing.JLabel();
         jpevoluntariado = new javax.swing.JPanel();
         txtemiembros = new javax.swing.JTextField();
         txteproyecto = new javax.swing.JTextField();
         txtevoluntarios = new javax.swing.JTextField();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        tbemiembros = new javax.swing.JTable();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        tbeproyecto = new javax.swing.JTable();
-        jScrollPane8 = new javax.swing.JScrollPane();
-        tbevoluntarios = new javax.swing.JTable();
         btnevoluntariadog = new javax.swing.JButton();
         btnmenuboe = new javax.swing.JButton();
+        scrollveproy = new javax.swing.JScrollPane();
+        tableveproy = new rojerusan.RSTableMetro();
+        scrollvevol = new javax.swing.JScrollPane();
+        tablevevol = new rojerusan.RSTableMetro();
+        scrollvmiembros1 = new javax.swing.JScrollPane();
+        tablevemiembros = new rojerusan.RSTableMetro();
         lbevoluntariado = new javax.swing.JLabel();
         jpeproyecto = new javax.swing.JPanel();
         btnmenubused = new javax.swing.JButton();
@@ -574,37 +575,6 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         jpvactivosina.add(txtApellido);
         txtApellido.setBounds(310, 250, 340, 40);
 
-        tablebvnombre.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "Nombre", "Apellido", "DPI", "Email", "Genero", "Fecha de nacimiento"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jsbvnombre.setViewportView(tablebvnombre);
-        if (tablebvnombre.getColumnModel().getColumnCount() > 0) {
-            tablebvnombre.getColumnModel().getColumn(0).setResizable(false);
-            tablebvnombre.getColumnModel().getColumn(1).setResizable(false);
-            tablebvnombre.getColumnModel().getColumn(3).setResizable(false);
-            tablebvnombre.getColumnModel().getColumn(4).setResizable(false);
-            tablebvnombre.getColumnModel().getColumn(5).setResizable(false);
-        }
-
-        jpvactivosina.add(jsbvnombre);
-        jsbvnombre.setBounds(100, 320, 1050, 320);
-
         cmbactivo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo" }));
         cmbactivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -613,6 +583,50 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         });
         jpvactivosina.add(cmbactivo);
         cmbactivo.setBounds(850, 220, 190, 30);
+
+        tablebvnombre.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "No.", "Nombre", "Apellido", "null", "Title 5", "Title 6"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, true, false, true, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablebvnombre.setColorBackgoundHead(new java.awt.Color(22, 54, 77));
+        tablebvnombre.setColorBordeFilas(new java.awt.Color(255, 255, 255));
+        tablebvnombre.setColorBordeHead(new java.awt.Color(255, 255, 255));
+        tablebvnombre.setColorFilasBackgound1(new java.awt.Color(163, 214, 249));
+        tablebvnombre.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
+        tablebvnombre.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
+        tablebvnombre.setColorFilasForeground2(new java.awt.Color(0, 0, 0));
+        tablebvnombre.setColorSelBackgound(new java.awt.Color(22, 54, 77));
+        tablebvnombre.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablebvnombre.setFuenteFilas(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablebvnombre.setFuenteFilasSelect(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablebvnombre.setFuenteHead(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
+        tablebvnombre.setRowHeight(22);
+        tablebvnombre.getTableHeader().setReorderingAllowed(false);
+        scrolln.setViewportView(tablebvnombre);
+
+        jpvactivosina.add(scrolln);
+        scrolln.setBounds(110, 320, 1030, 310);
 
         lbvnombre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/vactnact2.jpg"))); // NOI18N
         jpvactivosina.add(lbvnombre);
@@ -631,26 +645,60 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         jpgeneral.add(txtbapellidosg);
         txtbapellidosg.setBounds(310, 230, 410, 40);
 
-        tablebvactivos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jsbvactivos.setViewportView(tablebvactivos);
-
-        jpgeneral.add(jsbvactivos);
-        jsbvactivos.setBounds(100, 300, 1050, 350);
-
         txtbnombreg.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         txtbnombreg.setText("jTextField1");
         jpgeneral.add(txtbnombreg);
         txtbnombreg.setBounds(310, 170, 410, 40);
+
+        tablebvgeneral.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "No.", "Nombre", "Apellido", "Title 4", "Title 5", "Title 6", "Title 7"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, true, false, true, true, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablebvgeneral.setColorBackgoundHead(new java.awt.Color(22, 54, 77));
+        tablebvgeneral.setColorBordeFilas(new java.awt.Color(255, 255, 255));
+        tablebvgeneral.setColorBordeHead(new java.awt.Color(255, 255, 255));
+        tablebvgeneral.setColorFilasBackgound1(new java.awt.Color(163, 214, 249));
+        tablebvgeneral.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
+        tablebvgeneral.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
+        tablebvgeneral.setColorFilasForeground2(new java.awt.Color(0, 0, 0));
+        tablebvgeneral.setColorSelBackgound(new java.awt.Color(22, 54, 77));
+        tablebvgeneral.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablebvgeneral.setFuenteFilas(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablebvgeneral.setFuenteFilasSelect(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablebvgeneral.setFuenteHead(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
+        tablebvgeneral.setRowHeight(22);
+        tablebvgeneral.getTableHeader().setReorderingAllowed(false);
+        scrollg.setViewportView(tablebvgeneral);
+        if (tablebvgeneral.getColumnModel().getColumnCount() > 0) {
+            tablebvgeneral.getColumnModel().getColumn(3).setHeaderValue("Title 4");
+            tablebvgeneral.getColumnModel().getColumn(4).setHeaderValue("Title 5");
+            tablebvgeneral.getColumnModel().getColumn(5).setHeaderValue("Title 6");
+            tablebvgeneral.getColumnModel().getColumn(6).setHeaderValue("Title 7");
+        }
+
+        jpgeneral.add(scrollg);
+        scrollg.setBounds(110, 300, 1030, 340);
 
         lbgeneral.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/vinfog2.jpg"))); // NOI18N
         jpgeneral.add(lbgeneral);
@@ -666,22 +714,6 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         jpvexbnexb.add(txtnvexbnexb);
         txtnvexbnexb.setBounds(300, 180, 350, 50);
 
-        tablebvinactivos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jsbvinactivos.setViewportView(tablebvinactivos);
-
-        jpvexbnexb.add(jsbvinactivos);
-        jsbvinactivos.setBounds(100, 320, 1050, 320);
-
         txtavexbnexb.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         txtavexbnexb.setText("jTextField1");
         jpvexbnexb.add(txtavexbnexb);
@@ -692,6 +724,56 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         jpvexbnexb.add(cmbexbnexb);
         cmbexbnexb.setBounds(840, 220, 210, 40);
 
+        tablebvexbecarios.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "No.", "Nombre", "Apellido", "Title 4", "Title 5", "Title 6", "Title 7"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, true, false, true, true, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablebvexbecarios.setColorBackgoundHead(new java.awt.Color(22, 54, 77));
+        tablebvexbecarios.setColorBordeFilas(new java.awt.Color(255, 255, 255));
+        tablebvexbecarios.setColorBordeHead(new java.awt.Color(255, 255, 255));
+        tablebvexbecarios.setColorFilasBackgound1(new java.awt.Color(163, 214, 249));
+        tablebvexbecarios.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
+        tablebvexbecarios.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
+        tablebvexbecarios.setColorFilasForeground2(new java.awt.Color(0, 0, 0));
+        tablebvexbecarios.setColorSelBackgound(new java.awt.Color(22, 54, 77));
+        tablebvexbecarios.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablebvexbecarios.setFuenteFilas(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablebvexbecarios.setFuenteFilasSelect(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablebvexbecarios.setFuenteHead(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
+        tablebvexbecarios.setRowHeight(22);
+        tablebvexbecarios.getTableHeader().setReorderingAllowed(false);
+        scrollgex.setViewportView(tablebvexbecarios);
+        if (tablebvexbecarios.getColumnModel().getColumnCount() > 0) {
+            tablebvexbecarios.getColumnModel().getColumn(3).setHeaderValue("Title 4");
+            tablebvexbecarios.getColumnModel().getColumn(4).setHeaderValue("Title 5");
+            tablebvexbecarios.getColumnModel().getColumn(5).setHeaderValue("Title 6");
+            tablebvexbecarios.getColumnModel().getColumn(6).setHeaderValue("Title 7");
+        }
+
+        jpvexbnexb.add(scrollgex);
+        scrollgex.setBounds(110, 330, 1030, 310);
+
         lbexbnexb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/vexbnb2.jpg"))); // NOI18N
         jpvexbnexb.add(lbexbnexb);
         lbexbnexb.setBounds(0, 0, 1250, 700);
@@ -701,26 +783,60 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         jpvanio.setName("jpvanio"); // NOI18N
         jpvanio.setLayout(null);
 
-        tablebvanio.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jsbvanio.setViewportView(tablebvanio);
-
-        jpvanio.add(jsbvanio);
-        jsbvanio.setBounds(100, 260, 1050, 390);
-
         cmbanio.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         cmbanio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jpvanio.add(cmbanio);
         cmbanio.setBounds(240, 200, 200, 40);
+
+        tablebvanioi.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "No.", "Nombre", "Apellido", "Title 4", "Title 5", "Title 6", "Title 7"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, true, false, true, true, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablebvanioi.setColorBackgoundHead(new java.awt.Color(22, 54, 77));
+        tablebvanioi.setColorBordeFilas(new java.awt.Color(255, 255, 255));
+        tablebvanioi.setColorBordeHead(new java.awt.Color(255, 255, 255));
+        tablebvanioi.setColorFilasBackgound1(new java.awt.Color(163, 214, 249));
+        tablebvanioi.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
+        tablebvanioi.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
+        tablebvanioi.setColorFilasForeground2(new java.awt.Color(0, 0, 0));
+        tablebvanioi.setColorSelBackgound(new java.awt.Color(22, 54, 77));
+        tablebvanioi.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablebvanioi.setFuenteFilas(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablebvanioi.setFuenteFilasSelect(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablebvanioi.setFuenteHead(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
+        tablebvanioi.setRowHeight(22);
+        tablebvanioi.getTableHeader().setReorderingAllowed(false);
+        scrollgai.setViewportView(tablebvanioi);
+        if (tablebvanioi.getColumnModel().getColumnCount() > 0) {
+            tablebvanioi.getColumnModel().getColumn(3).setHeaderValue("Title 4");
+            tablebvanioi.getColumnModel().getColumn(4).setHeaderValue("Title 5");
+            tablebvanioi.getColumnModel().getColumn(5).setHeaderValue("Title 6");
+            tablebvanioi.getColumnModel().getColumn(6).setHeaderValue("Title 7");
+        }
+
+        jpvanio.add(scrollgai);
+        scrollgai.setBounds(110, 260, 1030, 380);
 
         lbvanio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/vanio2.jpeg"))); // NOI18N
         jpvanio.add(lbvanio);
@@ -731,26 +847,60 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         jpvedad.setName("jpvedad"); // NOI18N
         jpvedad.setLayout(null);
 
-        tablebvedad.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jsbvedad.setViewportView(tablebvedad);
-
-        jpvedad.add(jsbvedad);
-        jsbvedad.setBounds(100, 260, 1050, 380);
-
         cmbedad.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         cmbedad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jpvedad.add(cmbedad);
         cmbedad.setBounds(250, 180, 200, 40);
+
+        tablebvedad.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "No.", "Nombre", "Apellido", "Title 4", "Title 5", "Title 6", "Title 7"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, true, false, true, true, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablebvedad.setColorBackgoundHead(new java.awt.Color(22, 54, 77));
+        tablebvedad.setColorBordeFilas(new java.awt.Color(255, 255, 255));
+        tablebvedad.setColorBordeHead(new java.awt.Color(255, 255, 255));
+        tablebvedad.setColorFilasBackgound1(new java.awt.Color(163, 214, 249));
+        tablebvedad.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
+        tablebvedad.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
+        tablebvedad.setColorFilasForeground2(new java.awt.Color(0, 0, 0));
+        tablebvedad.setColorSelBackgound(new java.awt.Color(22, 54, 77));
+        tablebvedad.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablebvedad.setFuenteFilas(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablebvedad.setFuenteFilasSelect(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablebvedad.setFuenteHead(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
+        tablebvedad.setRowHeight(22);
+        tablebvedad.getTableHeader().setReorderingAllowed(false);
+        scrolled.setViewportView(tablebvedad);
+        if (tablebvedad.getColumnModel().getColumnCount() > 0) {
+            tablebvedad.getColumnModel().getColumn(3).setHeaderValue("Title 4");
+            tablebvedad.getColumnModel().getColumn(4).setHeaderValue("Title 5");
+            tablebvedad.getColumnModel().getColumn(5).setHeaderValue("Title 6");
+            tablebvedad.getColumnModel().getColumn(6).setHeaderValue("Title 7");
+        }
+
+        jpvedad.add(scrolled);
+        scrolled.setBounds(110, 260, 1030, 370);
 
         lbvedad.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         lbvedad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/vedad2.jpg"))); // NOI18N
@@ -762,26 +912,60 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         jpvgenero.setName("jpvgenero"); // NOI18N
         jpvgenero.setLayout(null);
 
-        tablebvgenero.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jsbvgenero.setViewportView(tablebvgenero);
-
-        jpvgenero.add(jsbvgenero);
-        jsbvgenero.setBounds(100, 250, 1050, 390);
-
         cmbgenero.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         cmbgenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jpvgenero.add(cmbgenero);
         cmbgenero.setBounds(250, 180, 260, 30);
+
+        tablebvgenero.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "No.", "Nombre", "Apellido", "Title 4", "Title 5", "Title 6", "Title 7"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, true, false, true, true, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablebvgenero.setColorBackgoundHead(new java.awt.Color(22, 54, 77));
+        tablebvgenero.setColorBordeFilas(new java.awt.Color(255, 255, 255));
+        tablebvgenero.setColorBordeHead(new java.awt.Color(255, 255, 255));
+        tablebvgenero.setColorFilasBackgound1(new java.awt.Color(163, 214, 249));
+        tablebvgenero.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
+        tablebvgenero.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
+        tablebvgenero.setColorFilasForeground2(new java.awt.Color(0, 0, 0));
+        tablebvgenero.setColorSelBackgound(new java.awt.Color(22, 54, 77));
+        tablebvgenero.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablebvgenero.setFuenteFilas(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablebvgenero.setFuenteFilasSelect(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablebvgenero.setFuenteHead(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
+        tablebvgenero.setRowHeight(22);
+        tablebvgenero.getTableHeader().setReorderingAllowed(false);
+        scrollge.setViewportView(tablebvgenero);
+        if (tablebvgenero.getColumnModel().getColumnCount() > 0) {
+            tablebvgenero.getColumnModel().getColumn(3).setHeaderValue("Title 4");
+            tablebvgenero.getColumnModel().getColumn(4).setHeaderValue("Title 5");
+            tablebvgenero.getColumnModel().getColumn(5).setHeaderValue("Title 6");
+            tablebvgenero.getColumnModel().getColumn(6).setHeaderValue("Title 7");
+        }
+
+        jpvgenero.add(scrollge);
+        scrollge.setBounds(110, 250, 1030, 380);
 
         lbvgenero.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/vgenero2.jpg"))); // NOI18N
         jpvgenero.add(lbvgenero);
@@ -792,26 +976,65 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         jpvprograma.setName("jpvprograma"); // NOI18N
         jpvprograma.setLayout(null);
 
-        tablebvprograma.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jsbvprograma.setViewportView(tablebvprograma);
-
-        jpvprograma.add(jsbvprograma);
-        jsbvprograma.setBounds(100, 250, 1050, 380);
-
         cmbprograma.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         cmbprograma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jpvprograma.add(cmbprograma);
         cmbprograma.setBounds(310, 190, 340, 50);
+
+        tablebvprograma.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "No.", "Nombre", "Apellido", "Title 4", "Title 5", "Title 6", "Title 7"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, true, false, true, true, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablebvprograma.setColorBackgoundHead(new java.awt.Color(22, 54, 77));
+        tablebvprograma.setColorBordeFilas(new java.awt.Color(255, 255, 255));
+        tablebvprograma.setColorBordeHead(new java.awt.Color(255, 255, 255));
+        tablebvprograma.setColorFilasBackgound1(new java.awt.Color(163, 214, 249));
+        tablebvprograma.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
+        tablebvprograma.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
+        tablebvprograma.setColorFilasForeground2(new java.awt.Color(0, 0, 0));
+        tablebvprograma.setColorSelBackgound(new java.awt.Color(22, 54, 77));
+        tablebvprograma.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablebvprograma.setFuenteFilas(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablebvprograma.setFuenteFilasSelect(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablebvprograma.setFuenteHead(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
+        tablebvprograma.setRowHeight(22);
+        tablebvprograma.getTableHeader().setReorderingAllowed(false);
+        scrollpro.setViewportView(tablebvprograma);
+        if (tablebvprograma.getColumnModel().getColumnCount() > 0) {
+            tablebvprograma.getColumnModel().getColumn(3).setHeaderValue("Title 4");
+            tablebvprograma.getColumnModel().getColumn(4).setHeaderValue("Title 5");
+            tablebvprograma.getColumnModel().getColumn(5).setHeaderValue("Title 6");
+            tablebvprograma.getColumnModel().getColumn(6).setHeaderValue("Title 7");
+        }
+
+        jpvprograma.add(scrollpro);
+        scrollpro.setBounds(110, 260, 1030, 380);
+
+        jLabel1.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 36)); // NOI18N
+        jLabel1.setText("Programa");
+        jpvprograma.add(jLabel1);
+        jLabel1.setBounds(120, 190, 170, 50);
 
         lbvprograma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/vprograma2.jpg"))); // NOI18N
         jpvprograma.add(lbvprograma);
@@ -822,26 +1045,60 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         jpvpromocionbeca.setName("jpvpromocionbeca"); // NOI18N
         jpvpromocionbeca.setLayout(null);
 
-        tablebvpromocionbeca.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jsbvpromocionbeca.setViewportView(tablebvpromocionbeca);
-
-        jpvpromocionbeca.add(jsbvpromocionbeca);
-        jsbvpromocionbeca.setBounds(100, 260, 1050, 380);
-
         cmbapromocion.setFont(new java.awt.Font("Yu Gothic Light", 0, 24)); // NOI18N
         cmbapromocion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jpvpromocionbeca.add(cmbapromocion);
         cmbapromocion.setBounds(370, 180, 210, 40);
+
+        tablebvpromo.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "No.", "Nombre", "Apellido", "Title 4", "Title 5", "Title 6", "Title 7"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, true, false, true, true, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablebvpromo.setColorBackgoundHead(new java.awt.Color(22, 54, 77));
+        tablebvpromo.setColorBordeFilas(new java.awt.Color(255, 255, 255));
+        tablebvpromo.setColorBordeHead(new java.awt.Color(255, 255, 255));
+        tablebvpromo.setColorFilasBackgound1(new java.awt.Color(163, 214, 249));
+        tablebvpromo.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
+        tablebvpromo.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
+        tablebvpromo.setColorFilasForeground2(new java.awt.Color(0, 0, 0));
+        tablebvpromo.setColorSelBackgound(new java.awt.Color(22, 54, 77));
+        tablebvpromo.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablebvpromo.setFuenteFilas(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablebvpromo.setFuenteFilasSelect(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablebvpromo.setFuenteHead(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
+        tablebvpromo.setRowHeight(22);
+        tablebvpromo.getTableHeader().setReorderingAllowed(false);
+        scrollpromo.setViewportView(tablebvpromo);
+        if (tablebvpromo.getColumnModel().getColumnCount() > 0) {
+            tablebvpromo.getColumnModel().getColumn(3).setHeaderValue("Title 4");
+            tablebvpromo.getColumnModel().getColumn(4).setHeaderValue("Title 5");
+            tablebvpromo.getColumnModel().getColumn(5).setHeaderValue("Title 6");
+            tablebvpromo.getColumnModel().getColumn(6).setHeaderValue("Title 7");
+        }
+
+        jpvpromocionbeca.add(scrollpromo);
+        scrollpromo.setBounds(110, 260, 1030, 370);
 
         lbvpromocionbeca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/vpromocion2.jpg"))); // NOI18N
         jpvpromocionbeca.add(lbvpromocionbeca);
@@ -888,21 +1145,55 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         jpbproyecto.add(cmbbproyectos);
         cmbbproyectos.setBounds(310, 200, 320, 30);
 
-        jtablebproyectos.setModel(new javax.swing.table.DefaultTableModel(
+        tablebvproyecto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "No.", "Proyecto", "Descripción", "Title 4", "Title 5", "Title 6", "Title 7"
             }
-        ));
-        jScrollPane2.setViewportView(jtablebproyectos);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, true, false, true, true, true, true
+            };
 
-        jpbproyecto.add(jScrollPane2);
-        jScrollPane2.setBounds(110, 260, 1030, 380);
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablebvproyecto.setColorBackgoundHead(new java.awt.Color(22, 54, 77));
+        tablebvproyecto.setColorBordeFilas(new java.awt.Color(255, 255, 255));
+        tablebvproyecto.setColorBordeHead(new java.awt.Color(255, 255, 255));
+        tablebvproyecto.setColorFilasBackgound1(new java.awt.Color(163, 214, 249));
+        tablebvproyecto.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
+        tablebvproyecto.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
+        tablebvproyecto.setColorFilasForeground2(new java.awt.Color(0, 0, 0));
+        tablebvproyecto.setColorSelBackgound(new java.awt.Color(22, 54, 77));
+        tablebvproyecto.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablebvproyecto.setFuenteFilas(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablebvproyecto.setFuenteFilasSelect(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablebvproyecto.setFuenteHead(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
+        tablebvproyecto.setRowHeight(22);
+        tablebvproyecto.getTableHeader().setReorderingAllowed(false);
+        scrollproy.setViewportView(tablebvproyecto);
+        if (tablebvproyecto.getColumnModel().getColumnCount() > 0) {
+            tablebvproyecto.getColumnModel().getColumn(3).setHeaderValue("Title 4");
+            tablebvproyecto.getColumnModel().getColumn(4).setHeaderValue("Title 5");
+            tablebvproyecto.getColumnModel().getColumn(5).setHeaderValue("Title 6");
+            tablebvproyecto.getColumnModel().getColumn(6).setHeaderValue("Title 7");
+        }
+
+        jpbproyecto.add(scrollproy);
+        scrollproy.setBounds(110, 260, 1030, 380);
 
         lbbproyectos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/proyectos2.jpg"))); // NOI18N
         jpbproyecto.add(lbbproyectos);
@@ -916,67 +1207,151 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         jpbvoluntariado.setLayout(null);
 
         txtbmiembros.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        txtbmiembros.setText("jTextField1");
+        txtbmiembros.setBorder(null);
         jpbvoluntariado.add(txtbmiembros);
         txtbmiembros.setBounds(230, 405, 370, 40);
 
         txtbproyecto.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        txtbproyecto.setText("jTextField1");
+        txtbproyecto.setBorder(null);
         jpbvoluntariado.add(txtbproyecto);
         txtbproyecto.setBounds(200, 110, 400, 40);
 
         txtbvoluntarios.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        txtbvoluntarios.setText("jTextField1");
+        txtbvoluntarios.setBorder(null);
         jpbvoluntariado.add(txtbvoluntarios);
         txtbvoluntarios.setBounds(830, 110, 370, 40);
 
-        tblmiembros.setModel(new javax.swing.table.DefaultTableModel(
+        tablevproy.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "No.", "Proyecto", "Descripción"
             }
-        ));
-        jScrollPane3.setViewportView(tblmiembros);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, true, false
+            };
 
-        jpbvoluntariado.add(jScrollPane3);
-        jScrollPane3.setBounds(50, 460, 550, 210);
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablevproy.setColorBackgoundHead(new java.awt.Color(22, 54, 77));
+        tablevproy.setColorBordeFilas(new java.awt.Color(255, 255, 255));
+        tablevproy.setColorBordeHead(new java.awt.Color(255, 255, 255));
+        tablevproy.setColorFilasBackgound1(new java.awt.Color(163, 214, 249));
+        tablevproy.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
+        tablevproy.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
+        tablevproy.setColorFilasForeground2(new java.awt.Color(0, 0, 0));
+        tablevproy.setColorSelBackgound(new java.awt.Color(22, 54, 77));
+        tablevproy.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablevproy.setFuenteFilas(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablevproy.setFuenteFilasSelect(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablevproy.setFuenteHead(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
+        tablevproy.setRowHeight(22);
+        tablevproy.getTableHeader().setReorderingAllowed(false);
+        scrollgvproy.setViewportView(tablevproy);
 
-        tblproyecto.setModel(new javax.swing.table.DefaultTableModel(
+        jpbvoluntariado.add(scrollgvproy);
+        scrollgvproy.setBounds(50, 170, 550, 210);
+
+        tablevvol.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nombre", "Apellido", "Género"
             }
-        ));
-        jScrollPane4.setViewportView(tblproyecto);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, true, false
+            };
 
-        jpbvoluntariado.add(jScrollPane4);
-        jScrollPane4.setBounds(50, 170, 550, 210);
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablevvol.setColorBackgoundHead(new java.awt.Color(22, 54, 77));
+        tablevvol.setColorBordeFilas(new java.awt.Color(255, 255, 255));
+        tablevvol.setColorBordeHead(new java.awt.Color(255, 255, 255));
+        tablevvol.setColorFilasBackgound1(new java.awt.Color(163, 214, 249));
+        tablevvol.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
+        tablevvol.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
+        tablevvol.setColorFilasForeground2(new java.awt.Color(0, 0, 0));
+        tablevvol.setColorSelBackgound(new java.awt.Color(22, 54, 77));
+        tablevvol.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablevvol.setFuenteFilas(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablevvol.setFuenteFilasSelect(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablevvol.setFuenteHead(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
+        tablevvol.setRowHeight(22);
+        tablevvol.getTableHeader().setReorderingAllowed(false);
+        scrollvvol.setViewportView(tablevvol);
 
-        tblvoluntarios.setModel(new javax.swing.table.DefaultTableModel(
+        jpbvoluntariado.add(scrollvvol);
+        scrollvvol.setBounds(640, 170, 550, 210);
+
+        tablevmiembros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nombres", "Apellidos", "Puesto"
             }
-        ));
-        jScrollPane5.setViewportView(tblvoluntarios);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, true, false
+            };
 
-        jpbvoluntariado.add(jScrollPane5);
-        jScrollPane5.setBounds(640, 170, 560, 210);
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablevmiembros.setColorBackgoundHead(new java.awt.Color(22, 54, 77));
+        tablevmiembros.setColorBordeFilas(new java.awt.Color(255, 255, 255));
+        tablevmiembros.setColorBordeHead(new java.awt.Color(255, 255, 255));
+        tablevmiembros.setColorFilasBackgound1(new java.awt.Color(163, 214, 249));
+        tablevmiembros.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
+        tablevmiembros.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
+        tablevmiembros.setColorFilasForeground2(new java.awt.Color(0, 0, 0));
+        tablevmiembros.setColorSelBackgound(new java.awt.Color(22, 54, 77));
+        tablevmiembros.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablevmiembros.setFuenteFilas(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablevmiembros.setFuenteFilasSelect(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablevmiembros.setFuenteHead(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
+        tablevmiembros.setRowHeight(22);
+        tablevmiembros.getTableHeader().setReorderingAllowed(false);
+        scrollvmiembros.setViewportView(tablevmiembros);
+
+        jpbvoluntariado.add(scrollvmiembros);
+        scrollvmiembros.setBounds(50, 460, 550, 210);
 
         lbbvoluntariado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/vbvoluntariado1.jpg"))); // NOI18N
         jpbvoluntariado.add(lbbvoluntariado);
@@ -991,67 +1366,19 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         jpevoluntariado.setLayout(null);
 
         txtemiembros.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        txtemiembros.setText("jTextField1");
+        txtemiembros.setBorder(null);
         jpevoluntariado.add(txtemiembros);
         txtemiembros.setBounds(230, 405, 370, 40);
 
         txteproyecto.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        txteproyecto.setText("jTextField1");
+        txteproyecto.setBorder(null);
         jpevoluntariado.add(txteproyecto);
         txteproyecto.setBounds(200, 110, 400, 40);
 
         txtevoluntarios.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        txtevoluntarios.setText("jTextField1");
+        txtevoluntarios.setBorder(null);
         jpevoluntariado.add(txtevoluntarios);
         txtevoluntarios.setBounds(830, 110, 370, 40);
-
-        tbemiembros.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane6.setViewportView(tbemiembros);
-
-        jpevoluntariado.add(jScrollPane6);
-        jScrollPane6.setBounds(50, 460, 550, 210);
-
-        tbeproyecto.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane7.setViewportView(tbeproyecto);
-
-        jpevoluntariado.add(jScrollPane7);
-        jScrollPane7.setBounds(50, 170, 550, 210);
-
-        tbevoluntarios.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane8.setViewportView(tbevoluntarios);
-
-        jpevoluntariado.add(jScrollPane8);
-        jScrollPane8.setBounds(640, 170, 560, 210);
 
         btnevoluntariadog.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Save_Close_70px.png"))); // NOI18N
         btnevoluntariadog.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Save_Close_100px.png"))); // NOI18N
@@ -1062,6 +1389,138 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         btnmenuboe.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Person_at_Home_100px.png"))); // NOI18N
         jpevoluntariado.add(btnmenuboe);
         btnmenuboe.setBounds(970, 500, 160, 100);
+
+        tableveproy.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "No.", "Proyecto", "Descripción"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tableveproy.setColorBackgoundHead(new java.awt.Color(22, 54, 77));
+        tableveproy.setColorBordeFilas(new java.awt.Color(255, 255, 255));
+        tableveproy.setColorBordeHead(new java.awt.Color(255, 255, 255));
+        tableveproy.setColorFilasBackgound1(new java.awt.Color(163, 214, 249));
+        tableveproy.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
+        tableveproy.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
+        tableveproy.setColorFilasForeground2(new java.awt.Color(0, 0, 0));
+        tableveproy.setColorSelBackgound(new java.awt.Color(22, 54, 77));
+        tableveproy.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tableveproy.setFuenteFilas(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tableveproy.setFuenteFilasSelect(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tableveproy.setFuenteHead(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
+        tableveproy.setRowHeight(22);
+        tableveproy.getTableHeader().setReorderingAllowed(false);
+        scrollveproy.setViewportView(tableveproy);
+
+        jpevoluntariado.add(scrollveproy);
+        scrollveproy.setBounds(50, 170, 550, 210);
+
+        tablevevol.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Nombre", "Apellido", "Género"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablevevol.setColorBackgoundHead(new java.awt.Color(22, 54, 77));
+        tablevevol.setColorBordeFilas(new java.awt.Color(255, 255, 255));
+        tablevevol.setColorBordeHead(new java.awt.Color(255, 255, 255));
+        tablevevol.setColorFilasBackgound1(new java.awt.Color(163, 214, 249));
+        tablevevol.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
+        tablevevol.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
+        tablevevol.setColorFilasForeground2(new java.awt.Color(0, 0, 0));
+        tablevevol.setColorSelBackgound(new java.awt.Color(22, 54, 77));
+        tablevevol.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablevevol.setFuenteFilas(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablevevol.setFuenteFilasSelect(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablevevol.setFuenteHead(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
+        tablevevol.setRowHeight(22);
+        tablevevol.getTableHeader().setReorderingAllowed(false);
+        scrollvevol.setViewportView(tablevevol);
+
+        jpevoluntariado.add(scrollvevol);
+        scrollvevol.setBounds(640, 170, 550, 210);
+
+        tablevemiembros.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Nombres", "Apellidos", "Puesto"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablevemiembros.setColorBackgoundHead(new java.awt.Color(22, 54, 77));
+        tablevemiembros.setColorBordeFilas(new java.awt.Color(255, 255, 255));
+        tablevemiembros.setColorBordeHead(new java.awt.Color(255, 255, 255));
+        tablevemiembros.setColorFilasBackgound1(new java.awt.Color(163, 214, 249));
+        tablevemiembros.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
+        tablevemiembros.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
+        tablevemiembros.setColorFilasForeground2(new java.awt.Color(0, 0, 0));
+        tablevemiembros.setColorSelBackgound(new java.awt.Color(22, 54, 77));
+        tablevemiembros.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablevemiembros.setFuenteFilas(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablevemiembros.setFuenteFilasSelect(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablevemiembros.setFuenteHead(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
+        tablevemiembros.setRowHeight(22);
+        tablevemiembros.getTableHeader().setReorderingAllowed(false);
+        scrollvmiembros1.setViewportView(tablevemiembros);
+
+        jpevoluntariado.add(scrollvmiembros1);
+        scrollvmiembros1.setBounds(50, 460, 550, 210);
 
         lbevoluntariado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/voluntariadom2.jpg"))); // NOI18N
         jpevoluntariado.add(lbevoluntariado);
@@ -1300,15 +1759,9 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
     private javax.swing.JComboBox<String> cmbocupacion;
     private javax.swing.JComboBox<String> cmbprograma;
     private javax.swing.JComboBox<String> cmbproyecto;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JPanel jpbproyecto;
     private javax.swing.JPanel jpbvoluntariado;
     private javax.swing.JPanel jpeproyecto;
@@ -1324,15 +1777,6 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
     private javax.swing.JPanel jpvocupacion;
     private javax.swing.JPanel jpvprograma;
     private javax.swing.JPanel jpvpromocionbeca;
-    private javax.swing.JScrollPane jsbvactivos;
-    private javax.swing.JScrollPane jsbvanio;
-    private javax.swing.JScrollPane jsbvedad;
-    private javax.swing.JScrollPane jsbvgenero;
-    private javax.swing.JScrollPane jsbvinactivos;
-    private javax.swing.JScrollPane jsbvnombre;
-    private javax.swing.JScrollPane jsbvprograma;
-    private javax.swing.JScrollPane jsbvpromocionbeca;
-    private javax.swing.JTable jtablebproyectos;
     private javax.swing.JLabel lbbproyectos;
     private javax.swing.JLabel lbbvoluntariado;
     private javax.swing.JLabel lbeproyectos;
@@ -1349,21 +1793,37 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
     private javax.swing.JLabel lbvprograma;
     private javax.swing.JLabel lbvpromocionbeca;
     private rojerusan.RSPanelsSlider rSPanelsSlider1;
-    private javax.swing.JTable tablebvactivos;
-    private javax.swing.JTable tablebvanio;
-    private javax.swing.JTable tablebvedad;
-    private javax.swing.JTable tablebvgenero;
-    private javax.swing.JTable tablebvinactivos;
-    private javax.swing.JTable tablebvnombre;
+    private javax.swing.JScrollPane scrolled;
+    private javax.swing.JScrollPane scrollg;
+    private javax.swing.JScrollPane scrollgai;
+    private javax.swing.JScrollPane scrollge;
+    private javax.swing.JScrollPane scrollgex;
+    private javax.swing.JScrollPane scrollgvproy;
+    private javax.swing.JScrollPane scrolln;
+    private javax.swing.JScrollPane scrollpro;
+    private javax.swing.JScrollPane scrollpromo;
+    private javax.swing.JScrollPane scrollproy;
+    private javax.swing.JScrollPane scrollveproy;
+    private javax.swing.JScrollPane scrollvevol;
+    private javax.swing.JScrollPane scrollvmiembros;
+    private javax.swing.JScrollPane scrollvmiembros1;
+    private javax.swing.JScrollPane scrollvvol;
+    private rojerusan.RSTableMetro tablebvanioi;
+    private rojerusan.RSTableMetro tablebvedad;
+    private rojerusan.RSTableMetro tablebvexbecarios;
+    private rojerusan.RSTableMetro tablebvgeneral;
+    private rojerusan.RSTableMetro tablebvgenero;
+    private rojerusan.RSTableMetro tablebvnombre;
     private javax.swing.JTable tablebvocupacion;
-    private javax.swing.JTable tablebvprograma;
-    private javax.swing.JTable tablebvpromocionbeca;
-    private javax.swing.JTable tbemiembros;
-    private javax.swing.JTable tbeproyecto;
-    private javax.swing.JTable tbevoluntarios;
-    private javax.swing.JTable tblmiembros;
-    private javax.swing.JTable tblproyecto;
-    private javax.swing.JTable tblvoluntarios;
+    private rojerusan.RSTableMetro tablebvprograma;
+    private rojerusan.RSTableMetro tablebvpromo;
+    private rojerusan.RSTableMetro tablebvproyecto;
+    private rojerusan.RSTableMetro tablevemiembros;
+    private rojerusan.RSTableMetro tableveproy;
+    private rojerusan.RSTableMetro tablevevol;
+    private rojerusan.RSTableMetro tablevmiembros;
+    private rojerusan.RSTableMetro tablevproy;
+    private rojerusan.RSTableMetro tablevvol;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtavexbnexb;
     private javax.swing.JTextField txtbapellidosg;

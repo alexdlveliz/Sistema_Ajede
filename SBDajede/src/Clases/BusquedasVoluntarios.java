@@ -13,6 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import rojerusan.RSTableMetro;
 
 /**
  *
@@ -28,7 +29,7 @@ public class BusquedasVoluntarios {
         con = conexion.getConnection();
     }
 
-    public DefaultTableModel BNombre(String nombre, JTable tabla, String apellido, boolean activo) {
+    public DefaultTableModel BNombre(String nombre, RSTableMetro tabla, String apellido, boolean activo) {
         try {
             String titulos[] = new String[6];
             for (byte i = 0; i < 6; i++) {

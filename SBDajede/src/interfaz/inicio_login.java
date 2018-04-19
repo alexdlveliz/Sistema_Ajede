@@ -31,8 +31,6 @@ public class inicio_login extends javax.swing.JFrame {
     Font fuente2 = new Font("Yu Gothic UI Light", Font.BOLD, 15);
     ImageIcon iniciotam1 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/iniciointerfaz.jpg")).getImage());
     ImageIcon logintam1 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/login.jpg")).getImage());
-    ImageIcon iniciotam2 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/iniciotam2.jpg")).getImage());
-    ImageIcon logintam2 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/logintam2.jpg")).getImage());
 
     public inicio_login() {
         initComponents();
@@ -44,9 +42,11 @@ public class inicio_login extends javax.swing.JFrame {
         Toolkit tk = Toolkit.getDefaultToolkit();
         Dimension tamanio = tk.getScreenSize();
         if ((tamanio.width == 1920) && (tamanio.height == 1080)) {
-            this.setSize(1685, 985);
-            inicio.setIcon(iniciotam1);
-            login.setIcon(logintam1);
+            this.setSize(1568, 880);
+            jpinicio.setSize(1568,880);
+            jplogin.setSize(1568,880);
+            lbinicio.setIcon(iniciotam1);
+            lblogin.setIcon(logintam1);
             btnsiguiente.setLocation(1450, 770);
             btnadmin.setLocation(190, 560);
             btncomite.setLocation(430, 560);
@@ -56,21 +56,7 @@ public class inicio_login extends javax.swing.JFrame {
             PSTcontrasenia.setFont(fuente);
             CMBUsuarios.setLocation(980, 335);
             CMBUsuarios.setFont(fuente);
-        } else if ((tamanio.width == 1708) && (tamanio.height == 960)) //1366.768, alex: 1708.960
-        {
-            this.setSize(1256, 706);
-            inicio.setIcon(iniciotam2);
-            login.setIcon(logintam2);
-            btnsiguiente.setLocation(1050, 530);
-            btnadmin.setLocation(130, 376);
-            btncomite.setLocation(300, 376);
-            CMBUsuarios.setLocation(660, 233);
-            CMBUsuarios.setFont(fuente2);
-            PSTcontrasenia.setLocation(710, 312);
-            btningresar.setLocation(622, 370);
-            btnfpassword.setLocation(1090, 440);
         }
-
         this.setLocationRelativeTo(null);
         transparencia();
     }
@@ -111,77 +97,82 @@ public class inicio_login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        interfaz = new jcMousePanel.jcMousePanel();
+        panelf = new javax.swing.JPanel();
         rSPanelsSlider1 = new rojerusan.RSPanelsSlider();
-        inicio = new jcMousePanel.jcMousePanel();
+        jpinicio = new javax.swing.JPanel();
         btnsiguiente = new javax.swing.JButton();
-        login = new jcMousePanel.jcMousePanel();
+        lbinicio = new javax.swing.JLabel();
+        jplogin = new javax.swing.JPanel();
         CMBUsuarios = new javax.swing.JComboBox<>();
         PSTcontrasenia = new javax.swing.JPasswordField();
         btnadmin = new javax.swing.JButton();
-        btncomite = new javax.swing.JButton();
         btningresar = new javax.swing.JButton();
+        btncomite = new javax.swing.JButton();
         btnfpassword = new javax.swing.JButton();
+        lblogin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(724, 635));
+        setMinimumSize(new java.awt.Dimension(1250, 700));
 
-        interfaz.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/iniciointerfaz.jpg"))); // NOI18N
-        interfaz.setLayout(new java.awt.CardLayout());
+        rSPanelsSlider1.setMaximumSize(new java.awt.Dimension(1565, 880));
+        rSPanelsSlider1.setMinimumSize(new java.awt.Dimension(250, 700));
+        rSPanelsSlider1.setPreferredSize(new java.awt.Dimension(1250, 700));
 
-        inicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/iniciointerfaz.jpg"))); // NOI18N
-        inicio.setName("inicio"); // NOI18N
-        inicio.setVisibleLogo(false);
-        inicio.setLayout(null);
+        jpinicio.setName("jpinicio"); // NOI18N
+        jpinicio.setLayout(null);
 
         btnsiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/inicio/icons8_Right_70px.png"))); // NOI18N
         btnsiguiente.setName("btnsiguiente"); // NOI18N
         btnsiguiente.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/inicio/icons8_Right_100px.png"))); // NOI18N
-        btnsiguiente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnsiguienteActionPerformed(evt);
+        btnsiguiente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnsiguienteMouseClicked(evt);
             }
         });
-        inicio.add(btnsiguiente);
-        btnsiguiente.setBounds(417, 344, 98, 82);
+        jpinicio.add(btnsiguiente);
+        btnsiguiente.setBounds(1120, 600, 103, 79);
 
-        rSPanelsSlider1.add(inicio, "card2");
+        lbinicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/iniciotam2.jpg"))); // NOI18N
+        lbinicio.setText("jLabel1");
+        jpinicio.add(lbinicio);
+        lbinicio.setBounds(0, 0, 1250, 700);
 
-        login.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/login.jpg"))); // NOI18N
-        login.setName("login"); // NOI18N
-        login.setVisibleLogo(false);
-        login.setLayout(null);
+        rSPanelsSlider1.add(jpinicio, "card4");
+
+        jplogin.setName("jplogin"); // NOI18N
+        jplogin.setLayout(null);
 
         CMBUsuarios.setBackground(new java.awt.Color(0, 102, 153));
         CMBUsuarios.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
         CMBUsuarios.setForeground(new java.awt.Color(255, 255, 255));
         CMBUsuarios.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ejemplo@gmail.com", "ejemplo2@hotmail.com", "ejemplo3@outlook.com", "ejemplo4@yahoo.com" }));
         CMBUsuarios.setBorder(null);
-        CMBUsuarios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CMBUsuariosActionPerformed(evt);
-            }
-        });
-        login.add(CMBUsuarios);
-        CMBUsuarios.setBounds(760, 280, 390, 40);
+        jplogin.add(CMBUsuarios);
+        CMBUsuarios.setBounds(660, 245, 390, 40);
 
         PSTcontrasenia.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
         PSTcontrasenia.setForeground(new java.awt.Color(0, 255, 255));
         PSTcontrasenia.setText("jPasswordField1");
         PSTcontrasenia.setBorder(null);
-        PSTcontrasenia.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                PSTcontraseniaKeyTyped(evt);
-            }
-        });
-        login.add(PSTcontrasenia);
-        PSTcontrasenia.setBounds(730, 370, 330, 25);
+        jplogin.add(PSTcontrasenia);
+        PSTcontrasenia.setBounds(710, 325, 330, 25);
 
         btnadmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/login/icons8_Admin_Settings_Male_70px.png"))); // NOI18N
         btnadmin.setName("btnadmin"); // NOI18N
         btnadmin.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/login/icons8_Admin_Settings_Male_100px.png"))); // NOI18N
-        login.add(btnadmin);
-        btnadmin.setBounds(130, 440, 120, 110);
+        jplogin.add(btnadmin);
+        btnadmin.setBounds(130, 380, 120, 110);
+
+        btningresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/login/icons8_In_Progress_70px.png"))); // NOI18N
+        btningresar.setName("btningresar"); // NOI18N
+        btningresar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/login/icons8_In_Progress_100px.png"))); // NOI18N
+        btningresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btningresarMouseClicked(evt);
+            }
+        });
+        jplogin.add(btningresar);
+        btningresar.setBounds(630, 380, 103, 110);
 
         btncomite.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/login/icons8_User_Groups_70px.png"))); // NOI18N
         btncomite.setMaximumSize(new java.awt.Dimension(130, 130));
@@ -189,64 +180,64 @@ public class inicio_login extends javax.swing.JFrame {
         btncomite.setName("btncomite"); // NOI18N
         btncomite.setPreferredSize(new java.awt.Dimension(130, 130));
         btncomite.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/login/icons8_User_Groups_100px.png"))); // NOI18N
-        login.add(btncomite);
-        btncomite.setBounds(320, 440, 130, 110);
-
-        btningresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/login/icons8_In_Progress_70px.png"))); // NOI18N
-        btningresar.setName("btningresar"); // NOI18N
-        btningresar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/login/icons8_In_Progress_100px.png"))); // NOI18N
-        btningresar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btningresarActionPerformed(evt);
-            }
-        });
-        login.add(btningresar);
-        btningresar.setBounds(640, 440, 98, 110);
+        jplogin.add(btncomite);
+        btncomite.setBounds(300, 380, 130, 110);
 
         btnfpassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/login/icons8_Forgot_Password_70px_1.png"))); // NOI18N
         btnfpassword.setName("btnfpassword"); // NOI18N
         btnfpassword.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/login/icons8_Forgot_Password_100px.png"))); // NOI18N
-        btnfpassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnfpasswordActionPerformed(evt);
-            }
-        });
-        login.add(btnfpassword);
-        btnfpassword.setBounds(1130, 530, 120, 110);
+        jplogin.add(btnfpassword);
+        btnfpassword.setBounds(1090, 480, 120, 110);
 
-        rSPanelsSlider1.add(login, "card3");
+        lblogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/logintam2.jpg"))); // NOI18N
+        lblogin.setText("jLabel1");
+        jplogin.add(lblogin);
+        lblogin.setBounds(0, 0, 1250, 700);
 
-        interfaz.add(rSPanelsSlider1, "card2");
+        rSPanelsSlider1.add(jplogin, "card4");
+
+        javax.swing.GroupLayout panelfLayout = new javax.swing.GroupLayout(panelf);
+        panelf.setLayout(panelfLayout);
+        panelfLayout.setHorizontalGroup(
+            panelfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1250, Short.MAX_VALUE)
+            .addGroup(panelfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelfLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(rSPanelsSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        panelfLayout.setVerticalGroup(
+            panelfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 700, Short.MAX_VALUE)
+            .addGroup(panelfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelfLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(rSPanelsSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(interfaz, javax.swing.GroupLayout.DEFAULT_SIZE, 1278, Short.MAX_VALUE)
+            .addComponent(panelf, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(interfaz, javax.swing.GroupLayout.DEFAULT_SIZE, 798, Short.MAX_VALUE)
+            .addComponent(panelf, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnsiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsiguienteActionPerformed
-        /**
-         * Una primera condicion que se llama al metodo de la clase usuario y
-         * contar los usuarios en la BD esto se hace siempre para verificar si
-         * es la primera vez que se inicia el programa y así poder saber si se
-         * abré el login o el registro.
-         */
-        if (us.ContarUsuarios() == 0) {
-            Registrarjf registrar = new Registrarjf();
-            registrar.setVisible(true);
-            this.dispose();
-        } else {
-            rSPanelsSlider1.setPanelSlider(login, RSPanelsSlider.DIRECT.LEFT);
-        }
-    }//GEN-LAST:event_btnsiguienteActionPerformed
+    private void btnsiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsiguienteMouseClicked
+                rSPanelsSlider1.setPanelSlider(jplogin, RSPanelsSlider.DIRECT.RIGHT);
+    }//GEN-LAST:event_btnsiguienteMouseClicked
+
+    private void btningresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btningresarMouseClicked
+        InicioSecion();
+    }//GEN-LAST:event_btningresarMouseClicked
     /**
      * metodo que verifica la si la contraseña del usurio es la misma en la BD.
      */
@@ -278,34 +269,6 @@ public class inicio_login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error al ingresar la contraseña", "Error", WARNING_MESSAGE);
         }
     }
-    private void btningresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btningresarActionPerformed
-        InicioSecion();
-    }//GEN-LAST:event_btningresarActionPerformed
-
-    private void CMBUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CMBUsuariosActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_CMBUsuariosActionPerformed
-
-    private void btnfpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfpasswordActionPerformed
-        /* Necesario poner un proceso por si olvidó la contraseña
-        Sugerencia: reenviar contraseña: usuario123
-         */
-    }//GEN-LAST:event_btnfpasswordActionPerformed
-    /**
-     * Este metodo lo utilizó para cuando el usuario termina de escribir su
-     * contraseña y solo le da enter para que inicie secion
-     *
-     * @param evt
-     */
-    private void PSTcontraseniaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PSTcontraseniaKeyTyped
-        //comparo el valor del caracter en ascii si es 10 significa que dio un enter entonces llamo al metodo iniciar sesion.
-        char c = evt.getKeyChar();
-        if ((int) c == 10) {
-            InicioSecion();
-        }
-    }//GEN-LAST:event_PSTcontraseniaKeyTyped
-
     /**
      * @param args the command line arguments
      */
@@ -350,9 +313,11 @@ public class inicio_login extends javax.swing.JFrame {
     private javax.swing.JButton btnfpassword;
     private javax.swing.JButton btningresar;
     private javax.swing.JButton btnsiguiente;
-    private jcMousePanel.jcMousePanel inicio;
-    private jcMousePanel.jcMousePanel interfaz;
-    private jcMousePanel.jcMousePanel login;
+    private javax.swing.JPanel jpinicio;
+    private javax.swing.JPanel jplogin;
+    private javax.swing.JLabel lbinicio;
+    private javax.swing.JLabel lblogin;
+    private javax.swing.JPanel panelf;
     private rojerusan.RSPanelsSlider rSPanelsSlider1;
     // End of variables declaration//GEN-END:variables
 }

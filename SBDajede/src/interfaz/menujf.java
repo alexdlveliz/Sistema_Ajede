@@ -235,12 +235,6 @@ public class menujf extends javax.swing.JFrame {
         btnguardarproyecto = new javax.swing.JButton();
         lbproyectos = new javax.swing.JLabel();
         jpvoluntariadom = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tableproyecto = new javax.swing.JTable();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tablemiembros = new javax.swing.JTable();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        tablevoluntarios = new javax.swing.JTable();
         btnguardarvoluntarioado = new javax.swing.JButton();
         btnmenuv = new javax.swing.JButton();
         txtproyecto = new javax.swing.JTextField();
@@ -248,6 +242,12 @@ public class menujf extends javax.swing.JFrame {
         txtmiembros = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         txtProyectoSelect = new javax.swing.JTextField();
+        scrollvmiembros = new javax.swing.JScrollPane();
+        tablemiembros = new rojerusan.RSTableMetro();
+        scrollvevol = new javax.swing.JScrollPane();
+        tablevoluntarios = new rojerusan.RSTableMetro();
+        scrollveproy = new javax.swing.JScrollPane();
+        tableproyecto = new rojerusan.RSTableMetro();
         lbvoluntariadom = new javax.swing.JLabel();
         jpmreportes = new javax.swing.JPanel();
         btnrmenu = new javax.swing.JButton();
@@ -514,95 +514,6 @@ public class menujf extends javax.swing.JFrame {
         jpvoluntariadom.setName("jpvoluntariadom"); // NOI18N
         jpvoluntariadom.setLayout(null);
 
-        tableproyecto.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "No", "Nombre Proyecto", "Descripcion"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tableproyecto.setComponentPopupMenu(PMProyecto);
-        tableproyecto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        tableproyecto.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(tableproyecto);
-        if (tableproyecto.getColumnModel().getColumnCount() > 0) {
-            tableproyecto.getColumnModel().getColumn(0).setPreferredWidth(1);
-            tableproyecto.getColumnModel().getColumn(1).setResizable(false);
-            tableproyecto.getColumnModel().getColumn(2).setResizable(false);
-        }
-
-        jpvoluntariadom.add(jScrollPane1);
-        jScrollPane1.setBounds(50, 170, 550, 160);
-
-        tablemiembros.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Nombres", "Apellidos", "Puesto"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tablemiembros.setComponentPopupMenu(PMMiembro);
-        tablemiembros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jScrollPane2.setViewportView(tablemiembros);
-
-        jpvoluntariadom.add(jScrollPane2);
-        jScrollPane2.setBounds(50, 460, 550, 210);
-
-        tablevoluntarios.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "No", "Nombre", "Apellido", "Género"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tablevoluntarios.setComponentPopupMenu(PMVoluntariado);
-        tablevoluntarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jScrollPane3.setViewportView(tablevoluntarios);
-        if (tablevoluntarios.getColumnModel().getColumnCount() > 0) {
-            tablevoluntarios.getColumnModel().getColumn(0).setMinWidth(0);
-            tablevoluntarios.getColumnModel().getColumn(0).setPreferredWidth(1);
-            tablevoluntarios.getColumnModel().getColumn(0).setMaxWidth(2);
-            tablevoluntarios.getColumnModel().getColumn(3).setMinWidth(80);
-            tablevoluntarios.getColumnModel().getColumn(3).setPreferredWidth(80);
-            tablevoluntarios.getColumnModel().getColumn(3).setMaxWidth(80);
-        }
-
-        jpvoluntariadom.add(jScrollPane3);
-        jScrollPane3.setBounds(640, 170, 560, 210);
-
         btnguardarvoluntarioado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Save_Close_70px.png"))); // NOI18N
         btnguardarvoluntarioado.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Save_Close_100px.png"))); // NOI18N
         btnguardarvoluntarioado.addActionListener(new java.awt.event.ActionListener() {
@@ -663,6 +574,138 @@ public class menujf extends javax.swing.JFrame {
         txtProyectoSelect.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         jpvoluntariadom.add(txtProyectoSelect);
         txtProyectoSelect.setBounds(240, 340, 360, 40);
+
+        tablemiembros.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Nombres", "Apellidos", "Puesto"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablemiembros.setColorBackgoundHead(new java.awt.Color(22, 54, 77));
+        tablemiembros.setColorBordeFilas(new java.awt.Color(255, 255, 255));
+        tablemiembros.setColorBordeHead(new java.awt.Color(255, 255, 255));
+        tablemiembros.setColorFilasBackgound1(new java.awt.Color(163, 214, 249));
+        tablemiembros.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
+        tablemiembros.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
+        tablemiembros.setColorFilasForeground2(new java.awt.Color(0, 0, 0));
+        tablemiembros.setColorSelBackgound(new java.awt.Color(22, 54, 77));
+        tablemiembros.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablemiembros.setFuenteFilas(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablemiembros.setFuenteFilasSelect(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablemiembros.setFuenteHead(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
+        tablemiembros.setRowHeight(22);
+        tablemiembros.getTableHeader().setReorderingAllowed(false);
+        scrollvmiembros.setViewportView(tablemiembros);
+
+        jpvoluntariadom.add(scrollvmiembros);
+        scrollvmiembros.setBounds(50, 460, 550, 210);
+
+        tablevoluntarios.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Nombre", "Apellido", "Género"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablevoluntarios.setColorBackgoundHead(new java.awt.Color(22, 54, 77));
+        tablevoluntarios.setColorBordeFilas(new java.awt.Color(255, 255, 255));
+        tablevoluntarios.setColorBordeHead(new java.awt.Color(255, 255, 255));
+        tablevoluntarios.setColorFilasBackgound1(new java.awt.Color(163, 214, 249));
+        tablevoluntarios.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
+        tablevoluntarios.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
+        tablevoluntarios.setColorFilasForeground2(new java.awt.Color(0, 0, 0));
+        tablevoluntarios.setColorSelBackgound(new java.awt.Color(22, 54, 77));
+        tablevoluntarios.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablevoluntarios.setFuenteFilas(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablevoluntarios.setFuenteFilasSelect(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablevoluntarios.setFuenteHead(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
+        tablevoluntarios.setRowHeight(22);
+        tablevoluntarios.getTableHeader().setReorderingAllowed(false);
+        scrollvevol.setViewportView(tablevoluntarios);
+
+        jpvoluntariadom.add(scrollvevol);
+        scrollvevol.setBounds(640, 170, 550, 210);
+
+        tableproyecto.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "No.", "Proyecto", "Descripción"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tableproyecto.setColorBackgoundHead(new java.awt.Color(22, 54, 77));
+        tableproyecto.setColorBordeFilas(new java.awt.Color(255, 255, 255));
+        tableproyecto.setColorBordeHead(new java.awt.Color(255, 255, 255));
+        tableproyecto.setColorFilasBackgound1(new java.awt.Color(163, 214, 249));
+        tableproyecto.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
+        tableproyecto.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
+        tableproyecto.setColorFilasForeground2(new java.awt.Color(0, 0, 0));
+        tableproyecto.setColorSelBackgound(new java.awt.Color(22, 54, 77));
+        tableproyecto.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tableproyecto.setFuenteFilas(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tableproyecto.setFuenteFilasSelect(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tableproyecto.setFuenteHead(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
+        tableproyecto.setRowHeight(22);
+        tableproyecto.getTableHeader().setReorderingAllowed(false);
+        scrollveproy.setViewportView(tableproyecto);
+
+        jpvoluntariadom.add(scrollveproy);
+        scrollveproy.setBounds(50, 170, 550, 160);
 
         lbvoluntariadom.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         lbvoluntariadom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/voluntariadom2.jpg"))); // NOI18N
@@ -1209,9 +1252,6 @@ public class menujf extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JPanel jpagregarproyecto;
     private javax.swing.JPanel jpmreportes;
     private javax.swing.JPanel jpvoluntariadom;
@@ -1223,9 +1263,12 @@ public class menujf extends javax.swing.JFrame {
     private javax.swing.JPanel menuagregar;
     private javax.swing.JPanel menuprincipal;
     private rojerusan.RSPanelsSlider rSPanelsSlider1;
-    private javax.swing.JTable tablemiembros;
-    private javax.swing.JTable tableproyecto;
-    private javax.swing.JTable tablevoluntarios;
+    private javax.swing.JScrollPane scrollveproy;
+    private javax.swing.JScrollPane scrollvevol;
+    private javax.swing.JScrollPane scrollvmiembros;
+    private rojerusan.RSTableMetro tablemiembros;
+    private rojerusan.RSTableMetro tableproyecto;
+    private rojerusan.RSTableMetro tablevoluntarios;
     private javax.swing.JTextField txtProyectoSelect;
     private javax.swing.JTextField txtdescripcionp;
     private javax.swing.JTextField txtmiembros;
