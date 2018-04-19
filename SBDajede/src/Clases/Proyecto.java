@@ -76,7 +76,7 @@ public class Proyecto extends Usuario {
     public DefaultTableModel Voluntarios(String nombre, JTable tabla) {
         try {
             String titulos[] = new String[4];
-            for (byte i = 0; i < 4; i++) {
+            for (byte i = 0; i < 3; i++) {
                 titulos[i] = tabla.getColumnName(i);
             }
             boolean genero;

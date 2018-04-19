@@ -42,12 +42,15 @@ public class inicio_login extends javax.swing.JFrame {
         Toolkit tk = Toolkit.getDefaultToolkit();
         Dimension tamanio = tk.getScreenSize();
         if ((tamanio.width == 1920) && (tamanio.height == 1080)) {
-            this.setSize(1568, 880);
+            this.setSize(1568, 880); //1568 880 1250 700
+            rSPanelsSlider1.setSize(1568, 880);
             jpinicio.setSize(1568,880);
             jplogin.setSize(1568,880);
+            lbinicio.setSize(1568, 880);
+            lblogin.setSize(1568, 880);
             lbinicio.setIcon(iniciotam1);
             lblogin.setIcon(logintam1);
-            btnsiguiente.setLocation(1450, 770);
+            btnsiguiente.setLocation(50, 50);
             btnadmin.setLocation(190, 560);
             btncomite.setLocation(430, 560);
             btningresar.setLocation(850, 550);
@@ -114,6 +117,8 @@ public class inicio_login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1250, 700));
 
+        panelf.setLayout(null);
+
         rSPanelsSlider1.setMaximumSize(new java.awt.Dimension(1565, 880));
         rSPanelsSlider1.setMinimumSize(new java.awt.Dimension(250, 700));
         rSPanelsSlider1.setPreferredSize(new java.awt.Dimension(1250, 700));
@@ -130,12 +135,12 @@ public class inicio_login extends javax.swing.JFrame {
             }
         });
         jpinicio.add(btnsiguiente);
-        btnsiguiente.setBounds(1120, 600, 103, 79);
+        btnsiguiente.setBounds(630, 30, 103, 79);
 
         lbinicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/iniciotam2.jpg"))); // NOI18N
         lbinicio.setText("jLabel1");
         jpinicio.add(lbinicio);
-        lbinicio.setBounds(0, 0, 1250, 700);
+        lbinicio.setBounds(0, -30, 1290, 770);
 
         rSPanelsSlider1.add(jpinicio, "card4");
 
@@ -196,26 +201,8 @@ public class inicio_login extends javax.swing.JFrame {
 
         rSPanelsSlider1.add(jplogin, "card4");
 
-        javax.swing.GroupLayout panelfLayout = new javax.swing.GroupLayout(panelf);
-        panelf.setLayout(panelfLayout);
-        panelfLayout.setHorizontalGroup(
-            panelfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1250, Short.MAX_VALUE)
-            .addGroup(panelfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelfLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(rSPanelsSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        panelfLayout.setVerticalGroup(
-            panelfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
-            .addGroup(panelfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelfLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(rSPanelsSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        panelf.add(rSPanelsSlider1);
+        rSPanelsSlider1.setBounds(0, 0, 1250, 700);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
