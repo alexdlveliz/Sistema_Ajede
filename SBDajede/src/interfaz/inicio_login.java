@@ -44,8 +44,8 @@ public class inicio_login extends javax.swing.JFrame {
         if ((tamanio.width == 1920) && (tamanio.height == 1080)) {
             this.setSize(1568, 880); //1568 880 1250 700
             rSPanelsSlider1.setSize(1568, 880);
-            jpinicio.setSize(1568,880);
-            jplogin.setSize(1568,880);
+            jpinicio.setSize(1568, 880);
+            jplogin.setSize(1568, 880);
             lbinicio.setSize(1568, 880);
             lblogin.setSize(1568, 880);
             lbinicio.setIcon(iniciotam1);
@@ -219,7 +219,14 @@ public class inicio_login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnsiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsiguienteMouseClicked
-                rSPanelsSlider1.setPanelSlider(jplogin, RSPanelsSlider.DIRECT.RIGHT);
+        if (us.ContarUsuarios()==0) {
+            Registrarjf registrar = new Registrarjf();
+            registrar.setVisible(true);
+            this.dispose();
+        }else{
+            rSPanelsSlider1.setPanelSlider(jplogin, RSPanelsSlider.DIRECT.RIGHT);
+        }
+        
     }//GEN-LAST:event_btnsiguienteMouseClicked
 
     private void btningresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btningresarMouseClicked
@@ -256,6 +263,7 @@ public class inicio_login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error al ingresar la contraseña", "Error", WARNING_MESSAGE);
         }
     }
+
     /**
      * @param args the command line arguments
      */

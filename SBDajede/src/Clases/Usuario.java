@@ -117,7 +117,7 @@ public class Usuario {
          */
         int total = 0;
         try {
-            String sql = "SELECT count(*) AS total FROM usuario";
+            String sql = "SELECT max(id) AS total FROM usuario";
             Statement St = con.createStatement();
             ResultSet Rs = St.executeQuery(sql);
 

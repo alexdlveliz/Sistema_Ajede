@@ -577,16 +577,7 @@ public class menujf extends javax.swing.JFrame {
 
         tablemiembros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Nombres", "Apellidos", "Puesto"
@@ -608,6 +599,7 @@ public class menujf extends javax.swing.JFrame {
         tablemiembros.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
         tablemiembros.setColorFilasForeground2(new java.awt.Color(0, 0, 0));
         tablemiembros.setColorSelBackgound(new java.awt.Color(22, 54, 77));
+        tablemiembros.setComponentPopupMenu(PMMiembro);
         tablemiembros.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
         tablemiembros.setFuenteFilas(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
         tablemiembros.setFuenteFilasSelect(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
@@ -652,6 +644,7 @@ public class menujf extends javax.swing.JFrame {
         tablevoluntarios.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
         tablevoluntarios.setColorFilasForeground2(new java.awt.Color(0, 0, 0));
         tablevoluntarios.setColorSelBackgound(new java.awt.Color(22, 54, 77));
+        tablevoluntarios.setComponentPopupMenu(PMVoluntariado);
         tablevoluntarios.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
         tablevoluntarios.setFuenteFilas(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
         tablevoluntarios.setFuenteFilasSelect(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
@@ -696,6 +689,7 @@ public class menujf extends javax.swing.JFrame {
         tableproyecto.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
         tableproyecto.setColorFilasForeground2(new java.awt.Color(0, 0, 0));
         tableproyecto.setColorSelBackgound(new java.awt.Color(22, 54, 77));
+        tableproyecto.setComponentPopupMenu(PMProyecto);
         tableproyecto.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
         tableproyecto.setFuenteFilas(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
         tableproyecto.setFuenteFilasSelect(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
