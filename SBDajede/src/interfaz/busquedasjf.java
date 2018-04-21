@@ -1152,6 +1152,7 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         jpbproyecto.setLayout(null);
 
         cmbbproyectos.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
+        cmbbproyectos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Escoja un proyecto" }));
         cmbbproyectos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbbproyectosActionPerformed(evt);
@@ -1175,7 +1176,7 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
                 {null, null, null, null}
             },
             new String [] {
-                "No.", "Proyecto", "Descripción", "Finalizado"
+                "No.", "Nombre", "Apellido", "Fecha de Nacimiento"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -1209,8 +1210,8 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
             tablebvproyecto.getColumnModel().getColumn(1).setPreferredWidth(300);
             tablebvproyecto.getColumnModel().getColumn(1).setMaxWidth(300);
             tablebvproyecto.getColumnModel().getColumn(3).setMinWidth(100);
-            tablebvproyecto.getColumnModel().getColumn(3).setPreferredWidth(200);
-            tablebvproyecto.getColumnModel().getColumn(3).setMaxWidth(200);
+            tablebvproyecto.getColumnModel().getColumn(3).setPreferredWidth(300);
+            tablebvproyecto.getColumnModel().getColumn(3).setMaxWidth(300);
         }
 
         jpbproyecto.add(scrollproy);
@@ -1738,13 +1739,16 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         Conexion conexion = new Conexion();
         con = conexion.getConnection();
         
-        Statement st = con.createStatement();
-        ResultSet rs = st.executeQuery("SELECT * FROM proyecto WHERE nombreProyecto= '"+this.cmbbproyectos.getSelectedItem() +"'");
-        rs.next();
-        lblIdProyecto.setText(String.valueOf(rs.getInt("id")));
-        //tablebvnombre.setModel(busquedas.BNombre(txtbvnombre.getText(), tablebvnombre, txtApellido.getText(),activo));
-        tablebvproyecto.setModel(busquedas.BProyecto(tablebvproyecto, lblIdProyecto.getText()));
-        System.out.println(lblIdProyecto.getText());
+        if(this.cmbbproyectos.getSelectedItem().equals("Escoja un proyecto"))
+            tablebvproyecto.setModel(busquedas.BProyecto(tablebvproyecto, ""));
+        else
+        {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM proyecto WHERE nombreProyecto= '"+this.cmbbproyectos.getSelectedItem() +"'");
+            rs.next();
+            lblIdProyecto.setText(String.valueOf(rs.getInt("id")));
+            tablebvproyecto.setModel(busquedas.BProyecto(tablebvproyecto, lblIdProyecto.getText()));
+        }
     } catch (SQLException ex) {
         Logger.getLogger(busquedasjf.class.getName()).log(Level.SEVERE, null, ex);
     }

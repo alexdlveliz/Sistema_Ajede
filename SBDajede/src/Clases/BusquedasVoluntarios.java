@@ -70,22 +70,19 @@ public class BusquedasVoluntarios {
                 titulos[i] = tablaProyecto.getColumnName(i);
             }
             
-            boolean finalizado;
             String registros[] = new String[4];
-            String sql = "Select * from proyecto where id LIKE '%" + id + "%'";
+            String sql = "SELECT asociado.id, asociado.Nombre, asociado.Apellido, asociado.FechaNacimiento FROM asociado "
+                    + "LEFT JOIN voluntariado ON asociado.id = voluntariado.Asociado_id LEFT JOIN "
+                    + "proyecto ON voluntariado.Proyecto_id = proyecto.id WHERE proyecto.id LIKE '%" + id + "%'";
             DefaultTableModel modelo = new DefaultTableModel(null, titulos);
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while(rs.next())
             {
                 registros[0]=rs.getString("id");
-                registros[1]=rs.getString("nombreProyecto");
-                registros[2]=rs.getString("descripcion");
-                finalizado=rs.getBoolean("finalizado");
-                if(finalizado)
-                    registros[3]="Finalizado";
-                else
-                    registros[3]="No finalizado";
+                registros[1]=rs.getString("Nombre");
+                registros[2]=rs.getString("Apellido");
+                registros[3]=rs.getString("FechaNacimiento");
                 modelo.addRow(registros);
             }
             return modelo;
