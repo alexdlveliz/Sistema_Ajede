@@ -52,7 +52,7 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         initComponents();
         transparencia();
         tablebvnombre.setModel(busquedas.BNombre("", tablebvnombre, "",true));
-        
+        tablebvproyecto.setModel(busquedas.BProyecto(tablebvproyecto, ""));
         colocarProyectos();
         this.setLocationRelativeTo(null);
         Toolkit tk = Toolkit.getDefaultToolkit();
@@ -1152,6 +1152,11 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         jpbproyecto.setLayout(null);
 
         cmbbproyectos.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
+        cmbbproyectos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbbproyectosActionPerformed(evt);
+            }
+        });
         jpbproyecto.add(cmbbproyectos);
         cmbbproyectos.setBounds(310, 200, 320, 30);
 
@@ -1725,6 +1730,26 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
     private void btnbevoluntariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbevoluntariosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnbevoluntariosActionPerformed
+
+    private void cmbbproyectosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbbproyectosActionPerformed
+    try {
+        // TODO add your handling code here:
+        Connection con = null;
+        Conexion conexion = new Conexion();
+        con = conexion.getConnection();
+        
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery("SELECT * FROM proyecto WHERE nombreProyecto= '"+this.cmbbproyectos.getSelectedItem() +"'");
+        rs.next();
+        lblIdProyecto.setText(String.valueOf(rs.getInt("id")));
+        //tablebvnombre.setModel(busquedas.BNombre(txtbvnombre.getText(), tablebvnombre, txtApellido.getText(),activo));
+        tablebvproyecto.setModel(busquedas.BProyecto(tablebvproyecto, lblIdProyecto.getText()));
+        System.out.println(lblIdProyecto.getText());
+    } catch (SQLException ex) {
+        Logger.getLogger(busquedasjf.class.getName()).log(Level.SEVERE, null, ex);
+    }
+        
+    }//GEN-LAST:event_cmbbproyectosActionPerformed
 
     /**
      * @param args the command line arguments

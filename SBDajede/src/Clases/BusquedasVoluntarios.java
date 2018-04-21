@@ -62,17 +62,17 @@ public class BusquedasVoluntarios {
         return null;
     }
     
-    public DefaultTableModel BProyecto(RSTableMetro tablaProyecto, String proyecto)
+    public DefaultTableModel BProyecto(RSTableMetro tablaProyecto, String id)
     {
         try {
-            String titulos[] = new String[6];
-            for (byte i = 0; i < 4; i++) {
+            String titulos[] = new String[4];
+            for (byte i = 0; i < titulos.length; i++) {
                 titulos[i] = tablaProyecto.getColumnName(i);
             }
             
             boolean finalizado;
             String registros[] = new String[4];
-            String sql = "Select * from proyecto where id LIKE '%" + proyecto + "%'";
+            String sql = "Select * from proyecto where id LIKE '%" + id + "%'";
             DefaultTableModel modelo = new DefaultTableModel(null, titulos);
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
