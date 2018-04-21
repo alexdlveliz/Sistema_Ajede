@@ -6,9 +6,16 @@
 package interfaz;
 
 import Clases.BusquedasVoluntarios;
+import Clases.Conexion;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import rojerusan.RSPanelsSlider;
 
@@ -45,6 +52,8 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         initComponents();
         transparencia();
         tablebvnombre.setModel(busquedas.BNombre("", tablebvnombre, "",true));
+        
+        colocarProyectos();
         this.setLocationRelativeTo(null);
         Toolkit tk = Toolkit.getDefaultToolkit();
         Dimension tamanio = tk.getScreenSize();
@@ -300,6 +309,7 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         scrollproy = new javax.swing.JScrollPane();
         tablebvproyecto = new rojerusan.RSTableMetro();
         lbbproyectos = new javax.swing.JLabel();
+        lblIdProyecto = new javax.swing.JLabel();
         jpbvoluntariado = new javax.swing.JPanel();
         txtbmiembros = new javax.swing.JTextField();
         txtbproyecto = new javax.swing.JTextField();
@@ -1141,29 +1151,30 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         jpbproyecto.setName("jpbproyecto"); // NOI18N
         jpbproyecto.setLayout(null);
 
-        cmbbproyectos.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 24)); // NOI18N
+        cmbbproyectos.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
         jpbproyecto.add(cmbbproyectos);
         cmbbproyectos.setBounds(310, 200, 320, 30);
 
         tablebvproyecto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "No.", "Proyecto", "Descripción", "Title 4", "Title 5", "Title 6", "Title 7"
+                "No.", "Proyecto", "Descripción", "Finalizado"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, true, false, true, true, true, true
+                true, true, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -1186,10 +1197,15 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         tablebvproyecto.getTableHeader().setReorderingAllowed(false);
         scrollproy.setViewportView(tablebvproyecto);
         if (tablebvproyecto.getColumnModel().getColumnCount() > 0) {
-            tablebvproyecto.getColumnModel().getColumn(3).setHeaderValue("Title 4");
-            tablebvproyecto.getColumnModel().getColumn(4).setHeaderValue("Title 5");
-            tablebvproyecto.getColumnModel().getColumn(5).setHeaderValue("Title 6");
-            tablebvproyecto.getColumnModel().getColumn(6).setHeaderValue("Title 7");
+            tablebvproyecto.getColumnModel().getColumn(0).setMinWidth(20);
+            tablebvproyecto.getColumnModel().getColumn(0).setPreferredWidth(100);
+            tablebvproyecto.getColumnModel().getColumn(0).setMaxWidth(100);
+            tablebvproyecto.getColumnModel().getColumn(1).setMinWidth(100);
+            tablebvproyecto.getColumnModel().getColumn(1).setPreferredWidth(300);
+            tablebvproyecto.getColumnModel().getColumn(1).setMaxWidth(300);
+            tablebvproyecto.getColumnModel().getColumn(3).setMinWidth(100);
+            tablebvproyecto.getColumnModel().getColumn(3).setPreferredWidth(200);
+            tablebvproyecto.getColumnModel().getColumn(3).setMaxWidth(200);
         }
 
         jpbproyecto.add(scrollproy);
@@ -1198,6 +1214,8 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         lbbproyectos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/proyectos2.jpg"))); // NOI18N
         jpbproyecto.add(lbbproyectos);
         lbbproyectos.setBounds(0, 0, 1250, 700);
+        jpbproyecto.add(lblIdProyecto);
+        lblIdProyecto.setBounds(690, 194, 60, 30);
 
         rSPanelsSlider1.add(jpbproyecto, "card13");
 
@@ -1635,6 +1653,23 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         rSPanelsSlider1.setPanelSlider(jpmenua, RSPanelsSlider.DIRECT.RIGHT);
     }//GEN-LAST:event_btnrmenuaActionPerformed
 
+    private void colocarProyectos()
+    {
+    try {
+        Connection con = null;
+        Conexion conexion = new Conexion();
+        con = conexion.getConnection();
+        
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery("SELECT * FROM proyecto");
+        while(rs.next())
+        {
+            this.cmbbproyectos.addItem(rs.getString("nombreProyecto"));
+        }
+    } catch (SQLException ex) {
+        Logger.getLogger(busquedasjf.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    }
     private void txtbvnombreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbvnombreKeyPressed
         String act=(String)cmbactivo.getSelectedItem();
         if(act.equals("Activo"))
@@ -1783,6 +1818,7 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
     private javax.swing.JLabel lbevoluntariado;
     private javax.swing.JLabel lbexbnexb;
     private javax.swing.JLabel lbgeneral;
+    private javax.swing.JLabel lblIdProyecto;
     private javax.swing.JLabel lbmenua;
     private javax.swing.JLabel lbmenuboe;
     private javax.swing.JLabel lbvanio;
