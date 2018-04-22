@@ -3,13 +3,15 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<parameter name="Fecha" class="java.lang.Long"/>
+	<parameter name="Fecha" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[SELECT 
     nombre,
     apellido,
     genero,
-    YEAR(FechaNacimiento) AS anio,
+    YEAR(CURDATE())-YEAR(FechaNacimiento) + IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(FechaNacimiento, '%m-%d'),0,-1) AS anio,
     YEAR(NOW()),
     NivelEstudio
 FROM
@@ -24,7 +26,7 @@ ORDER BY Apellido;]]>
 	<field name="apellido" class="java.lang.String"/>
 	<field name="genero" class="java.lang.Integer"/>
 	<field name="anio" class="java.lang.Integer"/>
-	<field name="YEAR(NOW())" class="java.lang.Integer"/>
+	<field name="YEAR(NOW())" class="java.lang.Long"/>
 	<field name="NivelEstudio" class="java.lang.String"/>
 	<group name="anio">
 		<groupExpression><![CDATA[$F{anio}]]></groupExpression>
@@ -42,7 +44,7 @@ ORDER BY Apellido;]]>
 					<textElement>
 						<font size="24" isBold="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA[new Integer($F{YEAR(NOW())}-$F{anio})]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{anio}]]></textFieldExpression>
 				</textField>
 				<line>
 					<reportElement uuid="e2a8c892-dfbc-426c-b31d-d3ca792653d0" x="-20" y="32" width="595" height="1" forecolor="#666666"/>

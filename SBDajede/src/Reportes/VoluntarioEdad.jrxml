@@ -3,25 +3,24 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<queryString language="SQL">
+	<queryString>
 		<![CDATA[SELECT 
     nombre,
     apellido,
     genero,
-    YEAR(FechaNacimiento) AS anio,
+    YEAR(CURDATE())-YEAR(FechaNacimiento) + IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(FechaNacimiento, '%m-%d'),0,-1) AS anio,
     YEAR(NOW()),
     NivelEstudio
 FROM
     asociado
         INNER JOIN
     nivelestudio ON asociado.NivelEstudio_id = nivelestudio.id
-ORDER BY anio desc;]]>
+ORDER BY anio;]]>
 	</queryString>
 	<field name="nombre" class="java.lang.String"/>
 	<field name="apellido" class="java.lang.String"/>
 	<field name="genero" class="java.lang.Integer"/>
 	<field name="anio" class="java.lang.Integer"/>
-	<field name="YEAR(NOW())" class="java.lang.Integer"/>
 	<field name="NivelEstudio" class="java.lang.String"/>
 	<group name="anio">
 		<groupExpression><![CDATA[$F{anio}]]></groupExpression>
@@ -39,7 +38,7 @@ ORDER BY anio desc;]]>
 					<textElement>
 						<font size="24" isBold="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA[new Integer($F{YEAR(NOW())}-$F{anio})]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{anio}]]></textFieldExpression>
 				</textField>
 				<line>
 					<reportElement uuid="e2a8c892-dfbc-426c-b31d-d3ca792653d0" x="-20" y="32" width="595" height="1" forecolor="#666666"/>
@@ -153,12 +152,12 @@ ORDER BY anio desc;]]>
 	<pageFooter>
 		<band height="17">
 			<textField>
-				<reportElement uuid="eda7bb6c-b1a8-4278-9006-8ec8b56ef996" mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6"/>
+				<reportElement uuid="eda7bb6c-b1a8-4278-9006-8ec8b56ef996" mode="Opaque" x="0" y="4" width="532" height="13" backcolor="#E6E6E6"/>
 				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement uuid="14e893ee-5116-42a2-b128-1e2baa2c76e0" mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6"/>
+				<reportElement uuid="14e893ee-5116-42a2-b128-1e2baa2c76e0" mode="Opaque" x="532" y="4" width="40" height="13" backcolor="#E6E6E6"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
