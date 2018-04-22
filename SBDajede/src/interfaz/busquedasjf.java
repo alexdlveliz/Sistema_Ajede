@@ -53,6 +53,8 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         transparencia();
         tablebvnombre.setModel(busquedas.BNombre("", tablebvnombre, "",true));
         tablebvproyecto.setModel(busquedas.BProyecto(tablebvproyecto, ""));
+        tablebvgeneral.setModel(busquedas.BNombreApellido("", tablebvgeneral, ""));
+        tablebvgenero.setModel(busquedas.BGenero(tablebvgenero, "M"));
         colocarProyectos();
         this.setLocationRelativeTo(null);
         Toolkit tk = Toolkit.getDefaultToolkit();
@@ -651,34 +653,42 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         jpgeneral.setLayout(null);
 
         txtbapellidosg.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        txtbapellidosg.setText("jTextField1");
+        txtbapellidosg.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtbapellidosgKeyPressed(evt);
+            }
+        });
         jpgeneral.add(txtbapellidosg);
         txtbapellidosg.setBounds(310, 230, 410, 40);
 
         txtbnombreg.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        txtbnombreg.setText("jTextField1");
+        txtbnombreg.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtbnombregKeyPressed(evt);
+            }
+        });
         jpgeneral.add(txtbnombreg);
         txtbnombreg.setBounds(310, 170, 410, 40);
 
         tablebvgeneral.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "No.", "Nombre", "Apellido", "Title 4", "Title 5", "Title 6", "Title 7"
+                "No.", "Nombre", "Apellido", "DPI", "Residencia", "Email"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, true, false, true, true, true, true
+                true, true, false, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -701,10 +711,9 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         tablebvgeneral.getTableHeader().setReorderingAllowed(false);
         scrollg.setViewportView(tablebvgeneral);
         if (tablebvgeneral.getColumnModel().getColumnCount() > 0) {
-            tablebvgeneral.getColumnModel().getColumn(3).setHeaderValue("Title 4");
-            tablebvgeneral.getColumnModel().getColumn(4).setHeaderValue("Title 5");
-            tablebvgeneral.getColumnModel().getColumn(5).setHeaderValue("Title 6");
-            tablebvgeneral.getColumnModel().getColumn(6).setHeaderValue("Title 7");
+            tablebvgeneral.getColumnModel().getColumn(0).setMinWidth(50);
+            tablebvgeneral.getColumnModel().getColumn(0).setPreferredWidth(100);
+            tablebvgeneral.getColumnModel().getColumn(0).setMaxWidth(100);
         }
 
         jpgeneral.add(scrollg);
@@ -923,29 +932,34 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         jpvgenero.setLayout(null);
 
         cmbgenero.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        cmbgenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbgenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino" }));
+        cmbgenero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbgeneroActionPerformed(evt);
+            }
+        });
         jpvgenero.add(cmbgenero);
         cmbgenero.setBounds(250, 180, 260, 30);
 
         tablebvgenero.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "No.", "Nombre", "Apellido", "Title 4", "Title 5", "Title 6", "Title 7"
+                "No.", "Nombre", "Apellido", "DPI", "Residencia", "Email"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, true, false, true, true, true, true
+                true, true, false, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -968,10 +982,9 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         tablebvgenero.getTableHeader().setReorderingAllowed(false);
         scrollge.setViewportView(tablebvgenero);
         if (tablebvgenero.getColumnModel().getColumnCount() > 0) {
-            tablebvgenero.getColumnModel().getColumn(3).setHeaderValue("Title 4");
-            tablebvgenero.getColumnModel().getColumn(4).setHeaderValue("Title 5");
-            tablebvgenero.getColumnModel().getColumn(5).setHeaderValue("Title 6");
-            tablebvgenero.getColumnModel().getColumn(6).setHeaderValue("Title 7");
+            tablebvgenero.getColumnModel().getColumn(0).setMinWidth(50);
+            tablebvgenero.getColumnModel().getColumn(0).setPreferredWidth(100);
+            tablebvgenero.getColumnModel().getColumn(0).setMaxWidth(100);
         }
 
         jpvgenero.add(scrollge);
@@ -1161,6 +1174,11 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         jpbproyecto.add(cmbbproyectos);
         cmbbproyectos.setBounds(310, 200, 320, 30);
 
+        tablebvproyecto = new rojerusan.RSTableMetro(){
+            public boolean isCellEditable(int rowIndex, int ColIndex){
+                return false;
+            }
+        };
         tablebvproyecto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -1180,7 +1198,7 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, true, false, true
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -1754,6 +1772,26 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
     }
         
     }//GEN-LAST:event_cmbbproyectosActionPerformed
+
+    private void txtbnombregKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbnombregKeyPressed
+        // TODO add your handling code here:
+        tablebvgeneral.setModel(busquedas.BNombreApellido(txtbnombreg.getText(), tablebvgeneral, txtbapellidosg.getText()));
+    }//GEN-LAST:event_txtbnombregKeyPressed
+
+    private void txtbapellidosgKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbapellidosgKeyPressed
+        // TODO add your handling code here:
+        tablebvgeneral.setModel(busquedas.BNombreApellido(txtbnombreg.getText(), tablebvgeneral, txtbapellidosg.getText()));
+    }//GEN-LAST:event_txtbapellidosgKeyPressed
+
+    private void cmbgeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbgeneroActionPerformed
+        // TODO add your handling code here:
+        if(this.cmbgenero.getSelectedItem().equals("Masculino"))
+            tablebvgenero.setModel(busquedas.BGenero(tablebvgenero, "M"));
+        else
+            tablebvgenero.setModel(busquedas.BGenero(tablebvgenero, "F"));
+            
+        
+    }//GEN-LAST:event_cmbgeneroActionPerformed
 
     /**
      * @param args the command line arguments
