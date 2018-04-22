@@ -34,7 +34,6 @@ public class menujf extends javax.swing.JFrame {
     private final ArrayList<Integer> listaPuestos;
     private final ArrayList<Integer> listaIdmiembros;
     private final ImpresionReportes reportes;
-    private ArrayList<Long> fechas;
 
     /**
      * Creates new form menujf
@@ -44,7 +43,6 @@ public class menujf extends javax.swing.JFrame {
         proyecto = new Proyecto();
         listaPuestos = new ArrayList<>();
         listaIdmiembros = new ArrayList<>();
-        fechas = proyecto.getFechas();
         initComponents();
         tablevoluntarios.setModel(proyecto.Voluntarios("", tablevoluntarios));
         tableproyecto.setModel(proyecto.Proyectos("", tableproyecto));
@@ -772,6 +770,11 @@ public class menujf extends javax.swing.JFrame {
 
         btnrexbecario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/exbecarios.png"))); // NOI18N
         btnrexbecario.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/exbecariosdos.png"))); // NOI18N
+        btnrexbecario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnrexbecarioActionPerformed(evt);
+            }
+        });
         jpmreportes.add(btnrexbecario);
         btnrexbecario.setBounds(710, 190, 130, 90);
 
@@ -797,6 +800,11 @@ public class menujf extends javax.swing.JFrame {
 
         btnrnoexbecarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/noexbecarios.png"))); // NOI18N
         btnrnoexbecarios.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/noexbecariodos.png"))); // NOI18N
+        btnrnoexbecarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnrnoexbecariosActionPerformed(evt);
+            }
+        });
         jpmreportes.add(btnrnoexbecarios);
         btnrnoexbecarios.setBounds(710, 410, 130, 80);
 
@@ -1149,23 +1157,39 @@ public class menujf extends javax.swing.JFrame {
     private void btnredadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnredadActionPerformed
         int respuesta = JOptionPane.showConfirmDialog(null, cmbEdades, "seleccione una edad", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (respuesta == 0) {
-            int index = cmbEdades.getSelectedIndex();
-            if (index == fechas.size()) {
+            if (cmbEdades.getSelectedItem().equals("Todas las edades")) {
                 if (!reportes.ReportEdad()) {
                     new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al intentar Acceder",
                             5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
                             RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
                 }
             } else {
-                if (!reportes.ReportEdades(fechas.get(index))) {
+                int edad = (int) cmbEdades.getSelectedItem();
+                System.out.println(edad);
+                if (!reportes.ReportEdades(edad)) {
                     new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al intentar Acceder",
                             5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
                             RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
                 }
             }
-
         }
     }//GEN-LAST:event_btnredadActionPerformed
+
+    private void btnrexbecarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrexbecarioActionPerformed
+        if (!reportes.ReportExbecarios()) {
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al intentar Acceder",
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+        }
+    }//GEN-LAST:event_btnrexbecarioActionPerformed
+
+    private void btnrnoexbecariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrnoexbecariosActionPerformed
+        if (!reportes.ReportNoExbecarios()) {
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al intentar Acceder",
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+        }
+    }//GEN-LAST:event_btnrnoexbecariosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1183,22 +1207,16 @@ public class menujf extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(menujf.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(menujf.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(menujf.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(menujf.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        
+        //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new menujf().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new menujf().setVisible(true);
         });
     }
 

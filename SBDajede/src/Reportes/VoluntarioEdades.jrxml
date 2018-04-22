@@ -19,7 +19,9 @@ FROM
         INNER JOIN
     nivelestudio ON asociado.NivelEstudio_id = nivelestudio.id
 WHERE
-    YEAR(FechaNacimiento) = $P{Fecha}
+    YEAR(CURDATE()) - YEAR(FechaNacimiento) + IF(DATE_FORMAT(CURDATE(), '%m-%d') > DATE_FORMAT(FechaNacimiento, '%m-%d'),
+        0,
+        - 1) = $P{Fecha}
 ORDER BY Apellido;]]>
 	</queryString>
 	<field name="nombre" class="java.lang.String"/>
@@ -47,7 +49,7 @@ ORDER BY Apellido;]]>
 					<textFieldExpression><![CDATA[$F{anio}]]></textFieldExpression>
 				</textField>
 				<line>
-					<reportElement uuid="e2a8c892-dfbc-426c-b31d-d3ca792653d0" x="-20" y="32" width="595" height="1" forecolor="#666666"/>
+					<reportElement uuid="e2a8c892-dfbc-426c-b31d-d3ca792653d0" x="-20" y="32" width="612" height="1" forecolor="#666666"/>
 				</line>
 			</band>
 		</groupHeader>
@@ -85,7 +87,7 @@ ORDER BY Apellido;]]>
 	<columnHeader>
 		<band height="21">
 			<line>
-				<reportElement uuid="4d59f077-52fe-4e09-b1f3-4e961517feee" x="-20" y="20" width="595" height="1" forecolor="#666666"/>
+				<reportElement uuid="4d59f077-52fe-4e09-b1f3-4e961517feee" x="-20" y="20" width="612" height="1" forecolor="#666666"/>
 			</line>
 			<staticText>
 				<reportElement uuid="e4673dbe-e6dc-4d92-97f8-61271d26a828" mode="Opaque" x="0" y="0" width="209" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
@@ -120,7 +122,7 @@ ORDER BY Apellido;]]>
 	<detail>
 		<band height="20">
 			<line>
-				<reportElement uuid="b360f580-5f8f-478b-9e16-aa2559897a0d" positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1"/>
+				<reportElement uuid="b360f580-5f8f-478b-9e16-aa2559897a0d" positionType="FixRelativeToBottom" x="0" y="19" width="572" height="1"/>
 			</line>
 			<textField isStretchWithOverflow="true">
 				<reportElement uuid="52708031-6ad2-4174-a25b-d4dac4e33672" x="0" y="0" width="209" height="20"/>
@@ -158,12 +160,12 @@ ORDER BY Apellido;]]>
 	<pageFooter>
 		<band height="17">
 			<textField>
-				<reportElement uuid="eda7bb6c-b1a8-4278-9006-8ec8b56ef996" mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6"/>
+				<reportElement uuid="eda7bb6c-b1a8-4278-9006-8ec8b56ef996" mode="Opaque" x="0" y="4" width="532" height="13" backcolor="#E6E6E6"/>
 				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Página:  "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement uuid="14e893ee-5116-42a2-b128-1e2baa2c76e0" mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6"/>
+				<reportElement uuid="14e893ee-5116-42a2-b128-1e2baa2c76e0" mode="Opaque" x="532" y="4" width="40" height="13" backcolor="#E6E6E6"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>

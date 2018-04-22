@@ -11,7 +11,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import rojerusan.RSTableMetro;
 
@@ -19,7 +18,7 @@ import rojerusan.RSTableMetro;
  *
  * @author mynor
  */
-public class BusquedasVoluntarios {
+public class BusquedasVoluntarios extends Proyecto{
 
     private Connection con;
     private Conexion conexion;

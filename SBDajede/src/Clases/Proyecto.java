@@ -25,28 +25,21 @@ public class Proyecto extends Usuario {
 
     private Connection con = null;
     private final Conexion conexion;
-    private final ArrayList<Long> fechas;
 
     //Se hace la conexión a la base de datos
     public Proyecto() {
         conexion = new Conexion();
         con = conexion.getConnection();
-        fechas = new ArrayList<>();
-    }
-
-    public ArrayList<Long> getFechas() {
-        return fechas;
     }
 
     public DefaultComboBoxModel getEdades() {
         try {
             DefaultComboBoxModel datos = new DefaultComboBoxModel();
-            String sql = "SELECT DISTINCT YEAR(FechaNacimiento) AS anio, YEAR(NOW()) as anioA FROM asociado ORDER BY anio DESC;";
+            String sql = "SELECT DISTINCT YEAR(CURDATE()) - YEAR(FechaNacimiento) + IF(DATE_FORMAT(CURDATE(), '%m-%d') > DATE_FORMAT(FechaNacimiento, '%m-%d'),0,- 1) AS EDAD FROM asociado ORDER BY EDAD;";
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
-                fechas.add(rs.getLong("anio"));
-                datos.addElement((rs.getInt("anioA") - rs.getInt("anio")));
+                datos.addElement(rs.getObject("EDAD"));
             }
             datos.addElement("Todas las edades");
             return datos;
@@ -111,7 +104,6 @@ public class Proyecto extends Usuario {
             for (byte i = 0; i < 3; i++) {
                 titulos[i] = tabla.getColumnName(i);
             }
-            boolean genero;
             String registros[] = new String[3];
             String sql = "Select id, nombreProyecto, descripcion  from proyecto where nombreProyecto LIKE '%" + nombre + "%' and finalizado=false";
             DefaultTableModel modelo = new DefaultTableModel(null, titulos);

@@ -50,6 +50,7 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
     public busquedasjf() {
         busquedas = new BusquedasVoluntarios();
         initComponents();
+        cmbedad.setModel(busquedas.getEdades());
         transparencia();
         tablebvnombre.setModel(busquedas.BNombre("", tablebvnombre, "",true));
         tablebvproyecto.setModel(busquedas.BProyecto(tablebvproyecto, ""));
@@ -281,7 +282,7 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         tablebvanioi = new rojerusan.RSTableMetro();
         lbvanio = new javax.swing.JLabel();
         jpvedad = new javax.swing.JPanel();
-        cmbedad = new javax.swing.JComboBox<>();
+        cmbedad = new rojerusan.RSComboMetro();
         scrolled = new javax.swing.JScrollPane();
         tablebvedad = new rojerusan.RSTableMetro();
         lbvedad = new javax.swing.JLabel();
@@ -865,11 +866,8 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
 
         jpvedad.setName("jpvedad"); // NOI18N
         jpvedad.setLayout(null);
-
-        cmbedad.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        cmbedad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jpvedad.add(cmbedad);
-        cmbedad.setBounds(250, 180, 200, 40);
+        cmbedad.setBounds(250, 190, 200, 32);
 
         tablebvedad.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1855,7 +1853,7 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
     private javax.swing.JComboBox<String> cmbapromocion;
     private javax.swing.JComboBox<String> cmbbproyectos;
     private javax.swing.JComboBox<String> cmbbusoed;
-    private javax.swing.JComboBox<String> cmbedad;
+    private rojerusan.RSComboMetro cmbedad;
     private javax.swing.JComboBox<String> cmbexbnexb;
     private javax.swing.JComboBox<String> cmbgenero;
     private javax.swing.JComboBox<String> cmbocupacion;

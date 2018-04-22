@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="dcce5b0c-6eac-4a55-b9e9-4a7593a31359">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="dcce5b0c-6eac-4a55-b9e9-4a7593a31359">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -23,22 +23,22 @@ GROUP BY
 		<groupHeader>
 			<band height="33">
 				<staticText>
-					<reportElement uuid="cb15e511-3b09-492a-87b8-55ae980aed11" mode="Opaque" x="0" y="0" width="100" height="32" forecolor="#666666" backcolor="#E6E6E6"/>
-					<textElement>
-						<font size="12"/>
+					<reportElement uuid="cb15e511-3b09-492a-87b8-55ae980aed11" mode="Opaque" x="0" y="0" width="154" height="32" forecolor="#666666" backcolor="#E6E6E6"/>
+					<textElement textAlignment="Center">
+						<font size="14" isBold="true"/>
 					</textElement>
-					<text><![CDATA[nombreProyecto]]></text>
+					<text><![CDATA[Nombre del proyecto]]></text>
 				</staticText>
+				<line>
+					<reportElement uuid="c6a7aa07-559a-4734-b007-afc5164c82b3" x="-20" y="32" width="613" height="1" forecolor="#666666"/>
+				</line>
 				<textField>
-					<reportElement uuid="2165126f-5b3f-40ef-a63a-a44c682eee06" mode="Opaque" x="100" y="0" width="455" height="32" forecolor="#006699" backcolor="#E6E6E6"/>
+					<reportElement uuid="2165126f-5b3f-40ef-a63a-a44c682eee06" mode="Opaque" x="154" y="0" width="418" height="32" forecolor="#006699" backcolor="#E6E6E6"/>
 					<textElement>
 						<font size="24" isBold="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{nombreProyecto}]]></textFieldExpression>
 				</textField>
-				<line>
-					<reportElement uuid="c6a7aa07-559a-4734-b007-afc5164c82b3" x="-20" y="32" width="595" height="1" forecolor="#666666"/>
-				</line>
 			</band>
 		</groupHeader>
 		<groupFooter>
@@ -51,7 +51,7 @@ GROUP BY
 	<title>
 		<band height="72">
 			<frame>
-				<reportElement uuid="b617d521-d25f-4aec-8627-65cb817370cc" mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699"/>
+				<reportElement uuid="b617d521-d25f-4aec-8627-65cb817370cc" mode="Opaque" x="-20" y="-20" width="613" height="92" backcolor="#006699"/>
 				<staticText>
 					<reportElement uuid="320f328b-187d-44d3-916f-60a7f423ae83" x="20" y="20" width="297" height="43" forecolor="#FFFFFF"/>
 					<textElement>
@@ -60,68 +60,68 @@ GROUP BY
 					<text><![CDATA[Detalle Proyectos]]></text>
 				</staticText>
 				<staticText>
-					<reportElement uuid="1c863717-5ada-4592-9a36-1dc738b6d16c" x="395" y="43" width="180" height="20" forecolor="#FFFFFF"/>
+					<reportElement uuid="1c863717-5ada-4592-9a36-1dc738b6d16c" x="412" y="72" width="180" height="20" forecolor="#FFFFFF"/>
 					<textElement textAlignment="Right">
 						<font size="14" isBold="false"/>
 					</textElement>
-					<text><![CDATA[AJEDE Reportes]]></text>
+					<text><![CDATA[AJEDE REPORTES]]></text>
 				</staticText>
 			</frame>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="13"/>
+		<band/>
 	</pageHeader>
 	<columnHeader>
 		<band height="21">
 			<line>
-				<reportElement uuid="630439d0-772c-4b76-890f-ec3355d205b0" x="-20" y="20" width="595" height="1" forecolor="#666666"/>
+				<reportElement uuid="630439d0-772c-4b76-890f-ec3355d205b0" x="-20" y="20" width="613" height="1" forecolor="#666666"/>
 			</line>
 			<staticText>
 				<reportElement uuid="ab72e382-c944-4d84-8ea4-ab914984f517" mode="Opaque" x="0" y="0" width="185" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
-				<textElement textAlignment="Center">
+				<textElement>
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[No. voluntarios]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="9ef12e44-d7a7-4612-b208-41751bed7b8e" mode="Opaque" x="185" y="0" width="185" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
-				<textElement textAlignment="Center">
+				<textElement>
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Horas totales del proyecto]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="07fda6ae-7e91-481a-b370-4988e9a7dd74" mode="Opaque" x="370" y="0" width="185" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
-				<textElement textAlignment="Center">
+				<reportElement uuid="07fda6ae-7e91-481a-b370-4988e9a7dd74" mode="Opaque" x="370" y="0" width="202" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement>
 					<font size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[finalizado]]></text>
+				<text><![CDATA[Finalizado]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="20">
 			<line>
-				<reportElement uuid="71701639-42c2-4bee-87f6-513383215c9a" positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1"/>
+				<reportElement uuid="71701639-42c2-4bee-87f6-513383215c9a" positionType="FixRelativeToBottom" x="0" y="19" width="572" height="1"/>
 			</line>
 			<textField isStretchWithOverflow="true">
 				<reportElement uuid="eb934c19-0f13-49f1-bdd0-1cf11402bc8d" x="0" y="0" width="185" height="20"/>
-				<textElement textAlignment="Center">
+				<textElement>
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{TVoluntariados}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement uuid="29d44988-3960-46ec-9915-79efbdea5ce2" x="185" y="0" width="185" height="20"/>
-				<textElement textAlignment="Center">
+				<textElement>
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{THoras}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="70bb9dfd-8496-40e1-b25b-61f89d12d0ed" x="370" y="0" width="185" height="20"/>
-				<textElement textAlignment="Center">
+				<reportElement uuid="70bb9dfd-8496-40e1-b25b-61f89d12d0ed" x="370" y="0" width="202" height="20"/>
+				<textElement>
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{finalizado}.equals(true) ? "Finalizado" : "No finalizado"]]></textFieldExpression>
@@ -134,12 +134,12 @@ GROUP BY
 	<pageFooter>
 		<band height="17">
 			<textField>
-				<reportElement uuid="22101758-0709-4760-aea0-e2fb8529ac3b" mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6"/>
+				<reportElement uuid="22101758-0709-4760-aea0-e2fb8529ac3b" mode="Opaque" x="0" y="4" width="532" height="13" backcolor="#E6E6E6"/>
 				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement uuid="9e6ca5ae-9a90-4cb3-8110-9c592ddc1516" mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6"/>
+				<reportElement uuid="9e6ca5ae-9a90-4cb3-8110-9c592ddc1516" mode="Opaque" x="532" y="4" width="40" height="13" backcolor="#E6E6E6"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
