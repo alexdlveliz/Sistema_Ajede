@@ -62,6 +62,36 @@ public class BusquedasVoluntarios {
         return null;
     }
     
+    public DefaultTableModel BNombreApellido(String nombre, RSTableMetro tabla, String apellido) {
+        try {
+            String titulos[] = new String[6];
+            for (byte i = 0; i < 6; i++) {
+                titulos[i] = tabla.getColumnName(i);
+            }
+            String registros[] = new String[6];
+            String sql = "Select * from asociado where Nombre LIKE '%" + nombre + "%' and Apellido LIKE '%" + apellido + "%'";
+            DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            int cont = 0;
+            while(rs.next())
+            {
+                cont++;
+                registros[0]=String.valueOf(cont);
+                registros[1]=rs.getString("Nombre");
+                registros[2]=rs.getString("Apellido");
+                registros[3]=rs.getString("DPI");
+                registros[4] = rs.getString("Residencia");
+                registros[5] = rs.getString("CorreoElectronico");
+                modelo.addRow(registros);
+            }
+            return modelo;
+        } catch (SQLException ex) {
+            Logger.getLogger(BusquedasVoluntarios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
     public DefaultTableModel BProyecto(RSTableMetro tablaProyecto, String id)
     {
         try {
@@ -77,12 +107,51 @@ public class BusquedasVoluntarios {
             DefaultTableModel modelo = new DefaultTableModel(null, titulos);
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
+            int cont = 0;
             while(rs.next())
             {
-                registros[0]=rs.getString("id");
+                cont++;
+                registros[0]=String.valueOf(cont);
                 registros[1]=rs.getString("Nombre");
                 registros[2]=rs.getString("Apellido");
                 registros[3]=rs.getString("FechaNacimiento");
+                modelo.addRow(registros);
+            }
+            return modelo;
+        } catch (SQLException ex) {
+            Logger.getLogger(BusquedasVoluntarios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    public DefaultTableModel BGenero(RSTableMetro tablaProyecto, String genero)
+    {
+        try {
+            String titulos[] = new String[6];
+            for (byte i = 0; i < titulos.length; i++) {
+                titulos[i] = tablaProyecto.getColumnName(i);
+            }
+            int sexo = -1;
+            String registros[] = new String[6];
+            if(genero.equals("M"))
+                sexo = 1;
+            else if(genero.equals("F"))
+                sexo = 0;
+            String sql = "SELECT Nombre, Apellido,DPI, Residencia, CorreoElectronico FROM asociado "
+                    + "WHERE Genero LIKE '%" + sexo + "%'";
+            DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            int cont = 0;
+            while(rs.next())
+            {
+                cont++;
+                registros[0]=String.valueOf(cont);
+                registros[1]=rs.getString("Nombre");
+                registros[2]=rs.getString("Apellido");
+                registros[3]=rs.getString("DPI");
+                registros[4] = rs.getString("Residencia");
+                registros[5] = rs.getString("CorreoElectronico");
                 modelo.addRow(registros);
             }
             return modelo;
