@@ -159,4 +159,40 @@ public class BusquedasVoluntarios extends Proyecto{
         }
         return null;
     }
+    
+    public DefaultTableModel BEdad(RSTableMetro tablaProyecto, int edad)
+    {
+        try {
+            String titulos[] = new String[7];
+            for (byte i = 0; i < titulos.length; i++) {
+                titulos[i] = tablaProyecto.getColumnName(i);
+            }
+            String registros[] = new String[7];
+            //SELECT Nombre, YEAR(CURDATE())-YEAR(FechaNacimiento) + IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(FechaNacimiento, '%m-%d'),0,-1) AS EDAD FROM asociado WHERE YEAR(CURDATE())-YEAR(FechaNacimiento) + IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(FechaNacimiento, '%m-%d'),0,-1) = 21
+            String sql = "SELECT Nombre, Apellido, DPI, Residencia, CorreoElectronico, FechaNacimiento, YEAR(CURDATE())-YEAR(FechaNacimiento)"
+                    + " + IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(FechaNacimiento, '%m-%d'),0,-1) "
+                    + "FROM asociado WHERE YEAR(CURDATE())-YEAR(FechaNacimiento)"
+                    + " + IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(FechaNacimiento, '%m-%d'),0,-1) LIKE '%" + edad + "%'";
+            DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            int cont = 0;
+            while(rs.next())
+            {
+                cont++;
+                registros[0]=String.valueOf(cont);
+                registros[1]=rs.getString("Nombre");
+                registros[2]=rs.getString("Apellido");
+                registros[3]=rs.getString("DPI");
+                registros[4] = rs.getString("Residencia");
+                registros[5] = rs.getString("CorreoElectronico");
+                registros[6] = rs.getString("FechaNacimiento");
+                modelo.addRow(registros);
+            }
+            return modelo;
+        } catch (SQLException ex) {
+            Logger.getLogger(BusquedasVoluntarios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 }

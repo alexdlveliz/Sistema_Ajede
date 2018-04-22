@@ -38,10 +38,10 @@ public class Proyecto extends Usuario {
             String sql = "SELECT DISTINCT YEAR(CURDATE()) - YEAR(FechaNacimiento) + IF(DATE_FORMAT(CURDATE(), '%m-%d') > DATE_FORMAT(FechaNacimiento, '%m-%d'),0,- 1) AS EDAD FROM asociado ORDER BY EDAD;";
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
+            //datos.addElement("Todas las edades");
             while (rs.next()) {
                 datos.addElement(rs.getObject("EDAD"));
             }
-            datos.addElement("Todas las edades");
             return datos;
         } catch (SQLException ex) {
             Logger.getLogger(Proyecto.class.getName()).log(Level.SEVERE, null, ex);

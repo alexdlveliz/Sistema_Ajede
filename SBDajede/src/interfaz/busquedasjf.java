@@ -56,6 +56,7 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         tablebvproyecto.setModel(busquedas.BProyecto(tablebvproyecto, ""));
         tablebvgeneral.setModel(busquedas.BNombreApellido("", tablebvgeneral, ""));
         tablebvgenero.setModel(busquedas.BGenero(tablebvgenero, "M"));
+        tablebvedad.setModel(busquedas.BEdad(tablebvedad, (Integer)cmbedad.getSelectedItem()));
         colocarProyectos();
         this.setLocationRelativeTo(null);
         Toolkit tk = Toolkit.getDefaultToolkit();
@@ -866,6 +867,12 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
 
         jpvedad.setName("jpvedad"); // NOI18N
         jpvedad.setLayout(null);
+
+        cmbedad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbedadActionPerformed(evt);
+            }
+        });
         jpvedad.add(cmbedad);
         cmbedad.setBounds(250, 190, 200, 32);
 
@@ -883,7 +890,7 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "No.", "Nombre", "Apellido", "Title 4", "Title 5", "Title 6", "Title 7"
+                "No.", "Nombre", "Apellido", "DPI", "Residencia", "Email", "Fecha de nacimiento"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -910,10 +917,9 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         tablebvedad.getTableHeader().setReorderingAllowed(false);
         scrolled.setViewportView(tablebvedad);
         if (tablebvedad.getColumnModel().getColumnCount() > 0) {
-            tablebvedad.getColumnModel().getColumn(3).setHeaderValue("Title 4");
-            tablebvedad.getColumnModel().getColumn(4).setHeaderValue("Title 5");
-            tablebvedad.getColumnModel().getColumn(5).setHeaderValue("Title 6");
-            tablebvedad.getColumnModel().getColumn(6).setHeaderValue("Title 7");
+            tablebvedad.getColumnModel().getColumn(0).setMinWidth(50);
+            tablebvedad.getColumnModel().getColumn(0).setPreferredWidth(80);
+            tablebvedad.getColumnModel().getColumn(0).setMaxWidth(80);
         }
 
         jpvedad.add(scrolled);
@@ -1790,6 +1796,13 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
             
         
     }//GEN-LAST:event_cmbgeneroActionPerformed
+
+    private void cmbedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbedadActionPerformed
+        // TODO add your handling code here:
+        //String edad = (String)this.cmbedad.getSelectedItem();
+        int age = (Integer)this.cmbedad.getSelectedItem();
+        tablebvedad.setModel(busquedas.BEdad(tablebvedad, age));
+    }//GEN-LAST:event_cmbedadActionPerformed
 
     /**
      * @param args the command line arguments
