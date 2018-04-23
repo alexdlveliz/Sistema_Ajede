@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5ea4d603-3a4b-4314-bfea-1912b61f3ff1">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="anio" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT 
+    YEAR(CURDATE()) - YEAR(FechaNacimiento) + IF(DATE_FORMAT(CURDATE(), '%m-%d') > DATE_FORMAT(FechaNacimiento, '%m-%d'),
+        0,
+        - 1) AS anio,
+    asociado.`Nombre`,
+    asociado.`Apellido`,
+    asociado.`DPI`,
+    asociado.`Residencia`,
+    asociado.`CorreoElectronico`,
+    ajede.`fechaInicio` AS fechaInicio
+FROM
+    `asociado` asociado
+        INNER JOIN
+    `ajede` ajede ON asociado.`id` = ajede.`Asociado_id`
+WHERE
+    YEAR(fechaInicio) = $P{anio}
+GROUP BY asociado.id
+ORDER BY fechaInicio]]>
+	</queryString>
+	<field name="anio" class="java.lang.Integer"/>
+	<field name="Nombre" class="java.lang.String"/>
+	<field name="Apellido" class="java.lang.String"/>
+	<field name="DPI" class="java.lang.String"/>
+	<field name="Residencia" class="java.lang.String"/>
+	<field name="CorreoElectronico" class="java.lang.String"/>
+	<field name="fechaInicio" class="java.lang.String"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement uuid="1567baf4-59ce-43db-b638-409dd4bf8fde" mode="Opaque" x="-20" y="-20" width="614" height="92" backcolor="#006699"/>
+				<staticText>
+					<reportElement uuid="65b244f0-b8d4-4d5a-8c4a-d8d0fa331e5a" x="20" y="20" width="459" height="43" forecolor="#FFFFFF"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Voluntarios por años]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="e548bd3b-db80-41a1-a386-5be3b1585728" x="412" y="72" width="180" height="20" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[AJEDE REPORTES]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band/>
+	</pageHeader>
+	<columnHeader>
+		<band/>
+	</columnHeader>
+	<detail>
+		<band height="100">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="5b16f4c9-2450-4f92-a34f-2a72fe1a2a49" x="109" y="40" width="463" height="20"/>
+				<textElement verticalAlignment="Top">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Apellido}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="ee0b3b39-135e-4009-905e-0cd4dee4b124" x="346" y="1" width="226" height="20"/>
+				<textElement verticalAlignment="Top">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{anio}<18)? "Menor de edad" : $F{DPI}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="e98e485f-171e-441c-8f27-236409582270" x="346" y="60" width="226" height="20"/>
+				<textElement verticalAlignment="Top">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{Residencia}.equals(null))? "No registrado" : $F{Residencia}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="45d24b02-5517-4aec-8922-653e6a0cad5c" x="109" y="80" width="463" height="20"/>
+				<textElement verticalAlignment="Top">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CorreoElectronico}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="62a74a0a-3404-4ea6-b6f0-f9c7e4c81085" x="109" y="60" width="109" height="20"/>
+				<textElement verticalAlignment="Top">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fechaInicio}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="c7c99d69-a740-4ebc-8293-a9abc0279198" mode="Opaque" x="0" y="20" width="109" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement verticalAlignment="Top">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4554b4af-1d8c-4e45-b7e7-d46846c26837" mode="Opaque" x="0" y="40" width="109" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement verticalAlignment="Top">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Apellido]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="3674d9d0-568d-469b-8221-95132bc8e697" x="109" y="20" width="463" height="20"/>
+				<textElement verticalAlignment="Top">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Nombre}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="b066c8da-f0c0-4e17-9cbc-b002e301372d" mode="Opaque" x="0" y="60" width="109" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement verticalAlignment="Top">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de inicio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f8995447-d070-4070-a57d-ba54be5efe7c" mode="Opaque" x="218" y="1" width="128" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement verticalAlignment="Top">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DPI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b066c8da-f0c0-4e17-9cbc-b002e301372d" mode="Opaque" x="0" y="1" width="109" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement verticalAlignment="Top">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d5cfc2a6-fd3d-4de9-88b5-77973d8d27b5" mode="Opaque" x="218" y="60" width="128" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement verticalAlignment="Top">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Residencia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8efca732-8970-405d-9ce1-780f96982919" mode="Opaque" x="0" y="80" width="109" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement verticalAlignment="Top">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Email]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="9ba86cf0-c5c0-4ca0-b0f3-c496087748d7" x="-20" y="0" width="615" height="1" forecolor="#666666"/>
+			</line>
+			<textField>
+				<reportElement uuid="31773ead-be61-4258-8387-45e5f65bc558" x="109" y="1" width="109" height="20"/>
+				<textElement>
+					<font size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement uuid="724315e0-83d7-47e5-9a29-b141dbc23acf" mode="Opaque" x="0" y="4" width="532" height="13" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="ffd00c51-0d99-44cf-8a11-0ae929ed37af" mode="Opaque" x="532" y="4" width="40" height="13" backcolor="#E6E6E6"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="5f02dbe8-8876-4112-af5e-39a062eee784" x="0" y="4" width="100" height="13"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

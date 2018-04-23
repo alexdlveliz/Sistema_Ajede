@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="64f71c37-0306-4914-bd13-2416f061ccb1">
-	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.zoom" value="2.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<queryString>
 		<![CDATA[SELECT
-     year(now()) AS fechaActual,
      asociado.`Nombre` AS Nombre,
      asociado.`Apellido` AS Apellido,
      programa.`nombrePrograma` AS nombrePrograma,
-     YEAR(CURDATE())-YEAR(FechaNacimiento) + IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(FechaNacimiento, '%m-%d'),0,-1) AS FechaNacimiento,
+     YEAR(CURDATE())-YEAR(FechaNacimiento) + IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(FechaNacimiento, '%m-%d'),0,-1) AS Edad,
      asociado.`id` AS asociado_id
 FROM
      `asociado` asociado INNER JOIN `ajede` ajede ON asociado.`id` = ajede.`Asociado_id`
      INNER JOIN `programa` programa ON ajede.`Programa_id` = programa.`id`
-ORDER BY FechaNacimiento]]>
+ORDER BY Edad]]>
 	</queryString>
 	<field name="Nombre" class="java.lang.String"/>
 	<field name="Apellido" class="java.lang.String"/>
 	<field name="nombrePrograma" class="java.lang.String"/>
-	<field name="FechaNacimiento" class="java.lang.Integer"/>
+	<field name="Edad" class="java.lang.Integer"/>
 	<field name="asociado_id" class="java.lang.Integer"/>
 	<variable name="Conteo" class="java.lang.Integer" incrementType="Group" incrementGroup="asociado_id" calculation="Count">
 		<variableExpression><![CDATA[new Integer(1)]]></variableExpression>
@@ -79,7 +78,7 @@ ORDER BY FechaNacimiento]]>
 					<textElement>
 						<font size="14"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{FechaNacimiento}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{Edad}]]></textFieldExpression>
 				</textField>
 				<staticText>
 					<reportElement uuid="0b5a7fd7-61b8-47e4-a04e-90433f4eb42d" mode="Opaque" x="0" y="77" width="572" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
