@@ -52,6 +52,8 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         initComponents();
         cmbedad.setModel(busquedas.getEdades());
         cmbanio.setModel(busquedas.AnioInicio());
+        cmbapromocion.setModel(busquedas.getPromocion());
+        cmbprograma.setModel(busquedas.getPrograma());
         transparencia();
         tablebvnombre.setModel(busquedas.BNombre("", tablebvnombre, "",true));
         tablebvproyecto.setModel(busquedas.BProyecto(tablebvproyecto, ""));
@@ -59,6 +61,9 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         tablebvgenero.setModel(busquedas.BGenero(tablebvgenero, "M"));
         tablebvedad.setModel(busquedas.BEdad(tablebvedad, (Integer)cmbedad.getSelectedItem()));
         tablebvanioi.setModel(busquedas.BAnioInicio(tablebvanioi, (Integer)cmbanio.getSelectedItem()));
+        tablebvpromo.setModel(busquedas.BPromocion(tablebvpromo, ""));
+        tablebvprograma.setModel(busquedas.BPrograma(tablebvprograma, ""));
+        tablebvexbecarios.setModel(busquedas.BExbecario("", tablebvexbecarios, "", true));
         colocarProyectos();
         this.setLocationRelativeTo(null);
         Toolkit tk = Toolkit.getDefaultToolkit();
@@ -600,6 +605,11 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         jpvactivosina.add(cmbactivo);
         cmbactivo.setBounds(850, 220, 190, 30);
 
+        tablebvnombre = new rojerusan.RSTableMetro(){
+            public boolean isCellEditable(int rowIndex, int ColIndex){
+                return false;
+            }
+        };
         tablebvnombre.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -614,7 +624,7 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "No.", "Nombre", "Apellido", "null", "Title 5", "Title 6"
+                "No.", "Nombre", "Apellido", "DPI", "Email", "Género"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -640,6 +650,11 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         tablebvnombre.setRowHeight(22);
         tablebvnombre.getTableHeader().setReorderingAllowed(false);
         scrolln.setViewportView(tablebvnombre);
+        if (tablebvnombre.getColumnModel().getColumnCount() > 0) {
+            tablebvnombre.getColumnModel().getColumn(0).setMinWidth(50);
+            tablebvnombre.getColumnModel().getColumn(0).setPreferredWidth(80);
+            tablebvnombre.getColumnModel().getColumn(0).setMaxWidth(80);
+        }
 
         jpvactivosina.add(scrolln);
         scrolln.setBounds(110, 320, 1030, 310);
@@ -738,39 +753,57 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         jpvexbnexb.setLayout(null);
 
         txtnvexbnexb.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        txtnvexbnexb.setText("jTextField1");
+        txtnvexbnexb.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtnvexbnexbKeyPressed(evt);
+            }
+        });
         jpvexbnexb.add(txtnvexbnexb);
         txtnvexbnexb.setBounds(300, 180, 350, 50);
 
         txtavexbnexb.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        txtavexbnexb.setText("jTextField1");
+        txtavexbnexb.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtavexbnexbKeyPressed(evt);
+            }
+        });
         jpvexbnexb.add(txtavexbnexb);
         txtavexbnexb.setBounds(300, 250, 350, 50);
 
         cmbexbnexb.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        cmbexbnexb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbexbnexb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Exbecario", "No Exbecario" }));
+        cmbexbnexb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbexbnexbActionPerformed(evt);
+            }
+        });
         jpvexbnexb.add(cmbexbnexb);
         cmbexbnexb.setBounds(840, 220, 210, 40);
 
+        tablebvexbecarios = new rojerusan.RSTableMetro(){
+            public boolean isCellEditable(int rowIndex, int ColIndex){
+                return false;
+            }
+        };
         tablebvexbecarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "No.", "Nombre", "Apellido", "Title 4", "Title 5", "Title 6", "Title 7"
+                "No.", "Nombre", "Apellido", "Programa", "Edad"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, true, false, true, true, true, true
+                true, true, false, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -793,10 +826,12 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         tablebvexbecarios.getTableHeader().setReorderingAllowed(false);
         scrollgex.setViewportView(tablebvexbecarios);
         if (tablebvexbecarios.getColumnModel().getColumnCount() > 0) {
-            tablebvexbecarios.getColumnModel().getColumn(3).setHeaderValue("Title 4");
-            tablebvexbecarios.getColumnModel().getColumn(4).setHeaderValue("Title 5");
-            tablebvexbecarios.getColumnModel().getColumn(5).setHeaderValue("Title 6");
-            tablebvexbecarios.getColumnModel().getColumn(6).setHeaderValue("Title 7");
+            tablebvexbecarios.getColumnModel().getColumn(0).setMinWidth(50);
+            tablebvexbecarios.getColumnModel().getColumn(0).setPreferredWidth(100);
+            tablebvexbecarios.getColumnModel().getColumn(0).setMaxWidth(100);
+            tablebvexbecarios.getColumnModel().getColumn(4).setMinWidth(75);
+            tablebvexbecarios.getColumnModel().getColumn(4).setPreferredWidth(150);
+            tablebvexbecarios.getColumnModel().getColumn(4).setMaxWidth(150);
         }
 
         jpvexbnexb.add(scrollgex);
@@ -820,6 +855,11 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         jpvanio.add(cmbanio);
         cmbanio.setBounds(240, 200, 200, 40);
 
+        tablebvanioi = new rojerusan.RSTableMetro(){
+            public boolean isCellEditable(int rowIndex, int ColIndex){
+                return false;
+            }
+        };
         tablebvanioi.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -1024,29 +1064,38 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         jpvprograma.setLayout(null);
 
         cmbprograma.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        cmbprograma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbprograma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbprogramaActionPerformed(evt);
+            }
+        });
         jpvprograma.add(cmbprograma);
         cmbprograma.setBounds(310, 190, 340, 50);
 
+        tablebvprograma = new rojerusan.RSTableMetro(){
+            public boolean isCellEditable(int rowIndex, int ColIndex){
+                return false;
+            }
+        };
         tablebvprograma.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "No.", "Nombre", "Apellido", "Title 4", "Title 5", "Title 6", "Title 7"
+                "No.", "Nombre", "Apellido", "DPI", "Residencia", "Email"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, true, false, true, true, true, true
+                true, true, false, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -1069,10 +1118,9 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         tablebvprograma.getTableHeader().setReorderingAllowed(false);
         scrollpro.setViewportView(tablebvprograma);
         if (tablebvprograma.getColumnModel().getColumnCount() > 0) {
-            tablebvprograma.getColumnModel().getColumn(3).setHeaderValue("Title 4");
-            tablebvprograma.getColumnModel().getColumn(4).setHeaderValue("Title 5");
-            tablebvprograma.getColumnModel().getColumn(5).setHeaderValue("Title 6");
-            tablebvprograma.getColumnModel().getColumn(6).setHeaderValue("Title 7");
+            tablebvprograma.getColumnModel().getColumn(0).setMinWidth(50);
+            tablebvprograma.getColumnModel().getColumn(0).setPreferredWidth(100);
+            tablebvprograma.getColumnModel().getColumn(0).setMaxWidth(100);
         }
 
         jpvprograma.add(scrollpro);
@@ -1093,29 +1141,38 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         jpvpromocionbeca.setLayout(null);
 
         cmbapromocion.setFont(new java.awt.Font("Yu Gothic Light", 0, 24)); // NOI18N
-        cmbapromocion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbapromocion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbapromocionActionPerformed(evt);
+            }
+        });
         jpvpromocionbeca.add(cmbapromocion);
         cmbapromocion.setBounds(370, 180, 210, 40);
 
+        tablebvpromo = new rojerusan.RSTableMetro(){
+            public boolean isCellEditable(int rowIndex, int ColIndex){
+                return false;
+            }
+        };
         tablebvpromo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "No.", "Nombre", "Apellido", "Title 4", "Title 5", "Title 6", "Title 7"
+                "No.", "Nombre", "Apellido", "DPI", "Residencia", "Email"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, true, false, true, true, true, true
+                true, true, false, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -1138,10 +1195,9 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         tablebvpromo.getTableHeader().setReorderingAllowed(false);
         scrollpromo.setViewportView(tablebvpromo);
         if (tablebvpromo.getColumnModel().getColumnCount() > 0) {
-            tablebvpromo.getColumnModel().getColumn(3).setHeaderValue("Title 4");
-            tablebvpromo.getColumnModel().getColumn(4).setHeaderValue("Title 5");
-            tablebvpromo.getColumnModel().getColumn(5).setHeaderValue("Title 6");
-            tablebvpromo.getColumnModel().getColumn(6).setHeaderValue("Title 7");
+            tablebvpromo.getColumnModel().getColumn(0).setMinWidth(50);
+            tablebvpromo.getColumnModel().getColumn(0).setPreferredWidth(80);
+            tablebvpromo.getColumnModel().getColumn(0).setMaxWidth(80);
         }
 
         jpvpromocionbeca.add(scrollpromo);
@@ -1158,22 +1214,32 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
 
         tablebvocupacion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "No", "Nombre", "Apellido", "DPI", "Residencia"
             }
         ));
         jScrollPane1.setViewportView(tablebvocupacion);
+        if (tablebvocupacion.getColumnModel().getColumnCount() > 0) {
+            tablebvocupacion.getColumnModel().getColumn(0).setMinWidth(50);
+            tablebvocupacion.getColumnModel().getColumn(0).setPreferredWidth(100);
+            tablebvocupacion.getColumnModel().getColumn(0).setMaxWidth(100);
+        }
 
         jpvocupacion.add(jScrollPane1);
         jScrollPane1.setBounds(100, 270, 1050, 380);
 
         cmbocupacion.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        cmbocupacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbocupacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Estudia", "Trabaja" }));
+        cmbocupacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbocupacionActionPerformed(evt);
+            }
+        });
         jpvocupacion.add(cmbocupacion);
         cmbocupacion.setBounds(300, 180, 420, 40);
 
@@ -1672,7 +1738,7 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
     }//GEN-LAST:event_btnbvgeneroMouseClicked
 
     private void btnbvprogramaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbvprogramaMouseClicked
-        rSPanelsSlider1.setPanelSlider(jpvexbnexb, RSPanelsSlider.DIRECT.RIGHT);
+        rSPanelsSlider1.setPanelSlider(jpvprograma, RSPanelsSlider.DIRECT.RIGHT);
     }//GEN-LAST:event_btnbvprogramaMouseClicked
 
     private void btnbvpromocionbecaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbvpromocionbecaMouseClicked
@@ -1756,13 +1822,13 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
     }//GEN-LAST:event_btnbeproyectoMouseClicked
 
     private void btnbevoluntariadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbevoluntariadoMouseClicked
-                if(cmbbusoed.getSelectedItem().equals("Buscar") )
+        if(cmbbusoed.getSelectedItem().equals("Buscar") )
         {
-                 rSPanelsSlider1.setPanelSlider(jpbvoluntariado, RSPanelsSlider.DIRECT.DOWN);
+            rSPanelsSlider1.setPanelSlider(jpbvoluntariado, RSPanelsSlider.DIRECT.DOWN);
         }
         else if(cmbbusoed.getSelectedItem().equals("Editar"))
         {
-                 rSPanelsSlider1.setPanelSlider(jpevoluntariado, RSPanelsSlider.DIRECT.DOWN);
+            rSPanelsSlider1.setPanelSlider(jpevoluntariado, RSPanelsSlider.DIRECT.DOWN);
         }
     }//GEN-LAST:event_btnbevoluntariadoMouseClicked
 
@@ -1841,6 +1907,70 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
             tablebvanioi.setModel(busquedas.BAnioInicio(tablebvanioi, age));
         }
     }//GEN-LAST:event_cmbanioActionPerformed
+
+    private void cmbocupacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbocupacionActionPerformed
+        // TODO add your handling code here:
+        if(this.cmbocupacion.getSelectedItem().equals("Estudia"))
+        {
+            
+        }
+        else
+        {
+            
+        }
+        
+    }//GEN-LAST:event_cmbocupacionActionPerformed
+
+    private void cmbapromocionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbapromocionActionPerformed
+        // TODO add your handling code here:
+        if((this.cmbapromocion.getSelectedItem().equals("Todos los años")))
+        {
+            tablebvpromo.setModel(busquedas.BPromocion(tablebvpromo, "0"));
+        }
+        else
+        {
+            String age = (String)this.cmbapromocion.getSelectedItem();
+            tablebvpromo.setModel(busquedas.BPromocion(tablebvpromo, age));
+        }
+    }//GEN-LAST:event_cmbapromocionActionPerformed
+
+    private void cmbprogramaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbprogramaActionPerformed
+        // TODO add your handling code here:
+        if(this.cmbprograma.getSelectedItem().equals("Todos los programas"))
+        {
+            tablebvprograma.setModel(busquedas.BPrograma(tablebvprograma, "Todos los programas"));
+        }
+        else
+        {
+            tablebvprograma.setModel(busquedas.BPrograma(tablebvprograma, (String)cmbprograma.getSelectedItem()));
+        }
+    }//GEN-LAST:event_cmbprogramaActionPerformed
+
+    private void cmbexbnexbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbexbnexbActionPerformed
+        // TODO add your handling code here:
+        if(this.cmbexbnexb.getSelectedItem().equals("Exbecario"))
+        {
+            tablebvexbecarios.setModel(busquedas.BExbecario(txtnvexbnexb.getText(), tablebvexbecarios, txtavexbnexb.getText(), true));
+        }
+        else
+            tablebvexbecarios.setModel(busquedas.BExbecario(txtnvexbnexb.getText(), tablebvexbecarios, txtavexbnexb.getText(), false));
+    }//GEN-LAST:event_cmbexbnexbActionPerformed
+
+    private void txtnvexbnexbKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnvexbnexbKeyPressed
+        // TODO add your handling code here:
+        if(this.cmbexbnexb.getSelectedItem().equals("Exbecario"))
+            tablebvexbecarios.setModel(busquedas.BExbecario(txtnvexbnexb.getText(), tablebvexbecarios, txtavexbnexb.getText(), true));
+        else
+            tablebvexbecarios.setModel(busquedas.BExbecario(txtnvexbnexb.getText(), tablebvexbecarios, txtavexbnexb.getText(), false));
+    }//GEN-LAST:event_txtnvexbnexbKeyPressed
+
+    private void txtavexbnexbKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtavexbnexbKeyPressed
+        // TODO add your handling code here:
+        if(this.cmbexbnexb.getSelectedItem().equals("Exbecario"))
+            tablebvexbecarios.setModel(busquedas.BExbecario(txtnvexbnexb.getText(), tablebvexbecarios, txtavexbnexb.getText(), true));
+        else
+            tablebvexbecarios.setModel(busquedas.BExbecario(txtnvexbnexb.getText(), tablebvexbecarios, txtavexbnexb.getText(), false));
+    }//GEN-LAST:event_txtavexbnexbKeyPressed
 
     /**
      * @param args the command line arguments
