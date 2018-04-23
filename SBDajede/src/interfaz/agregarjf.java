@@ -177,15 +177,15 @@ public class agregarjf extends javax.swing.JFrame {
             scrollp.setLocation(90, 360);
             scrollp.setSize(635, 435);
             scrollp.setFont(fuente);
-            jYearChooser2.setLocation(300, 305);
-            jYearChooser2.setSize(410, 50);
-            jYearChooser2.setFont(fuente);
-            jYearChooser1.setLocation(300, 415);
-            jYearChooser1.setSize(410, 50);
-            jYearChooser1.setFont(fuente);
-            jScrollPane2.setLocation(815, 270);
-            jScrollPane2.setSize(680, 250);
-            jScrollPane2.setFont(fuente);
+            finicio.setLocation(300, 305);
+            finicio.setSize(410, 50);
+            finicio.setFont(fuente);
+            fdesercion.setLocation(300, 415);
+            fdesercion.setSize(410, 50);
+            fdesercion.setFont(fuente);
+            scrollp1.setLocation(815, 270);
+            scrollp1.setSize(680, 250);
+            scrollp1.setFont(fuente);
             cmbactivosina.setLocation(390, 563);
             cmbactivosina.setSize(321, 50);
             cmbactivosina.setFont(fuente);
@@ -519,10 +519,10 @@ public class agregarjf extends javax.swing.JFrame {
         btnsiguienteinfomed = new javax.swing.JButton();
         cmbexbecario = new javax.swing.JComboBox<>();
         cmbactivosina = new javax.swing.JComboBox<>();
-        jYearChooser1 = new com.toedter.calendar.JYearChooser();
-        jYearChooser2 = new com.toedter.calendar.JYearChooser();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        programastable = new javax.swing.JTable();
+        scrollp1 = new javax.swing.JScrollPane();
+        tableproyecto1 = new rojerusan.RSTableMetro();
+        fdesercion = new rojeru_san.componentes.RSYearDate();
+        finicio = new rojeru_san.componentes.RSYearDate();
         lbbeca = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1196,6 +1196,10 @@ public class agregarjf extends javax.swing.JFrame {
         tableproyecto.setRowHeight(22);
         tableproyecto.getTableHeader().setReorderingAllowed(false);
         scrollp.setViewportView(tableproyecto);
+        if (tableproyecto.getColumnModel().getColumnCount() > 0) {
+            tableproyecto.getColumnModel().getColumn(1).setHeaderValue("Proyecto");
+            tableproyecto.getColumnModel().getColumn(2).setHeaderValue("Descripción");
+        }
 
         jpvoluntariado.add(scrollp);
         scrollp.setBounds(60, 290, 520, 350);
@@ -1244,26 +1248,50 @@ public class agregarjf extends javax.swing.JFrame {
         cmbactivosina.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jpbeca.add(cmbactivosina);
         cmbactivosina.setBounds(320, 450, 250, 40);
-        jpbeca.add(jYearChooser1);
-        jYearChooser1.setBounds(240, 340, 330, 30);
-        jpbeca.add(jYearChooser2);
-        jYearChooser2.setBounds(240, 250, 330, 30);
 
-        programastable.setModel(new javax.swing.table.DefaultTableModel(
+        tableproyecto1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Programa"
             }
         ));
-        jScrollPane2.setViewportView(programastable);
+        tableproyecto1.setColorBackgoundHead(new java.awt.Color(22, 54, 77));
+        tableproyecto1.setColorBordeFilas(new java.awt.Color(255, 255, 255));
+        tableproyecto1.setColorBordeHead(new java.awt.Color(255, 255, 255));
+        tableproyecto1.setColorFilasBackgound1(new java.awt.Color(163, 214, 249));
+        tableproyecto1.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
+        tableproyecto1.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
+        tableproyecto1.setColorFilasForeground2(new java.awt.Color(0, 0, 0));
+        tableproyecto1.setColorSelBackgound(new java.awt.Color(22, 54, 77));
+        tableproyecto1.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tableproyecto1.setFuenteFilas(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tableproyecto1.setFuenteFilasSelect(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tableproyecto1.setFuenteHead(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
+        tableproyecto1.setRowHeight(22);
+        tableproyecto1.getTableHeader().setReorderingAllowed(false);
+        scrollp1.setViewportView(tableproyecto1);
 
-        jpbeca.add(jScrollPane2);
-        jScrollPane2.setBounds(660, 230, 540, 180);
+        jpbeca.add(scrollp1);
+        scrollp1.setBounds(663, 220, 540, 190);
+
+        fdesercion.setColorBackground(new java.awt.Color(22, 54, 77));
+        jpbeca.add(fdesercion);
+        fdesercion.setBounds(240, 337, 330, 30);
+
+        finicio.setColorBackground(new java.awt.Color(22, 54, 77));
+        jpbeca.add(finicio);
+        finicio.setBounds(240, 250, 330, 30);
 
         lbbeca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/ajede2.jpg"))); // NOI18N
         lbbeca.setMaximumSize(new java.awt.Dimension(1565, 880));
@@ -1771,11 +1799,10 @@ public class agregarjf extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbnivelestudiovoluntario;
     private javax.swing.JComboBox<String> cmbtalla;
     private javax.swing.JComboBox<String> cmbtipodesangre;
+    private rojeru_san.componentes.RSYearDate fdesercion;
     private rojeru_san.componentes.RSDateChooser fechas;
+    private rojeru_san.componentes.RSYearDate finicio;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private com.toedter.calendar.JYearChooser jYearChooser1;
-    private com.toedter.calendar.JYearChooser jYearChooser2;
     private javax.swing.JPanel jpbeca;
     private javax.swing.JPanel jpconteme;
     private javax.swing.JPanel jpdatosp;
@@ -1790,11 +1817,12 @@ public class agregarjf extends javax.swing.JFrame {
     private javax.swing.JLabel lbdp;
     private javax.swing.JLabel lbinfomed;
     private javax.swing.JLabel lbvoluntariado;
-    private javax.swing.JTable programastable;
     private javax.swing.JTextField ptxt;
     private javax.swing.JScrollPane scrollp;
+    private javax.swing.JScrollPane scrollp1;
     private rojerusan.RSPanelsSlider slider;
     private rojerusan.RSTableMetro tableproyecto;
+    private rojerusan.RSTableMetro tableproyecto1;
     private javax.swing.JTextField textfieldalergia1;
     private javax.swing.JTextField textfieldalergia2;
     private javax.swing.JTextField textfieldalergia3;
