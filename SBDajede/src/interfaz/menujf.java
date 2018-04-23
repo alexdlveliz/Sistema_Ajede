@@ -810,6 +810,11 @@ public class menujf extends javax.swing.JFrame {
 
         btnrprograma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/programa.png"))); // NOI18N
         btnrprograma.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/programados.png"))); // NOI18N
+        btnrprograma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnrprogramaActionPerformed(evt);
+            }
+        });
         jpmreportes.add(btnrprograma);
         btnrprograma.setBounds(70, 490, 130, 90);
 
@@ -1229,6 +1234,14 @@ public class menujf extends javax.swing.JFrame {
         rSPanelsSlider1.setPanelSlider(menuprincipal, RSPanelsSlider.DIRECT.UP);
     }//GEN-LAST:event_btnregresarActionPerformed
 
+    private void btnrprogramaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrprogramaActionPerformed
+        if (!reportes.ReportPrograma()) {
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al intentar Acceder",
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+        }
+    }//GEN-LAST:event_btnrprogramaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1249,7 +1262,7 @@ public class menujf extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(menujf.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         //</editor-fold>
 
         /* Create and display the form */
