@@ -3,7 +3,7 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<parameter name="anio" class="java.lang.Integer">
+	<parameter name="Fecha" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
@@ -22,7 +22,7 @@ FROM
         INNER JOIN
     `ajede` ajede ON asociado.`id` = ajede.`Asociado_id`
 WHERE
-    YEAR(fechaInicio) = $P{anio}
+    YEAR(fechaInicio) = $P{Fecha}
 GROUP BY asociado.id
 ORDER BY fechaInicio]]>
 	</queryString>

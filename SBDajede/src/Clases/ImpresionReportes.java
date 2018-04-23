@@ -202,4 +202,86 @@ public class ImpresionReportes {
             return false;
         }
     }
+
+    public boolean ReportAnio() {
+        try {
+            String path = "src/Reportes/VoluntarioAnio.jasper";
+            JasperReport jr = (JasperReport) JRLoader.loadObjectFromFile(path);
+            JasperPrint jp = JasperFillManager.fillReport(jr, null, con);
+            JasperViewer jv = new JasperViewer(jp, false);
+            jv.setVisible(true);
+            jv.setIconImage(image);
+            jv.setTitle("Voluntarios por años");
+            return true;
+        } catch (JRException ex) {
+            Logger.getLogger(ImpresionReportes.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
+
+    public boolean ReportAnios(int promo) {
+        try {
+            String path = "src/Reportes/VoluntarioAnios.jasper";
+            JasperReport jr = (JasperReport) JRLoader.loadObjectFromFile(path);
+            Map parametro = new HashMap();
+            parametro.put("Fecha", promo);
+            JasperPrint jp = JasperFillManager.fillReport(jr, parametro, con);
+            JasperViewer jv = new JasperViewer(jp, false);
+            jv.setVisible(true);
+            jv.setIconImage(image);
+            jv.setTitle("Voluntarios por año");
+            return true;
+        } catch (JRException ex) {
+            Logger.getLogger(ImpresionReportes.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
+
+    public boolean ReportPromocion() {
+        try {
+            String path = "src/Reportes/VoluntarioPromocion.jasper";
+            JasperReport jr = (JasperReport) JRLoader.loadObjectFromFile(path);
+            JasperPrint jp = JasperFillManager.fillReport(jr, null, con);
+            JasperViewer jv = new JasperViewer(jp, false);
+            jv.setVisible(true);
+            jv.setIconImage(image);
+            jv.setTitle("Voluntarios por promoción");
+            return true;
+        } catch (JRException ex) {
+            Logger.getLogger(ImpresionReportes.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
+    
+    public boolean ReportPrograma() {
+        try {
+            String path = "src/Reportes/VoluntariosProgramas.jasper";
+            JasperReport jr = (JasperReport) JRLoader.loadObjectFromFile(path);
+            JasperPrint jp = JasperFillManager.fillReport(jr, null, con);
+            JasperViewer jv = new JasperViewer(jp, false);
+            jv.setVisible(true);
+            jv.setIconImage(image);
+            jv.setTitle("Voluntarios por programa");
+            return true;
+        } catch (JRException ex) {
+            Logger.getLogger(ImpresionReportes.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
+    
+    public boolean ReportTrabajando() {
+        try {
+            String path = "src/Reportes/VoluntariosTrabajando.jasper";
+            JasperReport jr = (JasperReport) JRLoader.loadObjectFromFile(path);
+            JasperPrint jp = JasperFillManager.fillReport(jr, null, con);
+            JasperViewer jv = new JasperViewer(jp, false);
+            jv.setVisible(true);
+            jv.setIconImage(image);
+            jv.setTitle("Voluntarios trabajando");
+            return true;
+        } catch (JRException ex) {
+            Logger.getLogger(ImpresionReportes.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
 }
