@@ -65,6 +65,8 @@ public class menujf extends javax.swing.JFrame {
             btnreportes.setLocation(1075, 405);
             btnminimizarmenu.setLocation(1410, 5);
             btnsalirdmenu.setLocation(1480, 5);
+            btnhome.setLocation(1340, 5);
+            btnregresar.setLocation(1270, 5);
             menuagregar.setSize(1565, 880);
             lbmenuagregar.setSize(1565, 880);
             lbmenuagregar.setIcon(menua1);
@@ -185,6 +187,12 @@ public class menujf extends javax.swing.JFrame {
         btnrpromocion.setOpaque(false);
         btnrpromocion.setContentAreaFilled(false);
         btnrpromocion.setBorderPainted(false);
+        btnregresar.setOpaque(false);
+        btnregresar.setContentAreaFilled(false);
+        btnregresar.setBorderPainted(false);
+        btnhome.setOpaque(false);
+        btnhome.setContentAreaFilled(false);
+        btnhome.setBorderPainted(false);
     }
 
     /**
@@ -214,6 +222,8 @@ public class menujf extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btnminimizarmenu = new javax.swing.JButton();
         btnsalirdmenu = new javax.swing.JButton();
+        btnregresar = new javax.swing.JButton();
+        btnhome = new javax.swing.JButton();
         rSPanelsSlider1 = new rojerusan.RSPanelsSlider();
         menuprincipal = new javax.swing.JPanel();
         btnagregar = new javax.swing.JButton();
@@ -361,6 +371,26 @@ public class menujf extends javax.swing.JFrame {
         });
         jPanel1.add(btnsalirdmenu);
         btnsalirdmenu.setBounds(1160, 10, 80, 70);
+
+        btnregresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/Back_30px.png"))); // NOI18N
+        btnregresar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/Back_70px.png"))); // NOI18N
+        btnregresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnregresarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnregresar);
+        btnregresar.setBounds(900, 10, 80, 70);
+
+        btnhome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Person_at_Home_30px.png"))); // NOI18N
+        btnhome.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Person_at_Home_70px_1.png"))); // NOI18N
+        btnhome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnhomedpActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnhome);
+        btnhome.setBounds(985, 10, 80, 70);
 
         rSPanelsSlider1.setMaximumSize(new java.awt.Dimension(1565, 880));
         rSPanelsSlider1.setMinimumSize(new java.awt.Dimension(1250, 700));
@@ -896,7 +926,7 @@ public class menujf extends javax.swing.JFrame {
     }//GEN-LAST:event_btnguardarproyectoActionPerformed
 
     private void btnreportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreportesActionPerformed
-        rSPanelsSlider1.setPanelSlider(jpmreportes, RSPanelsSlider.DIRECT.UP);
+        rSPanelsSlider1.setPanelSlider(jpmreportes, RSPanelsSlider.DIRECT.DOWN);
     }//GEN-LAST:event_btnreportesActionPerformed
 
     private void MIProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MIProyectoActionPerformed
@@ -1191,6 +1221,14 @@ public class menujf extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnrnoexbecariosActionPerformed
 
+    private void btnhomedpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhomedpActionPerformed
+        rSPanelsSlider1.setPanelSlider(menuprincipal, RSPanelsSlider.DIRECT.RIGHT);
+    }//GEN-LAST:event_btnhomedpActionPerformed
+
+    private void btnregresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregresarActionPerformed
+        rSPanelsSlider1.setPanelSlider(menuprincipal, RSPanelsSlider.DIRECT.UP);
+    }//GEN-LAST:event_btnregresarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1237,11 +1275,13 @@ public class menujf extends javax.swing.JFrame {
     private javax.swing.JButton btnbuscar;
     private javax.swing.JButton btnguardarproyecto;
     private javax.swing.JButton btnguardarvoluntarioado;
+    private javax.swing.JButton btnhome;
     private javax.swing.JButton btnmenu;
     private javax.swing.JButton btnmenuv;
     private javax.swing.JButton btnminimizarmenu;
     private javax.swing.JButton btnractivos;
     private javax.swing.JButton btnredad;
+    private javax.swing.JButton btnregresar;
     private javax.swing.JButton btnreportes;
     private javax.swing.JButton btnrexbecario;
     private javax.swing.JButton btnrgeneral;
