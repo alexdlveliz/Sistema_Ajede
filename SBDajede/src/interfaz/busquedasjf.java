@@ -311,9 +311,9 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         tablebvpromo = new rojerusan.RSTableMetro();
         lbvpromocionbeca = new javax.swing.JLabel();
         jpvocupacion = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tablebvocupacion = new javax.swing.JTable();
         cmbocupacion = new javax.swing.JComboBox<>();
+        scrollocup = new javax.swing.JScrollPane();
+        tablebvocupacion = new rojerusan.RSTableMetro();
         lbvocupacion = new javax.swing.JLabel();
         jpbproyecto = new javax.swing.JPanel();
         cmbbproyectos = new javax.swing.JComboBox<>();
@@ -1198,6 +1198,7 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
             tablebvpromo.getColumnModel().getColumn(0).setMinWidth(50);
             tablebvpromo.getColumnModel().getColumn(0).setPreferredWidth(80);
             tablebvpromo.getColumnModel().getColumn(0).setMaxWidth(80);
+            tablebvpromo.getColumnModel().getColumn(5).setHeaderValue("Email");
         }
 
         jpvpromocionbeca.add(scrollpromo);
@@ -1212,27 +1213,6 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         jpvocupacion.setName("jpvocupacion"); // NOI18N
         jpvocupacion.setLayout(null);
 
-        tablebvocupacion.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "No", "Nombre", "Apellido", "DPI", "Residencia"
-            }
-        ));
-        jScrollPane1.setViewportView(tablebvocupacion);
-        if (tablebvocupacion.getColumnModel().getColumnCount() > 0) {
-            tablebvocupacion.getColumnModel().getColumn(0).setMinWidth(50);
-            tablebvocupacion.getColumnModel().getColumn(0).setPreferredWidth(100);
-            tablebvocupacion.getColumnModel().getColumn(0).setMaxWidth(100);
-        }
-
-        jpvocupacion.add(jScrollPane1);
-        jScrollPane1.setBounds(100, 270, 1050, 380);
-
         cmbocupacion.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         cmbocupacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Estudia", "Trabaja" }));
         cmbocupacion.addActionListener(new java.awt.event.ActionListener() {
@@ -1242,6 +1222,60 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         });
         jpvocupacion.add(cmbocupacion);
         cmbocupacion.setBounds(300, 180, 420, 40);
+
+        tablebvpromo = new rojerusan.RSTableMetro(){
+            public boolean isCellEditable(int rowIndex, int ColIndex){
+                return false;
+            }
+        };
+        tablebvocupacion.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "No.", "Nombre", "Apellido", "DPI", "Residencia"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, true, false, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablebvocupacion.setColorBackgoundHead(new java.awt.Color(22, 54, 77));
+        tablebvocupacion.setColorBordeFilas(new java.awt.Color(255, 255, 255));
+        tablebvocupacion.setColorBordeHead(new java.awt.Color(255, 255, 255));
+        tablebvocupacion.setColorFilasBackgound1(new java.awt.Color(163, 214, 249));
+        tablebvocupacion.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
+        tablebvocupacion.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
+        tablebvocupacion.setColorFilasForeground2(new java.awt.Color(0, 0, 0));
+        tablebvocupacion.setColorSelBackgound(new java.awt.Color(22, 54, 77));
+        tablebvocupacion.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablebvocupacion.setFuenteFilas(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablebvocupacion.setFuenteFilasSelect(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablebvocupacion.setFuenteHead(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
+        tablebvocupacion.setRowHeight(22);
+        tablebvocupacion.getTableHeader().setReorderingAllowed(false);
+        scrollocup.setViewportView(tablebvocupacion);
+        if (tablebvocupacion.getColumnModel().getColumnCount() > 0) {
+            tablebvocupacion.getColumnModel().getColumn(0).setMinWidth(50);
+            tablebvocupacion.getColumnModel().getColumn(0).setPreferredWidth(80);
+            tablebvocupacion.getColumnModel().getColumn(0).setMaxWidth(80);
+        }
+
+        jpvocupacion.add(scrollocup);
+        scrollocup.setBounds(110, 270, 1030, 370);
 
         lbvocupacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/vocupacion2.jpg"))); // NOI18N
         jpvocupacion.add(lbvocupacion);
@@ -1756,7 +1790,9 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
     }//GEN-LAST:event_btnsalirActionPerformed
 
     private void btnhomedpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhomedpActionPerformed
-        rSPanelsSlider1.setPanelSlider(jpmenua, RSPanelsSlider.DIRECT.RIGHT);
+        this.dispose();
+        menujf mep = new menujf();
+        mep.setVisible(true);
     }//GEN-LAST:event_btnhomedpActionPerformed
 
     private void btnminimizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnminimizarActionPerformed
@@ -2042,7 +2078,6 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
     private javax.swing.JComboBox<String> cmbproyecto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel jpbproyecto;
     private javax.swing.JPanel jpbvoluntariado;
     private javax.swing.JPanel jpeproyecto;
@@ -2082,6 +2117,7 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
     private javax.swing.JScrollPane scrollgex;
     private javax.swing.JScrollPane scrollgvproy;
     private javax.swing.JScrollPane scrolln;
+    private javax.swing.JScrollPane scrollocup;
     private javax.swing.JScrollPane scrollpro;
     private javax.swing.JScrollPane scrollpromo;
     private javax.swing.JScrollPane scrollproy;
@@ -2096,7 +2132,7 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
     private rojerusan.RSTableMetro tablebvgeneral;
     private rojerusan.RSTableMetro tablebvgenero;
     private rojerusan.RSTableMetro tablebvnombre;
-    private javax.swing.JTable tablebvocupacion;
+    private rojerusan.RSTableMetro tablebvocupacion;
     private rojerusan.RSTableMetro tablebvprograma;
     private rojerusan.RSTableMetro tablebvpromo;
     private rojerusan.RSTableMetro tablebvproyecto;
