@@ -65,31 +65,60 @@ public class BusquedasVoluntarios extends Proyecto{
     
     public DefaultTableModel BExbecario(String nombre, RSTableMetro tabla, String apellido, boolean exbecario) {
         try {
+            String sql = "";
             String titulos[] = new String[5];
             for (byte i = 0; i < titulos.length; i++) {
                 titulos[i] = tabla.getColumnName(i);
             }
             String registros[] = new String[5];
-            String sql = "SELECT asociado.Nombre AS Nombre, asociado.Apellido AS Apellido, programa.nombrePrograma AS nombrePrograma, " +
-                    "YEAR(CURDATE())-YEAR(FechaNacimiento) + IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(FechaNacimiento, '%m-%d'),0,-1) AS EDAD " + 
-                    "FROM asociado INNER JOIN ajede ON asociado.id = ajede.Asociado_id INNER JOIN programa " + 
-                    "ON ajede.Programa_id = programa.id "
-                    +"WHERE  asociado.Nombre LIKE '%" + nombre + "%' and asociado.Apellido LIKE '%" + apellido + "%' and ajede.becado="+exbecario;
-            DefaultTableModel modelo = new DefaultTableModel(null, titulos);
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-            int cont = 0;
-            while(rs.next())
+            if(exbecario)
             {
-                cont++;
-                registros[0] = (String.valueOf(cont));
-                registros[1]=rs.getString("Nombre");
-                registros[2]=rs.getString("Apellido");
-                registros[3]=rs.getString("nombrePrograma");
-                registros[4]=rs.getString("EDAD");
-                modelo.addRow(registros);
+                sql = "SELECT asociado.Nombre AS Nombre, asociado.Apellido AS Apellido, programa.nombrePrograma AS nombrePrograma, " +
+                        "YEAR(CURDATE())-YEAR(FechaNacimiento) + IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(FechaNacimiento, '%m-%d'),0,-1) AS EDAD " + 
+                        "FROM asociado INNER JOIN ajede ON asociado.id = ajede.Asociado_id INNER JOIN programa " + 
+                        "ON ajede.Programa_id = programa.id "
+                        +"WHERE  asociado.Nombre LIKE '%" + nombre + "%' and asociado.Apellido LIKE '%" + apellido + "%' and ajede.becado="+exbecario;
+                
+                DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+                Statement st = con.createStatement();
+                ResultSet rs = st.executeQuery(sql);
+                int cont = 0;
+                while(rs.next())
+                {
+                    cont++;
+                    registros[0] = (String.valueOf(cont));
+                    registros[1]=rs.getString("Nombre");
+                    registros[2]=rs.getString("Apellido");
+                    registros[3]=rs.getString("nombrePrograma");
+                    registros[4]=rs.getString("EDAD");
+                    modelo.addRow(registros);
+                }
+                return modelo;
             }
-            return modelo;
+            else
+            {
+                sql = "SELECT asociado.Nombre AS Nombre, asociado.Apellido AS Apellido, " +
+                        "YEAR(CURDATE())-YEAR(FechaNacimiento) + IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(FechaNacimiento, '%m-%d'),0,-1) AS EDAD " +
+                        "FROM asociado INNER JOIN ajede ON asociado.id = ajede.Asociado_id "
+                        +"WHERE  asociado.Nombre LIKE '%" + nombre + "%' and asociado.Apellido LIKE '%" + apellido + "%' and ajede.becado="+exbecario;
+                
+                DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+                Statement st = con.createStatement();
+                ResultSet rs = st.executeQuery(sql);
+                int cont = 0;
+                while(rs.next())
+                {
+                    cont++;
+                    registros[0] = (String.valueOf(cont));
+                    registros[1]=rs.getString("Nombre");
+                    registros[2]=rs.getString("Apellido");
+                    registros[3]="-------------";
+                    registros[4]=rs.getString("EDAD");
+                    modelo.addRow(registros);
+                }
+                return modelo;
+            }
+            
         } catch (SQLException ex) {
             Logger.getLogger(BusquedasVoluntarios.class.getName()).log(Level.SEVERE, null, ex);
         }
