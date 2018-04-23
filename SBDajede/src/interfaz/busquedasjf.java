@@ -64,6 +64,7 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         tablebvpromo.setModel(busquedas.BPromocion(tablebvpromo, ""));
         tablebvprograma.setModel(busquedas.BPrograma(tablebvprograma, ""));
         tablebvexbecarios.setModel(busquedas.BExbecario("", tablebvexbecarios, "", true));
+        tablebvocupacion.setModel(busquedas.BOcupacion(tablebvocupacion, ""));
         colocarProyectos();
         this.setLocationRelativeTo(null);
         Toolkit tk = Toolkit.getDefaultToolkit();
@@ -1223,7 +1224,7 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         jpvocupacion.add(cmbocupacion);
         cmbocupacion.setBounds(300, 180, 420, 40);
 
-        tablebvpromo = new rojerusan.RSTableMetro(){
+        tablebvocupacion = new rojerusan.RSTableMetro(){
             public boolean isCellEditable(int rowIndex, int ColIndex){
                 return false;
             }
