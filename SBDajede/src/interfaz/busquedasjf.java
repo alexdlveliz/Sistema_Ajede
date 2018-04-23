@@ -51,12 +51,14 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         busquedas = new BusquedasVoluntarios();
         initComponents();
         cmbedad.setModel(busquedas.getEdades());
+        cmbanio.setModel(busquedas.AnioInicio());
         transparencia();
         tablebvnombre.setModel(busquedas.BNombre("", tablebvnombre, "",true));
         tablebvproyecto.setModel(busquedas.BProyecto(tablebvproyecto, ""));
         tablebvgeneral.setModel(busquedas.BNombreApellido("", tablebvgeneral, ""));
         tablebvgenero.setModel(busquedas.BGenero(tablebvgenero, "M"));
         tablebvedad.setModel(busquedas.BEdad(tablebvedad, (Integer)cmbedad.getSelectedItem()));
+        tablebvanioi.setModel(busquedas.BAnioInicio(tablebvanioi, (Integer)cmbanio.getSelectedItem()));
         colocarProyectos();
         this.setLocationRelativeTo(null);
         Toolkit tk = Toolkit.getDefaultToolkit();
@@ -810,29 +812,33 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         jpvanio.setLayout(null);
 
         cmbanio.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        cmbanio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbanio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbanioActionPerformed(evt);
+            }
+        });
         jpvanio.add(cmbanio);
         cmbanio.setBounds(240, 200, 200, 40);
 
         tablebvanioi.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "No.", "Nombre", "Apellido", "Title 4", "Title 5", "Title 6", "Title 7"
+                "No.", "Nombre", "Apellido", "DPI", "Residencia", "Email"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, true, false, true, true, true, true
+                true, true, false, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -855,10 +861,9 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         tablebvanioi.getTableHeader().setReorderingAllowed(false);
         scrollgai.setViewportView(tablebvanioi);
         if (tablebvanioi.getColumnModel().getColumnCount() > 0) {
-            tablebvanioi.getColumnModel().getColumn(3).setHeaderValue("Title 4");
-            tablebvanioi.getColumnModel().getColumn(4).setHeaderValue("Title 5");
-            tablebvanioi.getColumnModel().getColumn(5).setHeaderValue("Title 6");
-            tablebvanioi.getColumnModel().getColumn(6).setHeaderValue("Title 7");
+            tablebvanioi.getColumnModel().getColumn(0).setMinWidth(50);
+            tablebvanioi.getColumnModel().getColumn(0).setPreferredWidth(80);
+            tablebvanioi.getColumnModel().getColumn(0).setMaxWidth(80);
         }
 
         jpvanio.add(scrollgai);
@@ -1823,6 +1828,19 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
             tablebvedad.setModel(busquedas.BEdad(tablebvedad, age));
         }
     }//GEN-LAST:event_cmbedadActionPerformed
+
+    private void cmbanioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbanioActionPerformed
+        // TODO add your handling code here:
+        if((this.cmbanio.getSelectedItem().equals("Todos los años")))
+        {
+            tablebvanioi.setModel(busquedas.BAnioInicio(tablebvanioi, -1));
+        }
+        else
+        {
+            int age = (Integer)this.cmbanio.getSelectedItem();
+            tablebvanioi.setModel(busquedas.BAnioInicio(tablebvanioi, age));
+        }
+    }//GEN-LAST:event_cmbanioActionPerformed
 
     /**
      * @param args the command line arguments

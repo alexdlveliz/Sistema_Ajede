@@ -205,4 +205,47 @@ public class BusquedasVoluntarios extends Proyecto{
         }
         return null;
     }
+    
+    public DefaultTableModel BAnioInicio(RSTableMetro tablaProyecto, int anio)
+    {
+        try {
+            String sql = "";
+            String titulos[] = new String[6];
+            for (byte i = 0; i < titulos.length; i++) {
+                titulos[i] = tablaProyecto.getColumnName(i);
+            }
+            String registros[] = new String[6];
+            //SELECT Nombre, YEAR(CURDATE())-YEAR(FechaNacimiento) + IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(FechaNacimiento, '%m-%d'),0,-1) AS EDAD FROM asociado WHERE YEAR(CURDATE())-YEAR(FechaNacimiento) + IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(FechaNacimiento, '%m-%d'),0,-1) = 21
+            if(anio == -1)
+            {
+                sql = "SELECT asociado.Nombre, asociado.Apellido, asociado.DPI, asociado.Residencia, asociado.CorreoElectronico "
+                + "FROM asociado INNER JOIN ajede ON asociado.id = ajede.Asociado_id";
+            }
+            else
+            {
+                sql = "SELECT asociado.Nombre, asociado.Apellido, asociado.DPI, asociado.Residencia, asociado.CorreoElectronico "
+                    + "FROM asociado INNER JOIN ajede ON asociado.id = ajede.Asociado_id "
+                    + "WHERE YEAR(fechaInicio) LIKE '%" + anio + "%'";
+            }
+            DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            int cont = 0;
+            while(rs.next())
+            {
+                cont++;
+                registros[0]=String.valueOf(cont);
+                registros[1]=rs.getString("Nombre");
+                registros[2]=rs.getString("Apellido");
+                registros[3]=rs.getString("DPI");
+                registros[4] = rs.getString("Residencia");
+                registros[5] = rs.getString("CorreoElectronico");
+                modelo.addRow(registros);
+            }
+            return modelo;
+        } catch (SQLException ex) {
+            Logger.getLogger(BusquedasVoluntarios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 }

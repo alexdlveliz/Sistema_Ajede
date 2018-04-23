@@ -48,6 +48,23 @@ public class Proyecto extends Usuario {
         }
         return null;
     }
+    
+    public DefaultComboBoxModel AnioInicio() {
+        try {
+            DefaultComboBoxModel datos = new DefaultComboBoxModel();
+            String sql = "SELECT YEAR(fechaInicio) AS ANIO FROM ajede INNER JOIN asociado ON asociado.id = ajede.Asociado_id GROUP BY ANIO";
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                datos.addElement(rs.getObject("ANIO"));
+            }
+            datos.addElement("Todos los años");
+            return datos;
+        } catch (SQLException ex) {
+            Logger.getLogger(Proyecto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 
     //Método para insertarProyecto proyecto
     public boolean insertarProyecto(String nombre, String descripcion) {
