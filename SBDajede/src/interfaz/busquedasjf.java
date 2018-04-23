@@ -64,6 +64,7 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         tablebvpromo.setModel(busquedas.BPromocion(tablebvpromo, ""));
         tablebvprograma.setModel(busquedas.BPrograma(tablebvprograma, ""));
         tablebvexbecarios.setModel(busquedas.BExbecario("", tablebvexbecarios, "", true));
+        tablebvocupacion.setModel(busquedas.BOcupacion(tablebvocupacion, "ET"));
         colocarProyectos();
         this.setLocationRelativeTo(null);
         Toolkit tk = Toolkit.getDefaultToolkit();
@@ -483,6 +484,7 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
 
         btnbvactivosina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/activos.png"))); // NOI18N
         btnbvactivosina.setToolTipText("");
+        btnbvactivosina.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/activosdos.png"))); // NOI18N
         btnbvactivosina.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnbvactivosinaMouseClicked(evt);
@@ -1214,7 +1216,7 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         jpvocupacion.setLayout(null);
 
         cmbocupacion.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        cmbocupacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Estudia", "Trabaja" }));
+        cmbocupacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Estudia y trabaja", "Estudia", "Trabaja" }));
         cmbocupacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbocupacionActionPerformed(evt);
@@ -1223,7 +1225,7 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         jpvocupacion.add(cmbocupacion);
         cmbocupacion.setBounds(300, 180, 420, 40);
 
-        tablebvpromo = new rojerusan.RSTableMetro(){
+        tablebvocupacion = new rojerusan.RSTableMetro(){
             public boolean isCellEditable(int rowIndex, int ColIndex){
                 return false;
             }
@@ -1946,13 +1948,13 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
 
     private void cmbocupacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbocupacionActionPerformed
         // TODO add your handling code here:
-        if(this.cmbocupacion.getSelectedItem().equals("Estudia"))
-        {
-            
-        }
+        if(this.cmbocupacion.getSelectedItem().equals("Estudia y trabaja"))
+            tablebvocupacion.setModel(busquedas.BOcupacion(tablebvocupacion, "ET"));
+        else if(this.cmbocupacion.getSelectedItem().equals("Estudia"))
+            tablebvocupacion.setModel(busquedas.BOcupacion(tablebvocupacion, "E"));
         else
         {
-            
+            tablebvocupacion.setModel(busquedas.BOcupacion(tablebvocupacion, "M"));
         }
         
     }//GEN-LAST:event_cmbocupacionActionPerformed

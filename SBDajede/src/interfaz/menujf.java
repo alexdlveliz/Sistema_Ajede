@@ -820,6 +820,11 @@ public class menujf extends javax.swing.JFrame {
 
         btnrtrabajando.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/trabajando.png"))); // NOI18N
         btnrtrabajando.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/trabajandodos.png"))); // NOI18N
+        btnrtrabajando.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnrtrabajandoActionPerformed(evt);
+            }
+        });
         jpmreportes.add(btnrtrabajando);
         btnrtrabajando.setBounds(290, 490, 120, 90);
 
@@ -845,6 +850,11 @@ public class menujf extends javax.swing.JFrame {
 
         btnrpromocion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/promocion.png"))); // NOI18N
         btnrpromocion.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/promociondos.png"))); // NOI18N
+        btnrpromocion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnrpromocionActionPerformed(evt);
+            }
+        });
         jpmreportes.add(btnrpromocion);
         btnrpromocion.setBounds(900, 310, 130, 80);
 
@@ -1241,6 +1251,22 @@ public class menujf extends javax.swing.JFrame {
                     RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
         }
     }//GEN-LAST:event_btnrprogramaActionPerformed
+
+    private void btnrtrabajandoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrtrabajandoActionPerformed
+        if (!reportes.ReportTrabajando()) {
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al intentar Acceder",
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+        }
+    }//GEN-LAST:event_btnrtrabajandoActionPerformed
+
+    private void btnrpromocionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrpromocionActionPerformed
+        if (!reportes.ReportPromocion()) {
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al intentar Acceder",
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+        }
+    }//GEN-LAST:event_btnrpromocionActionPerformed
 
     /**
      * @param args the command line arguments

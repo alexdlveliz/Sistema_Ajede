@@ -378,17 +378,23 @@ public class BusquedasVoluntarios extends Proyecto{
             }
             
             String registros[] = new String[5];
-            if(ocupacion.equals("E"))
+            if(ocupacion.equals("ET"))
             {
                 sql = "SELECT asociado.Nombre, asociado.Apellido, asociado.DPI, asociado.Residencia "
                         + "FROM asociado INNER JOIN ocupacion ON asociado.id = ocupacion.Asociado_id "
-                        + "WHERE ocupacion.trabaja LIKE '%" + ocupacion + "%'";
+                        + "WHERE ocupacion.estudia LIKE '%" + 1 + "%' AND ocupacion.trabaja LIKE '%" + 1 + "%'";
+            }
+            else if(ocupacion.equals("E"))
+            {
+                sql = "SELECT asociado.Nombre, asociado.Apellido, asociado.DPI, asociado.Residencia "
+                        + "FROM asociado INNER JOIN ocupacion ON asociado.id = ocupacion.Asociado_id "
+                        + "WHERE ocupacion.estudia LIKE '%" + 1 + "%'";
             }
             else
             {
                 sql = "SELECT asociado.Nombre, asociado.Apellido, asociado.DPI, asociado.Residencia "
                         + "FROM asociado INNER JOIN ocupacion ON asociado.id = ocupacion.Asociado_id "
-                        + "WHERE ocupacion.estudia LIKE '%" + ocupacion + "%'";
+                        + "WHERE ocupacion.trabaja LIKE '%" + 1 + "%'";
             }
             DefaultTableModel modelo = new DefaultTableModel(null, titulos);
             Statement st = con.createStatement();
