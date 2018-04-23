@@ -65,6 +65,40 @@ public class Proyecto extends Usuario {
         }
         return null;
     }
+    
+    public DefaultComboBoxModel getPromocion() {
+        try {
+            DefaultComboBoxModel datos = new DefaultComboBoxModel();
+            String sql = "SELECT Promocion FROM ajede GROUP BY Promocion;";
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            datos.addElement("Todos los años");
+            while (rs.next()) {
+                datos.addElement(rs.getObject("Promocion"));
+            }
+            return datos;
+        } catch (SQLException ex) {
+            Logger.getLogger(Proyecto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    public DefaultComboBoxModel getPrograma() {
+        try {
+            DefaultComboBoxModel datos = new DefaultComboBoxModel();
+            String sql = "SELECT * FROM programa";
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            datos.addElement("Todos los programas");
+            while (rs.next()) {
+                datos.addElement(rs.getObject("nombrePrograma"));
+            }
+            return datos;
+        } catch (SQLException ex) {
+            Logger.getLogger(Proyecto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 
     //Método para insertarProyecto proyecto
     public boolean insertarProyecto(String nombre, String descripcion) {
