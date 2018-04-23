@@ -672,6 +672,11 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         jpgeneral.add(txtbnombreg);
         txtbnombreg.setBounds(310, 170, 410, 40);
 
+        tablebvgeneral = new rojerusan.RSTableMetro(){
+            public boolean isCellEditable(int rowIndex, int ColIndex){
+                return false;
+            }
+        };
         tablebvgeneral.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -876,6 +881,11 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         jpvedad.add(cmbedad);
         cmbedad.setBounds(250, 190, 200, 32);
 
+        tablebvedad = new rojerusan.RSTableMetro(){
+            public boolean isCellEditable(int rowIndex, int ColIndex){
+                return false;
+            }
+        };
         tablebvedad.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
@@ -945,6 +955,11 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         jpvgenero.add(cmbgenero);
         cmbgenero.setBounds(250, 180, 260, 30);
 
+        tablebvgenero = new rojerusan.RSTableMetro(){
+            public boolean isCellEditable(int rowIndex, int ColIndex){
+                return false;
+            }
+        };
         tablebvgenero.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -1798,10 +1813,15 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
     }//GEN-LAST:event_cmbgeneroActionPerformed
 
     private void cmbedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbedadActionPerformed
-        // TODO add your handling code here:
-        //String edad = (String)this.cmbedad.getSelectedItem();
-        int age = (Integer)this.cmbedad.getSelectedItem();
-        tablebvedad.setModel(busquedas.BEdad(tablebvedad, age));
+        if((this.cmbedad.getSelectedItem().equals("Todas las edades")))
+        {
+            tablebvedad.setModel(busquedas.BEdad(tablebvedad, -1));
+        }
+        else
+        {
+            int age = (Integer)this.cmbedad.getSelectedItem();
+            tablebvedad.setModel(busquedas.BEdad(tablebvedad, age));
+        }
     }//GEN-LAST:event_cmbedadActionPerformed
 
     /**

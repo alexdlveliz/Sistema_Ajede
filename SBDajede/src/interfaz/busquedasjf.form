@@ -807,6 +807,9 @@
                           <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                         </Property>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="tablebvgeneral = new rojerusan.RSTableMetro(){&#xa;    public boolean isCellEditable(int rowIndex, int ColIndex){&#xa;        return false;&#xa;    }&#xa;};"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -1302,6 +1305,9 @@
                           <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                         </Property>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="tablebvedad = new rojerusan.RSTableMetro(){&#xa;    public boolean isCellEditable(int rowIndex, int ColIndex){&#xa;        return false;&#xa;    }&#xa;};"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -1459,6 +1465,9 @@
                           <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                         </Property>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="tablebvgenero = new rojerusan.RSTableMetro(){&#xa;    public boolean isCellEditable(int rowIndex, int ColIndex){&#xa;        return false;&#xa;    }&#xa;};"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>

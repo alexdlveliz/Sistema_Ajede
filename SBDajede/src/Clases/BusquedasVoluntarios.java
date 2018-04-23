@@ -163,16 +163,26 @@ public class BusquedasVoluntarios extends Proyecto{
     public DefaultTableModel BEdad(RSTableMetro tablaProyecto, int edad)
     {
         try {
+            String sql = "";
             String titulos[] = new String[7];
             for (byte i = 0; i < titulos.length; i++) {
                 titulos[i] = tablaProyecto.getColumnName(i);
             }
             String registros[] = new String[7];
             //SELECT Nombre, YEAR(CURDATE())-YEAR(FechaNacimiento) + IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(FechaNacimiento, '%m-%d'),0,-1) AS EDAD FROM asociado WHERE YEAR(CURDATE())-YEAR(FechaNacimiento) + IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(FechaNacimiento, '%m-%d'),0,-1) = 21
-            String sql = "SELECT Nombre, Apellido, DPI, Residencia, CorreoElectronico, FechaNacimiento, YEAR(CURDATE())-YEAR(FechaNacimiento)"
+            if(edad == -1)
+            {
+                sql = "SELECT Nombre, Apellido, DPI, Residencia, CorreoElectronico, FechaNacimiento, YEAR(CURDATE())-YEAR(FechaNacimiento)"
+                + " + IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(FechaNacimiento, '%m-%d'),0,-1) "
+                + "FROM asociado";
+            }
+            else
+            {
+                sql = "SELECT Nombre, Apellido, DPI, Residencia, CorreoElectronico, FechaNacimiento, YEAR(CURDATE())-YEAR(FechaNacimiento)"
                     + " + IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(FechaNacimiento, '%m-%d'),0,-1) "
                     + "FROM asociado WHERE YEAR(CURDATE())-YEAR(FechaNacimiento)"
                     + " + IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(FechaNacimiento, '%m-%d'),0,-1) LIKE '%" + edad + "%'";
+            }
             DefaultTableModel modelo = new DefaultTableModel(null, titulos);
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
