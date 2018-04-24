@@ -28,26 +28,7 @@ public class Ocupacion
         conexion = new Conexion();
         con = conexion.getConnection();
     }
-    
-    //Método para insertar datos a la tabla 'ocupacion'
-    public boolean insertar(String nombreOcupacion, String lugarOcupacion)
-    {
-        try{
-            String sql = "INSERT INTO ocupacion(nombreOcupacion, lugarOcupacion)"
-                    + "VALUES (?,?)";
-            
-            PreparedStatement pst = con.prepareStatement(sql);
-            pst.setString(1, nombreOcupacion);
-            pst.setString(2, lugarOcupacion);
-            int n = pst.executeUpdate();
-            return n != 0;
-        } catch(SQLException ex)
-        {
-            Logger.getLogger(NivelEstudio.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return false;
-    }
-    
+        
     public int obteneridOcupacion()
     {
         int id = 0;
@@ -66,16 +47,19 @@ public class Ocupacion
         return id;
     }
     
-    //Método para insertar datos a la tabla 'detalleocupacion'
-    public boolean insertarDetalleOcupacion(int encargadoId, int ocupacionId)
+    public boolean insertarOcupacionAsociado(int AsociadoId, boolean estudia, String lugarEstudio,
+            boolean trabaja, String lugarTrabajo)
     {
         try{
-            String sql = "INSERT INTO detalleocupacion(Encargado_id, Ocupacion_id)"
-                    + "VALUES (?,?)";
+            String sql = "INSERT INTO Ocupacion(Asociado_id, estudia, lugarEstudio, trabaja, lugarTrabajo)"
+                    + "VALUES (?,?,?,?,?)";
             
             PreparedStatement pst = con.prepareStatement(sql);
-            pst.setInt(1, encargadoId);
-            pst.setInt(2, ocupacionId);
+            pst.setInt(1, AsociadoId);
+            pst.setBoolean(2, estudia);
+            pst.setString(3, lugarEstudio);
+            pst.setBoolean(4, trabaja);
+            pst.setString(5, lugarTrabajo);
             int n = pst.executeUpdate();
             return n != 0;
         } catch(SQLException ex)
@@ -85,15 +69,19 @@ public class Ocupacion
         return false;
     }
     
-    public boolean insertarDetalleOcupacionAsociado(int AsociadoId, int ocupacionId)
+    public boolean insertarOcupacionEncargado(int EncargadoId, boolean estudia, String lugarEstudio,
+            boolean trabaja, String lugarTrabajo)
     {
         try{
-            String sql = "INSERT INTO detalleocupacion(Asociado_id, Ocupacion_id)"
-                    + "VALUES (?,?)";
+            String sql = "INSERT INTO Ocupacion(Encargado_id, estudia, lugarEstudio, trabaja, lugarTrabajo)"
+                    + "VALUES (?,?,?,?,?)";
             
             PreparedStatement pst = con.prepareStatement(sql);
-            pst.setInt(1, AsociadoId);
-            pst.setInt(2, ocupacionId);
+            pst.setInt(1, EncargadoId);
+            pst.setBoolean(2, estudia);
+            pst.setString(3, lugarEstudio);
+            pst.setBoolean(4, trabaja);
+            pst.setString(5, lugarTrabajo);
             int n = pst.executeUpdate();
             return n != 0;
         } catch(SQLException ex)

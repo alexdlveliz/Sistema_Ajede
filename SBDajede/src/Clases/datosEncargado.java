@@ -98,7 +98,7 @@ public class datosEncargado
         }
         return false;
     }
-    
+        
     public int obteneridEncargado()
     {
         int id = 0;
@@ -115,6 +115,8 @@ public class datosEncargado
         {
             Logger.getLogger(NivelEstudio.class.getName()).log(Level.SEVERE, null, ex);
         }
+        System.out.println("id encargado: "+id);
         return id;
+        
     }
 }

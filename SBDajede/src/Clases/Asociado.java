@@ -5,6 +5,7 @@
  */
 package Clases;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -27,6 +28,26 @@ public class Asociado {
         conexion = new Conexion();
         con = conexion.getConnection();
     }
+    
+    public boolean telefonoAsociado(int id, String telefono)
+    {
+        try{                       
+            String sql = "INSERT INTO telefono(telefono, Asociado_id)"
+                    + "VALUES (?,?)";
+            
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, telefono);
+            pst.setInt(2, id);
+            int n = pst.executeUpdate();
+            return n != 0;
+        } catch(SQLException ex)
+        {
+            Logger.getLogger(NivelEstudio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    
+    //Método para insertar asociado
     public boolean insertar(String nombre,String apellido, boolean genero,String fechaNac, String correo, String Platyera,
                             String residencia, boolean activo, String PerfilFB, String tipoSangre, String nivEst, String dpi)
     {
@@ -45,30 +66,28 @@ public class Asociado {
             while (Rs.next()) {
                 idTipoSan = Rs.getInt("id");
             }
-            sql = "Insert into asociado(Nombre, Apellido, Activo, Genero, DPI, FechaNacimiento, TallaPlayera, CorreoElectronico,"
-                    + "Residencia, PerfilFacebook, TipoDeSangre_id, NivelEstudio_id)"
-                    + "Values(?,?,?,?,?,?,?,?,?,?,?,?)";
             
-            PreparedStatement Pst = con.prepareStatement(sql);
-            Pst.setString(1, nombre);
-            Pst.setString(2, apellido);
-            Pst.setBoolean(3, activo);
-            Pst.setBoolean(4, genero);
-            Pst.setString(5, dpi);
-            Pst.setString(6, fechaNac);
-            Pst.setString(7, Platyera);
-            Pst.setString(8, correo);
-            Pst.setString(9, residencia);
-            Pst.setString(10, PerfilFB);
-            Pst.setInt(11, idTipoSan);
-            Pst.setInt(12, idNivEst);
-            int n = Pst.executeUpdate();
-            return n != 0;
+            //Este es el procedimiento almacenado
+            CallableStatement procedimiento = con.prepareCall("{call InsertarAsociado(?,?,?,?,?,?,?,?,?,?,?,?)}");
+            procedimiento.setString(1, dpi);
+            procedimiento.setBoolean(2, genero);
+            procedimiento.setString(3, correo);
+            procedimiento.setString(4, fechaNac);
+            procedimiento.setString(5, Platyera);
+            procedimiento.setString(6, residencia);
+            procedimiento.setString(7, nombre);
+            procedimiento.setString(8, apellido);
+            procedimiento.setBoolean(9, activo);
+            procedimiento.setString(10, PerfilFB);
+            procedimiento.setInt(11, idTipoSan);
+            procedimiento.setInt(12, idNivEst);
+            procedimiento.execute();
         } catch (SQLException ex) {
             Logger.getLogger(Asociado.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return false;
+        return true;
     }
+    
     public DefaultComboBoxModel NivEst() {
         DefaultComboBoxModel modeloCombo = new DefaultComboBoxModel();
         try {
