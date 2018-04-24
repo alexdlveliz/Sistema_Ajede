@@ -989,19 +989,22 @@ public class menujf extends javax.swing.JFrame {
          * agrego al modelo por ultimo le mando el modelo a la tabla miembros
          */
         int seleccionados[] = tablevoluntarios.getSelectedRows();
-        String datos[] = new String[3];
+        String datos[] = new String[4];
         DefaultTableModel modelo = (DefaultTableModel) tablemiembros.getModel();
+        DefaultTableModel modelo1 = (DefaultTableModel) tablevoluntarios.getModel();
         int temp;
         for (int i = 0; i < seleccionados.length; i++) {
             temp = Integer.parseInt((String) tablevoluntarios.getValueAt(seleccionados[i], 0));
             listaIdmiembros.add(temp);
-            datos[0] = (String) tablevoluntarios.getValueAt(seleccionados[i], 1);
-            datos[1] = (String) tablevoluntarios.getValueAt(seleccionados[i], 2);
-            datos[2] = "Voluntaria/o";
+            datos[0] = (String) tablevoluntarios.getValueAt(seleccionados[i], 0);
+            datos[1] = (String) tablevoluntarios.getValueAt(seleccionados[i], 1);
+            datos[2] = (String) tablevoluntarios.getValueAt(seleccionados[i], 2);
+            datos[3] = "Voluntaria/o";
+            modelo1.removeRow(seleccionados[i]-i);
             listaPuestos.add(6);
             modelo.addRow(datos);
         }
-
+        tablevoluntarios.setModel(modelo1);
         tablemiembros.setModel(modelo);
 
     }//GEN-LAST:event_MIVoluntariosActionPerformed
@@ -1093,7 +1096,7 @@ public class menujf extends javax.swing.JFrame {
 
     private void MIPuestosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MIPuestosActionPerformed
         /**
-         * Este metod me sitve para mostrar un joption pane con un combo box
+         * Este metodo me sitve para mostrar un joption pane con un combo box
          * dentro de el para que cambié el puesto a mi manera if preciona
          * aceptar al option pane hace lo siguiente tomamos todas las filas
          * seleccionadas tomamos el puesto que se selecciono y el indice que
