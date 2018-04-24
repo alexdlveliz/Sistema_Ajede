@@ -56,7 +56,7 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         cmbprograma.setModel(busquedas.getPrograma());
         transparencia();
         tablebvnombre.setModel(busquedas.BNombre("", tablebvnombre, "",true));
-        tablebvproyecto.setModel(busquedas.BProyecto(tablebvproyecto, ""));
+        tablebvproyecto.setModel(busquedas.BProyecto(tablebvproyecto, (String)cmbbproyectos.getSelectedItem()));
         tablebvgeneral.setModel(busquedas.BNombreApellido("", tablebvgeneral, ""));
         tablebvgenero.setModel(busquedas.BGenero(tablebvgenero, "M"));
         tablebvedad.setModel(busquedas.BEdad(tablebvedad, (Integer)cmbedad.getSelectedItem()));
@@ -1329,7 +1329,6 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         jpbproyecto.setLayout(null);
 
         cmbbproyectos.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
-        cmbbproyectos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Escoja un proyecto" }));
         cmbbproyectos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbbproyectosActionPerformed(evt);
@@ -1804,7 +1803,7 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         cmbgenero1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino" }));
         cmbgenero1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jpedp.add(cmbgenero1);
-        cmbgenero1.setBounds(390, 290, 190, 42);
+        cmbgenero1.setBounds(390, 290, 190, 38);
 
         textfieldedad.setBackground(new java.awt.Color(178, 248, 248));
         textfieldedad.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
@@ -1854,7 +1853,7 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         cmbtalla.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "XS", "S", "M", "L", "XL" }));
         cmbtalla.setBorder(null);
         jpedp.add(cmbtalla);
-        cmbtalla.setBounds(870, 235, 60, 42);
+        cmbtalla.setBounds(870, 235, 60, 36);
 
         btnmenube.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/Home_70px.png"))); // NOI18N
         btnmenube.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
