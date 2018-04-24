@@ -1034,7 +1034,6 @@ public class agregarjf extends javax.swing.JFrame {
 
         textfieldlugardeestudio.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         textfieldlugardeestudio.setForeground(new java.awt.Color(25, 92, 134));
-        textfieldlugardeestudio.setText("Lugar de estudio 1");
         textfieldlugardeestudio.setToolTipText("");
         textfieldlugardeestudio.setBorder(null);
         textfieldlugardeestudio.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1047,7 +1046,6 @@ public class agregarjf extends javax.swing.JFrame {
 
         textfieldocupacion.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         textfieldocupacion.setForeground(new java.awt.Color(25, 92, 134));
-        textfieldocupacion.setText("Ocupación/trabajo 1");
         textfieldocupacion.setBorder(null);
         textfieldocupacion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1059,7 +1057,6 @@ public class agregarjf extends javax.swing.JFrame {
 
         textfieldlugartrabajo.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         textfieldlugartrabajo.setForeground(new java.awt.Color(25, 92, 134));
-        textfieldlugartrabajo.setText("Lugar de trabajo 1");
         textfieldlugartrabajo.setBorder(null);
         textfieldlugartrabajo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1075,7 +1072,6 @@ public class agregarjf extends javax.swing.JFrame {
 
         textfieldlugardeestudio2.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         textfieldlugardeestudio2.setForeground(new java.awt.Color(25, 92, 134));
-        textfieldlugardeestudio2.setText("Lugar de estudio 2");
         textfieldlugardeestudio2.setBorder(null);
         textfieldlugardeestudio2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1092,7 +1088,6 @@ public class agregarjf extends javax.swing.JFrame {
 
         textfieldocupacion2.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         textfieldocupacion2.setForeground(new java.awt.Color(25, 92, 134));
-        textfieldocupacion2.setText("Ocupación/trabajo 2");
         textfieldocupacion2.setBorder(null);
         textfieldocupacion2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1104,7 +1099,6 @@ public class agregarjf extends javax.swing.JFrame {
 
         textfieldlugartrabajo2.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         textfieldlugartrabajo2.setForeground(new java.awt.Color(25, 92, 134));
-        textfieldlugartrabajo2.setText("Lugar de trabajo 2");
         textfieldlugartrabajo2.setBorder(null);
         textfieldlugartrabajo2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1140,6 +1134,11 @@ public class agregarjf extends javax.swing.JFrame {
         btnsiguientebeca.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnsiguientebecaMouseClicked(evt);
+            }
+        });
+        btnsiguientebeca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsiguientebecaActionPerformed(evt);
             }
         });
         jpvoluntariado.add(btnsiguientebeca);
@@ -1319,6 +1318,10 @@ public class agregarjf extends javax.swing.JFrame {
 
     //Se inserta el asociado y su ocupación
     private boolean datosAsociado() {
+        boolean estudia = false;
+        String lugarEstudio = "";
+        boolean trabaja = false;
+        String lugarTrabajo = "";
         String nombre = textfieldnombres.getText();
         String apellido = textfieldapellidos.getText();
         String Dpi = textfielddpi.getText();
@@ -1331,17 +1334,25 @@ public class agregarjf extends javax.swing.JFrame {
         String residencia = textfieldresidencia.getText();
         String nivEst = (String) cmbnivelestudiovoluntario.getSelectedItem();
         String tipoSangre = (String) cmbtipodesangre.getSelectedItem();
-        String lugarOcupacion = textfieldlugardeestudio.getText();
-        String ocupacion = textfieldocupacion.getText();
-        int idOcupacion = ocupacionE.obteneridOcupacion();
+        if((textfieldlugardeestudio.getText().length() != 0) || (textfieldlugardeestudio2.getText().length() != 0))
+        {
+            estudia = true;
+            lugarEstudio = textfieldlugardeestudio.getText() + textfieldlugardeestudio2.getText();
+        }
+        if((textfieldocupacion.getText().length() != 0) || (textfieldocupacion2.getText().length() != 0))
+        {
+            trabaja = true;
+            lugarTrabajo = textfieldlugartrabajo.getText() + textfieldlugartrabajo2.getText();
+        }
+        
         int idAsociado = antecedentes.obteneridAsociado();
         boolean genero1 = false;
         if (genero.equals("Masculino")) {
             genero1 = true;
         }
         if (asociado.insertar(nombre, apellido, genero1, fecha, email, talla, residencia, true, PerfilFB, tipoSangre, nivEst, Dpi)) {
-            ocupacionE.insertar(ocupacion, lugarOcupacion);
-            ocupacionE.insertarDetalleOcupacionAsociado(idAsociado, idOcupacion);
+            ocupacionE.insertarOcupacionAsociado(idAsociado+1, estudia, lugarEstudio, trabaja, lugarTrabajo);
+            asociado.telefonoAsociado(idAsociado+1, telefono);
             new rojerusan.RSNotifyAnimated("¡ÉXITO!", "Asociado Ingresado correctamente",
                     5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
                     RSNotifyAnimated.TypeNotify.SUCCESS).setVisible(true);
@@ -1366,10 +1377,7 @@ public class agregarjf extends javax.swing.JFrame {
         int idAntecMedicos = Alergias.obtenerIdAntMedicos();
 
         if (antecedentes.insertar(Hospital, padecimientos, idAsociado)) {
-            //JOptionPane.showMessageDialog(null, "Médicos ingresados correctamente");
-            if (Alergias.insertar(alergias, idAntecMedicos)) {
-                JOptionPane.showMessageDialog(null, "Alergias ingresadas correctamente");
-            }
+            Alergias.insertar(alergias, idAntecMedicos);
         } else {
             new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al ingresar Información médica",
                     5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
@@ -1388,16 +1396,13 @@ public class agregarjf extends javax.swing.JFrame {
         int idEmergencia = contacto.obteneridContactoEmergencia();
 
         if (contacto.insertar(parentesco, nombre, apellido, idAsociado)) {
-            if (contacto.telefonoEmergencia(idEmergencia, telefono)) {
-                JOptionPane.showMessageDialog(null, "Datos ingresados correctmente");
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Error al ingresar contacto emergencia");
+            contacto.telefonoEmergencia(idEmergencia, telefono);
         }
     }
 
     //Se insertan los datos del encargado del asociado
     private void DatosEncargado() {
+        boolean ocupacion = false;
         String nombre = textfieldnombreencargado.getText();
         String apellido = textfieldapellidoencargado.getText();
         String nivelEstudio = (String) cmbnivelestudioencargado.getSelectedItem();
@@ -1405,16 +1410,15 @@ public class agregarjf extends javax.swing.JFrame {
         String dpi = textfielddpiencargado.getText();
         String residencia = textfieldresidenciaencargado.getText();
         String email = textfieldcorreoencargado.getText();
-        String nombreOcupacion = textfieldocupacionencargado.getText();
+        if(textfieldocupacionencargado.getText().length() != 0)
+            ocupacion = true;        
         String lugarOcupacion = textfieldlugarencargado.getText();
         int idAsociado = antecedentes.obteneridAsociado();
         int idEncargado = encargado.obteneridEncargado();
-        int idOcupacion = ocupacionE.obteneridOcupacion();
 
         if (encargado.insertar(dpi, email, nombre, apellido, residencia, nivelEstudio)) {
-            ocupacionE.insertar(nombreOcupacion, lugarOcupacion);
+            ocupacionE.insertarOcupacionEncargado(idEncargado, false, "", ocupacion, lugarOcupacion);
             encargado.telefonoEncargado(idEncargado, telefono);
-            ocupacionE.insertarDetalleOcupacion(idEncargado, idOcupacion);
             encargado.insertarTutela(idEncargado, idAsociado);
         }
     }
@@ -1734,6 +1738,10 @@ public class agregarjf extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_textfieldparentescoemergenciaKeyTyped
+
+    private void btnsiguientebecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsiguientebecaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnsiguientebecaActionPerformed
 
     /**
      * @param args the command line arguments

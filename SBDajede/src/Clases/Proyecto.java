@@ -5,6 +5,7 @@
  */
 package Clases;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -97,8 +98,8 @@ public class Proyecto extends Usuario {
             Logger.getLogger(Proyecto.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
-    }
-
+    }  
+        
     //Método para insertarProyecto proyecto
     public boolean insertarProyecto(String nombre, String descripcion) {
         try {
