@@ -23,16 +23,21 @@ import javax.swing.table.DefaultTableModel;
  * @author hectortllo
  */
 public class Proyecto extends Usuario {
-    
+
     private Connection con = null;
     private final Conexion conexion;
+    private ArrayList<Integer> Puestoid;
+
+    public ArrayList<Integer> getPuestoid() {
+        return Puestoid;
+    }
 
     //Se hace la conexión a la base de datos
     public Proyecto() {
         conexion = new Conexion();
         con = conexion.getConnection();
     }
-    
+
     public DefaultComboBoxModel getEdades() {
         try {
             DefaultComboBoxModel datos = new DefaultComboBoxModel();
@@ -49,7 +54,7 @@ public class Proyecto extends Usuario {
         }
         return null;
     }
-    
+
     public DefaultComboBoxModel AnioInicio() {
         try {
             DefaultComboBoxModel datos = new DefaultComboBoxModel();
@@ -66,7 +71,7 @@ public class Proyecto extends Usuario {
         }
         return null;
     }
-    
+
     public DefaultComboBoxModel getPromocion() {
         try {
             DefaultComboBoxModel datos = new DefaultComboBoxModel();
@@ -83,7 +88,7 @@ public class Proyecto extends Usuario {
         }
         return null;
     }
-    
+
     public DefaultComboBoxModel getPrograma() {
         try {
             DefaultComboBoxModel datos = new DefaultComboBoxModel();
@@ -99,8 +104,8 @@ public class Proyecto extends Usuario {
             Logger.getLogger(Proyecto.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
-    }  
-        
+    }
+
     //Método para insertarProyecto proyecto
     public boolean insertarProyecto(String nombre, String descripcion) {
         try {
@@ -117,7 +122,7 @@ public class Proyecto extends Usuario {
         }
         return false;
     }
-    
+
     public DefaultTableModel Voluntarios(JTable voluntariado, String nombre, JTable tabla) {
         try {
             String titulos[] = new String[4];
@@ -156,15 +161,16 @@ public class Proyecto extends Usuario {
         }
         return null;
     }
-    
+
     public DefaultTableModel volunatariado(int id, JTable tabla) {
         try {
             String titulos[] = new String[4];
             for (byte i = 0; i < 4; i++) {
                 titulos[i] = tabla.getColumnName(i);
             }
+            Puestoid = new ArrayList<>();
             String registros[] = new String[4];
-            String sql = "SELECT a.id, a.Nombre, a.Apellido, p.puesto FROM asociado a "
+            String sql = "SELECT a.id, a.Nombre, a.Apellido, p.puesto, p.id FROM asociado a "
                     + "INNER JOIN voluntariado v ON a.id = v.Asociado_id "
                     + "INNER JOIN puestos p ON p.id = v.Puestos_id "
                     + "WHERE Proyecto_id = " + id
@@ -173,7 +179,7 @@ public class Proyecto extends Usuario {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
-                
+                Puestoid.add(rs.getInt("p.id"));
                 registros[0] = rs.getString("a.id");
                 registros[1] = rs.getString("a.Nombre");
                 registros[2] = rs.getString("a.Apellido");
@@ -186,7 +192,7 @@ public class Proyecto extends Usuario {
         }
         return null;
     }
-    
+
     public DefaultTableModel Proyectos(String nombre, JTable tabla) {
         try {
             String titulos[] = new String[3];
@@ -199,7 +205,7 @@ public class Proyecto extends Usuario {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
-                
+
                 registros[0] = rs.getString("id");
                 registros[1] = rs.getString("nombreProyecto");
                 registros[2] = rs.getString("descripcion");
@@ -211,29 +217,36 @@ public class Proyecto extends Usuario {
         }
         return null;
     }
-    
-    public boolean Verificar(int idProyecto, int idAsociado, float horas, int idPuesto){
-        
-        return false;
-    }
-    
+
     public boolean insertarVoluntariado(int idProyecto, int idAsociado, float horas, int idPuesto) {
         try {
             /**
              * para insertar al voluntariado se debe tomar en cuenta que los
              * valores que se le insertan esta con ? porque desconocemos que
              * valores va a tomar
-             *
              */
-            String sql = "Insert into voluntariado(Proyecto_id, Asociado_id, Horas,puestos_id)"
-                    + "Values(?,?,?,?)";
-            PreparedStatement Pst = con.prepareStatement(sql);
-            Pst.setInt(1, idProyecto);
-            Pst.setInt(2, idAsociado);
-            Pst.setFloat(3, 0);
-            Pst.setInt(4, idPuesto);
-            int n = Pst.executeUpdate();
-            return n != 0;
+            int idA = -1;
+            String sql = "SELECT Asociado_id as idA FROM voluntariado v "
+                    + "WHERE Proyecto_id = " + idProyecto + " And Asociado_id=" + idAsociado;
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                idA = rs.getInt("idA");
+            }
+            if (idA != -1) {
+                
+                return true;
+            } else {
+                sql = "Insert into voluntariado(Proyecto_id, Asociado_id, Horas,puestos_id)"
+                        + "Values(?,?,?,?)";
+                PreparedStatement Pst = con.prepareStatement(sql);
+                Pst.setInt(1, idProyecto);
+                Pst.setInt(2, idAsociado);
+                Pst.setFloat(3, 0);
+                Pst.setInt(4, idPuesto);
+                int n = Pst.executeUpdate();
+                return n != 0;
+            }
         } catch (SQLException ex) {
             Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
         }
