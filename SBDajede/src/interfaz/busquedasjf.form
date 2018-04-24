@@ -745,6 +745,11 @@
                   </Constraints>
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="scrollg">
+                  <Properties>
+                    <Property name="componentPopupMenu" type="javax.swing.JPopupMenu" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                      <ComponentRef name="popmeddpv"/>
+                    </Property>
+                  </Properties>
                   <AuxValues>
                     <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                   </AuxValues>

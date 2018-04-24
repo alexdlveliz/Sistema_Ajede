@@ -724,6 +724,8 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         jpgeneral.add(txtbnombreg);
         txtbnombreg.setBounds(310, 170, 410, 40);
 
+        scrollg.setComponentPopupMenu(popmeddpv);
+
         tablebvgeneral = new rojerusan.RSTableMetro(){
             public boolean isCellEditable(int rowIndex, int ColIndex){
                 return false;
