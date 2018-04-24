@@ -17,6 +17,7 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import rojerusan.RSPanelsSlider;
 
 /**
@@ -42,6 +43,7 @@ ImageIcon vinfog = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
 ImageIcon vocupacion = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vocupacion1.jpg")).getImage());
 ImageIcon vprograma = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vprograma1.jpg")).getImage());
 ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vpromocion1.jpg")).getImage());
+String id = "";
     /**
      * Creates new form busquedasjf
      */
@@ -205,7 +207,7 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         txteproyecto.setBackground(new Color(0,0,0,0));
         txtevoluntarios.setBackground(new Color(0,0,0,0));
         txtADescripcion.setBackground(new Color(0,0,0,0));
-        cmbproyecto.setBackground(new Color(0,0,0,0));
+        txtNombreProyecto.setBackground(new Color(0,0,0,0));
         btnevoluntariadog.setOpaque(false);
         btnevoluntariadog.setContentAreaFilled(false);
         btnevoluntariadog.setBorderPainted(false);
@@ -355,10 +357,11 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         jpeproyecto = new javax.swing.JPanel();
         btnmenubused = new javax.swing.JButton();
         btnguardareproyect = new javax.swing.JButton();
-        cmbproyecto = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtADescripcion = new javax.swing.JTextArea();
+        txtNombreProyecto = new javax.swing.JTextField();
         lbeproyectos = new javax.swing.JLabel();
+        lbl_id_proyecto = new javax.swing.JLabel();
         jpedp = new javax.swing.JPanel();
         textfieldnombres = new javax.swing.JTextField();
         textfieldapellidos = new javax.swing.JTextField();
@@ -378,6 +381,11 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         jMenu1.setText("Opciones");
 
         jMenuItem1.setText("Editar datos generales");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem1);
 
         popInfoGen.add(jMenu1);
@@ -386,6 +394,11 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
 
         jMenuItem2.setText("Editar Proyecto");
         jMenuItem2.setToolTipText("");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem2);
 
         jPopupMenu1.add(jMenu2);
@@ -1383,6 +1396,11 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         tablebvproyecto.setFuenteHead(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
         tablebvproyecto.setRowHeight(22);
         tablebvproyecto.getTableHeader().setReorderingAllowed(false);
+        tablebvproyecto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablebvproyectoMouseClicked(evt);
+            }
+        });
         scrollproy.setViewportView(tablebvproyecto);
         if (tablebvproyecto.getColumnModel().getColumnCount() > 0) {
             tablebvproyecto.getColumnModel().getColumn(0).setMinWidth(20);
@@ -1750,11 +1768,6 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         jpeproyecto.add(btnguardareproyect);
         btnguardareproyect.setBounds(860, 520, 140, 90);
 
-        cmbproyecto.setFont(new java.awt.Font("Yu Gothic Light", 0, 24)); // NOI18N
-        cmbproyecto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jpeproyecto.add(cmbproyecto);
-        cmbproyecto.setBounds(80, 250, 720, 30);
-
         txtADescripcion.setColumns(20);
         txtADescripcion.setRows(5);
         txtADescripcion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -1763,10 +1776,16 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         jpeproyecto.add(jScrollPane1);
         jScrollPane1.setBounds(70, 370, 730, 280);
 
+        txtNombreProyecto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jpeproyecto.add(txtNombreProyecto);
+        txtNombreProyecto.setBounds(80, 250, 700, 30);
+
         lbeproyectos.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         lbeproyectos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/edproyectos2.jpg"))); // NOI18N
         jpeproyecto.add(lbeproyectos);
         lbeproyectos.setBounds(0, 0, 1250, 700);
+        jpeproyecto.add(lbl_id_proyecto);
+        lbl_id_proyecto.setBounds(470, 174, 50, 30);
 
         rSPanelsSlider1.add(jpeproyecto, "card16");
 
@@ -2191,6 +2210,36 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
 
     }//GEN-LAST:event_btnguardarcambiosdpActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Hola 1");
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        rSPanelsSlider1.setPanelSlider(jpeproyecto, RSPanelsSlider.DIRECT.DOWN);
+        lbl_id_proyecto.setText(obtenerId());
+        System.out.println(lbl_id_proyecto.getText());
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void tablebvproyectoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablebvproyectoMouseClicked
+        // TODO add your handling code here:
+        int fila = tablebvproyecto.getSelectedRow();
+        String id = (String)tablebvproyecto.getValueAt(fila, 0);
+        System.out.println("nombre: " + (String)tablebvproyecto.getValueAt(fila, 1));
+        System.out.println((String)tablebvproyecto.getValueAt(fila, 2));
+        System.out.println((String)tablebvproyecto.getValueAt(fila, 3));
+        setId(id);
+    }//GEN-LAST:event_tablebvproyectoMouseClicked
+
+    private void setId(String id_proyecto)
+    {
+        id = id_proyecto;
+    }
+    private String obtenerId()
+    {
+        return id;
+    }
     /**
      * @param args the command line arguments
      */
@@ -2262,7 +2311,6 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
     private javax.swing.JComboBox<String> cmbgenero1;
     private javax.swing.JComboBox<String> cmbocupacion;
     private javax.swing.JComboBox<String> cmbprograma;
-    private javax.swing.JComboBox<String> cmbproyecto;
     private javax.swing.JComboBox<String> cmbtalla;
     private rojeru_san.componentes.RSDateChooser fechas;
     private javax.swing.JLabel jLabel1;
@@ -2297,6 +2345,7 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
     private javax.swing.JLabel lbexbnexb;
     private javax.swing.JLabel lbgeneral;
     private javax.swing.JLabel lblIdProyecto;
+    private javax.swing.JLabel lbl_id_proyecto;
     private javax.swing.JLabel lbmenua;
     private javax.swing.JLabel lbmenuboe;
     private javax.swing.JLabel lbvanio;
@@ -2349,6 +2398,7 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
     private javax.swing.JTextField textfieldresidencia;
     private javax.swing.JTextArea txtADescripcion;
     private javax.swing.JTextField txtApellido;
+    private javax.swing.JTextField txtNombreProyecto;
     private javax.swing.JTextField txtavexbnexb;
     private javax.swing.JTextField txtbapellidosg;
     private javax.swing.JTextField txtbmiembros;

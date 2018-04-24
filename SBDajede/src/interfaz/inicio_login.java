@@ -159,6 +159,11 @@ public class inicio_login extends javax.swing.JFrame {
         PSTcontrasenia.setForeground(new java.awt.Color(0, 255, 255));
         PSTcontrasenia.setText("jPasswordField1");
         PSTcontrasenia.setBorder(null);
+        PSTcontrasenia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                PSTcontraseniaKeyPressed(evt);
+            }
+        });
         jplogin.add(PSTcontrasenia);
         PSTcontrasenia.setBounds(710, 325, 330, 25);
 
@@ -232,6 +237,13 @@ public class inicio_login extends javax.swing.JFrame {
     private void btningresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btningresarMouseClicked
         InicioSecion();
     }//GEN-LAST:event_btningresarMouseClicked
+
+    private void PSTcontraseniaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PSTcontraseniaKeyPressed
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if(c == 10)
+            InicioSecion();
+    }//GEN-LAST:event_PSTcontraseniaKeyPressed
     /**
      * metodo que verifica la si la contraseña del usurio es la misma en la BD.
      */
