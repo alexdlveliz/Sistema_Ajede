@@ -25,7 +25,6 @@ public class Proyecto extends Usuario {
 
     private Connection con = null;
     private final Conexion conexion;
-
     //Se hace la conexión a la base de datos
     public Proyecto() {
         conexion = new Conexion();
@@ -48,7 +47,7 @@ public class Proyecto extends Usuario {
         }
         return null;
     }
-    
+
     public DefaultComboBoxModel AnioInicio() {
         try {
             DefaultComboBoxModel datos = new DefaultComboBoxModel();
@@ -65,7 +64,7 @@ public class Proyecto extends Usuario {
         }
         return null;
     }
-    
+
     public DefaultComboBoxModel getPromocion() {
         try {
             DefaultComboBoxModel datos = new DefaultComboBoxModel();
@@ -82,7 +81,7 @@ public class Proyecto extends Usuario {
         }
         return null;
     }
-    
+
     public DefaultComboBoxModel getPrograma() {
         try {
             DefaultComboBoxModel datos = new DefaultComboBoxModel();
@@ -117,7 +116,7 @@ public class Proyecto extends Usuario {
         return false;
     }
 
-    public DefaultTableModel Voluntarios(String nombre, JTable tabla) {
+    public DefaultTableModel Voluntarios(DefaultTableModel voluntariado, String nombre, JTable tabla) {
         try {
             String titulos[] = new String[4];
             for (byte i = 0; i < 3; i++) {
@@ -125,10 +124,14 @@ public class Proyecto extends Usuario {
             }
             boolean genero;
             String registros[] = new String[4];
-            String sql = "select id, Nombre, Apellido, Genero, YEAR(NOW()) as anio from asociado where Nombre LIKE '%" + nombre + "%' and Activo=true";
+            String sql = "SELECT id, Nombre, Apellido, Genero FROM asociado "
+                        +"WHERE Nombre LIKE '%" + nombre + "%' AND Activo = TRUE;";
             DefaultTableModel modelo = new DefaultTableModel(null, titulos);
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
+            for(int i=0;i<voluntariado.getColumnCount();i++){
+                System.out.println(voluntariado.getValueAt(i, 0));
+            }
             while (rs.next()) {
                 registros[0] = rs.getString("id");
                 registros[1] = rs.getString("Nombre");
@@ -140,8 +143,38 @@ public class Proyecto extends Usuario {
                     registros[3] = "Femenino";
                 }
                 modelo.addRow(registros);
+                
             }
+            return modelo;
+        } catch (SQLException ex) {
+            Logger.getLogger(Proyecto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 
+    public DefaultTableModel volunatariado(int id, JTable tabla) {
+        try {
+            String titulos[] = new String[4];
+            for (byte i = 0; i < 4; i++) {
+                titulos[i] = tabla.getColumnName(i);
+            }
+            String registros[] = new String[4];
+            String sql = "SELECT a.id, a.Nombre, a.Apellido, p.puesto FROM asociado a "
+                        +"INNER JOIN voluntariado v ON a.id = v.Asociado_id "
+                        +"INNER JOIN puestos p ON p.id = v.Puestos_id "
+                        +"WHERE Proyecto_id = "+id
+                       +" ORDER BY Asociado_id;";
+            DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+
+                registros[0] = rs.getString("a.id");
+                registros[1] = rs.getString("a.Nombre");
+                registros[2] = rs.getString("a.Apellido");
+                registros[3] = rs.getString("p.puesto");
+                modelo.addRow(registros);
+            }
             return modelo;
         } catch (SQLException ex) {
             Logger.getLogger(Proyecto.class.getName()).log(Level.SEVERE, null, ex);

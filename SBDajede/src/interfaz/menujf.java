@@ -44,7 +44,6 @@ public class menujf extends javax.swing.JFrame {
         listaPuestos = new ArrayList<>();
         listaIdmiembros = new ArrayList<>();
         initComponents();
-        tablevoluntarios.setModel(proyecto.Voluntarios("", tablevoluntarios));
         tableproyecto.setModel(proyecto.Proyectos("", tableproyecto));
         cmbPuestos.setModel(proyecto.puestos());
         cmbEdades.setModel(proyecto.getEdades());
@@ -608,11 +607,11 @@ public class menujf extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nombres", "Apellidos", "Puesto"
+                "No", "Nombres", "Apellidos", "Puesto"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, true, false
+                true, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -635,6 +634,11 @@ public class menujf extends javax.swing.JFrame {
         tablemiembros.setRowHeight(22);
         tablemiembros.getTableHeader().setReorderingAllowed(false);
         scrollvmiembros.setViewportView(tablemiembros);
+        if (tablemiembros.getColumnModel().getColumnCount() > 0) {
+            tablemiembros.getColumnModel().getColumn(0).setMinWidth(50);
+            tablemiembros.getColumnModel().getColumn(0).setPreferredWidth(50);
+            tablemiembros.getColumnModel().getColumn(0).setMaxWidth(50);
+        }
 
         jpvoluntariadom.add(scrollvmiembros);
         scrollvmiembros.setBounds(50, 460, 550, 210);
@@ -959,11 +963,11 @@ public class menujf extends javax.swing.JFrame {
          */
         int select = tableproyecto.getSelectedRow();
         IDproyecto = Integer.parseInt((String) tableproyecto.getValueAt(select, 0));
-        System.out.println(IDproyecto);
         if (select != -1) {
             String nombre = (String) tableproyecto.getValueAt(select, 1);
             txtProyectoSelect.setText(nombre);
-            MIProyecto.setEnabled(false);
+            tablemiembros.setModel(proyecto.volunatariado(IDproyecto, tablemiembros));
+            tablevoluntarios.setModel(proyecto.Voluntarios((DefaultTableModel) tablemiembros.getModel(),txtvoluntarios.getText(), tablevoluntarios));
         } else {
             JOptionPane.showMessageDialog(null, "Por favor seleccione un elemento de la tabla");
         }
@@ -1037,7 +1041,7 @@ public class menujf extends javax.swing.JFrame {
 
     private void txtvoluntariosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtvoluntariosKeyPressed
         //filtro de busqueda para el asociado
-        tablevoluntarios.setModel(proyecto.Voluntarios(txtvoluntarios.getText(), tablevoluntarios));
+        tablevoluntarios.setModel(proyecto.Voluntarios((DefaultTableModel) tablemiembros.getModel(),txtvoluntarios.getText(), tablevoluntarios));
     }//GEN-LAST:event_txtvoluntariosKeyPressed
     //filtro de busqueda para la tabla miembros
     private void filtro(String consulta, JTable jtableBuscar) {
