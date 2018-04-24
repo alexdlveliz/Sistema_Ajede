@@ -22,15 +22,16 @@ import javax.swing.table.DefaultTableModel;
  * @author hectortllo
  */
 public class Proyecto extends Usuario {
-
+    
     private Connection con = null;
     private final Conexion conexion;
+
     //Se hace la conexión a la base de datos
     public Proyecto() {
         conexion = new Conexion();
         con = conexion.getConnection();
     }
-
+    
     public DefaultComboBoxModel getEdades() {
         try {
             DefaultComboBoxModel datos = new DefaultComboBoxModel();
@@ -47,7 +48,7 @@ public class Proyecto extends Usuario {
         }
         return null;
     }
-
+    
     public DefaultComboBoxModel AnioInicio() {
         try {
             DefaultComboBoxModel datos = new DefaultComboBoxModel();
@@ -64,7 +65,7 @@ public class Proyecto extends Usuario {
         }
         return null;
     }
-
+    
     public DefaultComboBoxModel getPromocion() {
         try {
             DefaultComboBoxModel datos = new DefaultComboBoxModel();
@@ -81,7 +82,7 @@ public class Proyecto extends Usuario {
         }
         return null;
     }
-
+    
     public DefaultComboBoxModel getPrograma() {
         try {
             DefaultComboBoxModel datos = new DefaultComboBoxModel();
@@ -115,8 +116,8 @@ public class Proyecto extends Usuario {
         }
         return false;
     }
-
-    public DefaultTableModel Voluntarios(DefaultTableModel voluntariado, String nombre, JTable tabla) {
+    
+    public DefaultTableModel Voluntarios(JTable voluntariado, String nombre, JTable tabla) {
         try {
             String titulos[] = new String[4];
             for (byte i = 0; i < 3; i++) {
@@ -125,13 +126,10 @@ public class Proyecto extends Usuario {
             boolean genero;
             String registros[] = new String[4];
             String sql = "SELECT id, Nombre, Apellido, Genero FROM asociado "
-                        +"WHERE Nombre LIKE '%" + nombre + "%' AND Activo = TRUE;";
+                    + "WHERE Nombre LIKE '%" + nombre + "%' AND Activo = TRUE;";
             DefaultTableModel modelo = new DefaultTableModel(null, titulos);
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
-            for(int i=0;i<voluntariado.getColumnCount();i++){
-                System.out.println(voluntariado.getValueAt(i, 0));
-            }
             while (rs.next()) {
                 registros[0] = rs.getString("id");
                 registros[1] = rs.getString("Nombre");
@@ -143,7 +141,13 @@ public class Proyecto extends Usuario {
                     registros[3] = "Femenino";
                 }
                 modelo.addRow(registros);
-                
+            }
+            for (int i = 0; i < voluntariado.getRowCount(); i++) {
+                for (int j = 0; j < modelo.getRowCount(); j++) {
+                    if (voluntariado.getValueAt(i, 0).equals(modelo.getValueAt(j, 0))) {
+                        modelo.removeRow(j);
+                    }
+                }
             }
             return modelo;
         } catch (SQLException ex) {
@@ -151,7 +155,7 @@ public class Proyecto extends Usuario {
         }
         return null;
     }
-
+    
     public DefaultTableModel volunatariado(int id, JTable tabla) {
         try {
             String titulos[] = new String[4];
@@ -160,15 +164,15 @@ public class Proyecto extends Usuario {
             }
             String registros[] = new String[4];
             String sql = "SELECT a.id, a.Nombre, a.Apellido, p.puesto FROM asociado a "
-                        +"INNER JOIN voluntariado v ON a.id = v.Asociado_id "
-                        +"INNER JOIN puestos p ON p.id = v.Puestos_id "
-                        +"WHERE Proyecto_id = "+id
-                       +" ORDER BY Asociado_id;";
+                    + "INNER JOIN voluntariado v ON a.id = v.Asociado_id "
+                    + "INNER JOIN puestos p ON p.id = v.Puestos_id "
+                    + "WHERE Proyecto_id = " + id
+                    + " ORDER BY Asociado_id;";
             DefaultTableModel modelo = new DefaultTableModel(null, titulos);
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
-
+                
                 registros[0] = rs.getString("a.id");
                 registros[1] = rs.getString("a.Nombre");
                 registros[2] = rs.getString("a.Apellido");
@@ -181,7 +185,7 @@ public class Proyecto extends Usuario {
         }
         return null;
     }
-
+    
     public DefaultTableModel Proyectos(String nombre, JTable tabla) {
         try {
             String titulos[] = new String[3];
@@ -194,7 +198,7 @@ public class Proyecto extends Usuario {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
-
+                
                 registros[0] = rs.getString("id");
                 registros[1] = rs.getString("nombreProyecto");
                 registros[2] = rs.getString("descripcion");
@@ -206,7 +210,12 @@ public class Proyecto extends Usuario {
         }
         return null;
     }
-
+    
+    public boolean Verificar(int idProyecto, int idAsociado, float horas, int idPuesto){
+        
+        return false;
+    }
+    
     public boolean insertarVoluntariado(int idProyecto, int idAsociado, float horas, int idPuesto) {
         try {
             /**

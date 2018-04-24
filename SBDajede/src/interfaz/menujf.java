@@ -645,23 +645,14 @@ public class menujf extends javax.swing.JFrame {
 
         tablevoluntarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
-                "Nombre", "Apellido", "Género"
+                "No", "Nombre", "Apellido", "Género"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, true, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -684,29 +675,25 @@ public class menujf extends javax.swing.JFrame {
         tablevoluntarios.setRowHeight(22);
         tablevoluntarios.getTableHeader().setReorderingAllowed(false);
         scrollvevol.setViewportView(tablevoluntarios);
+        if (tablevoluntarios.getColumnModel().getColumnCount() > 0) {
+            tablevoluntarios.getColumnModel().getColumn(0).setMinWidth(50);
+            tablevoluntarios.getColumnModel().getColumn(0).setPreferredWidth(50);
+            tablevoluntarios.getColumnModel().getColumn(0).setMaxWidth(50);
+        }
 
         jpvoluntariadom.add(scrollvevol);
         scrollvevol.setBounds(640, 170, 550, 210);
 
         tableproyecto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "No.", "Proyecto", "Descripción"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, true, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -729,6 +716,11 @@ public class menujf extends javax.swing.JFrame {
         tableproyecto.setRowHeight(22);
         tableproyecto.getTableHeader().setReorderingAllowed(false);
         scrollveproy.setViewportView(tableproyecto);
+        if (tableproyecto.getColumnModel().getColumnCount() > 0) {
+            tableproyecto.getColumnModel().getColumn(0).setMinWidth(50);
+            tableproyecto.getColumnModel().getColumn(0).setPreferredWidth(50);
+            tableproyecto.getColumnModel().getColumn(0).setMaxWidth(50);
+        }
 
         jpvoluntariadom.add(scrollveproy);
         scrollveproy.setBounds(50, 170, 550, 160);
@@ -967,7 +959,10 @@ public class menujf extends javax.swing.JFrame {
             String nombre = (String) tableproyecto.getValueAt(select, 1);
             txtProyectoSelect.setText(nombre);
             tablemiembros.setModel(proyecto.volunatariado(IDproyecto, tablemiembros));
-            tablevoluntarios.setModel(proyecto.Voluntarios((DefaultTableModel) tablemiembros.getModel(),txtvoluntarios.getText(), tablevoluntarios));
+            tablevoluntarios.setModel(proyecto.Voluntarios(tablemiembros, txtvoluntarios.getText(), tablevoluntarios));
+            for (int i = 0; i < listaIdmiembros.size(); i++) {
+                System.out.println(listaIdmiembros.get(i));
+            }
         } else {
             JOptionPane.showMessageDialog(null, "Por favor seleccione un elemento de la tabla");
         }
@@ -1010,7 +1005,7 @@ public class menujf extends javax.swing.JFrame {
 
     private void MIMiembroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MIMiembroActionPerformed
         /**
-         * Este es para remover lguno de los voluntarios que se hayan agregado
+         * Este es para remover alguno de los voluntarios que se hayan agregado
          * anteriormente obtengo el conjunto de filas seleccionadas declaro un
          * modelo de la tabla miembros un ciclo donde voy a remover cada uno de
          * las filas que tiene el modelo Tomar nota que le digo que remueva la
@@ -1041,7 +1036,7 @@ public class menujf extends javax.swing.JFrame {
 
     private void txtvoluntariosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtvoluntariosKeyPressed
         //filtro de busqueda para el asociado
-        tablevoluntarios.setModel(proyecto.Voluntarios((DefaultTableModel) tablemiembros.getModel(),txtvoluntarios.getText(), tablevoluntarios));
+        tablevoluntarios.setModel(proyecto.Voluntarios(tablemiembros, txtvoluntarios.getText(), tablevoluntarios));
     }//GEN-LAST:event_txtvoluntariosKeyPressed
     //filtro de busqueda para la tabla miembros
     private void filtro(String consulta, JTable jtableBuscar) {
