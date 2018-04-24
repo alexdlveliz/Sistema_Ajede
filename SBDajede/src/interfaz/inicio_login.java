@@ -50,7 +50,7 @@ public class inicio_login extends javax.swing.JFrame {
             lblogin.setSize(1568, 880);
             lbinicio.setIcon(iniciotam1);
             lblogin.setIcon(logintam1);
-            btnsiguiente.setLocation(50, 50);
+            btnsiguiente.setLocation(1400, 700);
             btnadmin.setLocation(190, 560);
             btncomite.setLocation(430, 560);
             btningresar.setLocation(850, 550);
@@ -135,7 +135,7 @@ public class inicio_login extends javax.swing.JFrame {
             }
         });
         jpinicio.add(btnsiguiente);
-        btnsiguiente.setBounds(630, 30, 103, 79);
+        btnsiguiente.setBounds(1050, 530, 103, 79);
 
         lbinicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/iniciotam2.jpg"))); // NOI18N
         lbinicio.setText("jLabel1");
@@ -208,11 +208,11 @@ public class inicio_login extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelf, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelf, javax.swing.GroupLayout.DEFAULT_SIZE, 1069, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelf, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelf, javax.swing.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE)
         );
 
         pack();
