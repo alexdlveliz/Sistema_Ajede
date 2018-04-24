@@ -33,6 +33,7 @@ public class menujf extends javax.swing.JFrame {
     private int IDproyecto;
     private final ArrayList<Integer> listaPuestos;
     private final ArrayList<Integer> listaIdmiembros;
+    private ArrayList<Integer> listaExistenteId;
     private final ImpresionReportes reportes;
 
     /**
@@ -43,6 +44,7 @@ public class menujf extends javax.swing.JFrame {
         proyecto = new Proyecto();
         listaPuestos = new ArrayList<>();
         listaIdmiembros = new ArrayList<>();
+
         initComponents();
         tableproyecto.setModel(proyecto.Proyectos("", tableproyecto));
         cmbPuestos.setModel(proyecto.puestos());
@@ -960,8 +962,9 @@ public class menujf extends javax.swing.JFrame {
             txtProyectoSelect.setText(nombre);
             tablemiembros.setModel(proyecto.volunatariado(IDproyecto, tablemiembros));
             tablevoluntarios.setModel(proyecto.Voluntarios(tablemiembros, txtvoluntarios.getText(), tablevoluntarios));
-            for (int i = 0; i < listaIdmiembros.size(); i++) {
-                System.out.println(listaIdmiembros.get(i));
+            listaExistenteId = new ArrayList<>();
+            for (int i = 0; i < tablemiembros.getRowCount(); i++) {
+                listaExistenteId.add(Integer.parseInt((String) tablemiembros.getValueAt(i, 0)));
             }
         } else {
             JOptionPane.showMessageDialog(null, "Por favor seleccione un elemento de la tabla");

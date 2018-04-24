@@ -204,7 +204,7 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         txtemiembros.setBackground(new Color(0,0,0,0));
         txteproyecto.setBackground(new Color(0,0,0,0));
         txtevoluntarios.setBackground(new Color(0,0,0,0));
-        txtedescripcion.setBackground(new Color(0,0,0,0));
+        txtADescripcion.setBackground(new Color(0,0,0,0));
         cmbproyecto.setBackground(new Color(0,0,0,0));
         btnevoluntariadog.setOpaque(false);
         btnevoluntariadog.setContentAreaFilled(false);
@@ -241,10 +241,12 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        popmeddpv = new javax.swing.JPopupMenu();
-        datosp = new javax.swing.JMenuItem();
-        popmedp = new javax.swing.JPopupMenu();
-        edproyecto = new javax.swing.JMenuItem();
+        popInfoGen = new javax.swing.JPopupMenu();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         btnsalir = new javax.swing.JButton();
         btnhome = new javax.swing.JButton();
@@ -354,7 +356,8 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         btnmenubused = new javax.swing.JButton();
         btnguardareproyect = new javax.swing.JButton();
         cmbproyecto = new javax.swing.JComboBox<>();
-        txtedescripcion = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtADescripcion = new javax.swing.JTextArea();
         lbeproyectos = new javax.swing.JLabel();
         jpedp = new javax.swing.JPanel();
         textfieldnombres = new javax.swing.JTextField();
@@ -372,19 +375,20 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         cmbactivoina = new javax.swing.JComboBox<>();
         lbedp = new javax.swing.JLabel();
 
-        datosp.setText("Modificar");
-        datosp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                datospActionPerformed(evt);
-            }
-        });
+        jMenu1.setText("Opciones");
 
-        edproyecto.setText("editar");
-        edproyecto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                edproyectoActionPerformed(evt);
-            }
-        });
+        jMenuItem1.setText("Editar datos generales");
+        jMenu1.add(jMenuItem1);
+
+        popInfoGen.add(jMenu1);
+
+        jMenu2.setText("Opciones");
+
+        jMenuItem2.setText("Editar Proyecto");
+        jMenuItem2.setToolTipText("");
+        jMenu2.add(jMenuItem2);
+
+        jPopupMenu1.add(jMenu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1565, 880));
@@ -724,8 +728,6 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         jpgeneral.add(txtbnombreg);
         txtbnombreg.setBounds(310, 170, 410, 40);
 
-        scrollg.setComponentPopupMenu(popmeddpv);
-
         tablebvgeneral = new rojerusan.RSTableMetro(){
             public boolean isCellEditable(int rowIndex, int ColIndex){
                 return false;
@@ -764,7 +766,7 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         tablebvgeneral.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
         tablebvgeneral.setColorFilasForeground2(new java.awt.Color(0, 0, 0));
         tablebvgeneral.setColorSelBackgound(new java.awt.Color(22, 54, 77));
-        tablebvgeneral.setComponentPopupMenu(popmeddpv);
+        tablebvgeneral.setComponentPopupMenu(popInfoGen);
         tablebvgeneral.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
         tablebvgeneral.setFuenteFilas(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
         tablebvgeneral.setFuenteFilasSelect(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
@@ -1375,6 +1377,7 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         tablebvproyecto.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
         tablebvproyecto.setColorFilasForeground2(new java.awt.Color(0, 0, 0));
         tablebvproyecto.setColorSelBackgound(new java.awt.Color(22, 54, 77));
+        tablebvproyecto.setComponentPopupMenu(jPopupMenu1);
         tablebvproyecto.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
         tablebvproyecto.setFuenteFilas(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
         tablebvproyecto.setFuenteFilasSelect(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
@@ -1753,10 +1756,13 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         jpeproyecto.add(cmbproyecto);
         cmbproyecto.setBounds(80, 250, 720, 30);
 
-        txtedescripcion.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
-        txtedescripcion.setText("jTextField1");
-        jpeproyecto.add(txtedescripcion);
-        txtedescripcion.setBounds(80, 380, 710, 260);
+        txtADescripcion.setColumns(20);
+        txtADescripcion.setRows(5);
+        txtADescripcion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jScrollPane1.setViewportView(txtADescripcion);
+
+        jpeproyecto.add(jScrollPane1);
+        jScrollPane1.setBounds(70, 370, 730, 280);
 
         lbeproyectos.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         lbeproyectos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/edproyectos2.jpg"))); // NOI18N
@@ -1798,7 +1804,7 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         cmbgenero1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino" }));
         cmbgenero1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jpedp.add(cmbgenero1);
-        cmbgenero1.setBounds(390, 290, 190, 38);
+        cmbgenero1.setBounds(390, 290, 190, 42);
 
         textfieldedad.setBackground(new java.awt.Color(178, 248, 248));
         textfieldedad.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
@@ -1848,7 +1854,7 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
         cmbtalla.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "XS", "S", "M", "L", "XL" }));
         cmbtalla.setBorder(null);
         jpedp.add(cmbtalla);
-        cmbtalla.setBounds(870, 235, 60, 36);
+        cmbtalla.setBounds(870, 235, 60, 42);
 
         btnmenube.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/Home_70px.png"))); // NOI18N
         btnmenube.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2186,14 +2192,6 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
 
     }//GEN-LAST:event_btnguardarcambiosdpActionPerformed
 
-    private void datospActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_datospActionPerformed
-        rSPanelsSlider1.setPanelSlider(jpedp, RSPanelsSlider.DIRECT.DOWN);
-    }//GEN-LAST:event_datospActionPerformed
-
-    private void edproyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edproyectoActionPerformed
-        rSPanelsSlider1.setPanelSlider(jpeproyecto, RSPanelsSlider.DIRECT.DOWN);
-    }//GEN-LAST:event_edproyectoActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -2267,11 +2265,15 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
     private javax.swing.JComboBox<String> cmbprograma;
     private javax.swing.JComboBox<String> cmbproyecto;
     private javax.swing.JComboBox<String> cmbtalla;
-    private javax.swing.JMenuItem datosp;
-    private javax.swing.JMenuItem edproyecto;
     private rojeru_san.componentes.RSDateChooser fechas;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPopupMenu jPopupMenu1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel jpbproyecto;
     private javax.swing.JPanel jpbvoluntariado;
     private javax.swing.JPanel jpedp;
@@ -2305,8 +2307,7 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
     private javax.swing.JLabel lbvocupacion;
     private javax.swing.JLabel lbvprograma;
     private javax.swing.JLabel lbvpromocionbeca;
-    private javax.swing.JPopupMenu popmeddpv;
-    private javax.swing.JPopupMenu popmedp;
+    private javax.swing.JPopupMenu popInfoGen;
     private rojerusan.RSPanelsSlider rSPanelsSlider1;
     private javax.swing.JScrollPane scrolled;
     private javax.swing.JScrollPane scrollg;
@@ -2347,6 +2348,7 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
     private javax.swing.JTextField textfieldnombres;
     private javax.swing.JTextField textfieldperfil;
     private javax.swing.JTextField textfieldresidencia;
+    private javax.swing.JTextArea txtADescripcion;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtavexbnexb;
     private javax.swing.JTextField txtbapellidosg;
@@ -2355,7 +2357,6 @@ ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/b
     private javax.swing.JTextField txtbproyecto;
     private javax.swing.JTextField txtbvnombre;
     private javax.swing.JTextField txtbvoluntarios;
-    private javax.swing.JTextField txtedescripcion;
     private javax.swing.JTextField txtemiembros;
     private javax.swing.JTextField txteproyecto;
     private javax.swing.JTextField txtevoluntarios;
