@@ -2240,6 +2240,23 @@ String id = "";
     {
         return id;
     }
+    
+    private void setNombreProyecto(String id_proyecto)
+    {
+        id = id_proyecto;
+    }
+    private String getNombreProyecto()
+    {
+        return id;
+    }
+    private void setDescripcion(String id_proyecto)
+    {
+        id = id_proyecto;
+    }
+    private String getDescripcion()
+    {
+        return id;
+    }
     /**
      * @param args the command line arguments
      */
