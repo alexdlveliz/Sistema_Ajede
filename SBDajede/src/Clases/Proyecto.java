@@ -230,16 +230,20 @@ public class Proyecto extends Usuario {
                     + "WHERE Proyecto_id = " + idProyecto + " And Asociado_id=" + idAsociado;
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
+            PreparedStatement Pst;
             while (rs.next()) {
                 idA = rs.getInt("idA");
             }
             if (idA != -1) {
-                
-                return true;
+                sql = "Update voluntariado Set puestos_id= ? where Asociado_id = " + idAsociado;
+                Pst = con.prepareStatement(sql);
+                Pst.setInt(1, idPuesto);
+                int n = Pst.executeUpdate();
+                return n != 0;
             } else {
                 sql = "Insert into voluntariado(Proyecto_id, Asociado_id, Horas,puestos_id)"
                         + "Values(?,?,?,?)";
-                PreparedStatement Pst = con.prepareStatement(sql);
+                Pst = con.prepareStatement(sql);
                 Pst.setInt(1, idProyecto);
                 Pst.setInt(2, idAsociado);
                 Pst.setFloat(3, 0);

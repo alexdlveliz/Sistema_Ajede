@@ -1123,7 +1123,7 @@ public class menujf extends javax.swing.JFrame {
                 temp1 = (String) modelo.getValueAt(i, 0);
                 for (int j = 0; j < temp.size(); j++) {
                     if (temp1.equals(temp.get(j))) {
-                        modelo.setValueAt(puesto, i, 2);
+                        modelo.setValueAt(puesto, i, 3);
                         listaPuestos.set(i, index + 1);
                     }
                 }
