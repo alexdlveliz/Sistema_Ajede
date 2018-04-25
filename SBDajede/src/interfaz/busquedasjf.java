@@ -61,7 +61,7 @@ String id = "";
         cmbprograma.setModel(busquedas.getPrograma());
         transparencia();
         tablebvnombre.setModel(busquedas.BNombre("", tablebvnombre, "",true));
-        //tablebvproyecto.setModel(busquedas.BProyecto(tablebvproyecto, (String)cmbbproyectos.getSelectedItem()));
+        tablebbvproyecto.setModel(busquedas.BProyecto(tablebvproyecto, (String)cmbbproyectos.getSelectedItem()));
         tablebvgeneral.setModel(busquedas.BNombreApellido("", tablebvgeneral, ""));
         tablebvgenero.setModel(busquedas.BGenero(tablebvgenero, "M"));
         tablebvedad.setModel(busquedas.BEdad(tablebvedad, (Integer)cmbedad.getSelectedItem()));
@@ -252,6 +252,7 @@ String id = "";
         cmbtalla.setBackground(new Color(0,0,0,0));
         cmbactivoina.setBackground(new Color(0,0,0,0));
         txtADescripcion.setBackground(new Color(0,0,0,0));
+        cmbbproyectos.setBackground(new Color(0,0,0,0));
     }
 
     /**
@@ -400,6 +401,11 @@ String id = "";
         cmbactivoina = new javax.swing.JComboBox<>();
         lbedp = new javax.swing.JLabel();
         lbl_id_asociado = new javax.swing.JLabel();
+        jpbbproyecto = new javax.swing.JPanel();
+        scrollbbproy = new javax.swing.JScrollPane();
+        tablebbvproyecto = new rojerusan.RSTableMetro();
+        cmbbproyectos = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
 
         jMenu1.setText("Opciones");
 
@@ -522,7 +528,7 @@ String id = "";
             }
         });
         jpmenuboe.add(btnbeproyecto);
-        btnbeproyecto.setBounds(550, 360, 170, 130);
+        btnbeproyecto.setBounds(540, 360, 170, 130);
 
         lbmenuboe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/opcbm2.jpg"))); // NOI18N
         jpmenuboe.add(lbmenuboe);
@@ -1972,6 +1978,87 @@ String id = "";
 
         rSPanelsSlider1.add(jpedp, "card17");
 
+        jpbbproyecto.setName("jpbbproyecto"); // NOI18N
+        jpbbproyecto.setLayout(null);
+
+        tablebvproyecto = new rojerusan.RSTableMetro(){
+            public boolean isCellEditable(int rowIndex, int ColIndex){
+                return false;
+            }
+        };
+        tablebbvproyecto.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "No.", "Nombre", "Apellido", "Fecha de Nacimiento"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablebbvproyecto.setColorBackgoundHead(new java.awt.Color(22, 54, 77));
+        tablebbvproyecto.setColorBordeFilas(new java.awt.Color(255, 255, 255));
+        tablebbvproyecto.setColorBordeHead(new java.awt.Color(255, 255, 255));
+        tablebbvproyecto.setColorFilasBackgound1(new java.awt.Color(163, 214, 249));
+        tablebbvproyecto.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
+        tablebbvproyecto.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
+        tablebbvproyecto.setColorFilasForeground2(new java.awt.Color(0, 0, 0));
+        tablebbvproyecto.setColorSelBackgound(new java.awt.Color(22, 54, 77));
+        tablebbvproyecto.setComponentPopupMenu(jPopupMenu1);
+        tablebbvproyecto.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablebbvproyecto.setFuenteFilas(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablebbvproyecto.setFuenteFilasSelect(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        tablebbvproyecto.setFuenteHead(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
+        tablebbvproyecto.setRowHeight(22);
+        tablebbvproyecto.getTableHeader().setReorderingAllowed(false);
+        tablebbvproyecto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablebbvproyectoMouseClicked(evt);
+            }
+        });
+        scrollbbproy.setViewportView(tablebbvproyecto);
+        if (tablebbvproyecto.getColumnModel().getColumnCount() > 0) {
+            tablebbvproyecto.getColumnModel().getColumn(0).setMinWidth(20);
+            tablebbvproyecto.getColumnModel().getColumn(0).setPreferredWidth(100);
+            tablebbvproyecto.getColumnModel().getColumn(0).setMaxWidth(100);
+            tablebbvproyecto.getColumnModel().getColumn(1).setMinWidth(100);
+            tablebbvproyecto.getColumnModel().getColumn(1).setPreferredWidth(300);
+            tablebbvproyecto.getColumnModel().getColumn(1).setMaxWidth(300);
+            tablebbvproyecto.getColumnModel().getColumn(3).setMinWidth(100);
+            tablebbvproyecto.getColumnModel().getColumn(3).setPreferredWidth(300);
+            tablebbvproyecto.getColumnModel().getColumn(3).setMaxWidth(300);
+        }
+
+        jpbbproyecto.add(scrollbbproy);
+        scrollbbproy.setBounds(110, 260, 1030, 380);
+
+        cmbbproyectos.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
+        cmbbproyectos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jpbbproyecto.add(cmbbproyectos);
+        cmbbproyectos.setBounds(310, 200, 320, 30);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/proyectos2.jpg"))); // NOI18N
+        jpbbproyecto.add(jLabel2);
+        jLabel2.setBounds(0, 0, 1250, 700);
+
+        rSPanelsSlider1.add(jpbbproyecto, "card18");
+
         jPanel1.add(rSPanelsSlider1);
         rSPanelsSlider1.setBounds(0, 0, 1370, 740);
 
@@ -2060,7 +2147,7 @@ String id = "";
         ResultSet rs = st.executeQuery("SELECT * FROM proyecto");
         while(rs.next())
         {
-            //this.cmbbproyectos.addItem(rs.getString("nombreProyecto"));
+            this.cmbbproyectos.addItem(rs.getString("nombreProyecto"));
         }
     } catch (SQLException ex) {
         Logger.getLogger(busquedasjf.class.getName()).log(Level.SEVERE, null, ex);
@@ -2100,7 +2187,14 @@ String id = "";
     }//GEN-LAST:event_btnbevoluntariosMouseClicked
 
     private void btnbeproyectoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbeproyectoMouseClicked
-        rSPanelsSlider1.setPanelSlider(jpbproyecto, RSPanelsSlider.DIRECT.DOWN);
+        if(cmbbusoed.getSelectedItem().equals("Buscar") )
+        {
+            rSPanelsSlider1.setPanelSlider(jpbbproyecto, RSPanelsSlider.DIRECT.DOWN);
+        }
+        else if(cmbbusoed.getSelectedItem().equals("Editar"))
+        {
+            rSPanelsSlider1.setPanelSlider(jpbproyecto, RSPanelsSlider.DIRECT.DOWN);
+        }
     }//GEN-LAST:event_btnbeproyectoMouseClicked
 
     private void btnbevoluntariadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbevoluntariadoMouseClicked
@@ -2386,6 +2480,10 @@ String id = "";
         setId(id);
     }//GEN-LAST:event_tablebvgeneralMouseClicked
 
+    private void tablebbvproyectoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablebbvproyectoMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tablebbvproyectoMouseClicked
+
     private void setId(String id_proyecto)
     {
         id = id_proyecto;
@@ -2459,6 +2557,7 @@ String id = "";
     private javax.swing.JComboBox<String> cmbactivoina;
     private javax.swing.JComboBox<String> cmbanio;
     private javax.swing.JComboBox<String> cmbapromocion;
+    private javax.swing.JComboBox<String> cmbbproyectos;
     private javax.swing.JComboBox<String> cmbbusoed;
     private rojerusan.RSComboMetro cmbedad;
     private javax.swing.JComboBox<String> cmbexbnexb;
@@ -2469,6 +2568,7 @@ String id = "";
     private javax.swing.JComboBox<String> cmbtalla;
     private rojeru_san.componentes.RSDateChooser fechas;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -2478,6 +2578,7 @@ String id = "";
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel jpbbproyecto;
     private javax.swing.JPanel jpbproyecto;
     private javax.swing.JPanel jpbvoluntariado;
     private javax.swing.JPanel jpedp;
@@ -2515,6 +2616,7 @@ String id = "";
     private javax.swing.JLabel lbvpromocionbeca;
     private javax.swing.JPopupMenu popInfoGen;
     private rojerusan.RSPanelsSlider rSPanelsSlider1;
+    private javax.swing.JScrollPane scrollbbproy;
     private javax.swing.JScrollPane scrolled;
     private javax.swing.JScrollPane scrollg;
     private javax.swing.JScrollPane scrollgai;
@@ -2531,6 +2633,7 @@ String id = "";
     private javax.swing.JScrollPane scrollvmiembros;
     private javax.swing.JScrollPane scrollvmiembros1;
     private javax.swing.JScrollPane scrollvvol;
+    private rojerusan.RSTableMetro tablebbvproyecto;
     private rojerusan.RSTableMetro tablebvanioi;
     private rojerusan.RSTableMetro tablebvedad;
     private rojerusan.RSTableMetro tablebvexbecarios;
