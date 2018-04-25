@@ -15,10 +15,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import rojeru_san.componentes.RSDateChooser;
 import rojerusan.RSPanelsSlider;
 
 /**
@@ -45,11 +47,6 @@ ImageIcon vocupacion = new ImageIcon(new ImageIcon(getClass().getResource("/fond
 ImageIcon vprograma = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vprograma1.jpg")).getImage());
 ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vpromocion1.jpg")).getImage());
 String id = "";
-String proyectoName = "";
-String apellido = "";
-String dpi_g = "";
-String residencia_g = "";
-String email_g = "";
     /**
      * Creates new form busquedasjf
      */
@@ -2228,17 +2225,82 @@ String email_g = "";
     }//GEN-LAST:event_btnmenubeActionPerformed
 
     private void btnguardarcambiosdpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarcambiosdpActionPerformed
-
+        actualizarAsociado(lbl_id_asociado.getText());
     }//GEN-LAST:event_btnguardarcambiosdpActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         //Aquí tengo que programar
         rSPanelsSlider1.setPanelSlider(jpedp, RSPanelsSlider.DIRECT.DOWN);
         lbl_id_asociado.setText(obtenerId());
-        System.out.println(lbl_id_asociado.getText());
         buscarAsociado(lbl_id_asociado.getText());
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    public String getFecha(RSDateChooser jd) {
+        if (jd.getDatoFecha() != null) {
+            return formato.format(jd.getDatoFecha());
+        } else {
+            return null;
+        }
+    }
+    
+    private void actualizarAsociado(String idAsociado)
+    {
+    try {
+            int id = Integer.parseInt(idAsociado);
+            Connection con = null;
+            Conexion conexion;
+            conexion = new Conexion();
+            con = conexion.getConnection();
+            String sql = "UPDATE asociado SET DPI=?, Genero=?, CorreoElectronico=?, FechaNacimiento=?, TallaPlayera=?,"
+                    + "Residencia=?, Nombre=?, Apellido=?,Activo=?, PerfilFacebook=? WHERE id LIKE '%" + id + "%'";
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setString(1, textfielddpi.getText());
+            String genero = (String)cmbgenero1.getSelectedItem();
+            if(genero.equals("Masculino"))
+                st.setBoolean(2, true);
+            else
+                st.setBoolean(2, false);
+            st.setString(3, textfieldcorreo.getText());
+            st.setString(4, getFecha(fechas));
+            st.setString(5, (String)cmbtalla.getSelectedItem());
+            st.setString(6, textfieldresidencia.getText());
+            st.setString(7, textfieldnombres.getText());
+            st.setString(8, textfieldapellidos.getText());
+            String activo = (String)cmbactivoina.getSelectedItem();
+            if(activo.equals("Activo"))
+                st.setBoolean(9, true);
+            else
+                st.setBoolean(9, false);
+            
+            st.setString(10, textfieldperfil.getText());
+            int res = st.executeUpdate();
+            if(res > 0)
+            {
+                JOptionPane.showMessageDialog(null, "Información actualizada correctamente");
+                limpiarCajas();
+            }   
+            else
+                JOptionPane.showMessageDialog(null, "Error al actualizar información");
+            
+            tablebvgeneral.setModel(busquedas.BNombreApellido("", tablebvgeneral, ""));
+    } catch (SQLException ex) {
+            Logger.getLogger(busquedasjf.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private void limpiarCajas()
+    {
+        textfielddpi.setText("");
+        cmbgenero1.setSelectedItem("");
+        textfieldcorreo.setText("");
+        cmbtalla.setSelectedItem("");
+        textfieldresidencia.setText("");
+        textfieldnombres.setText("");
+        textfieldapellidos.setText("");
+        cmbactivoina.setSelectedItem("");
+        textfieldperfil.setText("");
+        btnguardarcambiosdp.setEnabled(false);
+    }
     private void buscarAsociado(String idAsociado)
     {
     try {
@@ -2284,9 +2346,6 @@ String email_g = "";
         // TODO add your handling code here:
         rSPanelsSlider1.setPanelSlider(jpeproyecto, RSPanelsSlider.DIRECT.DOWN);
         lbl_id_proyecto.setText(obtenerId());
-        System.out.println(lbl_id_proyecto.getText());
-        textfieldnombres.setText(getNombre());
-        
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void tablebvproyectoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablebvproyectoMouseClicked
@@ -2301,17 +2360,7 @@ String email_g = "";
     private void tablebvgeneralMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablebvgeneralMouseClicked
         int fila = tablebvgeneral.getSelectedRow();
         String id = (String)tablebvgeneral.getValueAt(fila, 0);
-        String name = (String)tablebvgeneral.getValueAt(fila, 1);
-        String apellido = (String)tablebvgeneral.getValueAt(fila, 2);
-        String dpi = (String)tablebvgeneral.getValueAt(fila, 3);
-        String residencia = (String)tablebvgeneral.getValueAt(fila, 4);
-        String email = (String)tablebvgeneral.getValueAt(fila, 5);
         setId(id);
-        setNombre(name);
-        setApellido(apellido);
-        setdpi(dpi);
-        setresidencia(residencia);
-        setEmail(email);
     }//GEN-LAST:event_tablebvgeneralMouseClicked
 
     private void setId(String id_proyecto)
@@ -2321,48 +2370,8 @@ String email_g = "";
     private String obtenerId()
     {
         return id;
-    }
+    }   
     
-    private void setNombre(String nombre)
-    {
-        proyectoName = nombre;
-    }
-    private String getNombre()
-    {
-        return proyectoName;
-    }
-    private void setApellido(String apellido)
-    {
-        apellido = apellido;
-    }
-    private String getApellido()
-    {
-        return apellido;
-    }
-    private void setdpi(String dpi)
-    {
-        dpi_g = dpi;
-    }
-    private String getdpi()
-    {
-        return dpi_g;
-    }
-    private void setresidencia(String residencia)
-    {
-        residencia_g = residencia;
-    }
-    private String getresidencia()
-    {
-        return residencia_g;
-    }
-    private void setEmail(String email)
-    {
-        email_g = email;
-    }
-    private String getEmail()
-    {
-        return email_g;
-    }
     /**
      * @param args the command line arguments
      */
@@ -2398,6 +2407,7 @@ String email_g = "";
         });
     }
 
+    private final SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnbeproyecto;
     private javax.swing.JButton btnbevoluntariado;
