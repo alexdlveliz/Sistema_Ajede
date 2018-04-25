@@ -11,6 +11,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -44,6 +45,11 @@ ImageIcon vocupacion = new ImageIcon(new ImageIcon(getClass().getResource("/fond
 ImageIcon vprograma = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vprograma1.jpg")).getImage());
 ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vpromocion1.jpg")).getImage());
 String id = "";
+String proyectoName = "";
+String apellido = "";
+String dpi_g = "";
+String residencia_g = "";
+String email_g = "";
     /**
      * Creates new form busquedasjf
      */
@@ -377,6 +383,7 @@ String id = "";
         btnguardarcambiosdp = new javax.swing.JButton();
         cmbactivoina = new javax.swing.JComboBox<>();
         lbedp = new javax.swing.JLabel();
+        lbl_id_asociado = new javax.swing.JLabel();
 
         jMenu1.setText("Opciones");
 
@@ -786,6 +793,16 @@ String id = "";
         tablebvgeneral.setFuenteHead(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
         tablebvgeneral.setRowHeight(22);
         tablebvgeneral.getTableHeader().setReorderingAllowed(false);
+        tablebvgeneral.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablebvgeneralMouseClicked(evt);
+            }
+        });
+        tablebvgeneral.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tablebvgeneralKeyPressed(evt);
+            }
+        });
         scrollg.setViewportView(tablebvgeneral);
         if (tablebvgeneral.getColumnModel().getColumnCount() > 0) {
             tablebvgeneral.getColumnModel().getColumn(0).setMinWidth(50);
@@ -1869,7 +1886,7 @@ String id = "";
         cmbtalla.setBackground(new java.awt.Color(178, 248, 248));
         cmbtalla.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         cmbtalla.setForeground(new java.awt.Color(25, 92, 134));
-        cmbtalla.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "XS", "S", "M", "L", "XL" }));
+        cmbtalla.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "xs", "s", "m", "l" }));
         cmbtalla.setBorder(null);
         jpedp.add(cmbtalla);
         cmbtalla.setBounds(870, 235, 60, 36);
@@ -1898,13 +1915,17 @@ String id = "";
 
         cmbactivoina.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         cmbactivoina.setForeground(new java.awt.Color(25, 92, 134));
-        cmbactivoina.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbactivoina.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "No Activo" }));
         jpedp.add(cmbactivoina);
         cmbactivoina.setBounds(750, 315, 290, 30);
 
         lbedp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/editar/datosp1.jpg"))); // NOI18N
         jpedp.add(lbedp);
         lbedp.setBounds(0, 0, 1250, 700);
+
+        lbl_id_asociado.setText("jLabel2");
+        jpedp.add(lbl_id_asociado);
+        lbl_id_asociado.setBounds(490, 114, 50, 30);
 
         rSPanelsSlider1.add(jpedp, "card17");
 
@@ -2211,26 +2232,87 @@ String id = "";
     }//GEN-LAST:event_btnguardarcambiosdpActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, "Hola 1");
+        //Aquí tengo que programar
+        rSPanelsSlider1.setPanelSlider(jpedp, RSPanelsSlider.DIRECT.DOWN);
+        lbl_id_asociado.setText(obtenerId());
+        System.out.println(lbl_id_asociado.getText());
+        buscarAsociado(lbl_id_asociado.getText());
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void buscarAsociado(String idAsociado)
+    {
+    try {
+            int id = Integer.parseInt(idAsociado);
+            Connection con = null;
+            Conexion conexion;
+            conexion = new Conexion();
+            con = conexion.getConnection();
+            String sql = "SELECT DPI, Genero, CorreoElectronico, FechaNacimiento, TallaPlayera, Residencia, Nombre, Apellido,"
+                    + "Activo, PerfilFacebook, YEAR(CURDATE())-YEAR(FechaNacimiento) + IF(DATE_FORMAT(CURDATE(),'%m-%d')"
+                    + ">DATE_FORMAT(FechaNacimiento, '%m-%d'),0,-1) AS EDAD FROM asociado WHERE id LIKE '%" + id + "%'";
+            PreparedStatement st = con.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            if(rs.next())
+            {
+                textfieldnombres.setText(rs.getString("Nombre"));
+                textfieldapellidos.setText(rs.getString("Apellido"));
+                textfieldedad.setText(rs.getString("EDAD"));
+                fechas.setDatoFecha(rs.getDate("FechaNacimiento"));
+                textfielddpi.setText(rs.getString("DPI"));
+                textfieldresidencia.setText(rs.getString("Residencia"));
+                textfieldcorreo.setText(rs.getString("CorreoElectronico"));
+                textfieldperfil.setText(rs.getString("PerfilFacebook"));
+                cmbtalla.setSelectedItem(rs.getString("TallaPlayera"));
+                boolean activo = rs.getBoolean("Activo");
+                System.out.println(activo);
+                boolean genero = rs.getBoolean("Genero");
+                System.out.println(genero);
+                if(genero)
+                    cmbgenero1.setSelectedItem("Masculino");
+                if(!genero)
+                    cmbgenero1.setSelectedItem("Femenino");
+                if(activo)
+                    cmbactivoina.setSelectedItem("Activo");
+                if(!activo)
+                    cmbactivoina.setSelectedItem("No Activo");
+            }
+    } catch (SQLException ex) {
+        Logger.getLogger(busquedasjf.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    }
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
         rSPanelsSlider1.setPanelSlider(jpeproyecto, RSPanelsSlider.DIRECT.DOWN);
         lbl_id_proyecto.setText(obtenerId());
         System.out.println(lbl_id_proyecto.getText());
+        textfieldnombres.setText(getNombre());
+        
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void tablebvproyectoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablebvproyectoMouseClicked
         // TODO add your handling code here:
-        int fila = tablebvproyecto.getSelectedRow();
-        String id = (String)tablebvproyecto.getValueAt(fila, 0);
-        System.out.println("nombre: " + (String)tablebvproyecto.getValueAt(fila, 1));
-        System.out.println((String)tablebvproyecto.getValueAt(fila, 2));
-        System.out.println((String)tablebvproyecto.getValueAt(fila, 3));
-        setId(id);
     }//GEN-LAST:event_tablebvproyectoMouseClicked
+
+    private void tablebvgeneralKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tablebvgeneralKeyPressed
+
+        
+    }//GEN-LAST:event_tablebvgeneralKeyPressed
+
+    private void tablebvgeneralMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablebvgeneralMouseClicked
+        int fila = tablebvgeneral.getSelectedRow();
+        String id = (String)tablebvgeneral.getValueAt(fila, 0);
+        String name = (String)tablebvgeneral.getValueAt(fila, 1);
+        String apellido = (String)tablebvgeneral.getValueAt(fila, 2);
+        String dpi = (String)tablebvgeneral.getValueAt(fila, 3);
+        String residencia = (String)tablebvgeneral.getValueAt(fila, 4);
+        String email = (String)tablebvgeneral.getValueAt(fila, 5);
+        setId(id);
+        setNombre(name);
+        setApellido(apellido);
+        setdpi(dpi);
+        setresidencia(residencia);
+        setEmail(email);
+    }//GEN-LAST:event_tablebvgeneralMouseClicked
 
     private void setId(String id_proyecto)
     {
@@ -2241,21 +2323,45 @@ String id = "";
         return id;
     }
     
-    private void setNombreProyecto(String id_proyecto)
+    private void setNombre(String nombre)
     {
-        id = id_proyecto;
+        proyectoName = nombre;
     }
-    private String getNombreProyecto()
+    private String getNombre()
     {
-        return id;
+        return proyectoName;
     }
-    private void setDescripcion(String id_proyecto)
+    private void setApellido(String apellido)
     {
-        id = id_proyecto;
+        apellido = apellido;
     }
-    private String getDescripcion()
+    private String getApellido()
     {
-        return id;
+        return apellido;
+    }
+    private void setdpi(String dpi)
+    {
+        dpi_g = dpi;
+    }
+    private String getdpi()
+    {
+        return dpi_g;
+    }
+    private void setresidencia(String residencia)
+    {
+        residencia_g = residencia;
+    }
+    private String getresidencia()
+    {
+        return residencia_g;
+    }
+    private void setEmail(String email)
+    {
+        email_g = email;
+    }
+    private String getEmail()
+    {
+        return email_g;
     }
     /**
      * @param args the command line arguments
@@ -2362,6 +2468,7 @@ String id = "";
     private javax.swing.JLabel lbexbnexb;
     private javax.swing.JLabel lbgeneral;
     private javax.swing.JLabel lblIdProyecto;
+    private javax.swing.JLabel lbl_id_asociado;
     private javax.swing.JLabel lbl_id_proyecto;
     private javax.swing.JLabel lbmenua;
     private javax.swing.JLabel lbmenuboe;
