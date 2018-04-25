@@ -116,6 +116,7 @@ public class inicio_login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1250, 700));
+        setUndecorated(true);
 
         panelf.setLayout(null);
 
@@ -213,11 +214,11 @@ public class inicio_login extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelf, javax.swing.GroupLayout.DEFAULT_SIZE, 1069, Short.MAX_VALUE)
+            .addComponent(panelf, javax.swing.GroupLayout.DEFAULT_SIZE, 1177, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelf, javax.swing.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE)
+            .addComponent(panelf, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE)
         );
 
         pack();
@@ -229,7 +230,7 @@ public class inicio_login extends javax.swing.JFrame {
             registrar.setVisible(true);
             this.dispose();
         }else{
-            rSPanelsSlider1.setPanelSlider(jplogin, RSPanelsSlider.DIRECT.RIGHT);
+            rSPanelsSlider1.setPanelSlider(jplogin, RSPanelsSlider.DIRECT.LEFT);
         }
         
     }//GEN-LAST:event_btnsiguienteMouseClicked

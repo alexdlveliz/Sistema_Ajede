@@ -61,7 +61,7 @@ String id = "";
         cmbprograma.setModel(busquedas.getPrograma());
         transparencia();
         tablebvnombre.setModel(busquedas.BNombre("", tablebvnombre, "",true));
-        tablebvproyecto.setModel(busquedas.BProyecto(tablebvproyecto, (String)cmbbproyectos.getSelectedItem()));
+        //tablebvproyecto.setModel(busquedas.BProyecto(tablebvproyecto, (String)cmbbproyectos.getSelectedItem()));
         tablebvgeneral.setModel(busquedas.BNombreApellido("", tablebvgeneral, ""));
         tablebvgenero.setModel(busquedas.BGenero(tablebvgenero, "M"));
         tablebvedad.setModel(busquedas.BEdad(tablebvedad, (Integer)cmbedad.getSelectedItem()));
@@ -202,7 +202,7 @@ String id = "";
         cmbprograma.setBackground(new Color(0,0,0,0));
         cmbapromocion.setBackground(new Color(0,0,0,0));
         cmbocupacion.setBackground(new Color(0,0,0,0));
-        cmbbproyectos.setBackground(new Color(0,0,0,0));
+        txtproyecto.setBackground(new Color(0,0,0,0));
         txtbmiembros.setBackground(new Color(0,0,0,0));
         txtbproyecto.setBackground(new Color(0,0,0,0));
         txtbvoluntarios.setBackground(new Color(0,0,0,0));
@@ -235,6 +235,23 @@ String id = "";
         btnregresar.setOpaque(false);
         btnregresar.setContentAreaFilled(false);
         btnregresar.setBorderPainted(false);
+        btnmenube.setOpaque(false);
+        btnmenube.setContentAreaFilled(false);
+        btnmenube.setBorderPainted(false);
+        btnguardarcambiosdp.setOpaque(false);
+        btnguardarcambiosdp.setContentAreaFilled(false);
+        btnguardarcambiosdp.setBorderPainted(false);
+        textfieldnombres.setBackground(new Color(0,0,0,0));
+        textfieldapellidos.setBackground(new Color(0,0,0,0));
+        cmbgenero1.setBackground(new Color(0,0,0,0));
+        textfieldedad.setBackground(new Color(0,0,0,0));
+        textfielddpi.setBackground(new Color(0,0,0,0));
+        textfieldresidencia.setBackground(new Color(0,0,0,0));
+        textfieldcorreo.setBackground(new Color(0,0,0,0));
+        textfieldperfil.setBackground(new Color(0,0,0,0));
+        cmbtalla.setBackground(new Color(0,0,0,0));
+        cmbactivoina.setBackground(new Color(0,0,0,0));
+        txtADescripcion.setBackground(new Color(0,0,0,0));
     }
 
     /**
@@ -321,6 +338,8 @@ String id = "";
         cmbapromocion = new javax.swing.JComboBox<>();
         scrollpromo = new javax.swing.JScrollPane();
         tablebvpromo = new rojerusan.RSTableMetro();
+        jLabel3 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         lbvpromocionbeca = new javax.swing.JLabel();
         jpvocupacion = new javax.swing.JPanel();
         cmbocupacion = new javax.swing.JComboBox<>();
@@ -328,9 +347,9 @@ String id = "";
         tablebvocupacion = new rojerusan.RSTableMetro();
         lbvocupacion = new javax.swing.JLabel();
         jpbproyecto = new javax.swing.JPanel();
-        cmbbproyectos = new javax.swing.JComboBox<>();
         scrollproy = new javax.swing.JScrollPane();
         tablebvproyecto = new rojerusan.RSTableMetro();
+        txtproyecto = new javax.swing.JTextField();
         lbbproyectos = new javax.swing.JLabel();
         lblIdProyecto = new javax.swing.JLabel();
         jpbvoluntariado = new javax.swing.JPanel();
@@ -636,6 +655,7 @@ String id = "";
         jpvactivosina.setLayout(null);
 
         txtbvnombre.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
+        txtbvnombre.setBorder(null);
         txtbvnombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtbvnombreKeyPressed(evt);
@@ -644,6 +664,8 @@ String id = "";
         jpvactivosina.add(txtbvnombre);
         txtbvnombre.setBounds(310, 180, 340, 40);
 
+        txtApellido.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
+        txtApellido.setBorder(null);
         txtApellido.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtApellidoKeyPressed(evt);
@@ -652,6 +674,7 @@ String id = "";
         jpvactivosina.add(txtApellido);
         txtApellido.setBounds(310, 250, 340, 40);
 
+        cmbactivo.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         cmbactivo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo" }));
         cmbactivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -728,6 +751,7 @@ String id = "";
         jpgeneral.setLayout(null);
 
         txtbapellidosg.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
+        txtbapellidosg.setBorder(null);
         txtbapellidosg.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtbapellidosgKeyPressed(evt);
@@ -737,6 +761,7 @@ String id = "";
         txtbapellidosg.setBounds(310, 230, 410, 40);
 
         txtbnombreg.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
+        txtbnombreg.setBorder(null);
         txtbnombreg.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtbnombregKeyPressed(evt);
@@ -829,6 +854,7 @@ String id = "";
         txtnvexbnexb.setBounds(300, 180, 350, 50);
 
         txtavexbnexb.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
+        txtavexbnexb.setBorder(null);
         txtavexbnexb.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtavexbnexbKeyPressed(evt);
@@ -1221,6 +1247,7 @@ String id = "";
                 return false;
             }
         };
+        tablebvpromo.setBackground(new java.awt.Color(186, 253, 244));
         tablebvpromo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -1270,6 +1297,28 @@ String id = "";
 
         jpvpromocionbeca.add(scrollpromo);
         scrollpromo.setBounds(110, 260, 1030, 370);
+
+        jLabel3.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 26)); // NOI18N
+        jLabel3.setText("Promoción");
+        jpvpromocionbeca.add(jLabel3);
+        jLabel3.setBounds(210, 177, 140, 50);
+
+        jPanel2.setBackground(new java.awt.Color(186, 253, 244));
+        jPanel2.setEnabled(false);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 140, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
+
+        jpvpromocionbeca.add(jPanel2);
+        jPanel2.setBounds(210, 190, 140, 30);
 
         lbvpromocionbeca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/vpromocion2.jpg"))); // NOI18N
         jpvpromocionbeca.add(lbvpromocionbeca);
@@ -1355,15 +1404,6 @@ String id = "";
         jpbproyecto.setName("jpbproyecto"); // NOI18N
         jpbproyecto.setLayout(null);
 
-        cmbbproyectos.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
-        cmbbproyectos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbbproyectosActionPerformed(evt);
-            }
-        });
-        jpbproyecto.add(cmbbproyectos);
-        cmbbproyectos.setBounds(310, 200, 320, 30);
-
         tablebvproyecto = new rojerusan.RSTableMetro(){
             public boolean isCellEditable(int rowIndex, int ColIndex){
                 return false;
@@ -1430,6 +1470,11 @@ String id = "";
 
         jpbproyecto.add(scrollproy);
         scrollproy.setBounds(110, 260, 1030, 380);
+
+        txtproyecto.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
+        txtproyecto.setBorder(null);
+        jpbproyecto.add(txtproyecto);
+        txtproyecto.setBounds(310, 200, 320, 30);
 
         lbbproyectos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/proyectos2.jpg"))); // NOI18N
         jpbproyecto.add(lbbproyectos);
@@ -1784,13 +1829,14 @@ String id = "";
 
         txtADescripcion.setColumns(20);
         txtADescripcion.setRows(5);
-        txtADescripcion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        txtADescripcion.setBorder(null);
         jScrollPane1.setViewportView(txtADescripcion);
 
         jpeproyecto.add(jScrollPane1);
         jScrollPane1.setBounds(70, 370, 730, 280);
 
         txtNombreProyecto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtNombreProyecto.setBorder(null);
         jpeproyecto.add(txtNombreProyecto);
         txtNombreProyecto.setBounds(80, 250, 700, 30);
 
@@ -2014,7 +2060,7 @@ String id = "";
         ResultSet rs = st.executeQuery("SELECT * FROM proyecto");
         while(rs.next())
         {
-            this.cmbbproyectos.addItem(rs.getString("nombreProyecto"));
+            //this.cmbbproyectos.addItem(rs.getString("nombreProyecto"));
         }
     } catch (SQLException ex) {
         Logger.getLogger(busquedasjf.class.getName()).log(Level.SEVERE, null, ex);
@@ -2075,29 +2121,6 @@ String id = "";
     private void btnbevoluntariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbevoluntariosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnbevoluntariosActionPerformed
-
-    private void cmbbproyectosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbbproyectosActionPerformed
-    try {
-        // TODO add your handling code here:
-        Connection con = null;
-        Conexion conexion = new Conexion();
-        con = conexion.getConnection();
-        
-        if(this.cmbbproyectos.getSelectedItem().equals("Escoja un proyecto"))
-            tablebvproyecto.setModel(busquedas.BProyecto(tablebvproyecto, ""));
-        else
-        {
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM proyecto WHERE nombreProyecto= '"+this.cmbbproyectos.getSelectedItem() +"'");
-            rs.next();
-            lblIdProyecto.setText(String.valueOf(rs.getInt("id")));
-            tablebvproyecto.setModel(busquedas.BProyecto(tablebvproyecto, lblIdProyecto.getText()));
-        }
-    } catch (SQLException ex) {
-        Logger.getLogger(busquedasjf.class.getName()).log(Level.SEVERE, null, ex);
-    }
-        
-    }//GEN-LAST:event_cmbbproyectosActionPerformed
 
     private void txtbnombregKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbnombregKeyPressed
         // TODO add your handling code here:
@@ -2436,7 +2459,6 @@ String id = "";
     private javax.swing.JComboBox<String> cmbactivoina;
     private javax.swing.JComboBox<String> cmbanio;
     private javax.swing.JComboBox<String> cmbapromocion;
-    private javax.swing.JComboBox<String> cmbbproyectos;
     private javax.swing.JComboBox<String> cmbbusoed;
     private rojerusan.RSComboMetro cmbedad;
     private javax.swing.JComboBox<String> cmbexbnexb;
@@ -2447,11 +2469,13 @@ String id = "";
     private javax.swing.JComboBox<String> cmbtalla;
     private rojeru_san.componentes.RSDateChooser fechas;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel jpbproyecto;
@@ -2544,5 +2568,6 @@ String id = "";
     private javax.swing.JTextField txteproyecto;
     private javax.swing.JTextField txtevoluntarios;
     private javax.swing.JTextField txtnvexbnexb;
+    private javax.swing.JTextField txtproyecto;
     // End of variables declaration//GEN-END:variables
 }

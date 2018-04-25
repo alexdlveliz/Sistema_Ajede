@@ -88,17 +88,7 @@ public class menujf extends javax.swing.JFrame {
             btnrnoexbecarios.setLocation(905, 540);
             btnrpromocion.setLocation(1140, 420);
             btnrmenu.setLocation(1355, 615);
-        } else if ((tamanio.width == 1708) && (tamanio.height == 960)) //1366.768, alex: 1708.960
-        {
-            this.setSize(1250, 700);
-            //jpmenu.setIcon(menutam2);
-            this.setLocationRelativeTo(null);
-            btnagregar.setLocation(190, 320);
-            btnbuscar.setLocation(853, 320);
-            btnreportes.setLocation(500, 320);
-            btnminimizarmenu.setLocation(1090, 5);
-            btnsalirdmenu.setLocation(1175, 5);
-        }
+        } 
     }
 
     //Insertar proyecto
@@ -270,6 +260,7 @@ public class menujf extends javax.swing.JFrame {
         btnrnoexbecarios = new javax.swing.JButton();
         btnrpromocion = new javax.swing.JButton();
         btnrgeneral = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         lbmreportes = new javax.swing.JLabel();
 
         PMProyecto.setToolTipText("");
@@ -864,6 +855,14 @@ public class menujf extends javax.swing.JFrame {
         jpmreportes.add(btnrgeneral);
         btnrgeneral.setBounds(70, 70, 130, 90);
 
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
+        jpmreportes.add(jLabel2);
+        jLabel2.setBounds(920, 600, 130, 80);
+
         lbmreportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/reportestam2.jpg"))); // NOI18N
         lbmreportes.setText("jLabel2");
         lbmreportes.setPreferredSize(new java.awt.Dimension(1250, 700));
@@ -1278,6 +1277,10 @@ public class menujf extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnrpromocionActionPerformed
 
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        rSPanelsSlider1.setPanelSlider(menuprincipal, RSPanelsSlider.DIRECT.UP);
+    }//GEN-LAST:event_jLabel2MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1349,6 +1352,7 @@ public class menujf extends javax.swing.JFrame {
     private rojerusan.RSComboMetro cmbGenero;
     private rojerusan.RSComboMetro cmbPuestos;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
