@@ -1374,12 +1374,7 @@ public class agregarjf extends javax.swing.JFrame {
         String apellidoEmer = textfieldapellidoemergencia.getText();
         String parentesco = textfieldparentescoemergencia.getText();
         String telefonoEmer = textfieldtelefonoemergencia1.getText();
-//CREATE PROCEDURE InsertarAsociado(vDPI VARCHAR(15), vGenero BOOLEAN, vEmail VARCHAR(30), vFechaNacimiento DATE, vTallaPlayera VARCHAR(2),
-//	vResidencia VARCHAR(45), vNombre VARCHAR(35), vApellido VARCHAR(35), vActivo BOOLEAN, vFacebook VARCHAR(25), vTipoSangre INT, vNivelEstudio INT,
-//    vTelefono VARCHAR(12), vEstudia BOOLEAN, vlugarEstudio VARCHAR(100), vTrabaja BOOLEAN, vlugarTrabajo VARCHAR(100),
-//    vHospital VARCHAR(30), vEnfermedad VARCHAR(30), vAlergia VARCHAR(45), vDPIEnc VARCHAR(15), vEmailEnc VARCHAR(30), vNombreEnc VARCHAR(30), 
-//    vApellidoEnc VARCHAR(30), vResidenciaEnc VARCHAR(45), vNivelEstudioEnc INT, vEstudiaEnc BOOLEAN, vTrabajaEnc BOOLEAN, vlugarTrabajoEnc VARCHAR(100), 
-//    vTelefonoEnc VARCHAR(12), vRelacion VARCHAR(20), vNombreEmer VARCHAR(30), vApellidoEmer VARCHAR(30), vTelefonoEmerg VARCHAR(12))
+
         if(asociado.insertar(DpiA, genero1, emailA, fechaA, tallaA, residenciaA, nombreA, apellidoA, true, PerfilFBA, tipoSangreA, nivEstA,
                 telefonoA, estudiaA, lugarEstudioA, trabajaA, lugarTrabajoA, Hospital, padecimientos, alergias, dpiEnc, emailEncargado, nombreEncargado, 
                 apellidoEncargado, residenciaEncargado, nivelEstudioEnc, false, ocupacionEnc, lugarOcupacionEnc, telefonoEncargado, parentesco, nombreEmer, 
@@ -1392,63 +1387,7 @@ public class agregarjf extends javax.swing.JFrame {
             return false;
     }
 
-    //Se inserta la información médica del asociado
-    private void informacionMedica() {
-        String Hospital = textfieldhospital.getText();
-        String padecimientos = textfieldpadecimiento1.getText() + " " + textfieldpadecimiento2.getText()
-                + " " + textfieldpadecimiento3.getText() + " " + textfieldpadecimiento4.getText();
-        String alergias = textfieldalergia1.getText() + " " + textfieldalergia2.getText() + " "
-                + textfieldalergia3.getText() + " " + textfieldalergia4.getText() + " " + textfieldalergia5.getText();
-
-        int idAsociado = antecedentes.obteneridAsociado();
-        int idAntecMedicos = Alergias.obtenerIdAntMedicos();
-
-        if (antecedentes.insertar(Hospital, padecimientos, idAsociado)) {
-            Alergias.insertar(alergias, idAntecMedicos);
-        } else {
-            new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al ingresar Información médica",
-                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
-                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
-        }
-
-    }
-
-    //Se insertar el contacto de emergencia del asociado
-    private void contactoEmergencia() {
-        String nombre = textfieldnombreemergencia.getText();
-        String apellido = textfieldapellidoemergencia.getText();
-        String parentesco = textfieldparentescoemergencia.getText();
-        String telefono = textfieldtelefonoemergencia1.getText();
-        int idAsociado = contacto.obteneridAsociado();
-        int idEmergencia = contacto.obteneridContactoEmergencia();
-
-        if (contacto.insertar(parentesco, nombre, apellido, idAsociado)) {
-            contacto.telefonoEmergencia(idEmergencia, telefono);
-        }
-    }
-
-    //Se insertan los datos del encargado del asociado
-    private void DatosEncargado() {
-        boolean ocupacion = false;
-        String nombre = textfieldnombreencargado.getText();
-        String apellido = textfieldapellidoencargado.getText();
-        String nivelEstudio = (String) cmbnivelestudioencargado.getSelectedItem();
-        String telefono = textfieldtelefonoencargado.getText();
-        String dpi = textfielddpiencargado.getText();
-        String residencia = textfieldresidenciaencargado.getText();
-        String email = textfieldcorreoencargado.getText();
-        if(textfieldocupacionencargado.getText().length() != 0)
-            ocupacion = true;        
-        String lugarOcupacion = textfieldlugarencargado.getText();
-        int idAsociado = antecedentes.obteneridAsociado();
-        int idEncargado = encargado.obteneridEncargado();
-
-        if (encargado.insertar(dpi, email, nombre, apellido, residencia, nivelEstudio)) {
-            ocupacionE.insertarOcupacionEncargado(idEncargado, false, "", ocupacion, lugarOcupacion);
-            encargado.telefonoEncargado(idEncargado, telefono);
-            encargado.insertarTutela(idEncargado, idAsociado);
-        }
-    }
+    
 
     private void btnatrasdpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnatrasdpActionPerformed
         slider.setPanelSlider(jpdatosp, RSPanelsSlider.DIRECT.RIGHT);
