@@ -1318,52 +1318,78 @@ public class agregarjf extends javax.swing.JFrame {
 
     //Se inserta el asociado y su ocupación
     private boolean datosAsociado() {
-        boolean estudia = false;
-        String lugarEstudio = "";
-        boolean trabaja = false;
-        String lugarTrabajo = "";
-        String nombre = textfieldnombres.getText();
-        String apellido = textfieldapellidos.getText();
-        String Dpi = textfielddpi.getText();
-        String genero = (String) cmbgenero.getSelectedItem();
-        String fecha = getFecha(fechas);
-        String talla = (String) cmbtalla.getSelectedItem();
-        String PerfilFB = textfieldperfil.getText();
-        String telefono = textfieldtelefono.getText();
-        String email = textfieldcorreo.getText();
-        String residencia = textfieldresidencia.getText();
-        String nivEst = (String) cmbnivelestudiovoluntario.getSelectedItem();
-        String tipoSangre = (String) cmbtipodesangre.getSelectedItem();
+        //Datos tabla asociado
+        boolean estudiaA = false;
+        String lugarEstudioA = "";
+        boolean trabajaA = false;
+        String lugarTrabajoA = "";
+        String nombreA = textfieldnombres.getText();
+        String apellidoA = textfieldapellidos.getText();
+        String DpiA = textfielddpi.getText();
+        String generoA = (String) cmbgenero.getSelectedItem();
+        String fechaA = getFecha(fechas);
+        String tallaA = (String) cmbtalla.getSelectedItem();
+        String PerfilFBA = textfieldperfil.getText();
+        String telefonoA = textfieldtelefono.getText();
+        String emailA = textfieldcorreo.getText();
+        String residenciaA = textfieldresidencia.getText();
+        String nivEstA = (String) cmbnivelestudiovoluntario.getSelectedItem();
+        String tipoSangreA = (String) cmbtipodesangre.getSelectedItem();
         if((textfieldlugardeestudio.getText().length() != 0) || (textfieldlugardeestudio2.getText().length() != 0))
         {
-            estudia = true;
-            lugarEstudio = textfieldlugardeestudio.getText() + textfieldlugardeestudio2.getText();
+            estudiaA = true;
+            lugarEstudioA = textfieldlugardeestudio.getText() + textfieldlugardeestudio2.getText();
         }
         if((textfieldocupacion.getText().length() != 0) || (textfieldocupacion2.getText().length() != 0))
         {
-            trabaja = true;
-            lugarTrabajo = textfieldlugartrabajo.getText() + textfieldlugartrabajo2.getText();
-        }
-        
-        
+            trabajaA = true;
+            lugarTrabajoA = textfieldlugartrabajo.getText() + textfieldlugartrabajo2.getText();
+        }    
+
         boolean genero1 = false;
-        if (genero.equals("Masculino")) {
+        if (generoA.equals("Masculino")) {
             genero1 = true;
         }
-//        if (asociado.insertar(nombre, apellido, genero1, fecha, email, talla, residencia, true, PerfilFB, tipoSangre, nivEst, Dpi)) {
-//            ocupacionE.insertarOcupacionAsociado(idAsociado+1, estudia, lugarEstudio, trabaja, lugarTrabajo);
-//            asociado.telefonoAsociado(idAsociado+1, telefono);
-//            new rojerusan.RSNotifyAnimated("¡ÉXITO!", "Asociado Ingresado correctamente",
-//                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
-//                    RSNotifyAnimated.TypeNotify.SUCCESS).setVisible(true);
-//            return true;
-//        } else {
-//            new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al ingresar el asociado",
-//                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
-//                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
-//            return false;
-//        }
-        return true;
+        //------------------------------------------Datos frame Antecedentes Médicos-----------------------------------
+        //
+        String Hospital = textfieldhospital.getText();
+        String padecimientos = textfieldpadecimiento1.getText() + " " + textfieldpadecimiento2.getText()
+                + " " + textfieldpadecimiento3.getText() + " " + textfieldpadecimiento4.getText();
+        String alergias = textfieldalergia1.getText() + " " + textfieldalergia2.getText() + " "
+                + textfieldalergia3.getText() + " " + textfieldalergia4.getText() + " " + textfieldalergia5.getText();
+        //-------------------------------------------Datos frame Encargado----------------------------------------
+        boolean ocupacionEnc = false;
+        String nombreEncargado = textfieldnombreencargado.getText();
+        String apellidoEncargado = textfieldapellidoencargado.getText();
+        String nivelEstudioEnc = (String) cmbnivelestudioencargado.getSelectedItem();
+        String telefonoEncargado = textfieldtelefonoencargado.getText();
+        String dpiEnc = textfielddpiencargado.getText();
+        String residenciaEncargado = textfieldresidenciaencargado.getText();
+        String emailEncargado = textfieldcorreoencargado.getText();
+        if(textfieldocupacionencargado.getText().length() != 0)
+            ocupacionEnc = true;
+        String lugarOcupacionEnc = textfieldlugarencargado.getText();
+        //-----------------------------------------Datos frame contacto emergencia-------------------------------------
+        String nombreEmer = textfieldnombreemergencia.getText();
+        String apellidoEmer = textfieldapellidoemergencia.getText();
+        String parentesco = textfieldparentescoemergencia.getText();
+        String telefonoEmer = textfieldtelefonoemergencia1.getText();
+//CREATE PROCEDURE InsertarAsociado(vDPI VARCHAR(15), vGenero BOOLEAN, vEmail VARCHAR(30), vFechaNacimiento DATE, vTallaPlayera VARCHAR(2),
+//	vResidencia VARCHAR(45), vNombre VARCHAR(35), vApellido VARCHAR(35), vActivo BOOLEAN, vFacebook VARCHAR(25), vTipoSangre INT, vNivelEstudio INT,
+//    vTelefono VARCHAR(12), vEstudia BOOLEAN, vlugarEstudio VARCHAR(100), vTrabaja BOOLEAN, vlugarTrabajo VARCHAR(100),
+//    vHospital VARCHAR(30), vEnfermedad VARCHAR(30), vAlergia VARCHAR(45), vDPIEnc VARCHAR(15), vEmailEnc VARCHAR(30), vNombreEnc VARCHAR(30), 
+//    vApellidoEnc VARCHAR(30), vResidenciaEnc VARCHAR(45), vNivelEstudioEnc INT, vEstudiaEnc BOOLEAN, vTrabajaEnc BOOLEAN, vlugarTrabajoEnc VARCHAR(100), 
+//    vTelefonoEnc VARCHAR(12), vRelacion VARCHAR(20), vNombreEmer VARCHAR(30), vApellidoEmer VARCHAR(30), vTelefonoEmerg VARCHAR(12))
+        if(asociado.insertar(DpiA, genero1, emailA, fechaA, tallaA, residenciaA, nombreA, apellidoA, true, PerfilFBA, tipoSangreA, nivEstA,
+                telefonoA, estudiaA, lugarEstudioA, trabajaA, lugarTrabajoA, Hospital, padecimientos, alergias, dpiEnc, emailEncargado, nombreEncargado, 
+                apellidoEncargado, residenciaEncargado, nivelEstudioEnc, false, ocupacionEnc, lugarOcupacionEnc, telefonoEncargado, parentesco, nombreEmer, 
+                apellidoEmer, telefonoEmer))
+        {
+            JOptionPane.showMessageDialog(null, "Datos ingresados correctamente");
+            return true;
+        }
+        else
+            return false;
     }
 
     //Se inserta la información médica del asociado
@@ -1453,9 +1479,6 @@ public class agregarjf extends javax.swing.JFrame {
         //Acá se ingresan todos los datos del asociado
         if (validarContactoEmergencia()) {
             if (datosAsociado()) {
-                informacionMedica();
-                DatosEncargado();
-                contactoEmergencia();
                 menujf menu = new menujf();
                 menu.setVisible(true);
             }
