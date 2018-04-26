@@ -10,6 +10,7 @@ import Clases.Proyecto;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -25,7 +26,7 @@ import rojerusan.RSPanelsSlider;
  * @author Nahomi
  */
 public class menujf extends javax.swing.JFrame {
-
+    
     ImageIcon menua1 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/menuat1.jpg")).getImage());
     ImageIcon menu = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/menuprincipalv2t1.jpg")).getImage());
     ImageIcon menur = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/mrreportes1.jpg")).getImage());
@@ -42,7 +43,7 @@ public class menujf extends javax.swing.JFrame {
     public menujf() {
         reportes = new ImpresionReportes();
         proyecto = new Proyecto();
-
+        
         initComponents();
         tableproyecto.setModel(proyecto.Proyectos("", tableproyecto));
         cmbPuestos.setModel(proyecto.puestos());
@@ -98,9 +99,9 @@ public class menujf extends javax.swing.JFrame {
         if (proyecto.insertarProyecto(nombre, descripcion)) {
             JOptionPane.showMessageDialog(null, "Proyecto ingresado correctamente");
         }
-
+        
     }
-
+    
     public void transparencia() {
         btnagregar.setOpaque(false);
         btnagregar.setContentAreaFilled(false);
@@ -566,6 +567,9 @@ public class menujf extends javax.swing.JFrame {
         txtvoluntarios.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtvoluntariosKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtvoluntariosKeyTyped(evt);
             }
         });
         jpvoluntariadom.add(txtvoluntarios);
@@ -1072,12 +1076,12 @@ public class menujf extends javax.swing.JFrame {
     private void txtmiembrosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtmiembrosKeyPressed
         //filro de busqueda para miembros
         filtro(txtmiembros.getText(), tablemiembros);
-
+        
 
     }//GEN-LAST:event_txtmiembrosKeyPressed
 
     private void txtmiembrosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtmiembrosKeyTyped
-
+        CapturaTecla(evt);
     }//GEN-LAST:event_txtmiembrosKeyTyped
 
     private void btnguardarvoluntarioadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarvoluntarioadoActionPerformed
@@ -1101,8 +1105,6 @@ public class menujf extends javax.swing.JFrame {
             }
             if (bandera) {
                 JOptionPane.showMessageDialog(null, "Se insertaron correctamente los datos");
-                btnguardarvoluntarioado.setEnabled(false);
-                txtProyectoSelect.setText("");
                 limpiar();
             } else {
                 new rojerusan.RSNotifyAnimated("¡ERROR!", "Hubo un error al insertar/modificar al voluntariado",
@@ -1146,7 +1148,7 @@ public class menujf extends javax.swing.JFrame {
                     }
                 }
             }
-
+            
             tablemiembros.setModel(modelo);
         }
     }//GEN-LAST:event_MIPuestosActionPerformed
@@ -1300,7 +1302,21 @@ public class menujf extends javax.swing.JFrame {
         rSPanelsSlider1.setPanelSlider(menuprincipal, RSPanelsSlider.DIRECT.UP);
     }//GEN-LAST:event_jLabel2MouseClicked
 
+    private void txtvoluntariosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtvoluntariosKeyTyped
+        CapturaTecla(evt);
+    }//GEN-LAST:event_txtvoluntariosKeyTyped
+    
+    private void CapturaTecla(KeyEvent e) {
+        char c = e.getKeyChar();
+        if (c >= 0 && c <= 64 && c != 32) {
+            e.consume();
+        }
+    }
+
     private void limpiar() {
+        txtmiembros.setText("");
+        txtvoluntarios.setText("");
+        txtproyecto.setText("");
         btnguardarvoluntarioado.setEnabled(false);
         txtProyectoSelect.setText("");
         DefaultTableModel modelo = (DefaultTableModel) tablemiembros.getModel();
