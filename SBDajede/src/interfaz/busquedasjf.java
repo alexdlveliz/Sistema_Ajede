@@ -61,7 +61,7 @@ String id = "";
         cmbprograma.setModel(busquedas.getPrograma());
         transparencia();
         tablebvnombre.setModel(busquedas.BNombre("", tablebvnombre, "",true));
-        tablebbvproyecto.setModel(busquedas.BProyecto(tablebvproyecto, (String)cmbbproyectos.getSelectedItem()));
+        tablebbvproyecto.setModel(busquedas.BProyecto(tablebbvproyecto, lblIdProyecto.getText()));
         tablebvgeneral.setModel(busquedas.BNombreApellido("", tablebvgeneral, ""));
         tablebvgenero.setModel(busquedas.BGenero(tablebvgenero, "M"));
         tablebvedad.setModel(busquedas.BEdad(tablebvedad, (Integer)cmbedad.getSelectedItem()));
@@ -352,7 +352,6 @@ String id = "";
         tablebvproyecto = new rojerusan.RSTableMetro();
         txtproyecto = new javax.swing.JTextField();
         lbbproyectos = new javax.swing.JLabel();
-        lblIdProyecto = new javax.swing.JLabel();
         jpbvoluntariado = new javax.swing.JPanel();
         txtbmiembros = new javax.swing.JTextField();
         txtbproyecto = new javax.swing.JTextField();
@@ -406,6 +405,7 @@ String id = "";
         tablebbvproyecto = new rojerusan.RSTableMetro();
         cmbbproyectos = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
+        lblIdProyecto = new javax.swing.JLabel();
 
         jMenu1.setText("Opciones");
 
@@ -1485,8 +1485,6 @@ String id = "";
         lbbproyectos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/proyectos2.jpg"))); // NOI18N
         jpbproyecto.add(lbbproyectos);
         lbbproyectos.setBounds(0, 0, 1250, 700);
-        jpbproyecto.add(lblIdProyecto);
-        lblIdProyecto.setBounds(690, 194, 60, 30);
 
         rSPanelsSlider1.add(jpbproyecto, "card13");
 
@@ -2049,13 +2047,19 @@ String id = "";
         scrollbbproy.setBounds(110, 260, 1030, 380);
 
         cmbbproyectos.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        cmbbproyectos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbbproyectos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbbproyectosActionPerformed(evt);
+            }
+        });
         jpbbproyecto.add(cmbbproyectos);
         cmbbproyectos.setBounds(310, 200, 320, 30);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/proyectos2.jpg"))); // NOI18N
         jpbbproyecto.add(jLabel2);
         jLabel2.setBounds(0, 0, 1250, 700);
+        jpbbproyecto.add(lblIdProyecto);
+        lblIdProyecto.setBounds(690, 184, 70, 30);
 
         rSPanelsSlider1.add(jpbbproyecto, "card18");
 
@@ -2483,6 +2487,26 @@ String id = "";
     private void tablebbvproyectoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablebbvproyectoMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_tablebbvproyectoMouseClicked
+
+    private void cmbbproyectosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbbproyectosActionPerformed
+    try {
+        // TODO add your handling code here:
+        Connection con = null;
+        Conexion conexion;
+        conexion = new Conexion();
+        con = conexion.getConnection();
+        
+        String sql = "SELECT * FROM proyecto WHERE nombreProyecto LIKE '" + this.cmbbproyectos.getSelectedItem() + "'";
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery(sql);
+        rs.next();
+        this.lblIdProyecto.setText(String.valueOf(rs.getInt("id")));
+        tablebbvproyecto.setModel(busquedas.BProyecto(tablebbvproyecto, lblIdProyecto.getText()));
+    } catch (SQLException ex) {
+        Logger.getLogger(busquedasjf.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    
+    }//GEN-LAST:event_cmbbproyectosActionPerformed
 
     private void setId(String id_proyecto)
     {
