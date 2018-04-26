@@ -1418,6 +1418,7 @@ public class agregarjf extends javax.swing.JFrame {
         //Acá se ingresan todos los datos del asociado
         if (validarContactoEmergencia()) {
             if (datosAsociado()) {
+                this.dispose();
                 menujf menu = new menujf();
                 menu.setVisible(true);
             }
