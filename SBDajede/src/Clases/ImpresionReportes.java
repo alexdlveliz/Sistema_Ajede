@@ -316,4 +316,20 @@ public class ImpresionReportes {
             return false;
         }
     }
+    
+    public boolean ReportDatosGenerales() {
+        try {
+            String path = "src/Reportes/VoluntarioDatosGenerales.jasper";
+            JasperReport jr = (JasperReport) JRLoader.loadObjectFromFile(path);
+            JasperPrint jp = JasperFillManager.fillReport(jr, null, con);
+            JasperViewer jv = new JasperViewer(jp, false);
+            jv.setVisible(true);
+            jv.setIconImage(image);
+            jv.setTitle("Datos generales");
+            return true;
+        } catch (JRException ex) {
+            Logger.getLogger(ImpresionReportes.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
 }

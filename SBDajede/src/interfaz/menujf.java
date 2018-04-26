@@ -1206,7 +1206,11 @@ public class menujf extends javax.swing.JFrame {
     }//GEN-LAST:event_btnrnivelestActionPerformed
 
     private void btnrgeneralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrgeneralActionPerformed
-        // TODO add your handling code here:
+        if (!reportes.ReportDatosGenerales()) {
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al intentar Acceder",
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+        }
     }//GEN-LAST:event_btnrgeneralActionPerformed
 
     private void btnractivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnractivosActionPerformed
