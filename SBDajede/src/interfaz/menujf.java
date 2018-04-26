@@ -169,6 +169,12 @@ public class menujf extends javax.swing.JFrame {
         btnrprograma.setOpaque(false);
         btnrprograma.setContentAreaFilled(false);
         btnrprograma.setBorderPainted(false);
+        btnguardarvoluntariado.setOpaque(false);
+        btnguardarvoluntariado.setContentAreaFilled(false);
+        btnguardarvoluntariado.setBorderPainted(false);
+        btnmenuv.setOpaque(false);
+        btnmenuv.setContentAreaFilled(false);
+        btnmenuv.setBorderPainted(false);
         btnrtrabajando.setOpaque(false);
         btnrtrabajando.setContentAreaFilled(false);
         btnrtrabajando.setBorderPainted(false);
@@ -235,7 +241,7 @@ public class menujf extends javax.swing.JFrame {
         btnguardarproyecto = new javax.swing.JButton();
         lbproyectos = new javax.swing.JLabel();
         jpvoluntariadom = new javax.swing.JPanel();
-        btnguardarvoluntarioado = new javax.swing.JButton();
+        btnguardarvoluntariado = new javax.swing.JButton();
         btnmenuv = new javax.swing.JButton();
         txtproyecto = new javax.swing.JTextField();
         txtvoluntarios = new javax.swing.JTextField();
@@ -537,16 +543,15 @@ public class menujf extends javax.swing.JFrame {
         jpvoluntariadom.setName("jpvoluntariadom"); // NOI18N
         jpvoluntariadom.setLayout(null);
 
-        btnguardarvoluntarioado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Save_Close_70px.png"))); // NOI18N
-        btnguardarvoluntarioado.setEnabled(false);
-        btnguardarvoluntarioado.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Save_Close_100px.png"))); // NOI18N
-        btnguardarvoluntarioado.addActionListener(new java.awt.event.ActionListener() {
+        btnguardarvoluntariado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Save_Close_70px.png"))); // NOI18N
+        btnguardarvoluntariado.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Save_Close_100px.png"))); // NOI18N
+        btnguardarvoluntariado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnguardarvoluntarioadoActionPerformed(evt);
+                btnguardarvoluntariadoActionPerformed(evt);
             }
         });
-        jpvoluntariadom.add(btnguardarvoluntarioado);
-        btnguardarvoluntarioado.setBounds(740, 490, 180, 100);
+        jpvoluntariadom.add(btnguardarvoluntariado);
+        btnguardarvoluntariado.setBounds(740, 490, 180, 100);
 
         btnmenuv.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Person_at_Home_70px.png"))); // NOI18N
         btnmenuv.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/icons8_Person_at_Home_100px.png"))); // NOI18N
@@ -980,7 +985,7 @@ public class menujf extends javax.swing.JFrame {
             for (int i = 0; i < tablemiembros.getRowCount(); i++) {
                 listaIdmiembros.add(Integer.parseInt((String) tablemiembros.getValueAt(i, 0)));
             }
-            btnguardarvoluntarioado.setEnabled(true);
+            btnguardarvoluntariado.setEnabled(true);
         } else {
             JOptionPane.showMessageDialog(null, "Por favor seleccione un elemento de la tabla");
         }
@@ -1093,7 +1098,7 @@ public class menujf extends javax.swing.JFrame {
         CapturaTecla(evt);
     }//GEN-LAST:event_txtmiembrosKeyTyped
 
-    private void btnguardarvoluntarioadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarvoluntarioadoActionPerformed
+    private void btnguardarvoluntariadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarvoluntariadoActionPerformed
         /**
          * este metodo inserta a la Base de datos lo que esta en la tabla de
          * miembros que seria el voluntariado declaro una variable bandera ciclo
@@ -1126,7 +1131,7 @@ public class menujf extends javax.swing.JFrame {
                     RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
         }
 
-    }//GEN-LAST:event_btnguardarvoluntarioadoActionPerformed
+    }//GEN-LAST:event_btnguardarvoluntariadoActionPerformed
 
     private void MIPuestosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MIPuestosActionPerformed
         /**
@@ -1345,7 +1350,7 @@ public class menujf extends javax.swing.JFrame {
         txtmiembros.setText("");
         txtvoluntarios.setText("");
         txtproyecto.setText("");
-        btnguardarvoluntarioado.setEnabled(false);
+        btnguardarvoluntariado.setEnabled(false);
         txtProyectoSelect.setText("");
         DefaultTableModel modelo = (DefaultTableModel) tablemiembros.getModel();
         while (modelo.getRowCount() > 0) {
@@ -1402,7 +1407,7 @@ public class menujf extends javax.swing.JFrame {
     private javax.swing.JButton btnagregarvoluntario;
     private javax.swing.JButton btnbuscar;
     private javax.swing.JButton btnguardarproyecto;
-    private javax.swing.JButton btnguardarvoluntarioado;
+    private javax.swing.JButton btnguardarvoluntariado;
     private javax.swing.JButton btnhome;
     private javax.swing.JButton btnmenu;
     private javax.swing.JButton btnmenuv;
