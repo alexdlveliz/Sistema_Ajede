@@ -213,7 +213,8 @@ public class busquedasjf extends javax.swing.JFrame {
         txteproyecto.setBackground(new Color(0, 0, 0, 0));
         txtevoluntarios.setBackground(new Color(0, 0, 0, 0));
         txtADescripcion.setBackground(new Color(0, 0, 0, 0));
-        txtNombreProyecto.setBackground(new Color(0, 0, 0, 0));
+        cmbnomproyecto.setBackground(new Color(0, 0, 0, 0));
+        txtnombreproyecto.setBackground(new Color(0, 0, 0, 0));
         btnevoluntariadog.setOpaque(false);
         btnevoluntariadog.setContentAreaFilled(false);
         btnevoluntariadog.setBorderPainted(false);
@@ -384,7 +385,8 @@ public class busquedasjf extends javax.swing.JFrame {
         btnguardareproyect = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtADescripcion = new javax.swing.JTextArea();
-        txtNombreProyecto = new javax.swing.JTextField();
+        cmbnomproyecto = new javax.swing.JComboBox<>();
+        txtnombreproyecto = new javax.swing.JTextField();
         lbeproyectos = new javax.swing.JLabel();
         lbl_id_proyecto = new javax.swing.JLabel();
         jpedp = new javax.swing.JPanel();
@@ -1447,6 +1449,7 @@ public class busquedasjf extends javax.swing.JFrame {
         JTEditarProyecto.setFuenteFilas(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
         JTEditarProyecto.setFuenteFilasSelect(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
         JTEditarProyecto.setFuenteHead(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        JTEditarProyecto.setRowHeight(20);
         JTEditarProyecto.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(JTEditarProyecto);
 
@@ -1810,10 +1813,15 @@ public class busquedasjf extends javax.swing.JFrame {
         jpeproyecto.add(jScrollPane1);
         jScrollPane1.setBounds(70, 370, 730, 280);
 
-        txtNombreProyecto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtNombreProyecto.setBorder(null);
-        jpeproyecto.add(txtNombreProyecto);
-        txtNombreProyecto.setBounds(80, 250, 700, 30);
+        cmbnomproyecto.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
+        cmbnomproyecto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jpeproyecto.add(cmbnomproyecto);
+        cmbnomproyecto.setBounds(570, 250, 220, 30);
+
+        txtnombreproyecto.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
+        txtnombreproyecto.setBorder(null);
+        jpeproyecto.add(txtnombreproyecto);
+        txtnombreproyecto.setBounds(80, 250, 480, 30);
 
         lbeproyectos.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         lbeproyectos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/edproyectos2.jpg"))); // NOI18N
@@ -2535,6 +2543,7 @@ public class busquedasjf extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbexbnexb;
     private javax.swing.JComboBox<String> cmbgenero;
     private javax.swing.JComboBox<String> cmbgenero1;
+    private javax.swing.JComboBox<String> cmbnomproyecto;
     private javax.swing.JComboBox<String> cmbocupacion;
     private javax.swing.JComboBox<String> cmbprograma;
     private javax.swing.JComboBox<String> cmbtalla;
@@ -2630,7 +2639,6 @@ public class busquedasjf extends javax.swing.JFrame {
     private javax.swing.JTextField textfieldresidencia;
     private javax.swing.JTextArea txtADescripcion;
     private javax.swing.JTextField txtApellido;
-    private javax.swing.JTextField txtNombreProyecto;
     private javax.swing.JTextField txtavexbnexb;
     private javax.swing.JTextField txtbapellidosg;
     private javax.swing.JTextField txtbmiembros;
@@ -2641,6 +2649,7 @@ public class busquedasjf extends javax.swing.JFrame {
     private javax.swing.JTextField txtemiembros;
     private javax.swing.JTextField txteproyecto;
     private javax.swing.JTextField txtevoluntarios;
+    private javax.swing.JTextField txtnombreproyecto;
     private javax.swing.JTextField txtnvexbnexb;
     private javax.swing.JTextField txtproyecto;
     // End of variables declaration//GEN-END:variables
