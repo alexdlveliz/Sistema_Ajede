@@ -126,7 +126,7 @@ public class Proyecto extends Usuario {
     public DefaultTableModel Voluntarios(JTable voluntariado, String nombre, JTable tabla) {
         try {
             String titulos[] = new String[4];
-            for (byte i = 0; i < 3; i++) {
+            for (byte i = 0; i < titulos.length; i++) {
                 titulos[i] = tabla.getColumnName(i);
             }
             boolean genero;
@@ -162,7 +162,7 @@ public class Proyecto extends Usuario {
         return null;
     }
 
-    public DefaultTableModel volunatariado(int id, JTable tabla,String nombre) {
+    public DefaultTableModel volunatariado(int id, JTable tabla, String nombre) {
         try {
             String titulos[] = new String[4];
             for (byte i = 0; i < 4; i++) {
@@ -174,7 +174,7 @@ public class Proyecto extends Usuario {
                     + "INNER JOIN voluntariado v ON a.id = v.Asociado_id "
                     + "INNER JOIN puestos p ON p.id = v.Puestos_id "
                     + "WHERE Proyecto_id = " + id
-                    + " AND a.Nombre LIKE '%"+ nombre+"%' "
+                    + " AND a.Nombre LIKE '%" + nombre + "%' "
                     + "ORDER BY Asociado_id;";
             DefaultTableModel modelo = new DefaultTableModel(null, titulos);
             Statement st = con.createStatement();
@@ -269,5 +269,5 @@ public class Proyecto extends Usuario {
         }
         return false;
     }
-    
+
 }
