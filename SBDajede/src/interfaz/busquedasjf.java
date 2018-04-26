@@ -1425,11 +1425,7 @@ public class busquedasjf extends javax.swing.JFrame {
         });
         jpbproyecto.add(txtproyecto);
         txtproyecto.setBounds(310, 200, 320, 30);
-        JTEditarProyecto = new rojerusan.RSTableMetro(){
-            public boolean isCellEditable(int rowIndex, int ColIndex){
-                return false;
-            }
-        };
+
         JTEditarProyecto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -1885,7 +1881,7 @@ public class busquedasjf extends javax.swing.JFrame {
         cmbgenero1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino" }));
         cmbgenero1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jpedp.add(cmbgenero1);
-        cmbgenero1.setBounds(390, 290, 190, 38);
+        cmbgenero1.setBounds(390, 290, 190, 42);
 
         textfieldedad.setBackground(new java.awt.Color(178, 248, 248));
         textfieldedad.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
@@ -1935,7 +1931,7 @@ public class busquedasjf extends javax.swing.JFrame {
         cmbtalla.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "xs", "s", "m", "l" }));
         cmbtalla.setBorder(null);
         jpedp.add(cmbtalla);
-        cmbtalla.setBounds(870, 235, 60, 36);
+        cmbtalla.setBounds(870, 235, 60, 42);
 
         btnmenube.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/Home_70px.png"))); // NOI18N
         btnmenube.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1977,6 +1973,12 @@ public class busquedasjf extends javax.swing.JFrame {
 
         jpbbproyecto.setName("jpbbproyecto"); // NOI18N
         jpbbproyecto.setLayout(null);
+
+        JTEditarProyecto = new rojerusan.RSTableMetro(){
+            public boolean isCellEditable(int rowIndex, int ColIndex){
+                return false;
+            }
+        };
         tablebbvproyecto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -2579,43 +2581,6 @@ public class busquedasjf extends javax.swing.JFrame {
     private String obtenerIdProyecto() {
         return idProyecto;
     }
-    
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(busquedasjf.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(busquedasjf.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(busquedasjf.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(busquedasjf.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new busquedasjf().setVisible(true);
-            }
-        });
-    }
-
     private final SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private rojerusan.RSTableMetro JTEditarProyecto;

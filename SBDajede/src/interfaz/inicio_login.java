@@ -252,6 +252,7 @@ public class inicio_login extends javax.swing.JFrame {
 
     private void btningresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btningresarMouseClicked
         InicioSecion();
+        
     }//GEN-LAST:event_btningresarMouseClicked
 
     private void PSTcontraseniaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PSTcontraseniaKeyPressed
@@ -303,14 +304,14 @@ public class inicio_login extends javax.swing.JFrame {
                         5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
                         RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
             } else {
-                int usuario = cmbRestablecer.getSelectedIndex()+1;
+                int usuario = cmbRestablecer.getSelectedIndex() + 1;
                 String ContraseniaNueva = GenerarContrasenia();
                 if (!us.RestablecerContrasenia(usuario, DigestUtils.md5Hex(ContraseniaNueva))) {
                     new rojerusan.RSNotifyAnimated("¡ERROR!", "Usuario no valido",
                             5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
                             RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
                 } else {
-                    JOptionPane.showMessageDialog(null, "Su nueva contraseña es:\n"+ContraseniaNueva+"","Restablecer Constraseña",JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Su nueva contraseña es:\n" + ContraseniaNueva + "", "Restablecer Constraseña", JOptionPane.INFORMATION_MESSAGE);
                 }
             }
         }
@@ -341,7 +342,6 @@ public class inicio_login extends javax.swing.JFrame {
             } catch (InterruptedException e) {
 
             }
-
         } else {
             new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al intentar Acceder\nUsuario y/o contraseña incorrecta",
                     5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
@@ -384,7 +384,6 @@ public class inicio_login extends javax.swing.JFrame {
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> CMBUsuarios;
     private rojerusan.RSPasswordTextPlaceHolder Contrasenia;

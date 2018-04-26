@@ -117,7 +117,6 @@ public class Usuario {
      */
     public boolean RestablecerContrasenia(int usuario, String Password) {
         try {
-            System.out.println(usuario);
             String sql = "Update usuario Set contrasenia = ? where id = " + usuario;
             PreparedStatement Pst = con.prepareStatement(sql);
             Pst.setString(1, Password);
@@ -157,12 +156,12 @@ public class Usuario {
      */
     public boolean verificarSesion(String contrasenia, String usuario) {
         try {
-            String sql = "SELECT password FROM usuario where nombreusuario='" + usuario + "'";
+            String sql = "SELECT contrasenia FROM usuario where nombreusuario='" + usuario + "'";
             Statement St = con.createStatement();
             ResultSet Rs = St.executeQuery(sql);
             String pass = "";
             while (Rs.next()) {
-                pass = Rs.getString("password");
+                pass = Rs.getString("contrasenia");
             }
 
             return pass.equals(contrasenia);
