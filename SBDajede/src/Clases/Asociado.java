@@ -123,6 +123,7 @@ public class Asociado {
             procedimiento.setString(33, apellidoEmer);
             procedimiento.setString(34, telefonoEmer);
             procedimiento.execute();
+            //Fin procedimiento almacenado
         } catch (SQLException ex) {
             Logger.getLogger(Asociado.class.getName()).log(Level.SEVERE, null, ex);
         }
