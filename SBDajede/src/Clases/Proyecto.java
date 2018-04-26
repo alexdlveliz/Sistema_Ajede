@@ -45,11 +45,10 @@ public class Proyecto extends Usuario {
                     + "FROM asociado ORDER BY EDAD;";
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
-            datos.addElement("Todas las edades");
             while (rs.next()) {
                 datos.addElement(rs.getObject("EDAD"));
             }
-            
+            datos.addElement("Todos los años");
             return datos;
         } catch (SQLException ex) {
             Logger.getLogger(Proyecto.class.getName()).log(Level.SEVERE, null, ex);
@@ -65,10 +64,10 @@ public class Proyecto extends Usuario {
                     + "ORDER BY anio;";
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
-            datos.addElement("Todos los años");
             while (rs.next()) {
                 datos.addElement(rs.getObject("anio"));
             }
+            datos.addElement("Todos los años");
             return datos;
         } catch (SQLException ex) {
             Logger.getLogger(Proyecto.class.getName()).log(Level.SEVERE, null, ex);
