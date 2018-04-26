@@ -5,7 +5,6 @@
  */
 package Clases;
 
-import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -41,13 +40,16 @@ public class Proyecto extends Usuario {
     public DefaultComboBoxModel getEdades() {
         try {
             DefaultComboBoxModel datos = new DefaultComboBoxModel();
-            String sql = "SELECT DISTINCT YEAR(CURDATE()) - YEAR(FechaNacimiento) + IF(DATE_FORMAT(CURDATE(), '%m-%d') > DATE_FORMAT(FechaNacimiento, '%m-%d'),0,- 1) AS EDAD FROM asociado ORDER BY EDAD;";
+            String sql = "SELECT DISTINCT YEAR(CURDATE()) - YEAR(FechaNacimiento) + IF(DATE_FORMAT(CURDATE(), '%m-%d') > "
+                    + "DATE_FORMAT(FechaNacimiento, '%m-%d'),0,- 1) AS EDAD "
+                    + "FROM asociado ORDER BY EDAD;";
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
+            datos.addElement("Todas las edades");
             while (rs.next()) {
                 datos.addElement(rs.getObject("EDAD"));
             }
-            datos.addElement("Todas las edades");
+            
             return datos;
         } catch (SQLException ex) {
             Logger.getLogger(Proyecto.class.getName()).log(Level.SEVERE, null, ex);
@@ -58,13 +60,15 @@ public class Proyecto extends Usuario {
     public DefaultComboBoxModel AnioInicio() {
         try {
             DefaultComboBoxModel datos = new DefaultComboBoxModel();
-            String sql = "SELECT YEAR(fechaInicio) AS ANIO FROM ajede INNER JOIN asociado ON asociado.id = ajede.Asociado_id GROUP BY ANIO";
+            String sql = "SELECT DISTINCT YEAR(fechaInicio)AS anio "
+                    + "FROM ajede "
+                    + "ORDER BY anio;";
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
-            while (rs.next()) {
-                datos.addElement(rs.getObject("ANIO"));
-            }
             datos.addElement("Todos los años");
+            while (rs.next()) {
+                datos.addElement(rs.getObject("anio"));
+            }
             return datos;
         } catch (SQLException ex) {
             Logger.getLogger(Proyecto.class.getName()).log(Level.SEVERE, null, ex);
@@ -92,7 +96,7 @@ public class Proyecto extends Usuario {
     public DefaultComboBoxModel getPrograma() {
         try {
             DefaultComboBoxModel datos = new DefaultComboBoxModel();
-            String sql = "SELECT * FROM programa";
+            String sql = "SELECT nombrePrograma FROM programa";
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
             datos.addElement("Todos los programas");
