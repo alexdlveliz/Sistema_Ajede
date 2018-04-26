@@ -1399,7 +1399,8 @@ public class agregarjf extends javax.swing.JFrame {
     }
 
     private void btnsiguientevoluActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsiguientevoluActionPerformed
-        slider.setPanelSlider(jpvoluntariado, RSPanelsSlider.DIRECT.LEFT);
+        //slider.setPanelSlider(jpvoluntariado, RSPanelsSlider.DIRECT.LEFT);
+        slider.setPanelSlider(jpinfomed, RSPanelsSlider.DIRECT.LEFT);
     }//GEN-LAST:event_btnsiguientevoluActionPerformed
     private void btnminimizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnminimizarActionPerformed
         this.setExtendedState(ICONIFIED);
@@ -1436,7 +1437,8 @@ public class agregarjf extends javax.swing.JFrame {
     }//GEN-LAST:event_btnsiguientecontemeActionPerformed
 
     private void btnatrasbecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnatrasbecaActionPerformed
-        slider.setPanelSlider(jpbeca, RSPanelsSlider.DIRECT.RIGHT);
+        //slider.setPanelSlider(jpbeca, RSPanelsSlider.DIRECT.RIGHT);
+        slider.setPanelSlider(jpdlabo, RSPanelsSlider.DIRECT.RIGHT);
     }//GEN-LAST:event_btnatrasbecaActionPerformed
 
     private void btnsiguientedencActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsiguientedencActionPerformed
