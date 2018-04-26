@@ -1529,7 +1529,6 @@ public class busquedasjf extends javax.swing.JFrame {
 
         jpbvoluntariado.add(scrollgvproy);
         scrollgvproy.setBounds(50, 170, 550, 210);
-
         tablevvol.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},

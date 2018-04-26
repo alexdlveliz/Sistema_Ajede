@@ -235,7 +235,7 @@ ORDER BY id;]]>
 				</textField>
 				<image>
 					<reportElement uuid="0cc99bcf-e237-45fc-9d3f-8826e913e375" x="0" y="101" width="40" height="40"/>
-					<imageExpression><![CDATA["C:\\Users\\mynor\\OneDrive\\Documents\\Sistema_Ajede\\SBDajede\\src\\Reportes\\fb_icon-icons.com_62768.png"]]></imageExpression>
+					<imageExpression><![CDATA["src\\Reportes\\fb_icon-icons.com_62768.png"]]></imageExpression>
 				</image>
 				<staticText>
 					<reportElement uuid="9a7defac-c38f-4cc3-b41c-a0e56bcabf1e" mode="Opaque" x="126" y="81" width="126" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
