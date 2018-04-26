@@ -1350,19 +1350,20 @@ public class agregarjf extends javax.swing.JFrame {
         if (genero.equals("Masculino")) {
             genero1 = true;
         }
-        if (asociado.insertar(nombre, apellido, genero1, fecha, email, talla, residencia, true, PerfilFB, tipoSangre, nivEst, Dpi)) {
-            ocupacionE.insertarOcupacionAsociado(idAsociado+1, estudia, lugarEstudio, trabaja, lugarTrabajo);
-            asociado.telefonoAsociado(idAsociado+1, telefono);
-            new rojerusan.RSNotifyAnimated("¡ÉXITO!", "Asociado Ingresado correctamente",
-                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
-                    RSNotifyAnimated.TypeNotify.SUCCESS).setVisible(true);
-            return true;
-        } else {
-            new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al ingresar el asociado",
-                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
-                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
-            return false;
-        }
+//        if (asociado.insertar(nombre, apellido, genero1, fecha, email, talla, residencia, true, PerfilFB, tipoSangre, nivEst, Dpi)) {
+//            ocupacionE.insertarOcupacionAsociado(idAsociado+1, estudia, lugarEstudio, trabaja, lugarTrabajo);
+//            asociado.telefonoAsociado(idAsociado+1, telefono);
+//            new rojerusan.RSNotifyAnimated("¡ÉXITO!", "Asociado Ingresado correctamente",
+//                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+//                    RSNotifyAnimated.TypeNotify.SUCCESS).setVisible(true);
+//            return true;
+//        } else {
+//            new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al ingresar el asociado",
+//                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+//                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+//            return false;
+//        }
+        return true;
     }
 
     //Se inserta la información médica del asociado
