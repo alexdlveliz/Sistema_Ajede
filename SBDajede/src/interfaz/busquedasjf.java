@@ -48,6 +48,7 @@ public class busquedasjf extends javax.swing.JFrame {
     ImageIcon vprograma = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vprograma1.jpg")).getImage());
     ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vpromocion1.jpg")).getImage());
     String id = "";
+    String idProyecto = "";
     /**
      * Creates new form busquedasjf en SBDAjede
      */
@@ -1417,6 +1418,11 @@ public class busquedasjf extends javax.swing.JFrame {
 
         txtproyecto.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         txtproyecto.setBorder(null);
+        txtproyecto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtproyectoKeyPressed(evt);
+            }
+        });
         jpbproyecto.add(txtproyecto);
         txtproyecto.setBounds(310, 200, 320, 30);
         JTEditarProyecto = new rojerusan.RSTableMetro(){
@@ -1455,6 +1461,11 @@ public class busquedasjf extends javax.swing.JFrame {
         JTEditarProyecto.setFuenteHead(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
         JTEditarProyecto.setRowHeight(20);
         JTEditarProyecto.getTableHeader().setReorderingAllowed(false);
+        JTEditarProyecto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JTEditarProyectoMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(JTEditarProyecto);
 
         jpbproyecto.add(jScrollPane2);
@@ -1529,6 +1540,7 @@ public class busquedasjf extends javax.swing.JFrame {
 
         jpbvoluntariado.add(scrollgvproy);
         scrollgvproy.setBounds(50, 170, 550, 210);
+
         tablevvol.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -1805,6 +1817,11 @@ public class busquedasjf extends javax.swing.JFrame {
 
         btnguardareproyect.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Save_Close_70px.png"))); // NOI18N
         btnguardareproyect.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Save_Close_100px.png"))); // NOI18N
+        btnguardareproyect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnguardareproyectActionPerformed(evt);
+            }
+        });
         jpeproyecto.add(btnguardareproyect);
         btnguardareproyect.setBounds(860, 520, 140, 90);
 
@@ -1817,7 +1834,7 @@ public class busquedasjf extends javax.swing.JFrame {
         jScrollPane1.setBounds(70, 370, 730, 280);
 
         cmbnomproyecto.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        cmbnomproyecto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbnomproyecto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Finalizado", "Sin Finalizar" }));
         jpeproyecto.add(cmbnomproyecto);
         cmbnomproyecto.setBounds(570, 250, 220, 30);
 
@@ -2308,6 +2325,7 @@ public class busquedasjf extends javax.swing.JFrame {
         //Aquí tengo que programar
         rSPanelsSlider1.setPanelSlider(jpedp, RSPanelsSlider.DIRECT.DOWN);
         lbl_id_asociado.setText(obtenerId());
+        btnguardarcambiosdp.setEnabled(true);
         buscarAsociado(lbl_id_asociado.getText());
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
@@ -2319,6 +2337,36 @@ public class busquedasjf extends javax.swing.JFrame {
         }
     }
 
+    private void actualizarProyecto(String idProyecto)
+    {
+        try {
+            int id = Integer.parseInt(idProyecto);
+            Connection con = null;
+            Conexion conexion;
+            conexion = new Conexion();
+            con = conexion.getConnection();
+            String sql = "UPDATE proyecto SET nombreProyecto=?, descripcion=?, finalizado=? WHERE id LIKE '%" +id+"%'";
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setString(1, txtnombreproyecto.getText());
+            st.setString(2, txtADescripcion.getText());
+            String finalizado = (String)cmbnomproyecto.getSelectedItem();
+            if(finalizado.equals("Finalizado"))
+                st.setBoolean(3, true);
+            else
+                st.setBoolean(3,false);
+            
+            int res = st.executeUpdate();
+            if (res > 0) {
+                JOptionPane.showMessageDialog(null, "Información actualizada correctamente");
+                limpiarCajasProy();
+            } else {
+                JOptionPane.showMessageDialog(null, "Error al actualizar información");
+            }
+            JTEditarProyecto.setModel(busquedas.EditarProyecto(JTEditarProyecto, ""));
+        } catch (SQLException ex) {
+            Logger.getLogger(busquedasjf.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     private void actualizarAsociado(String idAsociado) {
         try {
             int id = Integer.parseInt(idAsociado);
@@ -2376,7 +2424,40 @@ public class busquedasjf extends javax.swing.JFrame {
         textfieldperfil.setText("");
         btnguardarcambiosdp.setEnabled(false);
     }
+    
+    private void limpiarCajasProy()
+    {
+        txtnombreproyecto.setText("");
+        txtADescripcion.setText("");
+        cmbnomproyecto.setSelectedItem("");
+        btnguardareproyect.setEnabled(false);
+    }
 
+    private void buscarProyecto(String idProyecto)
+    {
+        try {
+            int id = Integer.parseInt(idProyecto);
+            Connection con = null;
+            Conexion conexion;
+            conexion = new Conexion();
+            con = conexion.getConnection();
+            String sql = "SELECT * FROM proyecto WHERE id LIKE '%" + id + "%'";
+            PreparedStatement st = con.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            if(rs.next())
+            {
+                txtnombreproyecto.setText(rs.getString("nombreProyecto"));
+                txtADescripcion.setText(rs.getString("descripcion"));
+                boolean finalizado = rs.getBoolean("finalizado");
+                if(finalizado)
+                    cmbnomproyecto.setSelectedItem("Finalizado");
+                else
+                    cmbnomproyecto.setSelectedItem("Sin Finalizar");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(busquedasjf.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     private void buscarAsociado(String idAsociado) {
         try {
             int id = Integer.parseInt(idAsociado);
@@ -2420,10 +2501,14 @@ public class busquedasjf extends javax.swing.JFrame {
             Logger.getLogger(busquedasjf.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    //Acá estoy donde estoy programando ahorita
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
         rSPanelsSlider1.setPanelSlider(jpeproyecto, RSPanelsSlider.DIRECT.DOWN);
-        lbl_id_proyecto.setText(obtenerId());
+        lbl_id_proyecto.setText(obtenerIdProyecto());
+        btnguardareproyect.setEnabled(true);
+        buscarProyecto(lbl_id_proyecto.getText());
+        //System.out.println(lbl_id_proyecto.getText());
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void tablebvgeneralKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tablebvgeneralKeyPressed
@@ -2461,6 +2546,24 @@ public class busquedasjf extends javax.swing.JFrame {
 
     }//GEN-LAST:event_cmbbproyectosActionPerformed
 
+    private void txtproyectoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtproyectoKeyPressed
+        // TODO add your handling code here:
+        JTEditarProyecto.setModel(busquedas.EditarProyecto(JTEditarProyecto, txtproyecto.getText()));
+    }//GEN-LAST:event_txtproyectoKeyPressed
+
+    //Acá estoy donde estoy programando ahorita
+    private void JTEditarProyectoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTEditarProyectoMouseClicked
+        // TODO add your handling code here:
+        int fila = JTEditarProyecto.getSelectedRow();
+        String id = (String) JTEditarProyecto.getValueAt(fila, 0);
+        setIdProyecto(id);
+    }//GEN-LAST:event_JTEditarProyectoMouseClicked
+
+    private void btnguardareproyectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardareproyectActionPerformed
+        // TODO add your handling code here:
+        actualizarProyecto(lbl_id_proyecto.getText());
+    }//GEN-LAST:event_btnguardareproyectActionPerformed
+
     private void setId(String id_proyecto) {
         id = id_proyecto;
     }
@@ -2468,6 +2571,15 @@ public class busquedasjf extends javax.swing.JFrame {
     private String obtenerId() {
         return id;
     }
+    
+    private void setIdProyecto(String id_proyecto) {
+        idProyecto = id_proyecto;
+    }
+
+    private String obtenerIdProyecto() {
+        return idProyecto;
+    }
+    
 
     /**
      * @param args the command line arguments
