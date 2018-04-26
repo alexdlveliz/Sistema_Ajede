@@ -1426,6 +1426,11 @@ public class busquedasjf extends javax.swing.JFrame {
         jpbproyecto.add(txtproyecto);
         txtproyecto.setBounds(310, 200, 320, 30);
 
+        JTEditarProyecto = new rojerusan.RSTableMetro(){
+            public boolean isCellEditable(int rowIndex, int ColIndex){
+                return false;
+            }
+        };
         JTEditarProyecto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -1973,12 +1978,6 @@ public class busquedasjf extends javax.swing.JFrame {
 
         jpbbproyecto.setName("jpbbproyecto"); // NOI18N
         jpbbproyecto.setLayout(null);
-
-        JTEditarProyecto = new rojerusan.RSTableMetro(){
-            public boolean isCellEditable(int rowIndex, int ColIndex){
-                return false;
-            }
-        };
         tablebbvproyecto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},

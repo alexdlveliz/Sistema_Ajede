@@ -18,14 +18,14 @@ import javax.swing.JOptionPane;
  */
 public class Conexion 
 {
-    private String nombreBD="proyecto";
-    private String usuario="root";
-    private String password="";
-    private String url="jdbc:mysql://localhost:3306/"+nombreBD+"?autoReconnect=true&useSSL=false";
 //    private String nombreBD="proyecto";
-//    private String usuario="AjedeBD";
-//    private String password="Ajede123";
-//    private String url="jdbc:mysql://25.15.141.230:3306/"+nombreBD+"?autoReconnect=true&useSSL=false";
+//    private String usuario="root";
+//    private String password="";
+//    private String url="jdbc:mysql://localhost:3306/"+nombreBD+"?autoReconnect=true&useSSL=false";
+    private String nombreBD="proyecto";
+    private String usuario="AjedeBD";
+    private String password="Ajede123";
+    private String url="jdbc:mysql://25.15.141.230:3306/"+nombreBD+"?autoReconnect=true&useSSL=false";
     private Connection con=null;
     public  Conexion()
     {
