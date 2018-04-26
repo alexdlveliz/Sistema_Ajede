@@ -26,7 +26,7 @@ import rojerusan.RSPanelsSlider;
  * @author Nahomi
  */
 public class menujf extends javax.swing.JFrame {
-    
+
     ImageIcon menua1 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/menuat1.jpg")).getImage());
     ImageIcon menu = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/menuprincipalv2t1.jpg")).getImage());
     ImageIcon menur = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/mrreportes1.jpg")).getImage());
@@ -43,11 +43,12 @@ public class menujf extends javax.swing.JFrame {
     public menujf() {
         reportes = new ImpresionReportes();
         proyecto = new Proyecto();
-        
+
         initComponents();
         tableproyecto.setModel(proyecto.Proyectos("", tableproyecto));
         cmbPuestos.setModel(proyecto.puestos());
         cmbEdades.setModel(proyecto.getEdades());
+        cmbAnios.setModel(proyecto.AnioInicio());
         this.setLocationRelativeTo(null);
         Toolkit tk = Toolkit.getDefaultToolkit();
         Dimension tamanio = tk.getScreenSize();
@@ -99,9 +100,9 @@ public class menujf extends javax.swing.JFrame {
         if (proyecto.insertarProyecto(nombre, descripcion)) {
             JOptionPane.showMessageDialog(null, "Proyecto ingresado correctamente");
         }
-        
+
     }
-    
+
     public void transparencia() {
         btnagregar.setOpaque(false);
         btnagregar.setContentAreaFilled(false);
@@ -209,6 +210,7 @@ public class menujf extends javax.swing.JFrame {
         cmbGenero = new rojerusan.RSComboMetro();
         cmbA_I = new rojerusan.RSComboMetro();
         cmbEdades = new rojerusan.RSComboMetro();
+        cmbAnios = new rojerusan.RSComboMetro();
         jPanel1 = new javax.swing.JPanel();
         btnminimizarmenu = new javax.swing.JButton();
         btnsalirdmenu = new javax.swing.JButton();
@@ -331,6 +333,8 @@ public class menujf extends javax.swing.JFrame {
         cmbA_I.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Activo", "Inactivo", "Ambos" }));
 
         cmbEdades.setMaximumRowCount(4);
+
+        cmbAnios.setMaximumRowCount(4);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1250, 700));
@@ -779,6 +783,11 @@ public class menujf extends javax.swing.JFrame {
 
         btnrporanio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/anio.png"))); // NOI18N
         btnrporanio.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mreportes/aniodos.png"))); // NOI18N
+        btnrporanio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnrporanioActionPerformed(evt);
+            }
+        });
         jpmreportes.add(btnrporanio);
         btnrporanio.setBounds(280, 280, 130, 90);
 
@@ -1076,7 +1085,7 @@ public class menujf extends javax.swing.JFrame {
     private void txtmiembrosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtmiembrosKeyPressed
         //filro de busqueda para miembros
         filtro(txtmiembros.getText(), tablemiembros);
-        
+
 
     }//GEN-LAST:event_txtmiembrosKeyPressed
 
@@ -1148,7 +1157,7 @@ public class menujf extends javax.swing.JFrame {
                     }
                 }
             }
-            
+
             tablemiembros.setModel(modelo);
         }
     }//GEN-LAST:event_MIPuestosActionPerformed
@@ -1198,14 +1207,14 @@ public class menujf extends javax.swing.JFrame {
     private void btnractivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnractivosActionPerformed
         int respuesta = JOptionPane.showConfirmDialog(null, cmbA_I, "seleccione un puesto", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (respuesta == 0) {
-            String genero = (String) cmbA_I.getSelectedItem();
-            if (genero.equals("Activo")) {
+            String activo = (String) cmbA_I.getSelectedItem();
+            if (activo.equals("Activo")) {
                 if (!reportes.ReportA_I(true)) {
                     new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al intentar Acceder",
                             5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
                             RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
                 }
-            } else if (genero.equals("Inactivo")) {
+            } else if (activo.equals("Inactivo")) {
                 if (!reportes.ReportA_I(false)) {
                     new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al intentar Acceder",
                             5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
@@ -1240,7 +1249,6 @@ public class menujf extends javax.swing.JFrame {
                 }
             } else {
                 int edad = (int) cmbEdades.getSelectedItem();
-                System.out.println(edad);
                 if (!reportes.ReportEdades(edad)) {
                     new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al intentar Acceder",
                             5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
@@ -1305,7 +1313,27 @@ public class menujf extends javax.swing.JFrame {
     private void txtvoluntariosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtvoluntariosKeyTyped
         CapturaTecla(evt);
     }//GEN-LAST:event_txtvoluntariosKeyTyped
-    
+
+    private void btnrporanioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrporanioActionPerformed
+        int respuesta = JOptionPane.showConfirmDialog(null, cmbAnios, "seleccione un año", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (respuesta == 0) {
+            if (cmbAnios.getSelectedItem().equals("Todos los años")) {
+                if (!reportes.ReportAnio()) {
+                    new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al intentar Acceder",
+                            5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                            RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+                }
+            } else {
+                int fecha = (int) cmbAnios.getSelectedItem();
+                if (!reportes.ReportAnios(fecha)) {
+                    new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al intentar Acceder",
+                            5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                            RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+                }
+            }
+        }
+    }//GEN-LAST:event_btnrporanioActionPerformed
+
     private void CapturaTecla(KeyEvent e) {
         char c = e.getKeyChar();
         if (c >= 0 && c <= 64 && c != 32) {
@@ -1396,6 +1424,7 @@ public class menujf extends javax.swing.JFrame {
     private javax.swing.JButton btnrtrabajando;
     private javax.swing.JButton btnsalirdmenu;
     private rojerusan.RSComboMetro cmbA_I;
+    private rojerusan.RSComboMetro cmbAnios;
     private rojerusan.RSComboMetro cmbEdades;
     private rojerusan.RSComboMetro cmbGenero;
     private rojerusan.RSComboMetro cmbPuestos;

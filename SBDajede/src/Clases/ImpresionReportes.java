@@ -284,4 +284,36 @@ public class ImpresionReportes {
             return false;
         }
     }
+    public boolean ReportAniosIncios() {
+        try {
+            String path = "src/Reportes/VoluntarioAnio.jasper";
+            JasperReport jr = (JasperReport) JRLoader.loadObjectFromFile(path);
+            JasperPrint jp = JasperFillManager.fillReport(jr, null, con);
+            JasperViewer jv = new JasperViewer(jp, false);
+            jv.setVisible(true);
+            jv.setIconImage(image);
+            jv.setTitle("Voluntarios por años de inicio");
+            return true;
+        } catch (JRException ex) {
+            Logger.getLogger(ImpresionReportes.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
+    public boolean ReportAnioIncio(int fecha) {
+        try {
+            String path = "src/Reportes/VoluntarioAnios.jasper";
+            JasperReport jr = (JasperReport) JRLoader.loadObjectFromFile(path);
+            Map parametro = new HashMap();
+            parametro.put("Fecha", fecha);
+            JasperPrint jp = JasperFillManager.fillReport(jr, parametro, con);
+            JasperViewer jv = new JasperViewer(jp, false);
+            jv.setVisible(true);
+            jv.setIconImage(image);
+            jv.setTitle("Voluntarios por años de inicio");
+            return true;
+        } catch (JRException ex) {
+            Logger.getLogger(ImpresionReportes.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
 }
