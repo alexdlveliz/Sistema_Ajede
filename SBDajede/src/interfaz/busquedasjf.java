@@ -62,7 +62,7 @@ public class busquedasjf extends javax.swing.JFrame {
         cmbapromocion.setModel(busquedas.getPromocion());
         cmbprograma.setModel(busquedas.getPrograma());
         transparencia();
-        JTEditarProyecto.setModel(busquedas.EditarProyecto(JTEditarProyecto));
+        JTEditarProyecto.setModel(busquedas.EditarProyecto(JTEditarProyecto, ""));
         tablebvnombre.setModel(busquedas.BNombre("", tablebvnombre, "", true));
         tablebbvproyecto.setModel(busquedas.BProyecto(tablebbvproyecto, lblIdProyecto.getText()));
         tablebvgeneral.setModel(busquedas.BNombreApellido("", tablebvgeneral, ""));

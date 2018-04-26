@@ -215,7 +215,7 @@ public class BusquedasVoluntarios extends Proyecto {
         return null;
     }
 
-    public DefaultTableModel EditarProyecto(RSTableMetro tabla) {
+    public DefaultTableModel EditarProyecto(RSTableMetro tabla, String nombre) {
         try {
             String titulos[] = new String[4];
             for (int i = 0; i < tabla.getColumnCount(); i++) {
@@ -224,7 +224,7 @@ public class BusquedasVoluntarios extends Proyecto {
             String registros[] = new String[4];
 
             boolean finalizado;
-            String sql = "SELECT * FROM proyecto";
+            String sql = "SELECT * FROM proyecto WHERE nombreProyecto LIKE '%" + nombre + "%'";
             DefaultTableModel modelo = new DefaultTableModel(null, titulos);
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
