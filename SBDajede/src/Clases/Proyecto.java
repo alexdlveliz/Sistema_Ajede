@@ -162,7 +162,7 @@ public class Proyecto extends Usuario {
         return null;
     }
 
-    public DefaultTableModel volunatariado(int id, JTable tabla) {
+    public DefaultTableModel volunatariado(int id, JTable tabla,String nombre) {
         try {
             String titulos[] = new String[4];
             for (byte i = 0; i < 4; i++) {
@@ -174,7 +174,8 @@ public class Proyecto extends Usuario {
                     + "INNER JOIN voluntariado v ON a.id = v.Asociado_id "
                     + "INNER JOIN puestos p ON p.id = v.Puestos_id "
                     + "WHERE Proyecto_id = " + id
-                    + " ORDER BY Asociado_id;";
+                    + " AND a.Nombre LIKE '%"+ nombre+"%' "
+                    + "ORDER BY Asociado_id;";
             DefaultTableModel modelo = new DefaultTableModel(null, titulos);
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
@@ -218,6 +219,18 @@ public class Proyecto extends Usuario {
         return null;
     }
 
+    public boolean deleteVoluntariado(int idProyecto, int idAsociado) {
+        try {
+            String sql = "DELETE FROM voluntariado WHERE Asociado_id = ? and Proyecto_id =" + idProyecto;
+            PreparedStatement Pst = con.prepareStatement(sql);
+            Pst.setInt(1, idAsociado);
+            return Pst.executeUpdate() != 0;
+        } catch (SQLException ex) {
+            Logger.getLogger(Proyecto.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
+
     public boolean insertarVoluntariado(int idProyecto, int idAsociado, float horas, int idPuesto) {
         try {
             /**
@@ -256,4 +269,5 @@ public class Proyecto extends Usuario {
         }
         return false;
     }
+    
 }

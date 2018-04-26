@@ -88,7 +88,7 @@ public class menujf extends javax.swing.JFrame {
             btnrnoexbecarios.setLocation(905, 540);
             btnrpromocion.setLocation(1140, 420);
             btnrmenu.setLocation(1355, 615);
-        } 
+        }
     }
 
     //Insertar proyecto
@@ -237,8 +237,8 @@ public class menujf extends javax.swing.JFrame {
         txtproyecto = new javax.swing.JTextField();
         txtvoluntarios = new javax.swing.JTextField();
         txtmiembros = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         txtProyectoSelect = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         scrollvmiembros = new javax.swing.JScrollPane();
         tablemiembros = new rojerusan.RSTableMetro();
         scrollvevol = new javax.swing.JScrollPane();
@@ -533,6 +533,7 @@ public class menujf extends javax.swing.JFrame {
         jpvoluntariadom.setLayout(null);
 
         btnguardarvoluntarioado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Save_Close_70px.png"))); // NOI18N
+        btnguardarvoluntarioado.setEnabled(false);
         btnguardarvoluntarioado.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/menu/icons8_Save_Close_100px.png"))); // NOI18N
         btnguardarvoluntarioado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -582,16 +583,18 @@ public class menujf extends javax.swing.JFrame {
         jpvoluntariadom.add(txtmiembros);
         txtmiembros.setBounds(230, 405, 370, 40);
 
-        jLabel1.setBackground(new java.awt.Color(102, 255, 204));
-        jLabel1.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
-        jLabel1.setText("Proyecto Seleccionado:");
-        jpvoluntariadom.add(jLabel1);
-        jLabel1.setBounds(40, 340, 200, 40);
-
         txtProyectoSelect.setEditable(false);
         txtProyectoSelect.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         jpvoluntariadom.add(txtProyectoSelect);
-        txtProyectoSelect.setBounds(240, 340, 360, 40);
+        txtProyectoSelect.setBounds(230, 340, 370, 40);
+
+        jLabel1.setBackground(new java.awt.Color(25, 61, 93));
+        jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 3, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Proyecto Seleccionado:");
+        jLabel1.setOpaque(true);
+        jpvoluntariadom.add(jLabel1);
+        jLabel1.setBounds(30, 330, 580, 60);
 
         tablemiembros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -892,8 +895,7 @@ public class menujf extends javax.swing.JFrame {
 
     private void btnagregarvoluntariadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarvoluntariadoActionPerformed
         rSPanelsSlider1.setPanelSlider(jpvoluntariadom, RSPanelsSlider.DIRECT.DOWN);
-
-
+        limpiar();
     }//GEN-LAST:event_btnagregarvoluntariadoActionPerformed
 
     private void btnminimizarmenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnminimizarmenuActionPerformed
@@ -957,7 +959,7 @@ public class menujf extends javax.swing.JFrame {
         if (select != -1) {
             String nombre = (String) tableproyecto.getValueAt(select, 1);
             txtProyectoSelect.setText(nombre);
-            tablemiembros.setModel(proyecto.volunatariado(IDproyecto, tablemiembros));
+            tablemiembros.setModel(proyecto.volunatariado(IDproyecto, tablemiembros, ""));
             tablevoluntarios.setModel(proyecto.Voluntarios(tablemiembros, txtvoluntarios.getText(), tablevoluntarios));
             listaIdmiembros = new ArrayList<>();
             listaBorrado = new ArrayList<>();
@@ -965,13 +967,14 @@ public class menujf extends javax.swing.JFrame {
             for (int i = 0; i < tablemiembros.getRowCount(); i++) {
                 listaIdmiembros.add(Integer.parseInt((String) tablemiembros.getValueAt(i, 0)));
             }
+            btnguardarvoluntarioado.setEnabled(true);
         } else {
             JOptionPane.showMessageDialog(null, "Por favor seleccione un elemento de la tabla");
         }
     }//GEN-LAST:event_MIProyectoActionPerformed
 
     private void MICambiarProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MICambiarProyectoActionPerformed
-        //Si en la tabal miembros selecciona la opcion del menu cambiar proyecto se habilita el boton en la tabla proyectos
+        //Si en la tabla miembros selecciona la opcion del menu cambiar proyecto se habilita el boton en la tabla proyectos
         MIProyecto.setEnabled(true);
     }//GEN-LAST:event_MICambiarProyectoActionPerformed
 
@@ -1064,11 +1067,13 @@ public class menujf extends javax.swing.JFrame {
         DefaultTableModel dm = (DefaultTableModel) jtableBuscar.getModel();
         TableRowSorter<DefaultTableModel> tr = new TableRowSorter<>(dm);
         jtableBuscar.setRowSorter(tr);
-        tr.setRowFilter(RowFilter.regexFilter(consulta, 0));
+        tr.setRowFilter(RowFilter.regexFilter(consulta, 1));
     }
     private void txtmiembrosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtmiembrosKeyPressed
         //filro de busqueda para miembros
         filtro(txtmiembros.getText(), tablemiembros);
+
+
     }//GEN-LAST:event_txtmiembrosKeyPressed
 
     private void txtmiembrosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtmiembrosKeyTyped
@@ -1087,13 +1092,27 @@ public class menujf extends javax.swing.JFrame {
          * miembros.
          */
         boolean bandera = true;
-        for (int i = 0; (i < tablemiembros.getRowCount()) && (bandera); i++) {
-                bandera = proyecto.insertarVoluntariado(IDproyecto, listaIdmiembros.get(i), 0, listaPuestos.get(i));
+        for (int i = 0; i < listaBorrado.size(); i++) {
+            bandera = proyecto.deleteVoluntariado(IDproyecto, listaBorrado.get(i));
         }
         if (bandera) {
-            JOptionPane.showMessageDialog(null, "Se insertaron correctamente los datos");
+            for (int i = 0; (i < tablemiembros.getRowCount()) && (bandera); i++) {
+                bandera = proyecto.insertarVoluntariado(IDproyecto, listaIdmiembros.get(i), 0, listaPuestos.get(i));
+            }
+            if (bandera) {
+                JOptionPane.showMessageDialog(null, "Se insertaron correctamente los datos");
+                btnguardarvoluntarioado.setEnabled(false);
+                txtProyectoSelect.setText("");
+                limpiar();
+            } else {
+                new rojerusan.RSNotifyAnimated("¡ERROR!", "Hubo un error al insertar/modificar al voluntariado",
+                        5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                        RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+            }
         } else {
-            JOptionPane.showMessageDialog(null, "Hubo un error al insertar los datos");
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al intentar modificar el voluntariado",
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
         }
 
     }//GEN-LAST:event_btnguardarvoluntarioadoActionPerformed
@@ -1281,6 +1300,19 @@ public class menujf extends javax.swing.JFrame {
         rSPanelsSlider1.setPanelSlider(menuprincipal, RSPanelsSlider.DIRECT.UP);
     }//GEN-LAST:event_jLabel2MouseClicked
 
+    private void limpiar() {
+        btnguardarvoluntarioado.setEnabled(false);
+        txtProyectoSelect.setText("");
+        DefaultTableModel modelo = (DefaultTableModel) tablemiembros.getModel();
+        while (modelo.getRowCount() > 0) {
+            modelo.removeRow(0);
+        }
+        modelo = (DefaultTableModel) tablevoluntarios.getModel();
+        while (modelo.getRowCount() > 0) {
+            modelo.removeRow(0);
+        }
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -1381,4 +1413,5 @@ public class menujf extends javax.swing.JFrame {
     private javax.swing.JTextField txtproyecto;
     private javax.swing.JTextField txtvoluntarios;
     // End of variables declaration//GEN-END:variables
+
 }
