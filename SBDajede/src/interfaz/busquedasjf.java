@@ -60,6 +60,7 @@ String id = "";
         cmbapromocion.setModel(busquedas.getPromocion());
         cmbprograma.setModel(busquedas.getPrograma());
         transparencia();
+        tablebvproyecto.setModel(busquedas.EditarProyecto(tablebvproyecto));
         tablebvnombre.setModel(busquedas.BNombre("", tablebvnombre, "",true));
         tablebbvproyecto.setModel(busquedas.BProyecto(tablebbvproyecto, lblIdProyecto.getText()));
         tablebvgeneral.setModel(busquedas.BNombreApellido("", tablebvgeneral, ""));
@@ -1430,7 +1431,7 @@ String id = "";
                 {null, null, null, null}
             },
             new String [] {
-                "No.", "Nombre", "Apellido", "Fecha de Nacimiento"
+                "No.", "Nombre", "Descripción", "Finalizado"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -1464,18 +1465,21 @@ String id = "";
         scrollproy.setViewportView(tablebvproyecto);
         if (tablebvproyecto.getColumnModel().getColumnCount() > 0) {
             tablebvproyecto.getColumnModel().getColumn(0).setMinWidth(20);
-            tablebvproyecto.getColumnModel().getColumn(0).setPreferredWidth(100);
-            tablebvproyecto.getColumnModel().getColumn(0).setMaxWidth(100);
+            tablebvproyecto.getColumnModel().getColumn(0).setPreferredWidth(80);
+            tablebvproyecto.getColumnModel().getColumn(0).setMaxWidth(80);
             tablebvproyecto.getColumnModel().getColumn(1).setMinWidth(100);
             tablebvproyecto.getColumnModel().getColumn(1).setPreferredWidth(300);
             tablebvproyecto.getColumnModel().getColumn(1).setMaxWidth(300);
+            tablebvproyecto.getColumnModel().getColumn(2).setMinWidth(350);
+            tablebvproyecto.getColumnModel().getColumn(2).setPreferredWidth(400);
+            tablebvproyecto.getColumnModel().getColumn(2).setMaxWidth(400);
             tablebvproyecto.getColumnModel().getColumn(3).setMinWidth(100);
-            tablebvproyecto.getColumnModel().getColumn(3).setPreferredWidth(300);
-            tablebvproyecto.getColumnModel().getColumn(3).setMaxWidth(300);
+            tablebvproyecto.getColumnModel().getColumn(3).setPreferredWidth(200);
+            tablebvproyecto.getColumnModel().getColumn(3).setMaxWidth(200);
         }
 
         jpbproyecto.add(scrollproy);
-        scrollproy.setBounds(110, 260, 1030, 380);
+        scrollproy.setBounds(110, 260, 980, 380);
 
         txtproyecto.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         txtproyecto.setBorder(null);
@@ -2469,10 +2473,6 @@ String id = "";
         lbl_id_proyecto.setText(obtenerId());
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void tablebvproyectoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablebvproyectoMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tablebvproyectoMouseClicked
-
     private void tablebvgeneralKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tablebvgeneralKeyPressed
 
         
@@ -2507,6 +2507,11 @@ String id = "";
     }
     
     }//GEN-LAST:event_cmbbproyectosActionPerformed
+
+    private void tablebvproyectoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablebvproyectoMouseClicked
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tablebvproyectoMouseClicked
 
     private void setId(String id_proyecto)
     {

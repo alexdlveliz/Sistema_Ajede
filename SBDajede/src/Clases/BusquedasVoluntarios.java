@@ -224,6 +224,41 @@ public class BusquedasVoluntarios extends Proyecto{
         return null;
     }
     
+    public DefaultTableModel EditarProyecto(RSTableMetro tabla)
+    {
+        try {
+            String titulos[] = new String[4];
+            for (int i = 0; i < titulos.length; i++) {
+                titulos[i] = tabla.getColumnName(i);
+            }
+            String registros[] = new String[4];
+            
+            boolean finalizado = false;
+            String sql = "SELECT * FROM proyecto";
+            DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            int cont = 0;
+            while(rs.next())
+            {
+                cont++;
+                registros[0]=String.valueOf(cont);
+                registros[1]=rs.getString("nombreProyecto");
+                registros[2]=rs.getString("descripcion");
+                finalizado = rs.getBoolean("finalizado");
+                if(finalizado)
+                    registros[3]=rs.getString("Finalizado");
+                else
+                    registros[3]=rs.getString("Sin finalizar");
+                modelo.addRow(registros);
+            }
+            return modelo;
+        } catch (SQLException ex) {
+            Logger.getLogger(BusquedasVoluntarios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
     public DefaultTableModel BEdad(RSTableMetro tablaProyecto, int edad)
     {
         try {
