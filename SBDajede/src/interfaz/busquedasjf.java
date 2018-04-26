@@ -1417,11 +1417,7 @@ public class busquedasjf extends javax.swing.JFrame {
         txtproyecto.setBorder(null);
         jpbproyecto.add(txtproyecto);
         txtproyecto.setBounds(310, 200, 320, 30);
-        JTEditarProyecto = new rojerusan.RSTableMetro(){
-            public boolean isCellEditable(int rowIndex, int ColIndex){
-                return false;
-            }
-        };
+
         JTEditarProyecto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -1438,7 +1434,20 @@ public class busquedasjf extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        JTEditarProyecto.setColorBackgoundHead(new java.awt.Color(22, 54, 77));
+        JTEditarProyecto.setColorBordeFilas(new java.awt.Color(255, 255, 255));
+        JTEditarProyecto.setColorBordeHead(new java.awt.Color(255, 255, 255));
+        JTEditarProyecto.setColorFilasBackgound1(new java.awt.Color(163, 214, 254));
+        JTEditarProyecto.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
+        JTEditarProyecto.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
+        JTEditarProyecto.setColorFilasForeground2(new java.awt.Color(0, 0, 0));
+        JTEditarProyecto.setColorSelBackgound(new java.awt.Color(22, 54, 77));
         JTEditarProyecto.setComponentPopupMenu(jPopupMenu1);
+        JTEditarProyecto.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        JTEditarProyecto.setFuenteFilas(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        JTEditarProyecto.setFuenteFilasSelect(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        JTEditarProyecto.setFuenteHead(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        JTEditarProyecto.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(JTEditarProyecto);
 
         jpbproyecto.add(jScrollPane2);
@@ -1848,7 +1857,7 @@ public class busquedasjf extends javax.swing.JFrame {
         cmbgenero1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino" }));
         cmbgenero1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jpedp.add(cmbgenero1);
-        cmbgenero1.setBounds(390, 290, 190, 42);
+        cmbgenero1.setBounds(390, 290, 190, 38);
 
         textfieldedad.setBackground(new java.awt.Color(178, 248, 248));
         textfieldedad.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
@@ -1898,7 +1907,7 @@ public class busquedasjf extends javax.swing.JFrame {
         cmbtalla.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "xs", "s", "m", "l" }));
         cmbtalla.setBorder(null);
         jpedp.add(cmbtalla);
-        cmbtalla.setBounds(870, 235, 60, 42);
+        cmbtalla.setBounds(870, 235, 60, 36);
 
         btnmenube.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/Home_70px.png"))); // NOI18N
         btnmenube.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1940,6 +1949,12 @@ public class busquedasjf extends javax.swing.JFrame {
 
         jpbbproyecto.setName("jpbbproyecto"); // NOI18N
         jpbbproyecto.setLayout(null);
+
+        JTEditarProyecto = new rojerusan.RSTableMetro(){
+            public boolean isCellEditable(int rowIndex, int ColIndex){
+                return false;
+            }
+        };
         tablebbvproyecto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
