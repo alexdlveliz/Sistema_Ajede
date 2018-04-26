@@ -1345,7 +1345,7 @@ public class agregarjf extends javax.swing.JFrame {
             lugarTrabajo = textfieldlugartrabajo.getText() + textfieldlugartrabajo2.getText();
         }
         
-        int idAsociado = antecedentes.obteneridAsociado();
+        
         boolean genero1 = false;
         if (genero.equals("Masculino")) {
             genero1 = true;
