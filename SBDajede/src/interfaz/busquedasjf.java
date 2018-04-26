@@ -48,7 +48,7 @@ ImageIcon vprograma = new ImageIcon(new ImageIcon(getClass().getResource("/fondo
 ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vpromocion1.jpg")).getImage());
 String id = "";
     /**
-     * Creates new form busquedasjf
+     * Creates new form busquedasjf en SBDAjede
      */
     private BusquedasVoluntarios busquedas;
     private Boolean activo=true;
