@@ -57,7 +57,7 @@ public class Usuario {
              * para insertar al usuario se debe tomar en cuenta que los valores
              * que se le insertan esta con ? porque desconocemos que valores va
              * a tomar
-             * 
+             *
              */
             sql = "Insert into usuario(nombreusuario, password, nombre, apellido,puestos_id)"
                     + "Values(?,?,?,?,?)";
@@ -93,7 +93,9 @@ public class Usuario {
             Statement St = con.createStatement();
             ResultSet Rs = St.executeQuery(sql);
             while (Rs.next()) {
-                modeloCombo.addElement(Rs.getString("puesto"));
+                if (Rs.getInt("id") != 1) {
+                    modeloCombo.addElement(Rs.getString("puesto"));
+                }
             }
             //se retorna el modelo,
             return modeloCombo;
@@ -104,39 +106,29 @@ public class Usuario {
     }
 
     /**
-     * Este metodo sirve para contar cuantos usuarios hay en la BD esto lo
-     * hacemos cuando la BD se abré por primera vez y así poder tomar la
-     * decisión de que ventana abrir is la de registrar o login
+     * metodo que nos sirve para retornar en un combo box a todos los usuarios,
+     * que en este caso sera para el login. Ignorando a los que son
+     * administradores ya qie el administrador servirá nada mas para agregar mas
+     * usuarios
      *
+     * @param usuario
+     * @param Password
      * @return
      */
-    public int ContarUsuarios() {
-        /**
-         * Se hace una consulta a la tabla usuarios y contamos cuantos usuarios
-         * hay.
-         */
-        int total = 0;
+    public boolean RestablecerContrasenia(int usuario, String Password) {
         try {
-            String sql = "SELECT max(id) AS total FROM usuario";
-            Statement St = con.createStatement();
-            ResultSet Rs = St.executeQuery(sql);
-
-            while (Rs.next()) {
-                total = Rs.getInt("total");
-            }
-            return total;
+            System.out.println(usuario);
+            String sql = "Update usuario Set contrasenia = ? where id = " + usuario;
+            PreparedStatement Pst = con.prepareStatement(sql);
+            Pst.setString(1, Password);
+            int n = Pst.executeUpdate();
+            return n != 0;
         } catch (SQLException ex) {
             Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
-            return total;
+            return false;
         }
-
     }
 
-    /**
-     * metodo que nos sirve para retornar en un combo box
-     *a todos los usuarios, que en este caso sera para el login.
-     * @return
-     */
     public DefaultComboBoxModel usuarios() {
         DefaultComboBoxModel modeloCombo = new DefaultComboBoxModel();
         try {
@@ -152,17 +144,35 @@ public class Usuario {
         }
         return modeloCombo;
     }
+
     /**
-     * Este metodo recibe 2 parametros que es la contraseña y el usuario
-     * se hace una consulta a la tabla usuarios
-     * para obtener la contraseña (encriptada ya)
-     * y se compara con la contraseña que se recibe como parametro
-     * (igual ya encriptada) si es igual regresa true si no false
+     * Este metodo recibe 2 parametros que es la contraseña y el usuario se hace
+     * una consulta a la tabla usuarios para obtener la contraseña (encriptada
+     * ya) y se compara con la contraseña que se recibe como parametro (igual ya
+     * encriptada) si es igual regresa true si no false
+     *
      * @param contrasenia
      * @param usuario
-     * @return 
+     * @return
      */
     public boolean verificarSesion(String contrasenia, String usuario) {
+        try {
+            String sql = "SELECT password FROM usuario where nombreusuario='" + usuario + "'";
+            Statement St = con.createStatement();
+            ResultSet Rs = St.executeQuery(sql);
+            String pass = "";
+            while (Rs.next()) {
+                pass = Rs.getString("password");
+            }
+
+            return pass.equals(contrasenia);
+        } catch (SQLException ex) {
+            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+
+    public boolean AgregarMas(String contrasenia, String usuario) {
         try {
             String sql = "SELECT password FROM usuario where nombreusuario='" + usuario + "'";
             Statement St = con.createStatement();

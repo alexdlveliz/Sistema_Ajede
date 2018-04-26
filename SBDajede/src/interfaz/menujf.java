@@ -1139,7 +1139,7 @@ public class menujf extends javax.swing.JFrame {
          * dentro de el para que cambié el puesto a mi manera if preciona
          * aceptar al option pane hace lo siguiente tomamos todas las filas
          * seleccionadas tomamos el puesto que se selecciono y el indice que
-         * este trae ciclo for para darle el nuevo pueto en la tabla y en el
+         * este trae ciclo for para darle el nuevo puesto en la tabla y en el
          * arraylist
          */
         int respuesta = JOptionPane.showConfirmDialog(null, cmbPuestos, "seleccione un puesto", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE);
@@ -1158,7 +1158,7 @@ public class menujf extends javax.swing.JFrame {
                 for (int j = 0; j < temp.size(); j++) {
                     if (temp1.equals(temp.get(j))) {
                         modelo.setValueAt(puesto, i, 3);
-                        listaPuestos.set(i, index + 1);
+                        listaPuestos.set(i, index + 2);
                     }
                 }
             }

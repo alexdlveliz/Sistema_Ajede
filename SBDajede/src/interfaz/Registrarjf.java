@@ -142,6 +142,7 @@ public class Registrarjf extends javax.swing.JFrame {
         });
         getContentPane().add(btnregistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(453, 542, 120, 80));
 
+        cmbPuesto.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         cmbPuesto.setForeground(new java.awt.Color(153, 153, 153));
         cmbPuesto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         getContentPane().add(cmbPuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 485, 390, 40));

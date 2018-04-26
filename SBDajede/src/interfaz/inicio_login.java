@@ -6,15 +6,20 @@
 package interfaz;
 
 import Clases.Usuario;
-import Clases.antecedentesMedicos;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Toolkit;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.WARNING_MESSAGE;
 import org.apache.commons.codec.digest.DigestUtils;
+import rojerusan.RSNotifyAnimated;
 import rojerusan.RSPanelsSlider;
 
 /**
@@ -26,7 +31,7 @@ public class inicio_login extends javax.swing.JFrame {
     /**
      * Creates new form inicio_login
      */
-    private Usuario us;
+    private final Usuario us;
     Font fuente = new Font("Yu Gothic UI Light", Font.BOLD, 25);
     Font fuente2 = new Font("Yu Gothic UI Light", Font.BOLD, 15);
     ImageIcon iniciotam1 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/iniciointerfaz.jpg")).getImage());
@@ -36,6 +41,7 @@ public class inicio_login extends javax.swing.JFrame {
         initComponents();
         us = new Usuario();     //instancio la clase usuario.
         this.setResizable(false);
+        cmbRestablecer.setModel(us.usuarios());
         CMBUsuarios.setModel(us.usuarios()); //Le doy el modelo al combo box de usuarios.
         CMBUsuarios.setBackground(new Color(0, 0, 0, 0));
         PSTcontrasenia.setBackground(new Color(0, 0, 0, 0));
@@ -100,6 +106,8 @@ public class inicio_login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Contrasenia = new rojerusan.RSPasswordTextPlaceHolder();
+        cmbRestablecer = new rojerusan.RSComboMetro();
         panelf = new javax.swing.JPanel();
         rSPanelsSlider1 = new rojerusan.RSPanelsSlider();
         jpinicio = new javax.swing.JPanel();
@@ -113,6 +121,10 @@ public class inicio_login extends javax.swing.JFrame {
         btncomite = new javax.swing.JButton();
         btnfpassword = new javax.swing.JButton();
         lblogin = new javax.swing.JLabel();
+
+        Contrasenia.setText("rSPasswordTextPlaceHolder1");
+
+        cmbRestablecer.setMaximumRowCount(4);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1250, 700));
@@ -171,6 +183,11 @@ public class inicio_login extends javax.swing.JFrame {
         btnadmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/login/icons8_Admin_Settings_Male_70px.png"))); // NOI18N
         btnadmin.setName("btnadmin"); // NOI18N
         btnadmin.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/login/icons8_Admin_Settings_Male_100px.png"))); // NOI18N
+        btnadmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnadminActionPerformed(evt);
+            }
+        });
         jplogin.add(btnadmin);
         btnadmin.setBounds(130, 380, 120, 110);
 
@@ -197,6 +214,11 @@ public class inicio_login extends javax.swing.JFrame {
         btnfpassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/login/icons8_Forgot_Password_70px_1.png"))); // NOI18N
         btnfpassword.setName("btnfpassword"); // NOI18N
         btnfpassword.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/login/icons8_Forgot_Password_100px.png"))); // NOI18N
+        btnfpassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnfpasswordActionPerformed(evt);
+            }
+        });
         jplogin.add(btnfpassword);
         btnfpassword.setBounds(1090, 480, 120, 110);
 
@@ -225,14 +247,7 @@ public class inicio_login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnsiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsiguienteMouseClicked
-        if (us.ContarUsuarios()==0) {
-            Registrarjf registrar = new Registrarjf();
-            registrar.setVisible(true);
-            this.dispose();
-        }else{
-            rSPanelsSlider1.setPanelSlider(jplogin, RSPanelsSlider.DIRECT.LEFT);
-        }
-        
+        rSPanelsSlider1.setPanelSlider(jplogin, RSPanelsSlider.DIRECT.LEFT);
     }//GEN-LAST:event_btnsiguienteMouseClicked
 
     private void btningresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btningresarMouseClicked
@@ -242,9 +257,64 @@ public class inicio_login extends javax.swing.JFrame {
     private void PSTcontraseniaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PSTcontraseniaKeyPressed
         // TODO add your handling code here:
         char c = evt.getKeyChar();
-        if(c == 10)
+        if (c == 10) {
             InicioSecion();
+        }
     }//GEN-LAST:event_PSTcontraseniaKeyPressed
+
+    private void btnadminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnadminActionPerformed
+        int respuesta = JOptionPane.showConfirmDialog(null, Contrasenia, "Ingrese contraseña del \"Administrador\"", JOptionPane.DEFAULT_OPTION);
+        if (respuesta == 0) {
+            String Pass = Contrasenia.getText();
+            if (us.AgregarMas(DigestUtils.md5Hex(Pass), "Administrador")) {
+                Registrarjf registrar = new Registrarjf();
+                registrar.setVisible(true);
+                this.dispose();
+            } else {
+                new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al intentar Acceder\nContraseña incorrecta",
+                        5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                        RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+            }
+        }
+
+    }//GEN-LAST:event_btnadminActionPerformed
+
+    private String GenerarContrasenia() {
+        try {
+            String[] symbols = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
+            int length = 10;
+            Random random = SecureRandom.getInstanceStrong(); // as of JDK 8, this should return the strongest algorithm available to the JVM
+            StringBuilder sb = new StringBuilder(length);
+            for (int i = 0; i < length; i++) {
+                int indexRandom = random.nextInt(symbols.length);
+                sb.append(symbols[indexRandom]);
+            }
+            return sb.toString();
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(inicio_login.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+    private void btnfpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfpasswordActionPerformed
+        int respuesta = JOptionPane.showConfirmDialog(null, cmbRestablecer, "Ingrese contraseña del \"Administrador\"", JOptionPane.DEFAULT_OPTION);
+        if (respuesta == 0) {
+            if (cmbRestablecer.getSelectedItem().equals("Administrador")) {
+                new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al intentar Acceder\nNo cuenta con suficiente autorización",
+                        5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                        RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+            } else {
+                int usuario = cmbRestablecer.getSelectedIndex()+1;
+                String ContraseniaNueva = GenerarContrasenia();
+                if (!us.RestablecerContrasenia(usuario, DigestUtils.md5Hex(ContraseniaNueva))) {
+                    new rojerusan.RSNotifyAnimated("¡ERROR!", "Usuario no valido",
+                            5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                            RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Su nueva contraseña es:\n"+ContraseniaNueva+"","Restablecer Constraseña",JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
+        }
+    }//GEN-LAST:event_btnfpasswordActionPerformed
     /**
      * metodo que verifica la si la contraseña del usurio es la misma en la BD.
      */
@@ -273,7 +343,9 @@ public class inicio_login extends javax.swing.JFrame {
             }
 
         } else {
-            JOptionPane.showMessageDialog(null, "Error al ingresar la contraseña", "Error", WARNING_MESSAGE);
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al intentar Acceder\nUsuario y/o contraseña incorrecta",
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
         }
     }
 
@@ -315,12 +387,14 @@ public class inicio_login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> CMBUsuarios;
+    private rojerusan.RSPasswordTextPlaceHolder Contrasenia;
     private javax.swing.JPasswordField PSTcontrasenia;
     private javax.swing.JButton btnadmin;
     private javax.swing.JButton btncomite;
     private javax.swing.JButton btnfpassword;
     private javax.swing.JButton btningresar;
     private javax.swing.JButton btnsiguiente;
+    private rojerusan.RSComboMetro cmbRestablecer;
     private javax.swing.JPanel jpinicio;
     private javax.swing.JPanel jplogin;
     private javax.swing.JLabel lbinicio;
