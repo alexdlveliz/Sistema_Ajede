@@ -28,30 +28,32 @@ import rojerusan.RSPanelsSlider;
  * @author Nahomi
  */
 public class busquedasjf extends javax.swing.JFrame {
-ImageIcon menuboe = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/opcbm1.jpg")).getImage());
-ImageIcon menureportes = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/mrreportes1.jpg")).getImage());
-ImageIcon menubusquedas = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/mbusquedas1.jpg")).getImage());
-ImageIcon bvoluntariado = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/bvoluntariado1.jpg")).getImage());
-ImageIcon evoluntariado = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/voluntariadom1.jpg")).getImage());
-ImageIcon edp1 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/edproyectos1.jpg")).getImage());
-ImageIcon evol = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/evoluntariado1.jpg")).getImage());
-ImageIcon bproyectos = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/proyectos1.jpg")).getImage());
-ImageIcon eproyectos = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/proyectos1.jpg")).getImage());
-ImageIcon vacinac = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vactnact1.jpg")).getImage()); //vactinact1
-ImageIcon vanio = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vainicio1.jpg")).getImage());
-ImageIcon vedad = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vedad1.jpg")).getImage());
-ImageIcon vexbnexb = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vexbnexb1.jpg")).getImage());
-ImageIcon vgenero = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vgenero1.jpg")).getImage());
-ImageIcon vinfog = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vinfog1.jpg")).getImage());
-ImageIcon vocupacion = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vocupacion1.jpg")).getImage());
-ImageIcon vprograma = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vprograma1.jpg")).getImage());
-ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vpromocion1.jpg")).getImage());
-String id = "";
+
+    ImageIcon menuboe = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/opcbm1.jpg")).getImage());
+    ImageIcon menureportes = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/mrreportes1.jpg")).getImage());
+    ImageIcon menubusquedas = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/mbusquedas1.jpg")).getImage());
+    ImageIcon bvoluntariado = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/bvoluntariado1.jpg")).getImage());
+    ImageIcon evoluntariado = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/voluntariadom1.jpg")).getImage());
+    ImageIcon edp1 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/edproyectos1.jpg")).getImage());
+    ImageIcon evol = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/evoluntariado1.jpg")).getImage());
+    ImageIcon bproyectos = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/proyectos1.jpg")).getImage());
+    ImageIcon eproyectos = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/proyectos1.jpg")).getImage());
+    ImageIcon vacinac = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vactnact1.jpg")).getImage()); //vactinact1
+    ImageIcon vanio = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vainicio1.jpg")).getImage());
+    ImageIcon vedad = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vedad1.jpg")).getImage());
+    ImageIcon vexbnexb = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vexbnexb1.jpg")).getImage());
+    ImageIcon vgenero = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vgenero1.jpg")).getImage());
+    ImageIcon vinfog = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vinfog1.jpg")).getImage());
+    ImageIcon vocupacion = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vocupacion1.jpg")).getImage());
+    ImageIcon vprograma = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vprograma1.jpg")).getImage());
+    ImageIcon vpromo = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/busquedas/vpromocion1.jpg")).getImage());
+    String id = "";
     /**
      * Creates new form busquedasjf en SBDAjede
      */
     private BusquedasVoluntarios busquedas;
-    private Boolean activo=true;
+    private Boolean activo = true;
+
     public busquedasjf() {
         busquedas = new BusquedasVoluntarios();
         initComponents();
@@ -60,13 +62,13 @@ String id = "";
         cmbapromocion.setModel(busquedas.getPromocion());
         cmbprograma.setModel(busquedas.getPrograma());
         transparencia();
-        tablebvproyecto.setModel(busquedas.EditarProyecto(tablebvproyecto));
-        tablebvnombre.setModel(busquedas.BNombre("", tablebvnombre, "",true));
+        JTEditarProyecto.setModel(busquedas.EditarProyecto(JTEditarProyecto));
+        tablebvnombre.setModel(busquedas.BNombre("", tablebvnombre, "", true));
         tablebbvproyecto.setModel(busquedas.BProyecto(tablebbvproyecto, lblIdProyecto.getText()));
         tablebvgeneral.setModel(busquedas.BNombreApellido("", tablebvgeneral, ""));
         tablebvgenero.setModel(busquedas.BGenero(tablebvgenero, "M"));
-        tablebvedad.setModel(busquedas.BEdad(tablebvedad, (Integer)cmbedad.getSelectedItem()));
-        tablebvanioi.setModel(busquedas.BAnioInicio(tablebvanioi, (Integer)cmbanio.getSelectedItem()));
+        tablebvedad.setModel(busquedas.BEdad(tablebvedad, (Integer) cmbedad.getSelectedItem()));
+        tablebvanioi.setModel(busquedas.BAnioInicio(tablebvanioi, (Integer) cmbanio.getSelectedItem()));
         tablebvpromo.setModel(busquedas.BPromocion(tablebvpromo, ""));
         tablebvprograma.setModel(busquedas.BPrograma(tablebvprograma, ""));
         tablebvexbecarios.setModel(busquedas.BExbecario("", tablebvexbecarios, "", true));
@@ -148,9 +150,9 @@ String id = "";
         }
 
     }
-    public void transparencia()
-    {
-        cmbbusoed.setBackground(new Color(0,0,0,0));
+
+    public void transparencia() {
+        cmbbusoed.setBackground(new Color(0, 0, 0, 0));
         btnbevoluntariado.setOpaque(false);
         btnbevoluntariado.setContentAreaFilled(false);
         btnbevoluntariado.setBorderPainted(false);
@@ -190,28 +192,28 @@ String id = "";
         btnrmenua.setOpaque(false);
         btnrmenua.setContentAreaFilled(false);
         btnrmenua.setBorderPainted(false);
-        txtbvnombre.setBackground(new Color(0,0,0,0));
-        txtApellido.setBackground(new Color(0,0,0,0));
-        cmbactivo.setBackground(new Color(0,0,0,0));
-        txtbapellidosg.setBackground(new Color(0,0,0,0));
-        txtbnombreg.setBackground(new Color(0,0,0,0));
-        txtnvexbnexb.setBackground(new Color(0,0,0,0));
-        cmbexbnexb.setBackground(new Color(0,0,0,0));
-        cmbgenero.setBackground(new Color(0,0,0,0));
-        cmbedad.setBackground(new Color(0,0,0,0));
-        cmbanio.setBackground(new Color(0,0,0,0));
-        cmbprograma.setBackground(new Color(0,0,0,0));
-        cmbapromocion.setBackground(new Color(0,0,0,0));
-        cmbocupacion.setBackground(new Color(0,0,0,0));
-        txtproyecto.setBackground(new Color(0,0,0,0));
-        txtbmiembros.setBackground(new Color(0,0,0,0));
-        txtbproyecto.setBackground(new Color(0,0,0,0));
-        txtbvoluntarios.setBackground(new Color(0,0,0,0));
-        txtemiembros.setBackground(new Color(0,0,0,0));
-        txteproyecto.setBackground(new Color(0,0,0,0));
-        txtevoluntarios.setBackground(new Color(0,0,0,0));
-        txtADescripcion.setBackground(new Color(0,0,0,0));
-        txtNombreProyecto.setBackground(new Color(0,0,0,0));
+        txtbvnombre.setBackground(new Color(0, 0, 0, 0));
+        txtApellido.setBackground(new Color(0, 0, 0, 0));
+        cmbactivo.setBackground(new Color(0, 0, 0, 0));
+        txtbapellidosg.setBackground(new Color(0, 0, 0, 0));
+        txtbnombreg.setBackground(new Color(0, 0, 0, 0));
+        txtnvexbnexb.setBackground(new Color(0, 0, 0, 0));
+        cmbexbnexb.setBackground(new Color(0, 0, 0, 0));
+        cmbgenero.setBackground(new Color(0, 0, 0, 0));
+        cmbedad.setBackground(new Color(0, 0, 0, 0));
+        cmbanio.setBackground(new Color(0, 0, 0, 0));
+        cmbprograma.setBackground(new Color(0, 0, 0, 0));
+        cmbapromocion.setBackground(new Color(0, 0, 0, 0));
+        cmbocupacion.setBackground(new Color(0, 0, 0, 0));
+        txtproyecto.setBackground(new Color(0, 0, 0, 0));
+        txtbmiembros.setBackground(new Color(0, 0, 0, 0));
+        txtbproyecto.setBackground(new Color(0, 0, 0, 0));
+        txtbvoluntarios.setBackground(new Color(0, 0, 0, 0));
+        txtemiembros.setBackground(new Color(0, 0, 0, 0));
+        txteproyecto.setBackground(new Color(0, 0, 0, 0));
+        txtevoluntarios.setBackground(new Color(0, 0, 0, 0));
+        txtADescripcion.setBackground(new Color(0, 0, 0, 0));
+        txtNombreProyecto.setBackground(new Color(0, 0, 0, 0));
         btnevoluntariadog.setOpaque(false);
         btnevoluntariadog.setContentAreaFilled(false);
         btnevoluntariadog.setBorderPainted(false);
@@ -242,18 +244,18 @@ String id = "";
         btnguardarcambiosdp.setOpaque(false);
         btnguardarcambiosdp.setContentAreaFilled(false);
         btnguardarcambiosdp.setBorderPainted(false);
-        textfieldnombres.setBackground(new Color(0,0,0,0));
-        textfieldapellidos.setBackground(new Color(0,0,0,0));
-        cmbgenero1.setBackground(new Color(0,0,0,0));
-        textfieldedad.setBackground(new Color(0,0,0,0));
-        textfielddpi.setBackground(new Color(0,0,0,0));
-        textfieldresidencia.setBackground(new Color(0,0,0,0));
-        textfieldcorreo.setBackground(new Color(0,0,0,0));
-        textfieldperfil.setBackground(new Color(0,0,0,0));
-        cmbtalla.setBackground(new Color(0,0,0,0));
-        cmbactivoina.setBackground(new Color(0,0,0,0));
-        txtADescripcion.setBackground(new Color(0,0,0,0));
-        cmbbproyectos.setBackground(new Color(0,0,0,0));
+        textfieldnombres.setBackground(new Color(0, 0, 0, 0));
+        textfieldapellidos.setBackground(new Color(0, 0, 0, 0));
+        cmbgenero1.setBackground(new Color(0, 0, 0, 0));
+        textfieldedad.setBackground(new Color(0, 0, 0, 0));
+        textfielddpi.setBackground(new Color(0, 0, 0, 0));
+        textfieldresidencia.setBackground(new Color(0, 0, 0, 0));
+        textfieldcorreo.setBackground(new Color(0, 0, 0, 0));
+        textfieldperfil.setBackground(new Color(0, 0, 0, 0));
+        cmbtalla.setBackground(new Color(0, 0, 0, 0));
+        cmbactivoina.setBackground(new Color(0, 0, 0, 0));
+        txtADescripcion.setBackground(new Color(0, 0, 0, 0));
+        cmbbproyectos.setBackground(new Color(0, 0, 0, 0));
     }
 
     /**
@@ -349,9 +351,9 @@ String id = "";
         tablebvocupacion = new rojerusan.RSTableMetro();
         lbvocupacion = new javax.swing.JLabel();
         jpbproyecto = new javax.swing.JPanel();
-        scrollproy = new javax.swing.JScrollPane();
-        tablebvproyecto = new rojerusan.RSTableMetro();
         txtproyecto = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        JTEditarProyecto = new rojerusan.RSTableMetro();
         lbbproyectos = new javax.swing.JLabel();
         jpbvoluntariado = new javax.swing.JPanel();
         txtbmiembros = new javax.swing.JTextField();
@@ -1411,27 +1413,21 @@ String id = "";
         jpbproyecto.setName("jpbproyecto"); // NOI18N
         jpbproyecto.setLayout(null);
 
-        tablebvproyecto = new rojerusan.RSTableMetro(){
+        txtproyecto.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
+        txtproyecto.setBorder(null);
+        jpbproyecto.add(txtproyecto);
+        txtproyecto.setBounds(310, 200, 320, 30);
+        JTEditarProyecto = new rojerusan.RSTableMetro(){
             public boolean isCellEditable(int rowIndex, int ColIndex){
                 return false;
             }
         };
-        tablebvproyecto.setModel(new javax.swing.table.DefaultTableModel(
+        JTEditarProyecto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "No.", "Nombre", "Descripción", "Finalizado"
+                "No", "Nombre", "Descripción", "Finalizado"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -1442,49 +1438,11 @@ String id = "";
                 return canEdit [columnIndex];
             }
         });
-        tablebvproyecto.setColorBackgoundHead(new java.awt.Color(22, 54, 77));
-        tablebvproyecto.setColorBordeFilas(new java.awt.Color(255, 255, 255));
-        tablebvproyecto.setColorBordeHead(new java.awt.Color(255, 255, 255));
-        tablebvproyecto.setColorFilasBackgound1(new java.awt.Color(163, 214, 249));
-        tablebvproyecto.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
-        tablebvproyecto.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
-        tablebvproyecto.setColorFilasForeground2(new java.awt.Color(0, 0, 0));
-        tablebvproyecto.setColorSelBackgound(new java.awt.Color(22, 54, 77));
-        tablebvproyecto.setComponentPopupMenu(jPopupMenu1);
-        tablebvproyecto.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
-        tablebvproyecto.setFuenteFilas(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
-        tablebvproyecto.setFuenteFilasSelect(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
-        tablebvproyecto.setFuenteHead(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
-        tablebvproyecto.setRowHeight(22);
-        tablebvproyecto.getTableHeader().setReorderingAllowed(false);
-        tablebvproyecto.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablebvproyectoMouseClicked(evt);
-            }
-        });
-        scrollproy.setViewportView(tablebvproyecto);
-        if (tablebvproyecto.getColumnModel().getColumnCount() > 0) {
-            tablebvproyecto.getColumnModel().getColumn(0).setMinWidth(20);
-            tablebvproyecto.getColumnModel().getColumn(0).setPreferredWidth(80);
-            tablebvproyecto.getColumnModel().getColumn(0).setMaxWidth(80);
-            tablebvproyecto.getColumnModel().getColumn(1).setMinWidth(100);
-            tablebvproyecto.getColumnModel().getColumn(1).setPreferredWidth(300);
-            tablebvproyecto.getColumnModel().getColumn(1).setMaxWidth(300);
-            tablebvproyecto.getColumnModel().getColumn(2).setMinWidth(350);
-            tablebvproyecto.getColumnModel().getColumn(2).setPreferredWidth(400);
-            tablebvproyecto.getColumnModel().getColumn(2).setMaxWidth(400);
-            tablebvproyecto.getColumnModel().getColumn(3).setMinWidth(100);
-            tablebvproyecto.getColumnModel().getColumn(3).setPreferredWidth(200);
-            tablebvproyecto.getColumnModel().getColumn(3).setMaxWidth(200);
-        }
+        JTEditarProyecto.setComponentPopupMenu(jPopupMenu1);
+        jScrollPane2.setViewportView(JTEditarProyecto);
 
-        jpbproyecto.add(scrollproy);
-        scrollproy.setBounds(110, 260, 980, 380);
-
-        txtproyecto.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
-        txtproyecto.setBorder(null);
-        jpbproyecto.add(txtproyecto);
-        txtproyecto.setBounds(310, 200, 320, 30);
+        jpbproyecto.add(jScrollPane2);
+        jScrollPane2.setBounds(100, 250, 1050, 390);
 
         lbbproyectos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/busquedas/proyectos2.jpg"))); // NOI18N
         jpbproyecto.add(lbbproyectos);
@@ -1890,7 +1848,7 @@ String id = "";
         cmbgenero1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino" }));
         cmbgenero1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jpedp.add(cmbgenero1);
-        cmbgenero1.setBounds(390, 290, 190, 38);
+        cmbgenero1.setBounds(390, 290, 190, 42);
 
         textfieldedad.setBackground(new java.awt.Color(178, 248, 248));
         textfieldedad.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
@@ -1940,7 +1898,7 @@ String id = "";
         cmbtalla.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "xs", "s", "m", "l" }));
         cmbtalla.setBorder(null);
         jpedp.add(cmbtalla);
-        cmbtalla.setBounds(870, 235, 60, 36);
+        cmbtalla.setBounds(870, 235, 60, 42);
 
         btnmenube.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/generales/Home_70px.png"))); // NOI18N
         btnmenube.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1982,12 +1940,6 @@ String id = "";
 
         jpbbproyecto.setName("jpbbproyecto"); // NOI18N
         jpbbproyecto.setLayout(null);
-
-        tablebvproyecto = new rojerusan.RSTableMetro(){
-            public boolean isCellEditable(int rowIndex, int ColIndex){
-                return false;
-            }
-        };
         tablebbvproyecto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -2144,74 +2096,64 @@ String id = "";
         rSPanelsSlider1.setPanelSlider(jpmenua, RSPanelsSlider.DIRECT.RIGHT);
     }//GEN-LAST:event_btnrmenuaActionPerformed
 
-    private void colocarProyectos()
-    {
-    try {
-        Connection con = null;
-        Conexion conexion = new Conexion();
-        con = conexion.getConnection();
-        
-        Statement st = con.createStatement();
-        ResultSet rs = st.executeQuery("SELECT * FROM proyecto");
-        while(rs.next())
-        {
-            this.cmbbproyectos.addItem(rs.getString("nombreProyecto"));
+    private void colocarProyectos() {
+        try {
+            Connection con = null;
+            Conexion conexion = new Conexion();
+            con = conexion.getConnection();
+
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM proyecto");
+            while (rs.next()) {
+                this.cmbbproyectos.addItem(rs.getString("nombreProyecto"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(busquedasjf.class.getName()).log(Level.SEVERE, null, ex);
         }
-    } catch (SQLException ex) {
-        Logger.getLogger(busquedasjf.class.getName()).log(Level.SEVERE, null, ex);
-    }
     }
     private void txtbvnombreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbvnombreKeyPressed
-        String act=(String)cmbactivo.getSelectedItem();
-        if(act.equals("Activo"))
-            activo=true;
-        else
-            activo=false;
-            
-        tablebvnombre.setModel(busquedas.BNombre(txtbvnombre.getText(), tablebvnombre, txtApellido.getText(),activo));
+        String act = (String) cmbactivo.getSelectedItem();
+        if (act.equals("Activo")) {
+            activo = true;
+        } else {
+            activo = false;
+        }
+
+        tablebvnombre.setModel(busquedas.BNombre(txtbvnombre.getText(), tablebvnombre, txtApellido.getText(), activo));
     }//GEN-LAST:event_txtbvnombreKeyPressed
 
     private void txtApellidoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoKeyPressed
-        String act=(String)cmbactivo.getSelectedItem();
+        String act = (String) cmbactivo.getSelectedItem();
         activo = act.equals("Activo");
-        tablebvnombre.setModel(busquedas.BNombre(txtbvnombre.getText(), tablebvnombre, txtApellido.getText(),activo));
+        tablebvnombre.setModel(busquedas.BNombre(txtbvnombre.getText(), tablebvnombre, txtApellido.getText(), activo));
     }//GEN-LAST:event_txtApellidoKeyPressed
 
     private void cmbactivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbactivoActionPerformed
-        String act=(String)cmbactivo.getSelectedItem();
+        String act = (String) cmbactivo.getSelectedItem();
         activo = act.equals("Activo");
-        tablebvnombre.setModel(busquedas.BNombre(txtbvnombre.getText(), tablebvnombre, txtApellido.getText(),activo));
+        tablebvnombre.setModel(busquedas.BNombre(txtbvnombre.getText(), tablebvnombre, txtApellido.getText(), activo));
     }//GEN-LAST:event_cmbactivoActionPerformed
 
     private void btnbevoluntariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbevoluntariosMouseClicked
-        if(cmbbusoed.getSelectedItem().equals("Buscar") )
-        {
-                 rSPanelsSlider1.setPanelSlider(jpmenua, RSPanelsSlider.DIRECT.DOWN);
-        }
-        else if(cmbbusoed.getSelectedItem().equals("Editar"))
-        {
-                 rSPanelsSlider1.setPanelSlider(jpgeneral, RSPanelsSlider.DIRECT.RIGHT);
+        if (cmbbusoed.getSelectedItem().equals("Buscar")) {
+            rSPanelsSlider1.setPanelSlider(jpmenua, RSPanelsSlider.DIRECT.DOWN);
+        } else if (cmbbusoed.getSelectedItem().equals("Editar")) {
+            rSPanelsSlider1.setPanelSlider(jpgeneral, RSPanelsSlider.DIRECT.RIGHT);
         }
     }//GEN-LAST:event_btnbevoluntariosMouseClicked
 
     private void btnbeproyectoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbeproyectoMouseClicked
-        if(cmbbusoed.getSelectedItem().equals("Buscar") )
-        {
+        if (cmbbusoed.getSelectedItem().equals("Buscar")) {
             rSPanelsSlider1.setPanelSlider(jpbbproyecto, RSPanelsSlider.DIRECT.DOWN);
-        }
-        else if(cmbbusoed.getSelectedItem().equals("Editar"))
-        {
+        } else if (cmbbusoed.getSelectedItem().equals("Editar")) {
             rSPanelsSlider1.setPanelSlider(jpbproyecto, RSPanelsSlider.DIRECT.DOWN);
         }
     }//GEN-LAST:event_btnbeproyectoMouseClicked
 
     private void btnbevoluntariadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbevoluntariadoMouseClicked
-        if(cmbbusoed.getSelectedItem().equals("Buscar") )
-        {
+        if (cmbbusoed.getSelectedItem().equals("Buscar")) {
             rSPanelsSlider1.setPanelSlider(jpbvoluntariado, RSPanelsSlider.DIRECT.DOWN);
-        }
-        else if(cmbbusoed.getSelectedItem().equals("Editar"))
-        {
+        } else if (cmbbusoed.getSelectedItem().equals("Editar")) {
             rSPanelsSlider1.setPanelSlider(jpevoluntariado, RSPanelsSlider.DIRECT.DOWN);
         }
     }//GEN-LAST:event_btnbevoluntariadoMouseClicked
@@ -2236,101 +2178,90 @@ String id = "";
 
     private void cmbgeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbgeneroActionPerformed
         // TODO add your handling code here:
-        if(this.cmbgenero.getSelectedItem().equals("Masculino"))
+        if (this.cmbgenero.getSelectedItem().equals("Masculino")) {
             tablebvgenero.setModel(busquedas.BGenero(tablebvgenero, "M"));
-        else
+        } else {
             tablebvgenero.setModel(busquedas.BGenero(tablebvgenero, "F"));
-            
-        
+        }
+
+
     }//GEN-LAST:event_cmbgeneroActionPerformed
 
     private void cmbedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbedadActionPerformed
-        if((this.cmbedad.getSelectedItem().equals("Todas las edades")))
-        {
+        if ((this.cmbedad.getSelectedItem().equals("Todas las edades"))) {
             tablebvedad.setModel(busquedas.BEdad(tablebvedad, -1));
-        }
-        else
-        {
-            int age = (Integer)this.cmbedad.getSelectedItem();
+        } else {
+            int age = (Integer) this.cmbedad.getSelectedItem();
             tablebvedad.setModel(busquedas.BEdad(tablebvedad, age));
         }
     }//GEN-LAST:event_cmbedadActionPerformed
 
     private void cmbanioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbanioActionPerformed
         // TODO add your handling code here:
-        if((this.cmbanio.getSelectedItem().equals("Todos los años")))
-        {
+        if ((this.cmbanio.getSelectedItem().equals("Todos los años"))) {
             tablebvanioi.setModel(busquedas.BAnioInicio(tablebvanioi, -1));
-        }
-        else
-        {
-            int age = (Integer)this.cmbanio.getSelectedItem();
+        } else {
+            int age = (Integer) this.cmbanio.getSelectedItem();
             tablebvanioi.setModel(busquedas.BAnioInicio(tablebvanioi, age));
         }
     }//GEN-LAST:event_cmbanioActionPerformed
 
     private void cmbocupacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbocupacionActionPerformed
         // TODO add your handling code here:
-        if(this.cmbocupacion.getSelectedItem().equals("Estudia y trabaja"))
+        if (this.cmbocupacion.getSelectedItem().equals("Estudia y trabaja")) {
             tablebvocupacion.setModel(busquedas.BOcupacion(tablebvocupacion, "ET"));
-        else if(this.cmbocupacion.getSelectedItem().equals("Estudia"))
+        } else if (this.cmbocupacion.getSelectedItem().equals("Estudia")) {
             tablebvocupacion.setModel(busquedas.BOcupacion(tablebvocupacion, "E"));
-        else
-        {
+        } else {
             tablebvocupacion.setModel(busquedas.BOcupacion(tablebvocupacion, "M"));
         }
-        
+
     }//GEN-LAST:event_cmbocupacionActionPerformed
 
     private void cmbapromocionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbapromocionActionPerformed
         // TODO add your handling code here:
-        if((this.cmbapromocion.getSelectedItem().equals("Todos los años")))
-        {
+        if ((this.cmbapromocion.getSelectedItem().equals("Todos los años"))) {
             tablebvpromo.setModel(busquedas.BPromocion(tablebvpromo, "0"));
-        }
-        else
-        {
-            String age = (String)this.cmbapromocion.getSelectedItem();
+        } else {
+            String age = (String) this.cmbapromocion.getSelectedItem();
             tablebvpromo.setModel(busquedas.BPromocion(tablebvpromo, age));
         }
     }//GEN-LAST:event_cmbapromocionActionPerformed
 
     private void cmbprogramaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbprogramaActionPerformed
         // TODO add your handling code here:
-        if(this.cmbprograma.getSelectedItem().equals("Todos los programas"))
-        {
+        if (this.cmbprograma.getSelectedItem().equals("Todos los programas")) {
             tablebvprograma.setModel(busquedas.BPrograma(tablebvprograma, "Todos los programas"));
-        }
-        else
-        {
-            tablebvprograma.setModel(busquedas.BPrograma(tablebvprograma, (String)cmbprograma.getSelectedItem()));
+        } else {
+            tablebvprograma.setModel(busquedas.BPrograma(tablebvprograma, (String) cmbprograma.getSelectedItem()));
         }
     }//GEN-LAST:event_cmbprogramaActionPerformed
 
     private void cmbexbnexbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbexbnexbActionPerformed
         // TODO add your handling code here:
-        if(this.cmbexbnexb.getSelectedItem().equals("Exbecario"))
-        {
+        if (this.cmbexbnexb.getSelectedItem().equals("Exbecario")) {
             tablebvexbecarios.setModel(busquedas.BExbecario(txtnvexbnexb.getText(), tablebvexbecarios, txtavexbnexb.getText(), true));
-        }
-        else
+        } else {
             tablebvexbecarios.setModel(busquedas.BExbecario(txtnvexbnexb.getText(), tablebvexbecarios, txtavexbnexb.getText(), false));
+        }
     }//GEN-LAST:event_cmbexbnexbActionPerformed
 
     private void txtnvexbnexbKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnvexbnexbKeyPressed
         // TODO add your handling code here:
-        if(this.cmbexbnexb.getSelectedItem().equals("Exbecario"))
+        if (this.cmbexbnexb.getSelectedItem().equals("Exbecario")) {
             tablebvexbecarios.setModel(busquedas.BExbecario(txtnvexbnexb.getText(), tablebvexbecarios, txtavexbnexb.getText(), true));
-        else
+        } else {
             tablebvexbecarios.setModel(busquedas.BExbecario(txtnvexbnexb.getText(), tablebvexbecarios, txtavexbnexb.getText(), false));
+        }
     }//GEN-LAST:event_txtnvexbnexbKeyPressed
 
     private void txtavexbnexbKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtavexbnexbKeyPressed
         // TODO add your handling code here:
-        if(this.cmbexbnexb.getSelectedItem().equals("Exbecario"))
+        if (this.cmbexbnexb.getSelectedItem().equals("Exbecario")) {
             tablebvexbecarios.setModel(busquedas.BExbecario(txtnvexbnexb.getText(), tablebvexbecarios, txtavexbnexb.getText(), true));
-        else
+        } else {
             tablebvexbecarios.setModel(busquedas.BExbecario(txtnvexbnexb.getText(), tablebvexbecarios, txtavexbnexb.getText(), false));
+        }
     }//GEN-LAST:event_txtavexbnexbKeyPressed
 
     private void textfieldnombresKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textfieldnombresKeyTyped
@@ -2367,10 +2298,9 @@ String id = "";
             return null;
         }
     }
-    
-    private void actualizarAsociado(String idAsociado)
-    {
-    try {
+
+    private void actualizarAsociado(String idAsociado) {
+        try {
             int id = Integer.parseInt(idAsociado);
             Connection con = null;
             Conexion conexion;
@@ -2380,41 +2310,41 @@ String id = "";
                     + "Residencia=?, Nombre=?, Apellido=?,Activo=?, PerfilFacebook=? WHERE id LIKE '%" + id + "%'";
             PreparedStatement st = con.prepareStatement(sql);
             st.setString(1, textfielddpi.getText());
-            String genero = (String)cmbgenero1.getSelectedItem();
-            if(genero.equals("Masculino"))
+            String genero = (String) cmbgenero1.getSelectedItem();
+            if (genero.equals("Masculino")) {
                 st.setBoolean(2, true);
-            else
+            } else {
                 st.setBoolean(2, false);
+            }
             st.setString(3, textfieldcorreo.getText());
             st.setString(4, getFecha(fechas));
-            st.setString(5, (String)cmbtalla.getSelectedItem());
+            st.setString(5, (String) cmbtalla.getSelectedItem());
             st.setString(6, textfieldresidencia.getText());
             st.setString(7, textfieldnombres.getText());
             st.setString(8, textfieldapellidos.getText());
-            String activo = (String)cmbactivoina.getSelectedItem();
-            if(activo.equals("Activo"))
+            String activo = (String) cmbactivoina.getSelectedItem();
+            if (activo.equals("Activo")) {
                 st.setBoolean(9, true);
-            else
+            } else {
                 st.setBoolean(9, false);
-            
+            }
+
             st.setString(10, textfieldperfil.getText());
             int res = st.executeUpdate();
-            if(res > 0)
-            {
+            if (res > 0) {
                 JOptionPane.showMessageDialog(null, "Información actualizada correctamente");
                 limpiarCajas();
-            }   
-            else
+            } else {
                 JOptionPane.showMessageDialog(null, "Error al actualizar información");
-            
+            }
+
             tablebvgeneral.setModel(busquedas.BNombreApellido("", tablebvgeneral, ""));
-    } catch (SQLException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(busquedasjf.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    private void limpiarCajas()
-    {
+
+    private void limpiarCajas() {
         textfielddpi.setText("");
         cmbgenero1.setSelectedItem("");
         textfieldcorreo.setText("");
@@ -2426,9 +2356,9 @@ String id = "";
         textfieldperfil.setText("");
         btnguardarcambiosdp.setEnabled(false);
     }
-    private void buscarAsociado(String idAsociado)
-    {
-    try {
+
+    private void buscarAsociado(String idAsociado) {
+        try {
             int id = Integer.parseInt(idAsociado);
             Connection con = null;
             Conexion conexion;
@@ -2439,8 +2369,7 @@ String id = "";
                     + ">DATE_FORMAT(FechaNacimiento, '%m-%d'),0,-1) AS EDAD FROM asociado WHERE id LIKE '%" + id + "%'";
             PreparedStatement st = con.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
-            if(rs.next())
-            {
+            if (rs.next()) {
                 textfieldnombres.setText(rs.getString("Nombre"));
                 textfieldapellidos.setText(rs.getString("Apellido"));
                 textfieldedad.setText(rs.getString("EDAD"));
@@ -2454,18 +2383,22 @@ String id = "";
                 System.out.println(activo);
                 boolean genero = rs.getBoolean("Genero");
                 System.out.println(genero);
-                if(genero)
+                if (genero) {
                     cmbgenero1.setSelectedItem("Masculino");
-                if(!genero)
+                }
+                if (!genero) {
                     cmbgenero1.setSelectedItem("Femenino");
-                if(activo)
+                }
+                if (activo) {
                     cmbactivoina.setSelectedItem("Activo");
-                if(!activo)
+                }
+                if (!activo) {
                     cmbactivoina.setSelectedItem("No Activo");
+                }
             }
-    } catch (SQLException ex) {
-        Logger.getLogger(busquedasjf.class.getName()).log(Level.SEVERE, null, ex);
-    }
+        } catch (SQLException ex) {
+            Logger.getLogger(busquedasjf.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
@@ -2475,12 +2408,12 @@ String id = "";
 
     private void tablebvgeneralKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tablebvgeneralKeyPressed
 
-        
+
     }//GEN-LAST:event_tablebvgeneralKeyPressed
 
     private void tablebvgeneralMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablebvgeneralMouseClicked
         int fila = tablebvgeneral.getSelectedRow();
-        String id = (String)tablebvgeneral.getValueAt(fila, 0);
+        String id = (String) tablebvgeneral.getValueAt(fila, 0);
         setId(id);
     }//GEN-LAST:event_tablebvgeneralMouseClicked
 
@@ -2489,39 +2422,33 @@ String id = "";
     }//GEN-LAST:event_tablebbvproyectoMouseClicked
 
     private void cmbbproyectosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbbproyectosActionPerformed
-    try {
-        // TODO add your handling code here:
-        Connection con = null;
-        Conexion conexion;
-        conexion = new Conexion();
-        con = conexion.getConnection();
-        
-        String sql = "SELECT * FROM proyecto WHERE nombreProyecto LIKE '" + this.cmbbproyectos.getSelectedItem() + "'";
-        Statement st = con.createStatement();
-        ResultSet rs = st.executeQuery(sql);
-        rs.next();
-        this.lblIdProyecto.setText(String.valueOf(rs.getInt("id")));
-        tablebbvproyecto.setModel(busquedas.BProyecto(tablebbvproyecto, lblIdProyecto.getText()));
-    } catch (SQLException ex) {
-        Logger.getLogger(busquedasjf.class.getName()).log(Level.SEVERE, null, ex);
-    }
-    
+        try {
+            // TODO add your handling code here:
+            Connection con = null;
+            Conexion conexion;
+            conexion = new Conexion();
+            con = conexion.getConnection();
+
+            String sql = "SELECT * FROM proyecto WHERE nombreProyecto LIKE '" + this.cmbbproyectos.getSelectedItem() + "'";
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            rs.next();
+            this.lblIdProyecto.setText(String.valueOf(rs.getInt("id")));
+            tablebbvproyecto.setModel(busquedas.BProyecto(tablebbvproyecto, lblIdProyecto.getText()));
+        } catch (SQLException ex) {
+            Logger.getLogger(busquedasjf.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_cmbbproyectosActionPerformed
 
-    private void tablebvproyectoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablebvproyectoMouseClicked
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tablebvproyectoMouseClicked
-
-    private void setId(String id_proyecto)
-    {
+    private void setId(String id_proyecto) {
         id = id_proyecto;
     }
-    private String obtenerId()
-    {
+
+    private String obtenerId() {
         return id;
-    }   
-    
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -2559,6 +2486,7 @@ String id = "";
 
     private final SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private rojerusan.RSTableMetro JTEditarProyecto;
     private javax.swing.JButton btnbeproyecto;
     private javax.swing.JButton btnbevoluntariado;
     private javax.swing.JButton btnbevoluntarios;
@@ -2607,6 +2535,7 @@ String id = "";
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel jpbbproyecto;
     private javax.swing.JPanel jpbproyecto;
     private javax.swing.JPanel jpbvoluntariado;
@@ -2656,7 +2585,6 @@ String id = "";
     private javax.swing.JScrollPane scrollocup;
     private javax.swing.JScrollPane scrollpro;
     private javax.swing.JScrollPane scrollpromo;
-    private javax.swing.JScrollPane scrollproy;
     private javax.swing.JScrollPane scrollveproy;
     private javax.swing.JScrollPane scrollvevol;
     private javax.swing.JScrollPane scrollvmiembros;
@@ -2672,7 +2600,6 @@ String id = "";
     private rojerusan.RSTableMetro tablebvocupacion;
     private rojerusan.RSTableMetro tablebvprograma;
     private rojerusan.RSTableMetro tablebvpromo;
-    private rojerusan.RSTableMetro tablebvproyecto;
     private rojerusan.RSTableMetro tablevemiembros;
     private rojerusan.RSTableMetro tableveproy;
     private rojerusan.RSTableMetro tablevevol;
