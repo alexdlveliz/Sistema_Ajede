@@ -21,7 +21,7 @@ import javax.swing.DefaultComboBoxModel;
 public class Usuario {
 
     private Connection con = null;
-    private Conexion conexion;
+    private final Conexion conexion;
 
     public Usuario() {
         conexion = new Conexion();
@@ -46,7 +46,7 @@ public class Usuario {
              * id y recibimos el nombre,
              */
             int id = 0;
-            String sql = "select id from puestos where puesto= '" + Puesto + "'";
+            String sql = "select id from puestos where puesto = '" + Puesto + "'";
             Statement St = con.createStatement();
             ResultSet Rs = St.executeQuery(sql);
             while (Rs.next()) {
@@ -59,7 +59,7 @@ public class Usuario {
              * a tomar
              *
              */
-            sql = "Insert into usuario(nombreusuario, password, nombre, apellido,puestos_id)"
+            sql = "Insert into usuario(nombreusuario, contrasenia, nombre, apellido,puestos_id)"
                     + "Values(?,?,?,?,?)";
             PreparedStatement Pst = con.prepareStatement(sql);
             Pst.setString(1, email);
@@ -173,14 +173,13 @@ public class Usuario {
 
     public boolean AgregarMas(String contrasenia, String usuario) {
         try {
-            String sql = "SELECT password FROM usuario where nombreusuario='" + usuario + "'";
+            String sql = "SELECT contrasenia FROM usuario where nombreusuario='" + usuario + "'";
             Statement St = con.createStatement();
             ResultSet Rs = St.executeQuery(sql);
             String pass = "";
             while (Rs.next()) {
-                pass = Rs.getString("password");
+                pass = Rs.getString("contrasenia");
             }
-
             return pass.equals(contrasenia);
         } catch (SQLException ex) {
             Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);

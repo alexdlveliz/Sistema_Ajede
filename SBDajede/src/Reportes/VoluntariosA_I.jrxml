@@ -152,7 +152,7 @@ ORDER BY
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Apellido}]]></textFieldExpression>
 			</textField>
-			<textField isStretchWithOverflow="true">
+			<textField isStretchWithOverflow="true" pattern="dd MMMMM yyyy">
 				<reportElement uuid="10281525-80a6-4b8a-970f-50d155dffdf2" x="598" y="0" width="154" height="20"/>
 				<textElement>
 					<font size="14"/>

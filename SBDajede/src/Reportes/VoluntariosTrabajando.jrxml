@@ -76,21 +76,21 @@ ORDER BY Apellido;]]>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement uuid="1e0693d7-cba9-40e4-a48a-10d2d143d714" x="187" y="1" width="91" height="20"/>
-				<textElement>
+				<textElement textAlignment="Center">
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[($F{Activo})?"Activo" : "Inactivo"]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement uuid="7104fba8-9332-4a86-9484-9a2d9f764068" x="441" y="1" width="131" height="20"/>
-				<textElement>
+				<textElement textAlignment="Center">
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[($F{Genero})?"Masculino":"Femenino"]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement uuid="535230b7-0d8f-4ba7-85e7-01e9d84ad2c7" x="316" y="1" width="70" height="20"/>
-				<textElement>
+				<textElement textAlignment="Center">
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Edad}]]></textFieldExpression>

@@ -19,7 +19,7 @@ ORDER BY
 	<field name="Nombre" class="java.lang.String"/>
 	<field name="Apellido" class="java.lang.String"/>
 	<field name="NivelEstudio" class="java.lang.String"/>
-	<field name="FechaNacimiento" class="java.lang.String"/>
+	<field name="FechaNacimiento" class="java.util.Date"/>
 	<variable name="Conteo" class="java.lang.Integer" resetType="Group" resetGroup="NivelEstudio" calculation="Count">
 		<variableExpression><![CDATA[$F{Nombre}]]></variableExpression>
 	</variable>
@@ -28,15 +28,15 @@ ORDER BY
 		<groupHeader>
 			<band height="33">
 				<staticText>
-					<reportElement uuid="d4761524-5dda-492f-a88e-4ffae5ce7250" mode="Opaque" x="0" y="0" width="100" height="32" forecolor="#666666" backcolor="#E6E6E6"/>
+					<reportElement uuid="d4761524-5dda-492f-a88e-4ffae5ce7250" mode="Opaque" x="0" y="0" width="174" height="32" forecolor="#666666" backcolor="#E6E6E6"/>
 					<textElement>
-						<font size="12"/>
+						<font size="22" isBold="true"/>
 					</textElement>
 					<text><![CDATA[Nivel de estudio]]></text>
 				</staticText>
 				<textField>
-					<reportElement uuid="9fe60a1a-37e9-4fcd-ba16-089901a111eb" mode="Opaque" x="100" y="0" width="472" height="32" forecolor="#006699" backcolor="#E6E6E6"/>
-					<textElement textAlignment="Center">
+					<reportElement uuid="9fe60a1a-37e9-4fcd-ba16-089901a111eb" mode="Opaque" x="174" y="0" width="398" height="32" forecolor="#006699" backcolor="#E6E6E6"/>
+					<textElement textAlignment="Justified">
 						<font size="24" isBold="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{NivelEstudio}]]></textFieldExpression>
@@ -156,7 +156,7 @@ ORDER BY
 				</textElement>
 				<textFieldExpression><![CDATA[(($F{Genero}.equals(new Integer(0))) ? "Femenino" : "Masculino")]]></textFieldExpression>
 			</textField>
-			<textField isStretchWithOverflow="true">
+			<textField isStretchWithOverflow="true" pattern="dd MMMMM yyyy">
 				<reportElement uuid="7a8dca3c-ae86-48bd-88fd-2456ea11c6f4" x="424" y="0" width="148" height="20"/>
 				<textElement>
 					<font size="14"/>

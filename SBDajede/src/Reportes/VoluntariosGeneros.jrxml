@@ -158,7 +158,7 @@ ORDER BY
 				</textElement>
 				<textFieldExpression><![CDATA[$F{NivelEstudio}]]></textFieldExpression>
 			</textField>
-			<textField isStretchWithOverflow="true">
+			<textField isStretchWithOverflow="true" pattern="dd MMMMM yyyy">
 				<reportElement uuid="d11f2f31-2e8d-465f-804d-cf9f63d3b9e5" x="418" y="0" width="154" height="20"/>
 				<textElement>
 					<font size="14"/>

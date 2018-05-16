@@ -267,7 +267,7 @@ public class inicio_login extends javax.swing.JFrame {
         int respuesta = JOptionPane.showConfirmDialog(null, Contrasenia, "Ingrese contraseña del \"Administrador\"", JOptionPane.DEFAULT_OPTION);
         if (respuesta == 0) {
             String Pass = Contrasenia.getText();
-            if (us.AgregarMas(DigestUtils.md5Hex(Pass), "Administrador")) {
+            if (us.AgregarMas(DigestUtils.md5Hex(Pass), "Admin")) {
                 Registrarjf registrar = new Registrarjf();
                 registrar.setVisible(true);
                 this.dispose();
