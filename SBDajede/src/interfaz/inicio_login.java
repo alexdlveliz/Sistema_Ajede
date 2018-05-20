@@ -35,7 +35,7 @@ public class inicio_login extends javax.swing.JFrame {
     Font fuente = new Font("Yu Gothic UI Light", Font.BOLD, 25);
     Font fuente2 = new Font("Yu Gothic UI Light", Font.BOLD, 15);
     ImageIcon iniciotam1 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/iniciointerfaz.jpg")).getImage());
-    ImageIcon logintam1 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/login.jpg")).getImage());
+    ImageIcon logintam1 = new ImageIcon(new ImageIcon(getClass().getResource("/fondos/Login1.jpg")).getImage());
 
     public inicio_login() {
         initComponents();
@@ -52,18 +52,19 @@ public class inicio_login extends javax.swing.JFrame {
             rSPanelsSlider1.setSize(1568, 880);
             jpinicio.setSize(1568, 880);
             jplogin.setSize(1568, 880);
-            lbinicio.setSize(1568, 880);
+            lbinicio.setSize(1568, 950);
             lblogin.setSize(1568, 880);
             lbinicio.setIcon(iniciotam1);
             lblogin.setIcon(logintam1);
             btnsiguiente.setLocation(1400, 700);
-            btnadmin.setLocation(190, 560);
-            btncomite.setLocation(430, 560);
-            btningresar.setLocation(850, 550);
-            btnfpassword.setLocation(1470, 635);
-            PSTcontrasenia.setLocation(950, 436);
+            btnadmin.setLocation(170, 530);
+            btncomite.setLocation(425, 530);
+            btningresar.setLocation(800, 530);
+            btnfpassword.setLocation(1400, 635);
+            btneditaru.setLocation(1400, 520);
+            PSTcontrasenia.setLocation(910, 423);
             PSTcontrasenia.setFont(fuente);
-            CMBUsuarios.setLocation(980, 335);
+            CMBUsuarios.setLocation(860, 320);
             CMBUsuarios.setFont(fuente);
         }
         this.setLocationRelativeTo(null);
@@ -95,6 +96,9 @@ public class inicio_login extends javax.swing.JFrame {
         btnfpassword.setOpaque(false);
         btnfpassword.setContentAreaFilled(false);
         btnfpassword.setBorderPainted(false);
+        btneditaru.setOpaque(false);
+        btneditaru.setContentAreaFilled(false);
+        btneditaru.setBorderPainted(false);
     }
 
     /**
@@ -120,6 +124,7 @@ public class inicio_login extends javax.swing.JFrame {
         btningresar = new javax.swing.JButton();
         btncomite = new javax.swing.JButton();
         btnfpassword = new javax.swing.JButton();
+        btneditaru = new javax.swing.JButton();
         lblogin = new javax.swing.JLabel();
 
         Contrasenia.setText("rSPasswordTextPlaceHolder1");
@@ -148,7 +153,7 @@ public class inicio_login extends javax.swing.JFrame {
             }
         });
         jpinicio.add(btnsiguiente);
-        btnsiguiente.setBounds(1050, 530, 98, 82);
+        btnsiguiente.setBounds(1050, 530, 103, 79);
 
         lbinicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/iniciotam2.jpg"))); // NOI18N
         lbinicio.setText("jLabel1");
@@ -200,7 +205,7 @@ public class inicio_login extends javax.swing.JFrame {
             }
         });
         jplogin.add(btningresar);
-        btningresar.setBounds(630, 380, 98, 110);
+        btningresar.setBounds(630, 380, 103, 110);
 
         btncomite.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/login/icons8_User_Groups_70px.png"))); // NOI18N
         btncomite.setMaximumSize(new java.awt.Dimension(130, 130));
@@ -220,9 +225,14 @@ public class inicio_login extends javax.swing.JFrame {
             }
         });
         jplogin.add(btnfpassword);
-        btnfpassword.setBounds(1090, 480, 120, 110);
+        btnfpassword.setBounds(1110, 490, 100, 90);
 
-        lblogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/logintam2.jpg"))); // NOI18N
+        btneditaru.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/login/Edit_User_70px.png"))); // NOI18N
+        btneditaru.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/login/Edit_User_100px.png"))); // NOI18N
+        jplogin.add(btneditaru);
+        btneditaru.setBounds(1110, 390, 100, 90);
+
+        lblogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/Login2.jpg"))); // NOI18N
         lblogin.setText("jLabel1");
         jplogin.add(lblogin);
         lblogin.setBounds(0, 0, 1250, 700);
@@ -251,7 +261,7 @@ public class inicio_login extends javax.swing.JFrame {
     }//GEN-LAST:event_btnsiguienteMouseClicked
 
     private void btningresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btningresarMouseClicked
-        InicioSecion();
+        InicioSesion();
         
     }//GEN-LAST:event_btningresarMouseClicked
 
@@ -259,7 +269,7 @@ public class inicio_login extends javax.swing.JFrame {
         // TODO add your handling code here:
         char c = evt.getKeyChar();
         if (c == 10) {
-            InicioSecion();
+            InicioSesion();
         }
     }//GEN-LAST:event_PSTcontraseniaKeyPressed
 
@@ -319,7 +329,7 @@ public class inicio_login extends javax.swing.JFrame {
     /**
      * metodo que verifica la si la contraseña del usurio es la misma en la BD.
      */
-    private void InicioSecion() {
+    private void InicioSesion() {
         String usuario = (String) CMBUsuarios.getSelectedItem();
         if (us.verificarSesion(DigestUtils.md5Hex(PSTcontrasenia.getText()), usuario)) {
             this.dispose();
@@ -390,6 +400,7 @@ public class inicio_login extends javax.swing.JFrame {
     private javax.swing.JPasswordField PSTcontrasenia;
     private javax.swing.JButton btnadmin;
     private javax.swing.JButton btncomite;
+    private javax.swing.JButton btneditaru;
     private javax.swing.JButton btnfpassword;
     private javax.swing.JButton btningresar;
     private javax.swing.JButton btnsiguiente;
