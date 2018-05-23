@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
@@ -187,4 +188,23 @@ public class Usuario {
         return false;
     }
 
+    public ArrayList<Object> datos(int id) {
+        try {
+            ArrayList<Object> info = new ArrayList<>();
+            String sql = "SELECT * FROM usuario where id=" + id;
+            Statement St = con.createStatement();
+            ResultSet Rs = St.executeQuery(sql);
+            while (Rs.next()) {
+                info.add(Rs.getString("Nombre"));
+                info.add(Rs.getString("Apellido"));
+                info.add(Rs.getString("nombreusuario"));
+                info.add(Rs.getString("contrasenia"));
+                info.add(Rs.getString("puesto_id"));
+            }
+            return info;
+        } catch (SQLException ex) {
+            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 }

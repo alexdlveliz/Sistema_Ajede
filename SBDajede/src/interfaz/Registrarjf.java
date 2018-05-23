@@ -8,6 +8,7 @@ package interfaz;
 import Clases.Usuario;
 import com.sun.awt.AWTUtilities;
 import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import org.apache.commons.codec.digest.DigestUtils;
 
@@ -22,6 +23,12 @@ public class Registrarjf extends javax.swing.JFrame {
      */
     private Usuario us;
 
+    public void setInfo(int id) {
+        ArrayList<Object> datos;
+        lblInfo.setText("Actualizar");
+        
+    }
+    
     public Registrarjf() {
         us = new Usuario();//instancio la clase usuario
         initComponents();
@@ -65,6 +72,7 @@ public class Registrarjf extends javax.swing.JFrame {
         nrobot = new javax.swing.JCheckBox();
         btnregistrar = new javax.swing.JButton();
         cmbPuesto = new javax.swing.JComboBox<>();
+        lblInfo = new javax.swing.JLabel();
         registrarimg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -146,6 +154,13 @@ public class Registrarjf extends javax.swing.JFrame {
         cmbPuesto.setForeground(new java.awt.Color(153, 153, 153));
         cmbPuesto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         getContentPane().add(cmbPuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 485, 390, 40));
+
+        lblInfo.setBackground(new java.awt.Color(255, 255, 255));
+        lblInfo.setFont(new java.awt.Font("Yu Gothic UI Light", 3, 18)); // NOI18N
+        lblInfo.setForeground(new java.awt.Color(0, 0, 0));
+        lblInfo.setText("Registrar");
+        lblInfo.setOpaque(true);
+        getContentPane().add(lblInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 620, 130, 30));
 
         registrarimg.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         registrarimg.setForeground(new java.awt.Color(102, 102, 102));
@@ -239,11 +254,7 @@ public class Registrarjf extends javax.swing.JFrame {
         Si la cantidad de arrobas ingresadas es 1 y no hay letras mayúsculas ingresadas, la función devolverá
         true y el usuario será ingresado correctamente. De lo contrario el usuario no será ingresado.
          */
-        if ((arroba) && !mayuscula) {
-            return true;
-        } else {
-            return false;
-        }
+        return (arroba) && !mayuscula;
     }
 
     private void btnregistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistrarActionPerformed
@@ -292,6 +303,7 @@ public class Registrarjf extends javax.swing.JFrame {
     private javax.swing.JPasswordField TPFcontrasenia;
     private javax.swing.JButton btnregistrar;
     private javax.swing.JComboBox<String> cmbPuesto;
+    private javax.swing.JLabel lblInfo;
     private javax.swing.JCheckBox nrobot;
     private javax.swing.JLabel registrarimg;
     private javax.swing.JTextField txtApellido;

@@ -314,7 +314,7 @@ public class inicio_login extends javax.swing.JFrame {
     private void btnfpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfpasswordActionPerformed
         int respuesta = JOptionPane.showConfirmDialog(null, cmbRestablecer, "Ingrese contraseña del \"Administrador\"", JOptionPane.DEFAULT_OPTION);
         if (respuesta == 0) {
-            if (cmbRestablecer.getSelectedItem().equals("Administrador")) {
+            if (cmbRestablecer.getSelectedItem().equals("Admin")) {
                 new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al intentar Acceder\nNo cuenta con suficiente autorización",
                         5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
                         RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
@@ -336,7 +336,7 @@ public class inicio_login extends javax.swing.JFrame {
         //Editar los atributos del usuario
         int respuesta = JOptionPane.showConfirmDialog(null, cmbRestablecer, "Ingrese el usuario", JOptionPane.DEFAULT_OPTION);
         if (respuesta == 0) {
-            if (cmbRestablecer.getSelectedItem().equals("Administrador")) {
+            if (cmbRestablecer.getSelectedItem().equals("Admin")) {
                 new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al intentar Acceder\nNo cuenta con suficiente autorización",
                         5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
                         RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
@@ -344,7 +344,7 @@ public class inicio_login extends javax.swing.JFrame {
                 int usuario = cmbRestablecer.getSelectedIndex() + 1;
                 Registrarjf r = new Registrarjf();
                 r.setVisible(true);
-                
+                r.setInfo(usuario);
             }
         }
     }//GEN-LAST:event_btneditaruMouseClicked
