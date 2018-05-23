@@ -62,30 +62,6 @@ public class Asociado {
             String telefonoE, String relacion, String nombreEmer, String apellidoEmer, String telefonoEmer)
     {
         try {
-            int idNivEst = 0;
-            String sql = "select id from nivelestudio where NivelEstudio= '" + nivEstA + "'";
-            Statement St = con.createStatement();
-            ResultSet Rs = St.executeQuery(sql);
-            while (Rs.next()) {
-                idNivEst = Rs.getInt("id");
-            }
-            int idTipoSan = 0;
-            sql = "select id from tipodesangre where tipoSangre= '" + tipoSangreA + "'";
-            St = con.createStatement();
-            Rs = St.executeQuery(sql);
-            while (Rs.next()) {
-                idTipoSan = Rs.getInt("id");
-            }
-            
-            int idNivEstEnc = 0;
-            sql = "SELECT id FROM nivelestudio where NivelEstudio= '" + nivEstE + "'";
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-            while(rs.next())
-            {
-                idNivEstEnc = rs.getInt("id");
-            }
-            
             //Este es el procedimiento almacenado
             CallableStatement procedimiento = con.prepareCall("{call InsertarAsociado(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
             procedimiento.setString(1, dpiA);
@@ -98,8 +74,8 @@ public class Asociado {
             procedimiento.setString(8, apellidoA);
             procedimiento.setBoolean(9, activoA);
             procedimiento.setString(10, PerfilFBA);
-            procedimiento.setInt(11, idTipoSan);
-            procedimiento.setInt(12, idNivEst);
+            procedimiento.setString(11, tipoSangreA);
+            procedimiento.setString(12, nivEstA);
             procedimiento.setString(13, telefonoA);
             procedimiento.setBoolean(14, estudiaA);
             procedimiento.setString(15, lugarEstudioA);
@@ -113,7 +89,7 @@ public class Asociado {
             procedimiento.setString(23, nombreE);
             procedimiento.setString(24, apellidoE);
             procedimiento.setString(25, residenciaE);
-            procedimiento.setInt(26, idNivEstEnc);
+            procedimiento.setString(26, nivEstE);
             procedimiento.setBoolean(27, false);
             procedimiento.setBoolean(28, trabajaE);
             procedimiento.setString(29, lugartrabajoE);
