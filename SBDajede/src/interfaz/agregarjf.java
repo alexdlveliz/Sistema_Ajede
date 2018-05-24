@@ -519,6 +519,7 @@ public class agregarjf extends javax.swing.JFrame {
         btnsiguienteinfomed = new javax.swing.JButton();
         cmbexbecario = new javax.swing.JComboBox<>();
         cmbactivosina = new javax.swing.JComboBox<>();
+        cmbprograma = new javax.swing.JComboBox<>();
         scrollp1 = new javax.swing.JScrollPane();
         tableproyecto1 = new rojerusan.RSTableMetro();
         fdesercion = new rojeru_san.componentes.RSYearDate();
@@ -1248,6 +1249,12 @@ public class agregarjf extends javax.swing.JFrame {
         jpbeca.add(cmbactivosina);
         cmbactivosina.setBounds(320, 450, 250, 40);
 
+        cmbprograma.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
+        cmbprograma.setForeground(new java.awt.Color(25, 92, 134));
+        cmbprograma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jpbeca.add(cmbprograma);
+        cmbprograma.setBounds(820, 490, 230, 40);
+
         tableproyecto1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
@@ -1740,6 +1747,7 @@ public class agregarjf extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbgenero;
     private javax.swing.JComboBox<String> cmbnivelestudioencargado;
     private javax.swing.JComboBox<String> cmbnivelestudiovoluntario;
+    private javax.swing.JComboBox<String> cmbprograma;
     private javax.swing.JComboBox<String> cmbtalla;
     private javax.swing.JComboBox<String> cmbtipodesangre;
     private rojeru_san.componentes.RSYearDate fdesercion;

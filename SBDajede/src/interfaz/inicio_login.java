@@ -229,6 +229,11 @@ public class inicio_login extends javax.swing.JFrame {
 
         btneditaru.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/login/Edit_User_70px.png"))); // NOI18N
         btneditaru.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/login/Edit_User_100px.png"))); // NOI18N
+        btneditaru.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btneditaruMouseClicked(evt);
+            }
+        });
         jplogin.add(btneditaru);
         btneditaru.setBounds(1110, 390, 100, 90);
 
@@ -326,6 +331,23 @@ public class inicio_login extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnfpasswordActionPerformed
+
+    private void btneditaruMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btneditaruMouseClicked
+        //Editar los atributos del usuario
+        int respuesta = JOptionPane.showConfirmDialog(null, cmbRestablecer, "Ingrese el usuario", JOptionPane.DEFAULT_OPTION);
+        if (respuesta == 0) {
+            if (cmbRestablecer.getSelectedItem().equals("Administrador")) {
+                new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al intentar Acceder\nNo cuenta con suficiente autorización",
+                        5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                        RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+            } else {
+                int usuario = cmbRestablecer.getSelectedIndex() + 1;
+                Registrarjf r = new Registrarjf();
+                r.setVisible(true);
+                
+            }
+        }
+    }//GEN-LAST:event_btneditaruMouseClicked
     /**
      * metodo que verifica la si la contraseña del usurio es la misma en la BD.
      */
