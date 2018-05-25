@@ -39,20 +39,8 @@ public class Usuario {
      * @param email
      * @return
      */
-    public boolean insertar(String nombre, String apellido, String contrasenia, String Puesto, String email) {
+    public boolean insertar(String nombre, String apellido, String contrasenia, int Puesto, String email) {
         try {
-            /**
-             * Antes de insertar al usuario se hace una consulta a la tabla
-             * puestos, ya que lo que guardaremos en la tabla usuario solo es el
-             * id y recibimos el nombre,
-             */
-            int id = 0;
-            String sql = "select id from puestos where puesto = '" + Puesto + "'";
-            Statement St = con.createStatement();
-            ResultSet Rs = St.executeQuery(sql);
-            while (Rs.next()) {
-                id = Rs.getInt("id");
-            }
             /**
              * Al ya obtener el id del puesto se hace la siguente sentencia sql
              * para insertar al usuario se debe tomar en cuenta que los valores
@@ -60,14 +48,14 @@ public class Usuario {
              * a tomar
              *
              */
-            sql = "Insert into usuario(nombreusuario, contrasenia, nombre, apellido,puestos_id)"
+            String sql = "Insert into usuario(nombreusuario, contrasenia, nombre, apellido,puestos_id)"
                     + "Values(?,?,?,?,?)";
             PreparedStatement Pst = con.prepareStatement(sql);
             Pst.setString(1, email);
             Pst.setString(2, contrasenia);
             Pst.setString(3, nombre);
             Pst.setString(4, apellido);
-            Pst.setInt(5, id);
+            Pst.setInt(5, Puesto);
             int n = Pst.executeUpdate();
             return n != 0;
         } catch (SQLException ex) {
@@ -206,15 +194,17 @@ public class Usuario {
         }
         return null;
     }
-    public boolean Update(ArrayList<Object> lista) {
+
+    public boolean Update(String nombre, String apellido, String contrasenia, int Puesto, String email,int id) {
         try {
-            String sql = "Update usuario Set contrasenia = ?, nombre = ?, apellido = ?, nombreusuario = ?, puestos_id = ? where id = " + lista.get(3);
+            String sql = "Update usuario Set nombreusuario = ?, contrasenia = ?, nombre = ?, apellido = ?, puestos_id = ? where id = ?";
             PreparedStatement Pst = con.prepareStatement(sql);
-            Pst.setString(1, (String) lista.get(0));
-            Pst.setString(2, (String) lista.get(1));
-            Pst.setString(3, (String) lista.get(2));
-            Pst.setString(4, (String) lista.get(3));
-            Pst.setString(5, (String) lista.get(5));
+            Pst.setString(1, email);
+            Pst.setString(2, contrasenia);
+            Pst.setString(3, nombre);
+            Pst.setString(4, apellido);
+            Pst.setInt(5, Puesto);
+            Pst.setInt(6, id);
             int n = Pst.executeUpdate();
             return n != 0;
         } catch (SQLException ex) {

@@ -129,7 +129,7 @@ public class inicio_login extends javax.swing.JFrame {
 
         Contrasenia.setText("rSPasswordTextPlaceHolder1");
 
-        cmbRestablecer.setMaximumRowCount(4);
+        cmbRestablecer.setMaximumRowCount(3);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1250, 700));
@@ -153,7 +153,7 @@ public class inicio_login extends javax.swing.JFrame {
             }
         });
         jpinicio.add(btnsiguiente);
-        btnsiguiente.setBounds(1050, 530, 103, 79);
+        btnsiguiente.setBounds(1050, 530, 98, 82);
 
         lbinicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/iniciotam2.jpg"))); // NOI18N
         lbinicio.setText("jLabel1");
@@ -168,6 +168,7 @@ public class inicio_login extends javax.swing.JFrame {
         CMBUsuarios.setBackground(new java.awt.Color(0, 102, 153));
         CMBUsuarios.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
         CMBUsuarios.setForeground(new java.awt.Color(255, 255, 255));
+        CMBUsuarios.setMaximumRowCount(4);
         CMBUsuarios.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ejemplo@gmail.com", "ejemplo2@hotmail.com", "ejemplo3@outlook.com", "ejemplo4@yahoo.com" }));
         CMBUsuarios.setBorder(null);
         jplogin.add(CMBUsuarios);
@@ -205,7 +206,7 @@ public class inicio_login extends javax.swing.JFrame {
             }
         });
         jplogin.add(btningresar);
-        btningresar.setBounds(630, 380, 103, 110);
+        btningresar.setBounds(630, 380, 98, 110);
 
         btncomite.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/login/icons8_User_Groups_70px.png"))); // NOI18N
         btncomite.setMaximumSize(new java.awt.Dimension(130, 130));
@@ -267,7 +268,7 @@ public class inicio_login extends javax.swing.JFrame {
 
     private void btningresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btningresarMouseClicked
         InicioSesion();
-        
+
     }//GEN-LAST:event_btningresarMouseClicked
 
     private void PSTcontraseniaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PSTcontraseniaKeyPressed
@@ -326,7 +327,7 @@ public class inicio_login extends javax.swing.JFrame {
                             5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
                             RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
                 } else {
-                    JOptionPane.showMessageDialog(null, "Su nueva contraseña es:\n" + ContraseniaNueva + "", "Restablecer Constraseña", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Su nueva contraseña es:\n" + ContraseniaNueva + "\nFavor de apuntarlo.", "Restablecer Constraseña", JOptionPane.INFORMATION_MESSAGE);
                 }
             }
         }
@@ -336,15 +337,28 @@ public class inicio_login extends javax.swing.JFrame {
         //Editar los atributos del usuario
         int respuesta = JOptionPane.showConfirmDialog(null, cmbRestablecer, "Ingrese el usuario", JOptionPane.DEFAULT_OPTION);
         if (respuesta == 0) {
-            if (cmbRestablecer.getSelectedItem().equals("Admin")) {
-                new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al intentar Acceder\nNo cuenta con suficiente autorización",
-                        5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
-                        RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
-            } else {
-                int usuario = cmbRestablecer.getSelectedIndex() + 1;
-                Registrarjf r = new Registrarjf();
-                r.setVisible(true);
-                r.setInfo(usuario);
+            respuesta = JOptionPane.showConfirmDialog(null, Contrasenia, "Ingrese la contraseña del usuario: " + cmbRestablecer.getSelectedItem(), JOptionPane.DEFAULT_OPTION);
+            if (respuesta == 0) {
+                String usuario = (String) cmbRestablecer.getSelectedItem();
+                String Pass = Contrasenia.getText();
+                if (cmbRestablecer.getSelectedItem().equals("Admin")) {
+                    new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al intentar Acceder\nNo cuenta con suficiente autorización",
+                            5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                            RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+                } else {
+                    if (us.verificarSesion(DigestUtils.md5Hex(Pass), usuario)) {
+                        int usuario1 = cmbRestablecer.getSelectedIndex() + 1;
+                        this.dispose();
+                        Registrarjf r = new Registrarjf();
+                        r.setVisible(true);
+                        r.setInfo(usuario1);
+                    } else {
+                        new rojerusan.RSNotifyAnimated("¡ERROR!", "Error al intentar Acceder\nLa contraseña del usuario no coincide",
+                                5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                                RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+                    }
+                }
+
             }
         }
     }//GEN-LAST:event_btneditaruMouseClicked

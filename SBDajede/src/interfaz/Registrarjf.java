@@ -21,24 +21,29 @@ public class Registrarjf extends javax.swing.JFrame {
     /**
      * Creates new form registrar
      */
-    private Usuario us;
+    private final Usuario us;
+    private int idUs;
 
     public void setInfo(int id) {
+        this.idUs = id;
         ArrayList<Object> datos;
         lblInfo.setText("Actualizar");
-        datos=us.datos(id);
-        txtNombre.setText(""+datos.get(0));
-        txtApellido.setText(""+datos.get(1));
-        txtUsuario.setText(""+datos.get(2));
-        cmbPuesto.setSelectedIndex((int) datos.get(3)-1);
+        datos = us.datos(id);
+        txtNombre.setText("" + datos.get(0));
+        txtApellido.setText("" + datos.get(1));
+        txtUsuario.setText("" + datos.get(2));
+        TPFcontrasenia.setText("");
+        TPFConfcontrasenia.setText("");
+        cmbPuesto.setSelectedIndex((int) datos.get(3) - 2);
     }
-    
+
     public Registrarjf() {
         us = new Usuario();//instancio la clase usuario
+        idUs = 0;
         initComponents();
         AWTUtilities.setWindowOpaque(this, false);//fondo del jframe
         cmbPuesto.setModel(us.puestos()); // le doy todos los puestos que hay en la Base de datos al combo box
-        cmbPuesto.setBackground(new Color(0,0,0,0));//transparencia del combox
+        cmbPuesto.setBackground(new Color(0, 0, 0, 0));//transparencia del combox
         this.setLocationRelativeTo(null);//centralizacion del jframe
         transparencia();//funcion para quitar el fondo de los botones
     }
@@ -270,8 +275,7 @@ public class Registrarjf extends javax.swing.JFrame {
             String nombre = txtNombre.getText();
             String apellido = txtApellido.getText();
             String email = txtUsuario.getText();
-            String puesto = (String) cmbPuesto.getSelectedItem();
-            System.out.println(cmbPuesto.getSelectedIndex()+1);
+            int puesto = cmbPuesto.getSelectedIndex() + 2;
             String contrasenia = TPFcontrasenia.getText();
             String confirmContrasenia = TPFConfcontrasenia.getText();
             //otra condicion para verifica el email(usuario) para ingresar a la BD
@@ -280,10 +284,19 @@ public class Registrarjf extends javax.swing.JFrame {
                 //no se confunda en una letra y así estar mas seguro de su contraseña
                 if (contrasenia.equals(confirmContrasenia)) {
                     //otra condicion que sirve para verificar si lo inserto correctamente
-                    if (us.insertar(nombre, apellido, encriptar(contrasenia), puesto, email)) {
-                        JOptionPane.showMessageDialog(null, "INGRESO REALIZADO CORRECTAMENTE", "Informe", JOptionPane.INFORMATION_MESSAGE);
+                    String texto = lblInfo.getText();
+                    if (texto.equals("Registrar")) {
+                        if (us.insertar(nombre, apellido, encriptar(contrasenia), puesto, email)) {
+                            JOptionPane.showMessageDialog(null, "INGRESO REALIZADO CORRECTAMENTE", "Informe", JOptionPane.INFORMATION_MESSAGE);
+                        } else {
+                            JOptionPane.showMessageDialog(null, "ERROR AL INGRESAR EL USUARIO", "Error", JOptionPane.WARNING_MESSAGE);
+                        }
                     } else {
-                        JOptionPane.showMessageDialog(null, "ERROR AL INGRESAR EL USUARIO", "Error", JOptionPane.WARNING_MESSAGE);
+                        if (us.Update(nombre, apellido, encriptar(contrasenia), puesto, email, idUs)) {
+                            JOptionPane.showMessageDialog(null, "ACTUALIZACIÓN REALIZADO CORRECTAMENTE", "Informe", JOptionPane.INFORMATION_MESSAGE);
+                        } else {
+                            JOptionPane.showMessageDialog(null, "ERROR AL ACTUALIZAR EL USUARIO", "Error", JOptionPane.WARNING_MESSAGE);
+                        }
                     }
                     this.dispose();
                     inicio_login log = new inicio_login();
