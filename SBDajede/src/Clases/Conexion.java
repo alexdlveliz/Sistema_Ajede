@@ -38,7 +38,6 @@ public class Conexion
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
     }
     public Connection getConnection()
     {
