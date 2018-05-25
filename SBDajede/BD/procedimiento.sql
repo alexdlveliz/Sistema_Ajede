@@ -3,7 +3,7 @@ DROP PROCEDURE IF EXISTS InsertarAsociado //
 CREATE PROCEDURE InsertarAsociado(vDPI VARCHAR(15), vGenero BOOLEAN, vEmail VARCHAR(30), vFechaNacimiento DATE, vTallaPlayera VARCHAR(2),
 	vResidencia VARCHAR(45), vNombre VARCHAR(35), vApellido VARCHAR(35), vActivo BOOLEAN, vFacebook VARCHAR(25), vTipoSangre VARCHAR(10),
     vNivelEstudio VARCHAR(15), vTelefono VARCHAR(12), vEstudia BOOLEAN, vlugarEstudio VARCHAR(100), vTrabaja BOOLEAN, vlugarTrabajo VARCHAR(100),
-    vHospital VARCHAR(30), vEnfermedad VARCHAR(30), vAlergia VARCHAR(45), vDPIEnc VARCHAR(15), vEmailEnc VARCHAR(30), vNombreEnc VARCHAR(30), 
+    vHospital VARCHAR(30), vEnfermedad VARCHAR(60), vAlergia VARCHAR(60), vDPIEnc VARCHAR(15), vEmailEnc VARCHAR(30), vNombreEnc VARCHAR(30), 
     vApellidoEnc VARCHAR(30), vResidenciaEnc VARCHAR(45), vNivelEstudioEnc VARCHAR(15), vEstudiaEnc BOOLEAN, vTrabajaEnc BOOLEAN, 
     vlugarTrabajoEnc VARCHAR(100), vTelefonoEnc VARCHAR(12), vRelacion VARCHAR(20), vNombreEmer VARCHAR(30), vApellidoEmer VARCHAR(30), 
     vTelefonoEmerg VARCHAR(12))

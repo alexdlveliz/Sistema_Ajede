@@ -1928,7 +1928,7 @@ public class busquedasjf extends javax.swing.JFrame {
         cmbtalla.setBackground(new java.awt.Color(178, 248, 248));
         cmbtalla.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         cmbtalla.setForeground(new java.awt.Color(25, 92, 134));
-        cmbtalla.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "xs", "s", "m", "l" }));
+        cmbtalla.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "XS", "S", "M", "L", "XL" }));
         cmbtalla.setBorder(null);
         jpedp.add(cmbtalla);
         cmbtalla.setBounds(870, 235, 60, 36);
@@ -2481,11 +2481,10 @@ public class busquedasjf extends javax.swing.JFrame {
                 textfieldresidencia.setText(rs.getString("Residencia"));
                 textfieldcorreo.setText(rs.getString("CorreoElectronico"));
                 textfieldperfil.setText(rs.getString("PerfilFacebook"));
-                cmbtalla.setSelectedItem(rs.getString("TallaPlayera"));
+                String talla = rs.getString("TallaPlayera");
+                cmbtalla.setSelectedItem(talla.toUpperCase());
                 boolean activo = rs.getBoolean("Activo");
-                System.out.println(activo);
                 boolean genero = rs.getBoolean("Genero");
-                System.out.println(genero);
                 if (genero) {
                     cmbgenero1.setSelectedItem("Masculino");
                 }

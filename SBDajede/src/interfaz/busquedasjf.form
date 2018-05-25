@@ -3274,11 +3274,12 @@
                       <Color blue="86" green="5c" red="19" type="rgb"/>
                     </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="4">
-                        <StringItem index="0" value="xs"/>
-                        <StringItem index="1" value="s"/>
-                        <StringItem index="2" value="m"/>
-                        <StringItem index="3" value="l"/>
+                      <StringArray count="5">
+                        <StringItem index="0" value="XS"/>
+                        <StringItem index="1" value="S"/>
+                        <StringItem index="2" value="M"/>
+                        <StringItem index="3" value="L"/>
+                        <StringItem index="4" value="XL"/>
                       </StringArray>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">

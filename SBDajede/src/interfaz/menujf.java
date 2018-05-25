@@ -496,11 +496,21 @@ public class menujf extends javax.swing.JFrame {
 
         txtnombreproyecto.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         txtnombreproyecto.setText("Ejemplo");
+        txtnombreproyecto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtnombreproyectoKeyTyped(evt);
+            }
+        });
         jpagregarproyecto.add(txtnombreproyecto);
         txtnombreproyecto.setBounds(80, 245, 710, 40);
 
         txtdescripcionp.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
         txtdescripcionp.setText("El objetivo del proyecto es.....");
+        txtdescripcionp.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtdescripcionpKeyTyped(evt);
+            }
+        });
         jpagregarproyecto.add(txtdescripcionp);
         txtdescripcionp.setBounds(80, 380, 710, 260);
 
@@ -1342,6 +1352,28 @@ public class menujf extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnrporanioActionPerformed
+
+    private void txtnombreproyectoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnombreproyectoKeyTyped
+        int longitud = 45;
+        if(txtnombreproyecto.getText().length()>=longitud)
+        {
+            evt.consume();
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo Nombre del Proyecto lleno",
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+        }
+    }//GEN-LAST:event_txtnombreproyectoKeyTyped
+
+    private void txtdescripcionpKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtdescripcionpKeyTyped
+        int longitud = 200;
+        if(txtdescripcionp.getText().length()>=longitud)
+        {
+            evt.consume();
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo Descripción lleno",
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+        }
+    }//GEN-LAST:event_txtdescripcionpKeyTyped
 
     private void CapturaTecla(KeyEvent e) {
         char c = e.getKeyChar();

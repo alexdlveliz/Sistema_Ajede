@@ -649,18 +649,33 @@ public class agregarjf extends javax.swing.JFrame {
         textfieldresidencia.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         textfieldresidencia.setForeground(new java.awt.Color(25, 92, 134));
         textfieldresidencia.setBorder(null);
+        textfieldresidencia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textfieldresidenciaKeyTyped(evt);
+            }
+        });
         jpdatosp.add(textfieldresidencia);
         textfieldresidencia.setBounds(210, 507, 360, 40);
 
         textfieldcorreo.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 24)); // NOI18N
         textfieldcorreo.setForeground(new java.awt.Color(25, 92, 134));
         textfieldcorreo.setBorder(null);
+        textfieldcorreo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textfieldcorreoKeyTyped(evt);
+            }
+        });
         jpdatosp.add(textfieldcorreo);
         textfieldcorreo.setBounds(200, 577, 370, 40);
 
         textfieldperfil.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 24)); // NOI18N
         textfieldperfil.setForeground(new java.awt.Color(25, 92, 134));
         textfieldperfil.setBorder(null);
+        textfieldperfil.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textfieldperfilKeyTyped(evt);
+            }
+        });
         jpdatosp.add(textfieldperfil);
         textfieldperfil.setBounds(950, 170, 250, 30);
 
@@ -737,6 +752,11 @@ public class agregarjf extends javax.swing.JFrame {
         textfieldhospital.setFont(new java.awt.Font("Yu Gothic Light", 0, 24)); // NOI18N
         textfieldhospital.setForeground(new java.awt.Color(25, 92, 134));
         textfieldhospital.setBorder(null);
+        textfieldhospital.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textfieldhospitalKeyTyped(evt);
+            }
+        });
         jpinfomed.add(textfieldhospital);
         textfieldhospital.setBounds(50, 233, 530, 40);
 
@@ -891,12 +911,22 @@ public class agregarjf extends javax.swing.JFrame {
         textfieldresidenciaencargado.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         textfieldresidenciaencargado.setForeground(new java.awt.Color(25, 92, 134));
         textfieldresidenciaencargado.setBorder(null);
+        textfieldresidenciaencargado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textfieldresidenciaencargadoKeyTyped(evt);
+            }
+        });
         jpdenca.add(textfieldresidenciaencargado);
         textfieldresidenciaencargado.setBounds(200, 520, 380, 40);
 
         textfieldcorreoencargado.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         textfieldcorreoencargado.setForeground(new java.awt.Color(25, 92, 134));
         textfieldcorreoencargado.setBorder(null);
+        textfieldcorreoencargado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textfieldcorreoencargadoKeyTyped(evt);
+            }
+        });
         jpdenca.add(textfieldcorreoencargado);
         textfieldcorreoencargado.setBounds(190, 580, 390, 40);
 
@@ -1354,6 +1384,49 @@ public class agregarjf extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     //Se inserta el asociado y su ocupación
+    private boolean verificarInformacionMedica()
+    {
+        String padecimientos = textfieldpadecimiento1.getText() + " " + textfieldpadecimiento2.getText()
+                + " " + textfieldpadecimiento3.getText() + " " + textfieldpadecimiento4.getText();
+        String alergias = textfieldalergia1.getText() + " " + textfieldalergia2.getText() + " "
+                + textfieldalergia3.getText() + " " + textfieldalergia4.getText() + " " + textfieldalergia5.getText();
+        if(padecimientos.length() > 100)
+        {
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo Padecimientos/Enfermedades demasiado grande",
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+            return false;
+        }
+        else if(alergias.length() > 100)
+        {
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo Alergias demsiado grande ",
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+            return false;
+        }
+        return true;
+    }
+    
+    private boolean verificarDatosLaborales()
+    {
+        String lugarEstudioA = textfieldlugardeestudio.getText() + textfieldlugardeestudio2.getText();
+        String lugarTrabajoA = textfieldlugartrabajo.getText() + textfieldlugartrabajo2.getText();
+        if(lugarEstudioA.length() > 100)
+        {
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo Lugar de Estudio demasiado grande",
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+            return false;
+        }
+        else if(lugarTrabajoA.length() > 100)
+        {
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo Lugar de Trabajo demasiado grande",
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+            return false;
+        }
+        return true;
+    }
     private boolean datosAsociado() {
         //Datos tabla asociado
         boolean estudiaA = false;
@@ -1366,6 +1439,7 @@ public class agregarjf extends javax.swing.JFrame {
         String generoA = (String) cmbgenero.getSelectedItem();
         String fechaA = getFecha(fechas);
         String tallaA = (String) cmbtalla.getSelectedItem();
+        String talla = tallaA.toLowerCase();
         String PerfilFBA = textfieldperfil.getText();
         String telefonoA = textfieldtelefono.getText();
         String emailA = textfieldcorreo.getText();
@@ -1412,7 +1486,7 @@ public class agregarjf extends javax.swing.JFrame {
         String parentesco = textfieldparentescoemergencia.getText();
         String telefonoEmer = textfieldtelefonoemergencia1.getText();
 
-        if(asociado.insertar(DpiA, genero1, emailA, fechaA, tallaA, residenciaA, nombreA, apellidoA, true, PerfilFBA, tipoSangreA, nivEstA,
+        if(asociado.insertar(DpiA, genero1, emailA, fechaA, talla, residenciaA, nombreA, apellidoA, true, PerfilFBA, tipoSangreA, nivEstA,
                 telefonoA, estudiaA, lugarEstudioA, trabajaA, lugarTrabajoA, Hospital, padecimientos, alergias, dpiEnc, emailEncargado, nombreEncargado, 
                 apellidoEncargado, residenciaEncargado, nivelEstudioEnc, false, ocupacionEnc, lugarOcupacionEnc, telefonoEncargado, parentesco, nombreEmer, 
                 apellidoEmer, telefonoEmer))
@@ -1437,7 +1511,8 @@ public class agregarjf extends javax.swing.JFrame {
 
     private void btnsiguientevoluActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsiguientevoluActionPerformed
         //slider.setPanelSlider(jpvoluntariado, RSPanelsSlider.DIRECT.LEFT);
-        slider.setPanelSlider(jpinfomed, RSPanelsSlider.DIRECT.LEFT);
+        if(verificarDatosLaborales())
+            slider.setPanelSlider(jpinfomed, RSPanelsSlider.DIRECT.LEFT);
     }//GEN-LAST:event_btnsiguientevoluActionPerformed
     private void btnminimizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnminimizarActionPerformed
         this.setExtendedState(ICONIFIED);
@@ -1479,13 +1554,24 @@ public class agregarjf extends javax.swing.JFrame {
     }//GEN-LAST:event_btnatrasbecaActionPerformed
 
     private void btnsiguientedencActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsiguientedencActionPerformed
-        slider.setPanelSlider(jpdenca, RSPanelsSlider.DIRECT.LEFT);
+        if(verificarInformacionMedica())
+            slider.setPanelSlider(jpdenca, RSPanelsSlider.DIRECT.LEFT);
     }//GEN-LAST:event_btnsiguientedencActionPerformed
 
     private void textfieldapellidosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textfieldapellidosKeyTyped
-        c = evt.getKeyChar();
-        if ((int) c >= 0 && (int) c <= 64 && (int) c != 32) {
+        int longitud = 35;
+        char letra = evt.getKeyChar();
+        if(textfieldapellidos.getText().length()<longitud)
+        {
+            if((letra < 'a' || letra >'z') && (letra < 'A' || letra >'Z'))
             evt.consume();
+        }
+        else
+        {
+            evt.consume();
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo Apellido lleno",
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
         }
     }//GEN-LAST:event_textfieldapellidosKeyTyped
 
@@ -1497,9 +1583,19 @@ public class agregarjf extends javax.swing.JFrame {
     }//GEN-LAST:event_textfieldedadKeyTyped
 
     private void textfieldnombresKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textfieldnombresKeyTyped
-        c = evt.getKeyChar();
-        if ((int) c >= 0 && (int) c <= 64 && (int) c != 32) {
+        int longitud = 35;
+        char letra = evt.getKeyChar();
+        if(textfieldnombres.getText().length()<longitud)
+        {
+            if((letra < 'a' || letra >'z') && (letra < 'A' || letra >'Z'))
             evt.consume();
+        }
+        else
+        {
+            evt.consume();
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo Nombre lleno",
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
         }
     }//GEN-LAST:event_textfieldnombresKeyTyped
 
@@ -1694,16 +1790,36 @@ public class agregarjf extends javax.swing.JFrame {
     }//GEN-LAST:event_btnsiguienteinfomedMouseClicked
 
     private void textfieldnombreencargadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textfieldnombreencargadoKeyTyped
-        c = evt.getKeyChar();
-        if ((int) c >= 0 && (int) c <= 64 && (int) c != 32) {
+        int longitud = 30;
+        char letra = evt.getKeyChar();
+        if(textfieldnombreencargado.getText().length()<longitud)
+        {
+            if((letra < 'a' || letra >'z') && (letra < 'A' || letra >'Z'))
             evt.consume();
+        }
+        else
+        {
+            evt.consume();
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo Nombres lleno",
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
         }
     }//GEN-LAST:event_textfieldnombreencargadoKeyTyped
 
     private void textfieldapellidoencargadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textfieldapellidoencargadoKeyTyped
-        c = evt.getKeyChar();
-        if ((int) c >= 0 && (int) c <= 64 && (int) c != 32) {
+        int longitud = 30;
+        char letra = evt.getKeyChar();
+        if(textfieldapellidoencargado.getText().length()<longitud)
+        {
+            if((letra < 'a' || letra >'z') && (letra < 'A' || letra >'Z'))
             evt.consume();
+        }
+        else
+        {
+            evt.consume();
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo Apellidos lleno",
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
         }
     }//GEN-LAST:event_textfieldapellidoencargadoKeyTyped
 
@@ -1715,30 +1831,64 @@ public class agregarjf extends javax.swing.JFrame {
     }//GEN-LAST:event_textfieldocupacionencargadoKeyTyped
 
     private void textfieldlugarencargadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textfieldlugarencargadoKeyTyped
-        c = evt.getKeyChar();
-        if ((int) c >= 0 && (int) c <= 64 && (int) c != 32) {
+        int longitud = 100;
+        if(textfieldlugarencargado.getText().length()>=longitud)
+        {
             evt.consume();
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo Lugar de Trabajo/Ocupación lleno",
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
         }
     }//GEN-LAST:event_textfieldlugarencargadoKeyTyped
 
     private void textfieldnombreemergenciaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textfieldnombreemergenciaKeyTyped
-        c = evt.getKeyChar();
-        if ((int) c >= 0 && (int) c <= 64 && (int) c != 32) {
+        int longitud = 30;
+        char letra = evt.getKeyChar();
+        if(textfieldnombreemergencia.getText().length()<longitud)
+        {
+            if((letra < 'a' || letra >'z') && (letra < 'A' || letra >'Z'))
             evt.consume();
+        }
+        else
+        {
+            evt.consume();
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo Nombres lleno",
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
         }
     }//GEN-LAST:event_textfieldnombreemergenciaKeyTyped
 
     private void textfieldapellidoemergenciaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textfieldapellidoemergenciaKeyTyped
-        c = evt.getKeyChar();
-        if ((int) c >= 0 && (int) c <= 64 && (int) c != 32) {
+        int longitud = 30;
+        char letra = evt.getKeyChar();
+        if(textfieldapellidoemergencia.getText().length()<longitud)
+        {
+            if((letra < 'a' || letra >'z') && (letra < 'A' || letra >'Z'))
             evt.consume();
+        }
+        else
+        {
+            evt.consume();
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo Apellidos lleno",
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
         }
     }//GEN-LAST:event_textfieldapellidoemergenciaKeyTyped
 
     private void textfieldparentescoemergenciaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textfieldparentescoemergenciaKeyTyped
-        c = evt.getKeyChar();
-        if ((int) c >= 0 && (int) c <= 64 && (int) c != 32) {
+        int longitud = 20;
+        char letra = evt.getKeyChar();
+        if(textfieldparentescoemergencia.getText().length()<longitud)
+        {
+            if((letra < 'a' || letra >'z') && (letra < 'A' || letra >'Z'))
             evt.consume();
+        }
+        else
+        {
+            evt.consume();
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo Parentesco/Relación lleno",
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
         }
     }//GEN-LAST:event_textfieldparentescoemergenciaKeyTyped
 
@@ -1758,7 +1908,9 @@ public class agregarjf extends javax.swing.JFrame {
         else
         {
             evt.consume();
-            JOptionPane.showMessageDialog(rootPane, "Un teléfono solo contiene 8 números");
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo Teléfono lleno",
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
         }
     }//GEN-LAST:event_textfieldtelefonoKeyTyped
 
@@ -1773,7 +1925,9 @@ public class agregarjf extends javax.swing.JFrame {
         else
         {
             evt.consume();
-            JOptionPane.showMessageDialog(rootPane, "Solo 15 caracteres");
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo DPI lleno",
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
         }
         
     }//GEN-LAST:event_textfielddpiKeyTyped
@@ -1789,7 +1943,9 @@ public class agregarjf extends javax.swing.JFrame {
         else
         {
             evt.consume();
-            JOptionPane.showMessageDialog(rootPane, "Un teléfono solo contiene 8 números");
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo Teléfono lleno",
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
         }
     }//GEN-LAST:event_textfieldtelefonoencargadoKeyTyped
 
@@ -1804,7 +1960,9 @@ public class agregarjf extends javax.swing.JFrame {
         else
         {
             evt.consume();
-            JOptionPane.showMessageDialog(rootPane, "Solo 15 caracteres");
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo DPI lleno",
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
         }
     }//GEN-LAST:event_textfielddpiencargadoKeyTyped
 
@@ -1819,9 +1977,77 @@ public class agregarjf extends javax.swing.JFrame {
         else
         {
             evt.consume();
-            JOptionPane.showMessageDialog(rootPane, "Un teléfono solo contiene 8 números");
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo Teléfono lleno",
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
         }
     }//GEN-LAST:event_textfieldtelefonoemergencia1KeyTyped
+
+    private void textfieldresidenciaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textfieldresidenciaKeyTyped
+        int longitud = 45;
+        if(textfieldresidencia.getText().length()>=longitud)
+        {
+            evt.consume();
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo Residencia lleno",
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+        }
+    }//GEN-LAST:event_textfieldresidenciaKeyTyped
+
+    private void textfieldcorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textfieldcorreoKeyTyped
+        int longitud = 30;
+        if(textfieldcorreo.getText().length()>=longitud)
+        {
+            evt.consume();
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo Correo Electrónico lleno",
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+        }
+    }//GEN-LAST:event_textfieldcorreoKeyTyped
+
+    private void textfieldperfilKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textfieldperfilKeyTyped
+        int longitud = 25;
+        if(textfieldperfil.getText().length()>=longitud)
+        {
+            evt.consume();
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo Perfil de Facebook lleno",
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+        }
+    }//GEN-LAST:event_textfieldperfilKeyTyped
+
+    private void textfieldhospitalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textfieldhospitalKeyTyped
+        int longitud = 30;
+        if(textfieldhospital.getText().length()>=longitud)
+        {
+            evt.consume();
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo Hospital lleno",
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+        }
+    }//GEN-LAST:event_textfieldhospitalKeyTyped
+
+    private void textfieldresidenciaencargadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textfieldresidenciaencargadoKeyTyped
+        int longitud = 45;
+        if(textfieldresidenciaencargado.getText().length()>=longitud)
+        {
+            evt.consume();
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo Residencia lleno",
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+        }
+    }//GEN-LAST:event_textfieldresidenciaencargadoKeyTyped
+
+    private void textfieldcorreoencargadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textfieldcorreoencargadoKeyTyped
+        int longitud = 30;
+        if(textfieldcorreoencargado.getText().length()>=longitud)
+        {
+            evt.consume();
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo Correo Electrónico lleno",
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+        }
+    }//GEN-LAST:event_textfieldcorreoencargadoKeyTyped
 
     /**
      * @param args the command line arguments
