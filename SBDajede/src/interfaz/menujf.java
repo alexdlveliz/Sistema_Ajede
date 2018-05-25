@@ -917,7 +917,7 @@ public class menujf extends javax.swing.JFrame {
     }//GEN-LAST:event_btnagregarvoluntariadoActionPerformed
 
     private void btnminimizarmenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnminimizarmenuActionPerformed
-        // TODO add your handling code here:
+        this.setExtendedState(ICONIFIED);
     }//GEN-LAST:event_btnminimizarmenuActionPerformed
 
     private void btnagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarActionPerformed
