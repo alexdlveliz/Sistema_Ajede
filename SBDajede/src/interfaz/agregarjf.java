@@ -644,7 +644,7 @@ public class agregarjf extends javax.swing.JFrame {
         cmbgenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino" }));
         cmbgenero.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jpdatosp.add(cmbgenero);
-        cmbgenero.setBounds(390, 287, 190, 38);
+        cmbgenero.setBounds(390, 287, 190, 42);
 
         textfieldresidencia.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         textfieldresidencia.setForeground(new java.awt.Color(25, 92, 134));
@@ -670,7 +670,7 @@ public class agregarjf extends javax.swing.JFrame {
         cmbtalla.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "XS", "S", "M", "L", "XL" }));
         cmbtalla.setBorder(null);
         jpdatosp.add(cmbtalla);
-        cmbtalla.setBounds(870, 235, 60, 36);
+        cmbtalla.setBounds(870, 235, 60, 42);
 
         textfieldtelefono.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         textfieldtelefono.setForeground(new java.awt.Color(25, 92, 134));

@@ -112,6 +112,7 @@ public class inicio_login extends javax.swing.JFrame {
 
         Contrasenia = new rojerusan.RSPasswordTextPlaceHolder();
         cmbRestablecer = new rojerusan.RSComboMetro();
+        txtContrasenia = new javax.swing.JTextField();
         panelf = new javax.swing.JPanel();
         rSPanelsSlider1 = new rojerusan.RSPanelsSlider();
         jpinicio = new javax.swing.JPanel();
@@ -130,6 +131,9 @@ public class inicio_login extends javax.swing.JFrame {
         Contrasenia.setText("rSPasswordTextPlaceHolder1");
 
         cmbRestablecer.setMaximumRowCount(3);
+
+        txtContrasenia.setEditable(false);
+        txtContrasenia.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1250, 700));
@@ -327,7 +331,8 @@ public class inicio_login extends javax.swing.JFrame {
                             5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
                             RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
                 } else {
-                    JOptionPane.showMessageDialog(null, "Su nueva contraseña es:\n" + ContraseniaNueva + "\nFavor de apuntarlo.", "Restablecer Constraseña", JOptionPane.INFORMATION_MESSAGE);
+                    txtContrasenia.setText(ContraseniaNueva);
+                    JOptionPane.showMessageDialog(null, txtContrasenia, "Su constraseña nueva es:", JOptionPane.INFORMATION_MESSAGE);
                 }
             }
         }
@@ -447,5 +452,6 @@ public class inicio_login extends javax.swing.JFrame {
     private javax.swing.JLabel lblogin;
     private javax.swing.JPanel panelf;
     private rojerusan.RSPanelsSlider rSPanelsSlider1;
+    private javax.swing.JTextField txtContrasenia;
     // End of variables declaration//GEN-END:variables
 }
