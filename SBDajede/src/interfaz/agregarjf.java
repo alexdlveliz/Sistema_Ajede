@@ -644,7 +644,7 @@ public class agregarjf extends javax.swing.JFrame {
         cmbgenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino" }));
         cmbgenero.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jpdatosp.add(cmbgenero);
-        cmbgenero.setBounds(390, 287, 190, 42);
+        cmbgenero.setBounds(390, 287, 190, 38);
 
         textfieldresidencia.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         textfieldresidencia.setForeground(new java.awt.Color(25, 92, 134));
@@ -670,17 +670,29 @@ public class agregarjf extends javax.swing.JFrame {
         cmbtalla.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "XS", "S", "M", "L", "XL" }));
         cmbtalla.setBorder(null);
         jpdatosp.add(cmbtalla);
-        cmbtalla.setBounds(870, 235, 60, 42);
+        cmbtalla.setBounds(870, 235, 60, 36);
 
         textfieldtelefono.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         textfieldtelefono.setForeground(new java.awt.Color(25, 92, 134));
+        textfieldtelefono.setText("XXXXXXXX");
         textfieldtelefono.setBorder(null);
+        textfieldtelefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textfieldtelefonoKeyTyped(evt);
+            }
+        });
         jpdatosp.add(textfieldtelefono);
         textfieldtelefono.setBounds(880, 310, 250, 30);
 
         textfielddpi.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         textfielddpi.setForeground(new java.awt.Color(25, 92, 134));
+        textfielddpi.setText("XXXX-XXXXX-XXXX");
         textfielddpi.setBorder(null);
+        textfielddpi.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textfielddpiKeyTyped(evt);
+            }
+        });
         jpdatosp.add(textfielddpi);
         textfielddpi.setBounds(180, 430, 390, 40);
 
@@ -846,7 +858,13 @@ public class agregarjf extends javax.swing.JFrame {
 
         textfieldtelefonoencargado.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         textfieldtelefonoencargado.setForeground(new java.awt.Color(25, 92, 134));
+        textfieldtelefonoencargado.setText("XXXXXXXX");
         textfieldtelefonoencargado.setBorder(null);
+        textfieldtelefonoencargado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textfieldtelefonoencargadoKeyTyped(evt);
+            }
+        });
         jpdenca.add(textfieldtelefonoencargado);
         textfieldtelefonoencargado.setBounds(270, 350, 330, 40);
 
@@ -860,7 +878,13 @@ public class agregarjf extends javax.swing.JFrame {
 
         textfielddpiencargado.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         textfielddpiencargado.setForeground(new java.awt.Color(25, 92, 134));
+        textfielddpiencargado.setText("XXXX-XXXXX-XXXX");
         textfielddpiencargado.setBorder(null);
+        textfielddpiencargado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textfielddpiencargadoKeyTyped(evt);
+            }
+        });
         jpdenca.add(textfielddpiencargado);
         textfielddpiencargado.setBounds(160, 440, 420, 40);
 
@@ -971,7 +995,13 @@ public class agregarjf extends javax.swing.JFrame {
 
         textfieldtelefonoemergencia1.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 24)); // NOI18N
         textfieldtelefonoemergencia1.setForeground(new java.awt.Color(25, 92, 134));
+        textfieldtelefonoemergencia1.setText("XXXXXXXX");
         textfieldtelefonoemergencia1.setBorder(null);
+        textfieldtelefonoemergencia1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textfieldtelefonoemergencia1KeyTyped(evt);
+            }
+        });
         jpconteme.add(textfieldtelefonoemergencia1);
         textfieldtelefonoemergencia1.setBounds(173, 355, 150, 30);
 
@@ -1715,6 +1745,83 @@ public class agregarjf extends javax.swing.JFrame {
     private void btnsiguientebecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsiguientebecaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnsiguientebecaActionPerformed
+
+    private void textfieldtelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textfieldtelefonoKeyTyped
+        // TODO add your handling code here:
+        int longitud = 8;
+        char letra = evt.getKeyChar();
+        if(textfieldtelefono.getText().length()<longitud)
+        {
+            if((letra < '0' || letra >'9'))
+            evt.consume();
+        }
+        else
+        {
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane, "Un teléfono solo contiene 8 números");
+        }
+    }//GEN-LAST:event_textfieldtelefonoKeyTyped
+
+    private void textfielddpiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textfielddpiKeyTyped
+        char letra = evt.getKeyChar();
+        int longitud = 15;
+        if(textfielddpi.getText().length() < longitud)
+        {
+            if((letra < '0' || letra >'9') && (letra >'-'))
+            evt.consume();
+        }
+        else
+        {
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane, "Solo 15 caracteres");
+        }
+        
+    }//GEN-LAST:event_textfielddpiKeyTyped
+
+    private void textfieldtelefonoencargadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textfieldtelefonoencargadoKeyTyped
+        int longitud = 8;
+        char letra = evt.getKeyChar();
+        if(textfieldtelefonoencargado.getText().length()<longitud)
+        {
+            if((letra < '0' || letra >'9'))
+            evt.consume();
+        }
+        else
+        {
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane, "Un teléfono solo contiene 8 números");
+        }
+    }//GEN-LAST:event_textfieldtelefonoencargadoKeyTyped
+
+    private void textfielddpiencargadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textfielddpiencargadoKeyTyped
+        char letra = evt.getKeyChar();
+        int longitud = 15;
+        if(textfielddpiencargado.getText().length() < longitud)
+        {
+            if((letra < '0' || letra >'9') && (letra >'-'))
+            evt.consume();
+        }
+        else
+        {
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane, "Solo 15 caracteres");
+        }
+    }//GEN-LAST:event_textfielddpiencargadoKeyTyped
+
+    private void textfieldtelefonoemergencia1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textfieldtelefonoemergencia1KeyTyped
+        int longitud = 8;
+        char letra = evt.getKeyChar();
+        if(textfieldtelefonoemergencia1.getText().length()<longitud)
+        {
+            if((letra < '0' || letra >'9'))
+            evt.consume();
+        }
+        else
+        {
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane, "Un teléfono solo contiene 8 números");
+        }
+    }//GEN-LAST:event_textfieldtelefonoemergencia1KeyTyped
 
     /**
      * @param args the command line arguments
