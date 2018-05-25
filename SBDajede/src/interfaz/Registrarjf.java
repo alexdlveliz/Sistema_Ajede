@@ -26,7 +26,11 @@ public class Registrarjf extends javax.swing.JFrame {
     public void setInfo(int id) {
         ArrayList<Object> datos;
         lblInfo.setText("Actualizar");
-        
+        datos=us.datos(id);
+        txtNombre.setText(""+datos.get(0));
+        txtApellido.setText(""+datos.get(1));
+        txtUsuario.setText(""+datos.get(2));
+        cmbPuesto.setSelectedIndex((int) datos.get(3)-1);
     }
     
     public Registrarjf() {
@@ -267,6 +271,7 @@ public class Registrarjf extends javax.swing.JFrame {
             String apellido = txtApellido.getText();
             String email = txtUsuario.getText();
             String puesto = (String) cmbPuesto.getSelectedItem();
+            System.out.println(cmbPuesto.getSelectedIndex()+1);
             String contrasenia = TPFcontrasenia.getText();
             String confirmContrasenia = TPFConfcontrasenia.getText();
             //otra condicion para verifica el email(usuario) para ingresar a la BD

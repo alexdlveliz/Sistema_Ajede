@@ -198,13 +198,28 @@ public class Usuario {
                 info.add(Rs.getString("Nombre"));
                 info.add(Rs.getString("Apellido"));
                 info.add(Rs.getString("nombreusuario"));
-                info.add(Rs.getString("contrasenia"));
-                info.add(Rs.getString("puesto_id"));
+                info.add(Rs.getInt("puestos_id"));
             }
             return info;
         } catch (SQLException ex) {
             Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+    public boolean Update(ArrayList<Object> lista) {
+        try {
+            String sql = "Update usuario Set contrasenia = ?, nombre = ?, apellido = ?, nombreusuario = ?, puestos_id = ? where id = " + lista.get(3);
+            PreparedStatement Pst = con.prepareStatement(sql);
+            Pst.setString(1, (String) lista.get(0));
+            Pst.setString(2, (String) lista.get(1));
+            Pst.setString(3, (String) lista.get(2));
+            Pst.setString(4, (String) lista.get(3));
+            Pst.setString(5, (String) lista.get(5));
+            int n = Pst.executeUpdate();
+            return n != 0;
+        } catch (SQLException ex) {
+            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
     }
 }
