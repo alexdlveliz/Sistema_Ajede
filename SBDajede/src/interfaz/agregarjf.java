@@ -1512,7 +1512,7 @@ public class agregarjf extends javax.swing.JFrame {
     private void btnsiguientevoluActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsiguientevoluActionPerformed
         //slider.setPanelSlider(jpvoluntariado, RSPanelsSlider.DIRECT.LEFT);
         if(verificarDatosLaborales())
-            slider.setPanelSlider(jpinfomed, RSPanelsSlider.DIRECT.LEFT);
+            slider.setPanelSlider(jpbeca, RSPanelsSlider.DIRECT.LEFT);
     }//GEN-LAST:event_btnsiguientevoluActionPerformed
     private void btnminimizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnminimizarActionPerformed
         this.setExtendedState(ICONIFIED);

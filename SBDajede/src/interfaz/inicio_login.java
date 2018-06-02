@@ -157,7 +157,7 @@ public class inicio_login extends javax.swing.JFrame {
             }
         });
         jpinicio.add(btnsiguiente);
-        btnsiguiente.setBounds(1050, 530, 98, 82);
+        btnsiguiente.setBounds(1050, 530, 103, 79);
 
         lbinicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/iniciotam2.jpg"))); // NOI18N
         lbinicio.setText("jLabel1");
@@ -180,7 +180,6 @@ public class inicio_login extends javax.swing.JFrame {
 
         PSTcontrasenia.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
         PSTcontrasenia.setForeground(new java.awt.Color(0, 255, 255));
-        PSTcontrasenia.setText("jPasswordField1");
         PSTcontrasenia.setBorder(null);
         PSTcontrasenia.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -215,7 +214,7 @@ public class inicio_login extends javax.swing.JFrame {
             }
         });
         jplogin.add(btningresar);
-        btningresar.setBounds(630, 380, 98, 110);
+        btningresar.setBounds(630, 380, 103, 110);
 
         btncomite.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/login/icons8_User_Groups_70px.png"))); // NOI18N
         btncomite.setMaximumSize(new java.awt.Dimension(130, 130));
