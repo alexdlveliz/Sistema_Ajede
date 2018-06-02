@@ -209,6 +209,11 @@ public class inicio_login extends javax.swing.JFrame {
                 btningresarMouseClicked(evt);
             }
         });
+        btningresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btningresarActionPerformed(evt);
+            }
+        });
         jplogin.add(btningresar);
         btningresar.setBounds(630, 380, 98, 110);
 
@@ -287,7 +292,7 @@ public class inicio_login extends javax.swing.JFrame {
         int respuesta = JOptionPane.showConfirmDialog(null, Contrasenia, "Ingrese contraseña del \"Administrador\"", JOptionPane.DEFAULT_OPTION);
         if (respuesta == 0) {
             String Pass = Contrasenia.getText();
-            if (us.AgregarMas(DigestUtils.md5Hex(Pass), "Admin")) {
+            if (us.verificarSesion(DigestUtils.md5Hex(Pass), "Admin")) {
                 Registrarjf registrar = new Registrarjf();
                 registrar.setVisible(true);
                 this.dispose();
@@ -367,6 +372,10 @@ public class inicio_login extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btneditaruMouseClicked
+
+    private void btningresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btningresarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btningresarActionPerformed
     /**
      * metodo que verifica la si la contraseña del usurio es la misma en la BD.
      */

@@ -152,23 +152,8 @@ public class Usuario {
             while (Rs.next()) {
                 pass = Rs.getString("contrasenia");
             }
-
-            return pass.equals(contrasenia);
-        } catch (SQLException ex) {
-            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return false;
-    }
-
-    public boolean AgregarMas(String contrasenia, String usuario) {
-        try {
-            String sql = "SELECT contrasenia FROM usuario where nombreusuario='" + usuario + "'";
-            Statement St = con.createStatement();
-            ResultSet Rs = St.executeQuery(sql);
-            String pass = "";
-            while (Rs.next()) {
-                pass = Rs.getString("contrasenia");
-            }
+            System.out.println(pass);
+            System.out.println(contrasenia);
             return pass.equals(contrasenia);
         } catch (SQLException ex) {
             Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
@@ -195,7 +180,7 @@ public class Usuario {
         return null;
     }
 
-    public boolean Update(String nombre, String apellido, String contrasenia, int Puesto, String email,int id) {
+    public boolean Update(String nombre, String apellido, String contrasenia, int Puesto, String email, int id) {
         try {
             String sql = "Update usuario Set nombreusuario = ?, contrasenia = ?, nombre = ?, apellido = ?, puestos_id = ? where id = ?";
             PreparedStatement Pst = con.prepareStatement(sql);
